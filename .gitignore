@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+**/state/
+**/raw/
+**/runtime/
+**/images/
+*.qcow2
+*.vhd
+*.img
