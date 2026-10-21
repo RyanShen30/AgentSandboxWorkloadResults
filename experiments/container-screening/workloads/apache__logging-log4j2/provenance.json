@@ -1,0 +1,15 @@
+{
+  "task_id": "apache__logging-log4j2",
+  "files": [
+    {
+      "url": "https://huggingface.co/datasets/JetBrains-Research/EnvBench-trajectories/resolve/4ffd02bed0f39fd87bffe3be7edf2440aba16cd1/jvm/bash_agent-4o/trajectories/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415.jsonl",
+      "path": "sources/apache__logging-log4j2/original.jsonl",
+      "bytes": 37976,
+      "sha256": "106f205cb55d55e787b363047f2093d60f9b7b10a23e0e8ce321d4c18bbce68e",
+      "repo_commit": "4ffd02bed0f39fd87bffe3be7edf2440aba16cd1"
+    }
+  ],
+  "errors": [],
+  "steps": 10,
+  "agent_tools": 9
+}

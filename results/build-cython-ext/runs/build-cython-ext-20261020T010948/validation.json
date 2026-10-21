@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+  "command": "cd /tmp && python3 - <<'PYCHECK'\nimport subprocess\nprint(\"source_repo_commit:\", subprocess.check_output([\"git\",\"-C\",\"/app/pyknotid\",\"rev-parse\",\"HEAD\"],text=True).strip())\nfrom pyknotid import cinvariants\nfrom pyknotid.spacecurves import chelpers,ccomplexity\nassert all(str(x.__file__).endswith('.so') for x in [cinvariants,chelpers,ccomplexity])\nprint('compiled extensions import successfully')\nPYCHECK",
+  "pytest_passed_summaries": [
+    18,
+    18
+  ],
+  "pytest_failed_summaries": []
+}

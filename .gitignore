@@ -10,3 +10,9 @@ __pycache__/
 *.qcow2
 *.vhd
 *.img
+
+# Full original trajectories and logs remain on cpu-15.
+**/*.gz
+**/validation.stdout
+**/validation.stderr
+**/dependency-inventory.txt

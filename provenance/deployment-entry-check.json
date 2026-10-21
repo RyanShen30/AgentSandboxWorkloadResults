@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "mode": "materialize and compile instrumentation + image command dry-run only; no workload/container/image started",
+  "tasks": {
+    "reshard-c4-data": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 36
+    },
+    "large-scale-text-editing": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 50
+    },
+    "hf-model-inference": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 11
+    },
+    "mozilla__pdf.js-20957": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 5
+    },
+    "build-cython-ext": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 83
+    },
+    "count-dataset-tokens": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 16
+    },
+    "apache__logging-log4j2": {
+      "exit_code": 0,
+      "command_count": 5,
+      "task_inputs": 10
+    },
+    "compile-compcert": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 318
+    },
+    "matplotlib__matplotlib-24177": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 95
+    },
+    "django__django-16819": {
+      "exit_code": 0,
+      "command_count": 1,
+      "task_inputs": 28
+    }
+  }
+}

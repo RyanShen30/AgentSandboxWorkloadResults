@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+  "command": "test -s /app/compress.py && test -s /app/decompress.py && python3 -m py_compile /app/compress.py /app/decompress.py",
+  "trajectory_roundtrip_evidence": true
+}

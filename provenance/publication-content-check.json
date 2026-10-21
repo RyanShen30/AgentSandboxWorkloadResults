@@ -1,0 +1,5 @@
+{
+  "scanned_payloads": 4443,
+  "credential_pattern_hits": [],
+  "note": "Pattern-based check, including decompressed tool files. No credentials or container layers intentionally included."
+}

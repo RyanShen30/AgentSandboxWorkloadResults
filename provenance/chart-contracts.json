@@ -1,0 +1,36 @@
+{
+  "surface": "GitHub Markdown with standalone PNG/SVG",
+  "renderer": "Matplotlib 3.6.3; complete archived series retained",
+  "palette_policy": "hard two-root cap plus neutral references",
+  "palette": {
+    "blue": "#3366A3",
+    "gold": "#BC8528",
+    "neutral": "#6B747D"
+  },
+  "contracts": [
+    {
+      "artifact": "results/overview.png",
+      "question": "Compare the ten measured workloads without treating initial cache as newly accessed data",
+      "family": "horizontal bar and range/point comparison",
+      "grain": "one primary run per task; ten rows",
+      "units": "GiB",
+      "baseline": "zero axes; separate cgroup peak and owned-file residency"
+    },
+    {
+      "artifact": "results/<task>/runs/<id>/curves.png",
+      "question": "Identify tool latency and memory/residency changes during a fixed trace",
+      "family": "three line panels",
+      "grain": "one point per call, all continuous samples, N+1 frozen boundaries",
+      "units": "s and GiB",
+      "axes": "tool index for latency; measured wall time for memory/cache",
+      "takeaway": "Descriptive screening only; initial cache and pause time included"
+    },
+    {
+      "artifact": "results/compile-compcert/comparison.png",
+      "question": "Compare the original memory-limited run with its larger-cap repeat",
+      "family": "paired line panels",
+      "grain": "one run per setting; same 318 tool-script hashes",
+      "caveat": "Shared host/network/cache not controlled; no causal latency claim"
+    }
+  ]
+}

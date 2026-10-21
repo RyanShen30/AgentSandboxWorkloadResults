@@ -1,0 +1,96 @@
+{
+  "task_id": "build-cython-ext",
+  "backend": "rootless-podman",
+  "actions": 83,
+  "tool_seconds": 127.507745279,
+  "peak_sampled_memory_mib": 771.86328125,
+  "peak_cgroup_memory_mib": 787.11328125,
+  "initial_boundary_file_cache_mib": 801.3984375,
+  "final_boundary_file_cache_mib": 1140.078125,
+  "peak_disk_file_charge_mib": 349.5,
+  "nonzero_exit_calls": [
+    41,
+    57,
+    68,
+    72,
+    78
+  ],
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "cd /tmp && python3 - <<'PYCHECK'\nimport subprocess\nprint(\"source_repo_commit:\", subprocess.check_output([\"git\",\"-C\",\"/app/pyknotid\",\"rev-parse\",\"HEAD\"],text=True).strip())\nfrom pyknotid import cinvariants\nfrom pyknotid.spacecurves import chelpers,ccomplexity\nassert all(str(x.__file__).endswith('.so') for x in [cinvariants,chelpers,ccomplexity])\nprint('compiled extensions import successfully')\nPYCHECK",
+    "pytest_passed_summaries": [
+      18,
+      18
+    ],
+    "pytest_failed_summaries": []
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 1145.1796875,
+  "pause_seconds": 246.232403435,
+  "boundary_scan_seconds": 229.717433863,
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/build-cython-ext-20261020T010948",
+  "source_action_count": 83,
+  "sample_count": 1911,
+  "median_tool_seconds": 0.034609156,
+  "p95_tool_seconds": 5.15577232539998,
+  "total_container_call_seconds": 138.494181372,
+  "median_scan_seconds": 3.1418070535,
+  "max_sample_gap_seconds": 0.260012042,
+  "excluded_nonowner_files": 0,
+  "excluded_nonowner_bytes": 0,
+  "changed_scan_pages": 0,
+  "initial_cache_regions": {
+    "root": {
+      "resident_bytes": 17137664,
+      "logical_bytes": 17103441,
+      "files": 12
+    },
+    "usr": {
+      "resident_bytes": 810356736,
+      "logical_bytes": 783406478,
+      "files": 11295
+    },
+    "var": {
+      "resident_bytes": 11964416,
+      "logical_bytes": 7922155,
+      "files": 1219
+    },
+    "etc": {
+      "resident_bytes": 868352,
+      "logical_bytes": 482220,
+      "files": 136
+    }
+  },
+  "final_cache_regions": {
+    "root": {
+      "resident_bytes": 69148672,
+      "logical_bytes": 68672960,
+      "files": 208
+    },
+    "usr": {
+      "resident_bytes": 1080774656,
+      "logical_bytes": 1031220149,
+      "files": 21342
+    },
+    "var": {
+      "resident_bytes": 11964416,
+      "logical_bytes": 7922155,
+      "files": 1219
+    },
+    "etc": {
+      "resident_bytes": 868352,
+      "logical_bytes": 482220,
+      "files": 136
+    },
+    "app": {
+      "resident_bytes": 32702464,
+      "logical_bytes": 32042181,
+      "files": 269
+    }
+  },
+  "source_error_flag_disagreements": [],
+  "source_benchmark_pass": true
+}

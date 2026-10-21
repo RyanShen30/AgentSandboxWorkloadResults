@@ -1,0 +1,14 @@
+{
+  "audience": "technical",
+  "delivery": "User explicitly selected GitHub Markdown README and per-task documents; no HTML/Sites delivery",
+  "question": "What actually ran, how was it measured, and which data support later multi-tenant filesystem work?",
+  "structure": [
+    "overall result and workload table in README",
+    "metric definitions adjacent to evidence",
+    "per-task input scope, tables, figures, source and caveats",
+    "deployment and fixed replay protocol",
+    "validation and next-stage unanswered questions"
+  ],
+  "time_scope": "2026-10-20 Asia/Shanghai; 11 completed runs from cpu-15",
+  "comparability": "10 primary tasks, CompCert32 substituted; CompCert8 retained as limited comparison"
+}

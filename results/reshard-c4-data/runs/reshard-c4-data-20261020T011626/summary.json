@@ -1,0 +1,114 @@
+{
+  "task_id": "reshard-c4-data",
+  "backend": "rootless-podman",
+  "actions": 36,
+  "tool_seconds": 23.417771668,
+  "peak_sampled_memory_mib": 2469.01171875,
+  "peak_cgroup_memory_mib": 2620.73828125,
+  "initial_boundary_file_cache_mib": 2660.6796875,
+  "final_boundary_file_cache_mib": 2660.78515625,
+  "peak_disk_file_charge_mib": 2365.265625,
+  "nonzero_exit_calls": [
+    3,
+    11,
+    12,
+    16,
+    18
+  ],
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "test -s /app/compress.py && test -s /app/decompress.py && python3 -m py_compile /app/compress.py /app/decompress.py",
+    "trajectory_roundtrip_evidence": true
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 4390.609375,
+  "pause_seconds": 120.985639635,
+  "boundary_scan_seconds": 112.622692772,
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/reshard-c4-data-20261020T011626",
+  "source_action_count": 36,
+  "sample_count": 738,
+  "median_tool_seconds": 0.090573553,
+  "p95_tool_seconds": 3.0657666382499995,
+  "total_container_call_seconds": 28.238341568,
+  "median_scan_seconds": 2.902894647,
+  "max_sample_gap_seconds": 0.28793552,
+  "excluded_nonowner_files": 0,
+  "excluded_nonowner_bytes": 0,
+  "changed_scan_pages": 0,
+  "initial_cache_regions": {
+    "root": {
+      "resident_bytes": 1767821312,
+      "logical_bytes": 1752374490,
+      "files": 6299
+    },
+    "usr": {
+      "resident_bytes": 176893952,
+      "logical_bytes": 165882468,
+      "files": 4573
+    },
+    "tmp": {
+      "resident_bytes": 0,
+      "logical_bytes": 0,
+      "files": 1
+    },
+    "var": {
+      "resident_bytes": 6676480,
+      "logical_bytes": 5033162,
+      "files": 519
+    },
+    "etc": {
+      "resident_bytes": 737280,
+      "logical_bytes": 429264,
+      "files": 108
+    },
+    "input_dataset": {
+      "resident_bytes": 837795840,
+      "logical_bytes": 817461269,
+      "files": 9898
+    }
+  },
+  "final_cache_regions": {
+    "root": {
+      "resident_bytes": 1767829504,
+      "logical_bytes": 1752376241,
+      "files": 6301
+    },
+    "usr": {
+      "resident_bytes": 176893952,
+      "logical_bytes": 165882468,
+      "files": 4573
+    },
+    "tmp": {
+      "resident_bytes": 0,
+      "logical_bytes": 0,
+      "files": 2
+    },
+    "var": {
+      "resident_bytes": 6676480,
+      "logical_bytes": 5033162,
+      "files": 519
+    },
+    "etc": {
+      "resident_bytes": 737280,
+      "logical_bytes": 429264,
+      "files": 108
+    },
+    "app": {
+      "resident_bytes": 102400,
+      "logical_bytes": 51546,
+      "files": 20
+    },
+    "input_dataset": {
+      "resident_bytes": 837795840,
+      "logical_bytes": 817461269,
+      "files": 9898
+    }
+  },
+  "source_error_flag_disagreements": [
+    33
+  ],
+  "source_benchmark_pass": true
+}

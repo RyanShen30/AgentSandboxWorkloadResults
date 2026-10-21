@@ -1,0 +1,47 @@
+{
+  "task_id": "reshard-c4-data",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/reshard-c4-data/instruction.md",
+      "path": "sources/reshard-c4-data/instruction.md",
+      "bytes": 1292,
+      "sha256": "1810abbf666e51e410950b4f495d3dae88d392ad056afa392e4c687ff31e3992",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/reshard-c4-data/task.toml",
+      "path": "sources/reshard-c4-data/task.toml",
+      "bytes": 944,
+      "sha256": "c2f146a1e00f798f7486ff60686ad52749bb73c7b71e984d52716d859e0f7dd8",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/reshard-c4-data/environment/Dockerfile",
+      "path": "sources/reshard-c4-data/environment/Dockerfile",
+      "bytes": 277,
+      "sha256": "2ca4a0e68628b8160f5e4296f779a204f51e3a70a8d4239be30e845e1565b39d",
+      "repo_commit": null
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/reshard-c4-data/agent/omp-reshard-c4-data-1787346407031284459/omp.jsonl",
+      "path": "sources/reshard-c4-data/original.jsonl",
+      "bytes": 734034,
+      "sha256": "e6e89317851bd23f6ca25a42fef8956dfadc1bf3070b4a91fc2ede4237867b45",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/reshard-c4-data/result.json",
+      "path": "sources/reshard-c4-data/published-result.json",
+      "bytes": 351,
+      "sha256": "029a393d8209fdcb5f6d0e327355f7bce03b22910c912d571f2b3fb542fd40fb",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    }
+  ],
+  "errors": [],
+  "steps": 36,
+  "tools": {
+    "bash": 27,
+    "write": 9
+  },
+  "published_pass": true
+}

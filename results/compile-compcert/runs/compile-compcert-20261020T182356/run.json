@@ -1,0 +1,33 @@
+{
+  "task_id": "compile-compcert",
+  "started_ns": 14262069340671868,
+  "backend": "rootless-podman",
+  "image": "docker.io/alexgshaw/compile-compcert@sha256:f60236a4fe55bbb3c573210fe0fcd91551f4ee97c417453cd4985be074b35411",
+  "container": "asbp-compile-compcert-20261020t182356",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one replay of fixed public tool actions; read/write, pinned dependencies, persistent-session and async adapters are declared in normalized-steps.json; no original model thinking gaps",
+  "rootless_ownership_compatibility": false,
+  "persistent_shell": false,
+  "latency_method": "static C fork/wait timer around Bash",
+  "pid": 3615187,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-6b4d3a3163322798fe1ad640ac52e73375e83d6e462325d05d325d053b211a15.scope/container",
+  "container_id": "6b4d3a3163322798fe1ad640ac52e73375e83d6e462325d05d325d053b211a15",
+  "image_id": "773582f15daca73360cd02f77d61626cd90ca0ff5b13c474500c41234c7d59f5",
+  "measurement_finished_ns": 14266994978376570,
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+    "command": "set -e\nexport PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\ncd /tmp/CompCert\n./ccomp -version\nprintf 'int main(void) { return 6*7 == 42 ? 0 : 1; }\\n' > /tmp/asbp_smoke.c\n./ccomp /tmp/asbp_smoke.c -o /tmp/asbp_smoke\n/tmp/asbp_smoke\n"
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14267007393622334,
+  "cleanup": {
+    "container_removed": true
+  }
+}

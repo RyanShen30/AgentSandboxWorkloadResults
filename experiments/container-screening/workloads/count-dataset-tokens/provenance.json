@@ -1,0 +1,48 @@
+{
+  "task_id": "count-dataset-tokens",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/count-dataset-tokens/instruction.md",
+      "path": "sources/count-dataset-tokens/instruction.md",
+      "bytes": 424,
+      "sha256": "baa843c8da9804d68ced71b2e4dea91afb19dd33de2c867b4a15542563a888f9",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/count-dataset-tokens/task.toml",
+      "path": "sources/count-dataset-tokens/task.toml",
+      "bytes": 956,
+      "sha256": "8220a1b8e6e08ecb95556920de358b6aa74b112d8a79625db6915f6b316ccd18",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/count-dataset-tokens/environment/Dockerfile",
+      "path": "sources/count-dataset-tokens/environment/Dockerfile",
+      "bytes": 166,
+      "sha256": "972a00802b1b51e9b833a9f12d62e609db16748a1b4161246eeb21bece3f7e54",
+      "repo_commit": null
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/count-dataset-tokens/agent/omp-count-dataset-tokens-1787142937616519096/omp.jsonl",
+      "path": "sources/count-dataset-tokens/original.jsonl",
+      "bytes": 120069,
+      "sha256": "269440a88c365173b72e2fa75d699119df9cbe86549f4d8aa1097977668b4689",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/count-dataset-tokens/result.json",
+      "path": "sources/count-dataset-tokens/published-result.json",
+      "bytes": 353,
+      "sha256": "26a6c4e1a11a1dd459eccba01ea3a4ae5bc035a0d4d6bd1ea4c4e3d20ef69152",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    }
+  ],
+  "errors": [],
+  "steps": 16,
+  "tools": {
+    "bash": 13,
+    "read": 1,
+    "write": 2
+  },
+  "published_pass": true
+}

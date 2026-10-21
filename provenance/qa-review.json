@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "numerical_review": "All 11 runs rebuilt from full JSONL, 10 primary task counts and original peak/timing checks passed",
+  "visual_review": {
+    "overview": "inspected at full size",
+    "compcert_comparison": "inspected at full size",
+    "ten_primary_runs": "inspected via three contact sheets",
+    "representative_final_figures": [
+      "Matplotlib full size after moving legends outside data region",
+      "PDF.js full size and integer tool-index ticks"
+    ],
+    "fixes": [
+      "moved per-task legends above plot area to avoid warm-cache line overlap",
+      "use integer ticks for short tool traces",
+      "explicit 8/32 GiB labels and warm baseline",
+      "disabled SVG Date metadata for deterministic regeneration"
+    ],
+    "derived_png_svg_regeneration_identical": true
+  },
+  "document_review": {
+    "task_documents": 10,
+    "required_sections_present": true,
+    "count_dataset_scope": "1000 metadata rows loaded; 26 selected rows counted",
+    "log4j_checker_failure": "original141 retained; complementary compile evidence linked",
+    "compcert": "8GiB limited original and32GiB repeat both retained"
+  },
+  "deployment_entry": "PASS: sources materialized and three C helpers statically compiled; image commands dry-run for ten tasks, no workloads rerun",
+  "delivery_mode": "GitHub Markdown, as explicitly requested"
+}

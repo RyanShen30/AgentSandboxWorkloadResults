@@ -1,0 +1,48 @@
+{
+  "task_id": "large-scale-text-editing",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/large-scale-text-editing/instruction.md",
+      "path": "sources/large-scale-text-editing/instruction.md",
+      "bytes": 1193,
+      "sha256": "2746a16369b28b2e368ca168bc85222811cbe570f3b315f1b1c432afad07ddc8",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/large-scale-text-editing/task.toml",
+      "path": "sources/large-scale-text-editing/task.toml",
+      "bytes": 1008,
+      "sha256": "5c9488e80c1186f72efb8193e6be13c74eadf334b3846db2e794d24513a88f5f",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/large-scale-text-editing/environment/Dockerfile",
+      "path": "sources/large-scale-text-editing/environment/Dockerfile",
+      "bytes": 675,
+      "sha256": "609759efe5a6bca4c0f4d0011dd1dda814896ca6873ead803af68d92b92d8aa2",
+      "repo_commit": null
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/large-scale-text-editing/agent/omp-large-scale-text-editing-1787217501463873350/omp.jsonl",
+      "path": "sources/large-scale-text-editing/original.jsonl",
+      "bytes": 889983,
+      "sha256": "cf11866f090a0d925b9795674f7990cc0ae4e0cd23fb7b7c6f02506fdeb9cc68",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/large-scale-text-editing/result.json",
+      "path": "sources/large-scale-text-editing/published-result.json",
+      "bytes": 364,
+      "sha256": "89179cefee2c86b4bdf0e8efc3e56192e3b88f02b3fba348d153cc8f150337e8",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    }
+  ],
+  "errors": [],
+  "steps": 50,
+  "tools": {
+    "bash": 42,
+    "read": 2,
+    "write": 6
+  },
+  "published_pass": false
+}

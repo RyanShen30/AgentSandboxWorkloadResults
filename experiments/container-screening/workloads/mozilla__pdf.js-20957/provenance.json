@@ -1,0 +1,28 @@
+{
+  "task_id": "mozilla__pdf.js-20957",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/SWE-bench-Live/RepoLaunch-trajectory-archive/main/linux_tasks/js/playground/mozilla__pdf.js-20957/instance.json",
+      "path": "sources/mozilla__pdf.js-20957/instance.json",
+      "bytes": 4272,
+      "sha256": "536627aa1c7c2596cdc107e3530eb845bccafbe669c4e58cc3718251ffd38ff2",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SWE-bench-Live/RepoLaunch-trajectory-archive/main/linux_tasks/js/playground/mozilla__pdf.js-20957/result.json",
+      "path": "sources/mozilla__pdf.js-20957/result.json",
+      "bytes": 560742,
+      "sha256": "a00a2df3a48c3d8a4f7ae176ce095939c386029740cb7f9e545c60571f6d3442",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SWE-bench-Live/RepoLaunch-trajectory-archive/main/linux_tasks/js/playground/mozilla__pdf.js-20957/setup.log",
+      "path": "sources/mozilla__pdf.js-20957/setup.log",
+      "bytes": 38486,
+      "sha256": "26be7555b4f9d3bdf55be1c43a7efa3f4a767840ea1254d1a2648cabfe396b81",
+      "repo_commit": null
+    }
+  ],
+  "errors": [],
+  "steps": 5
+}

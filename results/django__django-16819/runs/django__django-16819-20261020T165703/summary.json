@@ -1,0 +1,51 @@
+{
+  "task_id": "django__django-16819",
+  "backend": "rootless-podman",
+  "actions": 28,
+  "tool_seconds": 5.850061158,
+  "peak_sampled_memory_mib": 20.0625,
+  "peak_cgroup_memory_mib": 21.19140625,
+  "initial_boundary_file_cache_mib": 3049.0,
+  "final_boundary_file_cache_mib": 3049.0390625,
+  "peak_disk_file_charge_mib": 0.22265625,
+  "nonzero_exit_calls": [
+    17
+  ],
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+    "command": "cd /testbed && git rev-parse HEAD && git diff --stat && python -m py_compile django/db/migrations/operations/models.py"
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 3049.0390625,
+  "pause_seconds": 218.209577276,
+  "boundary_scan_seconds": 211.660094153,
+  "scope": "one replay of fixed public tool actions; read/write, pinned dependencies, persistent-session and async adapters are declared in normalized-steps.json; no original model thinking gaps",
+  "memory_events": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "memory_limit_bytes": 8589934592,
+  "memory_limit_hit": false,
+  "measurement_wall_seconds": 225.241533418,
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/django__django-16819-20261020T165703",
+  "sample_count": 1106,
+  "boundary_count": 29,
+  "source_action_count": 28,
+  "median_scan_seconds": 7.287921881,
+  "max_sample_gap_seconds": 0.292084155,
+  "changed_scan_pages": 0,
+  "excluded_nonowner_files": 0,
+  "excluded_nonowner_bytes": 0,
+  "total_container_call_seconds": 6.298736836,
+  "source_exit_code_disagreements": [],
+  "source_error_flag_disagreements": [],
+  "writable_layer_end_bytes": 1009499,
+  "rootfs_end_bytes": 3133117018
+}

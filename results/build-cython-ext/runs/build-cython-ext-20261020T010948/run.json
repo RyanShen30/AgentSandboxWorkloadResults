@@ -1,0 +1,35 @@
+{
+  "task_id": "build-cython-ext",
+  "started_ns": 14200021587560639,
+  "backend": "rootless-podman",
+  "image": "docker.io/alexgshaw/build-cython-ext@sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594",
+  "container": "asbp-build-cython-ext-20261020t010948",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "pid": 3263389,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-30e513744267cb0769cc9ea27480df725e66773ddfd1b4fe3c07edc9e3a35083.scope/container",
+  "container_id": "30e513744267cb0769cc9ea27480df725e66773ddfd1b4fe3c07edc9e3a35083",
+  "image_id": "b2a41c10dde020d36fbea4643794d8791118afb77db125e61837f21a02c1a3af",
+  "measurement_finished_ns": 14200406626459778,
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "cd /tmp && python3 - <<'PYCHECK'\nimport subprocess\nprint(\"source_repo_commit:\", subprocess.check_output([\"git\",\"-C\",\"/app/pyknotid\",\"rev-parse\",\"HEAD\"],text=True).strip())\nfrom pyknotid import cinvariants\nfrom pyknotid.spacecurves import chelpers,ccomplexity\nassert all(str(x.__file__).endswith('.so') for x in [cinvariants,chelpers,ccomplexity])\nprint('compiled extensions import successfully')\nPYCHECK",
+    "pytest_passed_summaries": [
+      18,
+      18
+    ],
+    "pytest_failed_summaries": []
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14200417416595117,
+  "cleanup": {
+    "container_removed": true
+  }
+}

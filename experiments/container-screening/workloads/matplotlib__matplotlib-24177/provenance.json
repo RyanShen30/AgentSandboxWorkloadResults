@@ -1,0 +1,14 @@
+{
+  "task_id": "matplotlib__matplotlib-24177",
+  "revision": "d159b42a372985a36c6e227d5910c44b707551ca",
+  "files": [
+    {
+      "url": "https://huggingface.co/datasets/pankajmathur/devstral2-123b-swebench-verified-traj/resolve/d159b42a372985a36c6e227d5910c44b707551ca/matplotlib__matplotlib-24177/matplotlib__matplotlib-24177.traj.json",
+      "path": "sources/matplotlib__matplotlib-24177/original.json",
+      "sha256": "3174afa4b52c0f07e5a9a034b93776ccd89b0536ca93b07ec1fbc552cd61f0f2",
+      "bytes": 1334980
+    }
+  ],
+  "steps": 95,
+  "action_count_notes": "94 commands have tagged execution responses; the final submission command has a diff response with no returncode tag and is replayed as call95. Model format errors are excluded."
+}

@@ -1,0 +1,47 @@
+{
+  "task_id": "hf-model-inference",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/hf-model-inference/instruction.md",
+      "path": "sources/hf-model-inference/instruction.md",
+      "bytes": 1264,
+      "sha256": "29151c5b2306f522f38fa905de3d34566865829355e5ca0895f4fca04d51dcc1",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/hf-model-inference/task.toml",
+      "path": "sources/hf-model-inference/task.toml",
+      "bytes": 943,
+      "sha256": "951ae476f4d078a25b7a487430148971e3a2222d93c4e0a932442440807eb3b7",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/hf-model-inference/environment/Dockerfile",
+      "path": "sources/hf-model-inference/environment/Dockerfile",
+      "bytes": 330,
+      "sha256": "081cf9fc8ff58f7852721d9d076c54c1a9cfbdecc25ed63fdf5d495a109219f8",
+      "repo_commit": null
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/hf-model-inference/agent/omp-hf-model-inference-1787207746629269651/omp.jsonl",
+      "path": "sources/hf-model-inference/original.jsonl",
+      "bytes": 66345,
+      "sha256": "ef5beec6d88110f01e3dcafb7eff0a127659588f4e0cc20a1187c7f1b2d4bc5e",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/hf-model-inference/result.json",
+      "path": "sources/hf-model-inference/published-result.json",
+      "bytes": 349,
+      "sha256": "cc051036ae37301d83c017829999952830b27f2abb3dc385fb7f73445577be07",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    }
+  ],
+  "errors": [],
+  "steps": 11,
+  "tools": {
+    "bash": 8,
+    "write": 3
+  },
+  "published_pass": true
+}

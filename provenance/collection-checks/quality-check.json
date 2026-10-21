@@ -1,0 +1,64 @@
+{
+  "metric_data_quality": "PASS",
+  "overlay_cache_calibration": "PASS",
+  "runs": [
+    {
+      "task_id": "reshard-c4-data",
+      "actions": 36,
+      "boundary_count": 37,
+      "validation_status": "PASS",
+      "max_sample_gap_seconds": 0.28793552,
+      "excluded_nonowner_files": 0,
+      "changed_scan_pages": 0,
+      "source_error_flag_disagreements": [
+        33
+      ]
+    },
+    {
+      "task_id": "large-scale-text-editing",
+      "actions": 50,
+      "boundary_count": 51,
+      "validation_status": "PASS",
+      "max_sample_gap_seconds": 0.211972661,
+      "excluded_nonowner_files": 0,
+      "changed_scan_pages": 0,
+      "source_error_flag_disagreements": []
+    },
+    {
+      "task_id": "hf-model-inference",
+      "actions": 11,
+      "boundary_count": 12,
+      "validation_status": "PASS",
+      "max_sample_gap_seconds": 0.281876007,
+      "excluded_nonowner_files": 0,
+      "changed_scan_pages": 0,
+      "source_error_flag_disagreements": []
+    },
+    {
+      "task_id": "mozilla__pdf.js-20957",
+      "actions": 5,
+      "boundary_count": 6,
+      "validation_status": "PASS",
+      "max_sample_gap_seconds": 0.276899692,
+      "excluded_nonowner_files": 14,
+      "changed_scan_pages": 0,
+      "source_error_flag_disagreements": []
+    },
+    {
+      "task_id": "build-cython-ext",
+      "actions": 83,
+      "boundary_count": 84,
+      "validation_status": "PASS",
+      "max_sample_gap_seconds": 0.260012042,
+      "excluded_nonowner_files": 0,
+      "changed_scan_pages": 0,
+      "source_error_flag_disagreements": []
+    }
+  ],
+  "note": "Metric completeness and local task validation are assessed separately; not an official benchmark score.",
+  "source_integrity": "PASS (23 original files)",
+  "effective_tool_calls": 185,
+  "effective_boundaries": 190,
+  "containers_remaining": 0,
+  "visual_qa": "Five individual figures and overview inspected; units, titles, legends and measured-data alignment checked."
+}

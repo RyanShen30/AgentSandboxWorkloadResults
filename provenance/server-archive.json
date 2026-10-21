@@ -1,0 +1,13 @@
+{
+  "server": "cpu-15",
+  "directory": "/home/rashen/work/AgentWorkloadProbe-20261020",
+  "runs": 11,
+  "primary_tasks": 10,
+  "not_tracked": [
+    "state/storage/",
+    "upstream full trajectory originals",
+    "excluded diagnostic/cancelled attempts"
+  ],
+  "report_archive_directory": "/home/rashen/work/AgentSandboxWorkloadResults",
+  "note": "Complete numerical JSONL, normalized commands, logs, and replay inputs are retained in the local cpu-15 archive and are excluded from this public commit. The public repository contains reports, figures, readable metrics CSV, configurations, and scripts. Full upstream originals remain available at the pinned URLs and on cpu-15. Container layers are not archived."
+}

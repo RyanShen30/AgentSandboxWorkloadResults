@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "calls": 318,
+  "boundaries": 319,
+  "samples": 24519,
+  "peak_memory_gib": 12.76205062866211,
+  "peak_file_residency_gib": 4.860012054443359,
+  "limit_events": 0,
+  "oom_kills": 0,
+  "compiler_check": "PASS",
+  "container_count": 0,
+  "new_image_removed": true,
+  "service": "inactive",
+  "linger": "no",
+  "free_disk_gib": 57.847347259521484
+}

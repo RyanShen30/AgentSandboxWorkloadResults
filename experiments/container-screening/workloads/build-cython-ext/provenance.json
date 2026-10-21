@@ -1,0 +1,48 @@
+{
+  "task_id": "build-cython-ext",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/build-cython-ext/instruction.md",
+      "path": "sources/build-cython-ext/instruction.md",
+      "bytes": 1614,
+      "sha256": "7e52874e45f88505bd21540229719de6639a401477557d814489981d472f0e34",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/build-cython-ext/task.toml",
+      "path": "sources/build-cython-ext/task.toml",
+      "bytes": 939,
+      "sha256": "c472f0e7522c128fb7f03e00b50c8cdf2e5e6474daa1e094e7441f4b54e770b2",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/build-cython-ext/environment/Dockerfile",
+      "path": "sources/build-cython-ext/environment/Dockerfile",
+      "bytes": 395,
+      "sha256": "cb6cf421cb9b69d43bd25cd491e49bda982fbb865d47515178d017eda727194e",
+      "repo_commit": null
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/build-cython-ext/agent/omp-build-cython-ext-1787106513580969501/omp.jsonl",
+      "path": "sources/build-cython-ext/original.jsonl",
+      "bytes": 1123779,
+      "sha256": "cbbee2f640cfe425a2e73fa939927c97658803b2100f67d281d604d8c0dabcfe",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/build-cython-ext/result.json",
+      "path": "sources/build-cython-ext/published-result.json",
+      "bytes": 354,
+      "sha256": "5842a27e803b61f7a100515358fb20d9798b985bda551a00301e51b0eaf55e82",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    }
+  ],
+  "errors": [],
+  "steps": 83,
+  "tools": {
+    "bash": 61,
+    "read": 20,
+    "write": 2
+  },
+  "published_pass": true
+}

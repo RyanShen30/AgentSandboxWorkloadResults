@@ -1,0 +1,143 @@
+{
+  "status": "PASS",
+  "completed_runs": 5,
+  "cancelled_runs": 0,
+  "runs": [
+    {
+      "task_id": "count-dataset-tokens",
+      "status": "PASS",
+      "checks": {
+        "all_calls": true,
+        "all_boundaries": true,
+        "frozen_and_no_scan_errors": true,
+        "timing_order": true,
+        "scan_after_command": true,
+        "ordered_samples": true,
+        "no_monitor_errors": true,
+        "container_removed": true,
+        "completed": true,
+        "no_oom_kill": true
+      },
+      "validation": {
+        "exit_code": 0,
+        "status": "PASS",
+        "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+        "command": "test \"$(cat /app/answer.txt)\" = 79586 && grep -Ex '[0-9]+' /app/answer.txt && python3 -m py_compile /app/count_tokens.py"
+      }
+    },
+    {
+      "task_id": "apache__logging-log4j2",
+      "status": "PASS",
+      "checks": {
+        "all_calls": true,
+        "all_boundaries": true,
+        "frozen_and_no_scan_errors": true,
+        "timing_order": true,
+        "scan_after_command": true,
+        "ordered_samples": true,
+        "no_monitor_errors": true,
+        "container_removed": true,
+        "completed": true,
+        "no_oom_kill": true
+      },
+      "validation": {
+        "status": "PASS",
+        "basis": "Recorded Maven compile returned0 with BUILD SUCCESS; chained artifact directory tests succeeded and find emitted5 class paths. The original checker pipeline ended141 when head closed the pipe; no workload rerun or hidden verification claimed.",
+        "original_checker_result": {
+          "exit_code": 141,
+          "status": "FAIL",
+          "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+          "command": "cd /data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415 && test -d log4j-api/target/classes && test -d log4j-core/target/classes && find . -path '*/target/classes/*.class' | head -5"
+        },
+        "compile_step": 10,
+        "compile_exit_code": 0,
+        "class_artifact_examples": [
+          "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/Log4jEventSource.class",
+          "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/package-info.class",
+          "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/FlumePersistentManager$BDBWriter.class",
+          "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/FlumeEvent.class",
+          "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/FlumeAvroManager.class"
+        ]
+      }
+    },
+    {
+      "task_id": "compile-compcert",
+      "status": "PASS",
+      "checks": {
+        "all_calls": true,
+        "all_boundaries": true,
+        "frozen_and_no_scan_errors": true,
+        "timing_order": true,
+        "scan_after_command": true,
+        "ordered_samples": true,
+        "no_monitor_errors": true,
+        "container_removed": true,
+        "completed": true,
+        "no_oom_kill": true,
+        "all_source_async_completion_barriers": true
+      },
+      "validation": {
+        "exit_code": 0,
+        "status": "PASS",
+        "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+        "command": "set -e\nexport PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\ncd /tmp/CompCert\n./ccomp -version\nprintf 'int main(void) { return 6*7 == 42 ? 0 : 1; }\\n' > /tmp/asbp_smoke.c\n./ccomp /tmp/asbp_smoke.c -o /tmp/asbp_smoke\n/tmp/asbp_smoke\n"
+      }
+    },
+    {
+      "task_id": "matplotlib__matplotlib-24177",
+      "status": "PASS",
+      "checks": {
+        "all_calls": true,
+        "all_boundaries": true,
+        "frozen_and_no_scan_errors": true,
+        "timing_order": true,
+        "scan_after_command": true,
+        "ordered_samples": true,
+        "no_monitor_errors": true,
+        "container_removed": true,
+        "completed": true,
+        "no_oom_kill": true
+      },
+      "validation": {
+        "status": "PASS",
+        "scope": "Complete recorded trace, local import and final public histogram tests; not official hidden benchmark verification",
+        "smoke_check": {
+          "exit_code": 0,
+          "status": "PASS",
+          "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+          "command": "cd /testbed && git diff --stat && python -c 'import matplotlib, numpy; print(matplotlib.__version__, numpy.__version__)'"
+        },
+        "calls": 95,
+        "boundaries": 96,
+        "histogram_test_step": 93,
+        "histogram_passed": 60,
+        "histogram_skipped": 10,
+        "source_exit_code_disagreements": [],
+        "final_patch_matches_public_submission_ignoring_index_abbreviations": true
+      }
+    },
+    {
+      "task_id": "django__django-16819",
+      "status": "PASS",
+      "checks": {
+        "all_calls": true,
+        "all_boundaries": true,
+        "frozen_and_no_scan_errors": true,
+        "timing_order": true,
+        "scan_after_command": true,
+        "ordered_samples": true,
+        "no_monitor_errors": true,
+        "container_removed": true,
+        "completed": true,
+        "no_oom_kill": true
+      },
+      "validation": {
+        "exit_code": 0,
+        "status": "PASS",
+        "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+        "command": "cd /testbed && git rev-parse HEAD && git diff --stat && python -m py_compile django/db/migrations/operations/models.py"
+      }
+    }
+  ],
+  "visual_qa": "CompCert three-panel figure inspected: all318 tool bars, continuous memory and boundary cache readable; reached8GiB cap explicitly marked. Second-batch overview uses actual5-task count."
+}

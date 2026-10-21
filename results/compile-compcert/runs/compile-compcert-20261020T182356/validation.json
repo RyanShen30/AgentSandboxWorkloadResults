@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+  "command": "set -e\nexport PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\ncd /tmp/CompCert\n./ccomp -version\nprintf 'int main(void) { return 6*7 == 42 ? 0 : 1; }\\n' > /tmp/asbp_smoke.c\n./ccomp /tmp/asbp_smoke.c -o /tmp/asbp_smoke\n/tmp/asbp_smoke\n"
+}

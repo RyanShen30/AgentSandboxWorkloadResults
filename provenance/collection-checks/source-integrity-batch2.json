@@ -1,0 +1,88 @@
+[
+  {
+    "task": "count-dataset-tokens",
+    "raw_source_integrity": "PASS",
+    "checks": [
+      {
+        "path": "sources/count-dataset-tokens/instruction.md",
+        "ok": true
+      },
+      {
+        "path": "sources/count-dataset-tokens/task.toml",
+        "ok": true
+      },
+      {
+        "path": "sources/count-dataset-tokens/environment/Dockerfile",
+        "ok": true
+      },
+      {
+        "path": "sources/count-dataset-tokens/original.jsonl",
+        "ok": true
+      },
+      {
+        "path": "sources/count-dataset-tokens/published-result.json",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "task": "apache__logging-log4j2",
+    "raw_source_integrity": "PASS",
+    "checks": [
+      {
+        "path": "sources/apache__logging-log4j2/original.jsonl",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "task": "compile-compcert",
+    "raw_source_integrity": "PASS",
+    "checks": [
+      {
+        "path": "sources/compile-compcert/instruction.md",
+        "ok": true
+      },
+      {
+        "path": "sources/compile-compcert/task.toml",
+        "ok": true
+      },
+      {
+        "path": "sources/compile-compcert/environment/Dockerfile",
+        "ok": true
+      },
+      {
+        "path": "sources/compile-compcert/original.jsonl",
+        "ok": true
+      },
+      {
+        "path": "sources/compile-compcert/published-result.json",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "task": "matplotlib__matplotlib-24177",
+    "raw_source_integrity": "PASS",
+    "checks": [
+      {
+        "path": "sources/matplotlib__matplotlib-24177/original.json",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "task": "django__django-16819",
+    "raw_source_integrity": "PASS",
+    "checks": [
+      {
+        "path": "sources/django__django-16819/original.json",
+        "ok": true
+      },
+      {
+        "path": "sources/django__django-16819/published-result.json",
+        "ok": true
+      }
+    ]
+  }
+]

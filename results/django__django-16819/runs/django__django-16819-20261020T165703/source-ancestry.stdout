@@ -1,0 +1,2 @@
+08014edb16 SWE-bench
+0b0998dc15 Fixed #33759 -- Avoided unnecessary subquery in QuerySet.delete() with self-referential subqueries if supported.

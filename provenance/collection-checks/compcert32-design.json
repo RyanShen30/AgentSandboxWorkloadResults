@@ -1,0 +1,29 @@
+{
+  "baseline": "/home/rashen/work/AgentWorkloadProbe-20261020/results/compile-compcert-20261020T182356",
+  "memory_limit_gib": 32,
+  "cpus": 2,
+  "only_harness_changes": [
+    "memory_limit_bytes8to32GiB",
+    "podman memory and memory-swap8gto32g"
+  ],
+  "ancestor_limits": [
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice",
+      "memory_max": "max"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service",
+      "memory_max": "max"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1012.slice",
+      "memory_max": "max"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice",
+      "memory_max": "max"
+    }
+  ],
+  "baseline_harness_sha256": "3bc4423d52bc2574865e39293165a878f3af17c6367336089edf901721f839d0",
+  "rerun_harness_sha256": "be80dc11f0b5791b1d493b6979c91c0ba22110e1cd4f06b8999f9bb9a35d146e"
+}

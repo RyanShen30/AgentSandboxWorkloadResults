@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "bytes": 8388608,
+  "cold": {
+    "regions": {
+      "private-cache-calibration.bin": {
+        "resident_bytes": 0,
+        "logical_bytes": 8388608,
+        "files": 1
+      }
+    },
+    "largest_resident_files": [
+      {
+        "path": "private-cache-calibration.bin",
+        "resident_bytes": 0,
+        "logical_bytes": 8388608
+      }
+    ],
+    "metric": "owned_file_inode_offset_residency",
+    "page_size": 4096,
+    "started_ns": 14201005110342462,
+    "finished_ns": 14201005110965002,
+    "scan_seconds": 0.00062254,
+    "first_resident_bytes": 0,
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "changed_pages": 0,
+    "regular_paths": 1,
+    "unique_inodes": 1,
+    "logical_file_bytes": 8388608,
+    "excluded_nonowner_files": 0,
+    "excluded_nonowner_bytes": 0,
+    "errors": [],
+    "roots": [
+      "/proc/3281404/root/tmp/private-cache-calibration.bin"
+    ],
+    "scope": "resident disk-file pages by inode/offset; excludes pseudo mounts, symlinks and non-owned files; not host-PFN deduplication or guest physical memory"
+  },
+  "nonfaulting_repeat": {
+    "regions": {
+      "private-cache-calibration.bin": {
+        "resident_bytes": 0,
+        "logical_bytes": 8388608,
+        "files": 1
+      }
+    },
+    "largest_resident_files": [
+      {
+        "path": "private-cache-calibration.bin",
+        "resident_bytes": 0,
+        "logical_bytes": 8388608
+      }
+    ],
+    "metric": "owned_file_inode_offset_residency",
+    "page_size": 4096,
+    "started_ns": 14201005111120626,
+    "finished_ns": 14201005111544794,
+    "scan_seconds": 0.000424168,
+    "first_resident_bytes": 0,
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "changed_pages": 0,
+    "regular_paths": 1,
+    "unique_inodes": 1,
+    "logical_file_bytes": 8388608,
+    "excluded_nonowner_files": 0,
+    "excluded_nonowner_bytes": 0,
+    "errors": [],
+    "roots": [
+      "/proc/3281404/root/tmp/private-cache-calibration.bin"
+    ],
+    "scope": "resident disk-file pages by inode/offset; excludes pseudo mounts, symlinks and non-owned files; not host-PFN deduplication or guest physical memory"
+  },
+  "warm": {
+    "regions": {
+      "private-cache-calibration.bin": {
+        "resident_bytes": 8388608,
+        "logical_bytes": 8388608,
+        "files": 1
+      }
+    },
+    "largest_resident_files": [
+      {
+        "path": "private-cache-calibration.bin",
+        "resident_bytes": 8388608,
+        "logical_bytes": 8388608
+      }
+    ],
+    "metric": "owned_file_inode_offset_residency",
+    "page_size": 4096,
+    "started_ns": 14201005115655723,
+    "finished_ns": 14201005116226295,
+    "scan_seconds": 0.000570572,
+    "first_resident_bytes": 8388608,
+    "resident_bytes": 8388608,
+    "stable_resident_bytes": 8388608,
+    "changed_pages": 0,
+    "regular_paths": 1,
+    "unique_inodes": 1,
+    "logical_file_bytes": 8388608,
+    "excluded_nonowner_files": 0,
+    "excluded_nonowner_bytes": 0,
+    "errors": [],
+    "roots": [
+      "/proc/3281404/root/tmp/private-cache-calibration.bin"
+    ],
+    "scope": "resident disk-file pages by inode/offset; excludes pseudo mounts, symlinks and non-owned files; not host-PFN deduplication or guest physical memory"
+  },
+  "note": "Only this newly created private file is advised DONTNEED; no global cache eviction.",
+  "backend": "actual rootless container overlay filesystem",
+  "image_id": "4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+  "strict_cold_zero_pass": true
+}

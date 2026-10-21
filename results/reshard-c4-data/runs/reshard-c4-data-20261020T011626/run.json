@@ -1,0 +1,31 @@
+{
+  "task_id": "reshard-c4-data",
+  "started_ns": 14200419036451373,
+  "backend": "rootless-podman",
+  "image": "docker.io/alexgshaw/reshard-c4-data@sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a",
+  "container": "asbp-reshard-c4-data-20261020t011626",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "pid": 3272046,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-d3f2c05e4ff3cdf4912ad83448ce3d6f58e19b424588a07bd616a7026b358750.scope/container",
+  "container_id": "d3f2c05e4ff3cdf4912ad83448ce3d6f58e19b424588a07bd616a7026b358750",
+  "image_id": "a1ea118e6dbb44200cb77c4de3dc38023bf80387b0e781512c2d615189ad2562",
+  "measurement_finished_ns": 14200568506295813,
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "test -s /app/compress.py && test -s /app/decompress.py && python3 -m py_compile /app/compress.py /app/decompress.py",
+    "trajectory_roundtrip_evidence": true
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14200578850752282,
+  "cleanup": {
+    "container_removed": true
+  }
+}

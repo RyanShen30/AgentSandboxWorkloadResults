@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": {
+    "completed": true,
+    "all318_calls": true,
+    "all319_boundaries": true,
+    "all_frozen_no_scan_errors": true,
+    "all9_async_barriers": true,
+    "ordered_samples": true,
+    "ordered_tool_timestamps": true,
+    "scans_after_tools": true,
+    "no_monitor_errors": true,
+    "no_tool_timeouts": true,
+    "no_oom_kills": true,
+    "local_compiler_check": true,
+    "same_image": true,
+    "same2CPU": true,
+    "same318_command_scripts": true,
+    "only_harness_limit_changed": true,
+    "effective32GiB": true,
+    "no_swap": true,
+    "container_removed": true,
+    "new_image_removed": true
+  },
+  "memory_limit_not_reached": true,
+  "changed_scan_pages": 0,
+  "scope": "Recorded metrics and local smoke check; not official benchmark verification. Unchanged commands do not imply identical observations.",
+  "visual_qa": "Individual32GiB curves and8/32GiB comparison visually inspected; units, legends, time alignment caveat and limit marker verified."
+}

@@ -1,0 +1,114 @@
+{
+  "task_id": "mozilla__pdf.js-20957",
+  "backend": "rootless-podman",
+  "actions": 5,
+  "tool_seconds": 168.358395942,
+  "peak_sampled_memory_mib": 2715.1171875,
+  "peak_cgroup_memory_mib": 2721.1171875,
+  "initial_boundary_file_cache_mib": 1376.65234375,
+  "final_boundary_file_cache_mib": 2835.4453125,
+  "peak_disk_file_charge_mib": 1627.27734375,
+  "nonzero_exit_calls": [],
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "test -d /testbed/node_modules && test -d /testbed/build",
+    "cli_test_exit_codes": {
+      "3": 0,
+      "5": 0
+    }
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 2835.4453125,
+  "pause_seconds": 46.065520305,
+  "boundary_scan_seconds": 44.263031665,
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/mozilla__pdf.js-20957-20261020T010602",
+  "source_action_count": 5,
+  "sample_count": 1070,
+  "median_tool_seconds": 48.749086074,
+  "p95_tool_seconds": 59.9323171904,
+  "total_container_call_seconds": 169.056336975,
+  "median_scan_seconds": 8.036628433,
+  "max_sample_gap_seconds": 0.276899692,
+  "excluded_nonowner_files": 14,
+  "excluded_nonowner_bytes": 5345040,
+  "changed_scan_pages": 0,
+  "initial_cache_regions": {
+    "root": {
+      "resident_bytes": 8192,
+      "logical_bytes": 732,
+      "files": 2
+    },
+    "usr": {
+      "resident_bytes": 1169584128,
+      "logical_bytes": 1110524111,
+      "files": 25237
+    },
+    "var": {
+      "resident_bytes": 15183872,
+      "logical_bytes": 9508950,
+      "files": 1739
+    },
+    "etc": {
+      "resident_bytes": 1400832,
+      "logical_bytes": 863113,
+      "files": 184
+    },
+    "testbed": {
+      "resident_bytes": 158699520,
+      "logical_bytes": 152153657,
+      "files": 2423
+    },
+    "git_metadata": {
+      "resident_bytes": 98648064,
+      "logical_bytes": 98574920,
+      "files": 23
+    }
+  },
+  "final_cache_regions": {
+    "root": {
+      "resident_bytes": 1164423168,
+      "logical_bytes": 1155348003,
+      "files": 3197
+    },
+    "usr": {
+      "resident_bytes": 1169584128,
+      "logical_bytes": 1110524111,
+      "files": 25237
+    },
+    "tmp": {
+      "resident_bytes": 2695168,
+      "logical_bytes": 1338064,
+      "files": 564
+    },
+    "var": {
+      "resident_bytes": 15183872,
+      "logical_bytes": 9508950,
+      "files": 1739
+    },
+    "etc": {
+      "resident_bytes": 1400832,
+      "logical_bytes": 863113,
+      "files": 184
+    },
+    "testbed": {
+      "resident_bytes": 197738496,
+      "logical_bytes": 188460474,
+      "files": 3572
+    },
+    "git_metadata": {
+      "resident_bytes": 98648064,
+      "logical_bytes": 98574920,
+      "files": 23
+    },
+    "dependencies": {
+      "resident_bytes": 323506176,
+      "logical_bytes": 241915956,
+      "files": 27974
+    }
+  },
+  "source_error_flag_disagreements": [],
+  "source_benchmark_pass": null
+}

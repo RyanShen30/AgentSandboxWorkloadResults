@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "full_file_sha256": "ef4d71a83a4124c024f860300508c09472a455060b35a5b5c89034bdf7dfead9",
+  "multi_span_byte_match": true,
+  "purpose": "Read bridge does not require installing Python in the minimal compiler workload image"
+}

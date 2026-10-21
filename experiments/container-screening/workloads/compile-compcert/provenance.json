@@ -1,0 +1,48 @@
+{
+  "task_id": "compile-compcert",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/compile-compcert/instruction.md",
+      "path": "sources/compile-compcert/instruction.md",
+      "bytes": 325,
+      "sha256": "d6efce07c47484fcd13c7918f68bd4af6314392de43751c4cad1e62530c2ad06",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/compile-compcert/task.toml",
+      "path": "sources/compile-compcert/task.toml",
+      "bytes": 924,
+      "sha256": "1d9618d7178cfa15918a293da126b867f3a7db160e604d4fec369949884dac39",
+      "repo_commit": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harbor-framework/terminal-bench-2-1/main/tasks/compile-compcert/environment/Dockerfile",
+      "path": "sources/compile-compcert/environment/Dockerfile",
+      "bytes": 410,
+      "sha256": "eaad41fb0cbf3534b1b0d2bf73a581634e26fb974fe32a8c34781129e378b6cc",
+      "repo_commit": null
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/compile-compcert/agent/omp-compile-compcert-1787137160609000235/omp.jsonl",
+      "path": "sources/compile-compcert/original.jsonl",
+      "bytes": 2167865,
+      "sha256": "23d0959116a4bed17d6b85d6dcd41d09cd12cad0fb0393b3ae3ecf1e15b8a569",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/Lottolabs/terminal-bench-2.1-qwen3.8-27b-traces/resolve/dbf15f8e97ec7510c55f97fd66748888b2a27ad5/xhigh/traces/compile-compcert/result.json",
+      "path": "sources/compile-compcert/published-result.json",
+      "bytes": 358,
+      "sha256": "98924bfeb0af6594eeca11cc2f70c0f712fd2e4c86f80543d984cb4b2bbad656",
+      "repo_commit": "dbf15f8e97ec7510c55f97fd66748888b2a27ad5"
+    }
+  ],
+  "errors": [],
+  "steps": 318,
+  "tools": {
+    "bash": 298,
+    "read": 18,
+    "write": 2
+  },
+  "published_pass": true
+}

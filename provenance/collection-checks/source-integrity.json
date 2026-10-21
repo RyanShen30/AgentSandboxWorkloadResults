@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "files_checked": 23,
+  "checks": [
+    {
+      "task": "reshard-c4-data",
+      "path": "sources/reshard-c4-data/instruction.md",
+      "bytes": 1292,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "reshard-c4-data",
+      "path": "sources/reshard-c4-data/task.toml",
+      "bytes": 944,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "reshard-c4-data",
+      "path": "sources/reshard-c4-data/environment/Dockerfile",
+      "bytes": 277,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "reshard-c4-data",
+      "path": "sources/reshard-c4-data/original.jsonl",
+      "bytes": 734034,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "reshard-c4-data",
+      "path": "sources/reshard-c4-data/published-result.json",
+      "bytes": 351,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "large-scale-text-editing",
+      "path": "sources/large-scale-text-editing/instruction.md",
+      "bytes": 1193,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "large-scale-text-editing",
+      "path": "sources/large-scale-text-editing/task.toml",
+      "bytes": 1008,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "large-scale-text-editing",
+      "path": "sources/large-scale-text-editing/environment/Dockerfile",
+      "bytes": 675,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "large-scale-text-editing",
+      "path": "sources/large-scale-text-editing/original.jsonl",
+      "bytes": 889983,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "large-scale-text-editing",
+      "path": "sources/large-scale-text-editing/published-result.json",
+      "bytes": 364,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "hf-model-inference",
+      "path": "sources/hf-model-inference/instruction.md",
+      "bytes": 1264,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "hf-model-inference",
+      "path": "sources/hf-model-inference/task.toml",
+      "bytes": 943,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "hf-model-inference",
+      "path": "sources/hf-model-inference/environment/Dockerfile",
+      "bytes": 330,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "hf-model-inference",
+      "path": "sources/hf-model-inference/original.jsonl",
+      "bytes": 66345,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "hf-model-inference",
+      "path": "sources/hf-model-inference/published-result.json",
+      "bytes": 349,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "mozilla__pdf.js-20957",
+      "path": "sources/mozilla__pdf.js-20957/instance.json",
+      "bytes": 4272,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "mozilla__pdf.js-20957",
+      "path": "sources/mozilla__pdf.js-20957/result.json",
+      "bytes": 560742,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "mozilla__pdf.js-20957",
+      "path": "sources/mozilla__pdf.js-20957/setup.log",
+      "bytes": 38486,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "build-cython-ext",
+      "path": "sources/build-cython-ext/instruction.md",
+      "bytes": 1614,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "build-cython-ext",
+      "path": "sources/build-cython-ext/task.toml",
+      "bytes": 939,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "build-cython-ext",
+      "path": "sources/build-cython-ext/environment/Dockerfile",
+      "bytes": 395,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "build-cython-ext",
+      "path": "sources/build-cython-ext/original.jsonl",
+      "bytes": 1123779,
+      "matches_download_manifest": true
+    },
+    {
+      "task": "build-cython-ext",
+      "path": "sources/build-cython-ext/published-result.json",
+      "bytes": 354,
+      "matches_download_manifest": true
+    }
+  ]
+}

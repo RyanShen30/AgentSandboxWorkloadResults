@@ -1,0 +1,30 @@
+{
+  "task_id": "count-dataset-tokens",
+  "started_ns": 14251056783458485,
+  "backend": "rootless-podman",
+  "image": "docker.io/alexgshaw/count-dataset-tokens@sha256:9c513c4ba342bd95be501f6f5eadd4806a2b18749c87c251615825100130232d",
+  "container": "asbp-count-dataset-tokens-20261020t152023",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "pid": 3416738,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-81eb4b8d648bbdf516ad9d9f8ea26b027ece415ba602a882b2eda6a8d413e49a.scope/container",
+  "container_id": "81eb4b8d648bbdf516ad9d9f8ea26b027ece415ba602a882b2eda6a8d413e49a",
+  "image_id": "acc8c39db027c0cf3f45f960cb88e06be954dc34b15d7ab7622f4614ff21130a",
+  "measurement_finished_ns": 14251362053084799,
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+    "command": "test \"$(cat /app/answer.txt)\" = 79586 && grep -Ex '[0-9]+' /app/answer.txt && python3 -m py_compile /app/count_tokens.py"
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14251373288845632,
+  "cleanup": {
+    "container_removed": true
+  }
+}

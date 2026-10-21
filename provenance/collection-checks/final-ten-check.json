@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "completed_runs": 10,
+  "tool_calls": 652,
+  "cache_boundaries": 662,
+  "notion_done": 10,
+  "experiment_containers_remaining": 0,
+  "compcert_image_removed": true,
+  "linger_restored": "no",
+  "first_batch_code_unchanged": true,
+  "compcert_memory_limit_hit": true,
+  "compcert_oom_kill": 0,
+  "free_disk_bytes": 36396646400
+}

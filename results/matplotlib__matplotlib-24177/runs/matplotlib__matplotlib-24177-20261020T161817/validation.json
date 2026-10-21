@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+  "command": "cd /testbed && git diff --stat && python -c 'import matplotlib, numpy; print(matplotlib.__version__, numpy.__version__)'"
+}

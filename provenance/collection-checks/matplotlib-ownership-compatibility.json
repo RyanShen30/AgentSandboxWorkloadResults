@@ -1,0 +1,8 @@
+{
+  "image_digest": "sha256:901249fde9753b8d559a93f6a279ef1371e06426300c1ea1aa64e1723c82099e",
+  "storage_option": "overlay.ignore_chown_errors=true",
+  "unmapped_source_uid": 197609,
+  "unmapped_source_gid": 197121,
+  "example_path": "/testbed/build/qhull-2020.2",
+  "scope": "Only image import in the dedicated probe store; unmapped numeric ownership may be squashed to default. No host UID/GID mapping changes."
+}

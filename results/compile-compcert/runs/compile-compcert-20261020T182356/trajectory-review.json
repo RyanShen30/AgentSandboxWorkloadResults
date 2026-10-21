@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETE_WITH_DECLARED_SOURCE_DIFFERENCES",
+  "not_official_benchmark_verification": true,
+  "differences": [
+    {
+      "step": 105,
+      "source_exit": 0,
+      "actual_exit": 1,
+      "explanation": "Process polling found zero ocaml processes at that instant; grep -c returned1. Original observation saw17. Async completion before tool107 is separately verified."
+    },
+    {
+      "step": 185,
+      "source_exit": 2,
+      "actual_exit": 0,
+      "explanation": "Native GNU ls -d */ and grep completed; original observation reported slash-suffixed ordinary files as errors. That source error was not reproduced."
+    },
+    {
+      "step": 254,
+      "source_exit": 127,
+      "actual_exit": 0,
+      "explanation": "Actual coqc compiled the test lemma to test.vo and printedCOQ_OK. Original observation had command-not-found after which found coqc."
+    }
+  ],
+  "final_compiler_version": "3.13.1",
+  "local_compile_and_run": "PASS"
+}

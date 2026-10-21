@@ -1,0 +1,62 @@
+{
+  "reshard-c4-data": {
+    "image": "docker.io/alexgshaw/reshard-c4-data@sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a",
+    "image_id": "a1ea118e6dbb44200cb77c4de3dc38023bf80387b0e781512c2d615189ad2562",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "large-scale-text-editing": {
+    "image": "docker.io/alexgshaw/large-scale-text-editing@sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c",
+    "image_id": "4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "hf-model-inference": {
+    "image": "docker.io/alexgshaw/hf-model-inference@sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad",
+    "image_id": "43a3ff616ca45a6b1693e4cd436c14c6449367e090f4a50f379c9da89cd5062f",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "mozilla__pdf.js-20957": {
+    "image": "localhost/asbp-pdfjs:484518614d75",
+    "image_id": "7978236cab552f316c5d54e867a8b1cfcc4620ba3b1703b483ae5a0c3f795e60",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "build-cython-ext": {
+    "image": "docker.io/alexgshaw/build-cython-ext@sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594",
+    "image_id": "b2a41c10dde020d36fbea4643794d8791118afb77db125e61837f21a02c1a3af",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "count-dataset-tokens": {
+    "image": "docker.io/alexgshaw/count-dataset-tokens@sha256:9c513c4ba342bd95be501f6f5eadd4806a2b18749c87c251615825100130232d",
+    "image_id": "acc8c39db027c0cf3f45f960cb88e06be954dc34b15d7ab7622f4614ff21130a",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "apache__logging-log4j2": {
+    "image": "localhost/asbp-log4j2:204d8251295d",
+    "image_id": "15f25a5428ac32c80525b74b6d2589d49181382483896386c95c5c0f375942df",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "compile-compcert": {
+    "image": "docker.io/alexgshaw/compile-compcert@sha256:f60236a4fe55bbb3c573210fe0fcd91551f4ee97c417453cd4985be074b35411",
+    "image_id": "773582f15daca73360cd02f77d61626cd90ca0ff5b13c474500c41234c7d59f5",
+    "cpus": 2,
+    "memory_limit_bytes": 34359738368
+  },
+  "matplotlib__matplotlib-24177": {
+    "image": "docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24177@sha256:901249fde9753b8d559a93f6a279ef1371e06426300c1ea1aa64e1723c82099e",
+    "image_id": "5b52f28e9ada3fed0770b503d3c853977b9621797e1d947f97c14a0201c06505",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  },
+  "django__django-16819": {
+    "image": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-16819@sha256:6c46d22aaf692840f16209fe29b1d0c940bed043fce8047eb12169215222f044",
+    "image_id": "ebd2a396da682fd0ebc4d0e4c0c7a93f2f0a922d7948e4e7a4866e773c3e5c1d",
+    "cpus": 2,
+    "memory_limit_bytes": 8589934592
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "bytes": 8388608,
+  "cold": {
+    "metric": "owned_file_inode_offset_residency",
+    "page_size": 4096,
+    "started_ns": 14198152947557899,
+    "finished_ns": 14198152948103988,
+    "scan_seconds": 0.000546089,
+    "first_resident_bytes": 0,
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "changed_pages": 0,
+    "regular_paths": 1,
+    "unique_inodes": 1,
+    "logical_file_bytes": 8388608,
+    "excluded_nonowner_files": 0,
+    "excluded_nonowner_bytes": 0,
+    "errors": [],
+    "roots": [
+      "/home/rashen/work/AgentWorkloadProbe-20261020/private-cache-calibration.bin"
+    ],
+    "scope": "resident disk-file pages by inode/offset; excludes pseudo mounts, symlinks and non-owned files; not host-PFN deduplication or guest physical memory"
+  },
+  "nonfaulting_repeat": {
+    "metric": "owned_file_inode_offset_residency",
+    "page_size": 4096,
+    "started_ns": 14198152948231141,
+    "finished_ns": 14198152948649534,
+    "scan_seconds": 0.000418393,
+    "first_resident_bytes": 0,
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "changed_pages": 0,
+    "regular_paths": 1,
+    "unique_inodes": 1,
+    "logical_file_bytes": 8388608,
+    "excluded_nonowner_files": 0,
+    "excluded_nonowner_bytes": 0,
+    "errors": [],
+    "roots": [
+      "/home/rashen/work/AgentWorkloadProbe-20261020/private-cache-calibration.bin"
+    ],
+    "scope": "resident disk-file pages by inode/offset; excludes pseudo mounts, symlinks and non-owned files; not host-PFN deduplication or guest physical memory"
+  },
+  "warm": {
+    "metric": "owned_file_inode_offset_residency",
+    "page_size": 4096,
+    "started_ns": 14198152953043201,
+    "finished_ns": 14198152953547733,
+    "scan_seconds": 0.000504532,
+    "first_resident_bytes": 8388608,
+    "resident_bytes": 8388608,
+    "stable_resident_bytes": 8388608,
+    "changed_pages": 0,
+    "regular_paths": 1,
+    "unique_inodes": 1,
+    "logical_file_bytes": 8388608,
+    "excluded_nonowner_files": 0,
+    "excluded_nonowner_bytes": 0,
+    "errors": [],
+    "roots": [
+      "/home/rashen/work/AgentWorkloadProbe-20261020/private-cache-calibration.bin"
+    ],
+    "scope": "resident disk-file pages by inode/offset; excludes pseudo mounts, symlinks and non-owned files; not host-PFN deduplication or guest physical memory"
+  },
+  "note": "Only this newly created private file is advised DONTNEED; no global cache eviction."
+}

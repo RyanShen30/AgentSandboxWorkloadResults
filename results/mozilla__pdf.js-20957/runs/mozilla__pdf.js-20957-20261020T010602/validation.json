@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+  "command": "test -d /testbed/node_modules && test -d /testbed/build",
+  "cli_test_exit_codes": {
+    "3": 0,
+    "5": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "task_id": "large-scale-text-editing",
+  "started_ns": 14200579019388005,
+  "backend": "rootless-podman",
+  "image": "docker.io/alexgshaw/large-scale-text-editing@sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c",
+  "container": "asbp-large-scale-text-editing-20261020t011906",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "pid": 3276034,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-e9b072cacd4b37c7233eb4b185fefc914dd03c7e4c22a78e097bda2dcd114cd6.scope/container",
+  "container_id": "e9b072cacd4b37c7233eb4b185fefc914dd03c7e4c22a78e097bda2dcd114cd6",
+  "image_id": "4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+  "measurement_finished_ns": 14200971208790792,
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "test -f /app/output.csv && cmp -s /app/output.csv /app/expected.csv"
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14200981515035939,
+  "cleanup": {
+    "container_removed": true
+  }
+}

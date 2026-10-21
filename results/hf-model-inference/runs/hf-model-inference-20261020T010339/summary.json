@@ -1,0 +1,100 @@
+{
+  "task_id": "hf-model-inference",
+  "backend": "rootless-podman",
+  "actions": 11,
+  "tool_seconds": 74.684350904,
+  "peak_sampled_memory_mib": 1572.45703125,
+  "peak_cgroup_memory_mib": 1673.98046875,
+  "initial_boundary_file_cache_mib": 1152.0234375,
+  "final_boundary_file_cache_mib": 2434.34765625,
+  "peak_disk_file_charge_mib": 1282.3671875,
+  "nonzero_exit_calls": [
+    4,
+    7,
+    8,
+    10
+  ],
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "python3 - <<'PYCHECK'\nimport json,urllib.request\nfor text,want in [('I love this excellent movie','positive'),('This is a horrible terrible movie','negative')]:\n r=urllib.request.Request('http://127.0.0.1:5000/sentiment',data=json.dumps({'text':text}).encode(),headers={'Content-Type':'application/json'})\n with urllib.request.urlopen(r,timeout=30) as f:d=json.load(f)\n assert d['sentiment']==want,d\n assert abs(sum(d['confidence'].values())-1)<1e-4,d\nprint('local service functional checks passed')\nPYCHECK"
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 2434.34765625,
+  "pause_seconds": 55.941821556,
+  "boundary_scan_seconds": 53.149396882,
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/hf-model-inference-20261020T010339",
+  "source_action_count": 11,
+  "sample_count": 656,
+  "median_tool_seconds": 0.082745112,
+  "p95_tool_seconds": 36.96809118,
+  "total_container_call_seconds": 76.05689912,
+  "median_scan_seconds": 4.428835957,
+  "max_sample_gap_seconds": 0.281876007,
+  "excluded_nonowner_files": 0,
+  "excluded_nonowner_bytes": 0,
+  "changed_scan_pages": 0,
+  "initial_cache_regions": {
+    "root": {
+      "resident_bytes": 12288,
+      "logical_bytes": 901,
+      "files": 3
+    },
+    "usr": {
+      "resident_bytes": 1200553984,
+      "logical_bytes": 1127603874,
+      "files": 29945
+    },
+    "var": {
+      "resident_bytes": 6680576,
+      "logical_bytes": 5036964,
+      "files": 520
+    },
+    "etc": {
+      "resident_bytes": 737280,
+      "logical_bytes": 429289,
+      "files": 108
+    }
+  },
+  "final_cache_regions": {
+    "root": {
+      "resident_bytes": 1290240,
+      "logical_bytes": 1277186,
+      "files": 4
+    },
+    "usr": {
+      "resident_bytes": 1203056640,
+      "logical_bytes": 1129792076,
+      "files": 30109
+    },
+    "tmp": {
+      "resident_bytes": 8192,
+      "logical_bytes": 4998,
+      "files": 2
+    },
+    "var": {
+      "resident_bytes": 6680576,
+      "logical_bytes": 5036964,
+      "files": 520
+    },
+    "etc": {
+      "resident_bytes": 737280,
+      "logical_bytes": 429289,
+      "files": 108
+    },
+    "app": {
+      "resident_bytes": 12288,
+      "logical_bytes": 3606,
+      "files": 3
+    },
+    "model_cache": {
+      "resident_bytes": 1340813312,
+      "logical_bytes": 1340700423,
+      "files": 35
+    }
+  },
+  "source_error_flag_disagreements": [],
+  "source_benchmark_pass": true
+}

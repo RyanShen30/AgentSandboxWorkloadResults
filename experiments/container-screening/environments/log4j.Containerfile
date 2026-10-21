@@ -1,0 +1,3 @@
+FROM ghcr.io/jetbrains-research/envbench-jvm@sha256:e6dbfbdc8f67e420b029440eb54988514bf7d9eca005ce5bad530a823414d388
+COPY . /data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415/
+WORKDIR /data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415

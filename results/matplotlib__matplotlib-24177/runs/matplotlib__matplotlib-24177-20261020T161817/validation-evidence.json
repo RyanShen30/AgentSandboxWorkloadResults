@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Complete recorded trace, local import and final public histogram tests; not official hidden benchmark verification",
+  "smoke_check": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+    "command": "cd /testbed && git diff --stat && python -c 'import matplotlib, numpy; print(matplotlib.__version__, numpy.__version__)'"
+  },
+  "calls": 95,
+  "boundaries": 96,
+  "histogram_test_step": 93,
+  "histogram_passed": 60,
+  "histogram_skipped": 10,
+  "source_exit_code_disagreements": [],
+  "final_patch_matches_public_submission_ignoring_index_abbreviations": true
+}

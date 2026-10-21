@@ -1,0 +1,33 @@
+{
+  "task_id": "django__django-16819",
+  "started_ns": 14256856012857888,
+  "backend": "rootless-podman",
+  "image": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-16819@sha256:6c46d22aaf692840f16209fe29b1d0c940bed043fce8047eb12169215222f044",
+  "container": "asbp-django--django-16819-20261020t165703",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one replay of fixed public tool actions; read/write, pinned dependencies, persistent-session and async adapters are declared in normalized-steps.json; no original model thinking gaps",
+  "rootless_ownership_compatibility": false,
+  "persistent_shell": true,
+  "latency_method": "persistent Bash with CLOCK_MONOTONIC helper around sourced command",
+  "pid": 3498489,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-2cb2a3e3559a10346cd53663c1de69f41595c5b14857cd883e147b1a0bc416ba.scope/container",
+  "container_id": "2cb2a3e3559a10346cd53663c1de69f41595c5b14857cd883e147b1a0bc416ba",
+  "image_id": "ebd2a396da682fd0ebc4d0e4c0c7a93f2f0a922d7948e4e7a4866e773c3e5c1d",
+  "measurement_finished_ns": 14257081254391306,
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+    "command": "cd /testbed && git rev-parse HEAD && git diff --stat && python -m py_compile django/db/migrations/operations/models.py"
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14257092607840468,
+  "cleanup": {
+    "container_removed": true
+  }
+}

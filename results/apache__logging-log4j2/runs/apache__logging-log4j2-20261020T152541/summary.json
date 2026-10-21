@@ -1,0 +1,64 @@
+{
+  "task_id": "apache__logging-log4j2",
+  "backend": "rootless-podman",
+  "actions": 10,
+  "tool_seconds": 439.998348165,
+  "peak_sampled_memory_mib": 2930.109375,
+  "peak_cgroup_memory_mib": 2930.453125,
+  "initial_boundary_file_cache_mib": 1871.53515625,
+  "final_boundary_file_cache_mib": 2716.26953125,
+  "peak_disk_file_charge_mib": 851.98046875,
+  "nonzero_exit_calls": [
+    6
+  ],
+  "validation": {
+    "status": "PASS",
+    "basis": "Recorded Maven compile returned0 with BUILD SUCCESS; chained artifact directory tests succeeded and find emitted5 class paths. The original checker pipeline ended141 when head closed the pipe; no workload rerun or hidden verification claimed.",
+    "original_checker_result": {
+      "exit_code": 141,
+      "status": "FAIL",
+      "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+      "command": "cd /data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415 && test -d log4j-api/target/classes && test -d log4j-core/target/classes && find . -path '*/target/classes/*.class' | head -5"
+    },
+    "compile_step": 10,
+    "compile_exit_code": 0,
+    "class_artifact_examples": [
+      "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/Log4jEventSource.class",
+      "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/package-info.class",
+      "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/FlumePersistentManager$BDBWriter.class",
+      "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/FlumeEvent.class",
+      "./log4j-flume-ng/target/classes/org/apache/logging/log4j/flume/appender/FlumeAvroManager.class"
+    ]
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 2716.26953125,
+  "pause_seconds": 56.898647091,
+  "boundary_scan_seconds": 54.159425131,
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "memory_events": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "memory_limit_bytes": 8589934592,
+  "memory_limit_hit": false,
+  "measurement_wall_seconds": 497.502568645,
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/apache__logging-log4j2-20261020T152541",
+  "sample_count": 2475,
+  "boundary_count": 11,
+  "source_action_count": 10,
+  "median_scan_seconds": 4.813271973,
+  "max_sample_gap_seconds": 0.258567652,
+  "changed_scan_pages": 0,
+  "excluded_nonowner_files": 0,
+  "excluded_nonowner_bytes": 0,
+  "total_container_call_seconds": 440.155826608,
+  "source_exit_code_disagreements": [],
+  "source_error_flag_disagreements": [],
+  "writable_layer_end_bytes": 862788491,
+  "rootfs_end_bytes": 2766994223
+}

@@ -1,0 +1,51 @@
+{
+  "task_id": "count-dataset-tokens",
+  "backend": "rootless-podman",
+  "actions": 16,
+  "tool_seconds": 250.329514986,
+  "peak_sampled_memory_mib": 1050.05078125,
+  "peak_cgroup_memory_mib": 1050.05078125,
+  "initial_boundary_file_cache_mib": 123.40234375,
+  "final_boundary_file_cache_mib": 779.76171875,
+  "peak_disk_file_charge_mib": 713.53515625,
+  "nonzero_exit_calls": [
+    11
+  ],
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+    "command": "test \"$(cat /app/answer.txt)\" = 79586 && grep -Ex '[0-9]+' /app/answer.txt && python3 -m py_compile /app/count_tokens.py"
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 779.76171875,
+  "pause_seconds": 46.798004578,
+  "boundary_scan_seconds": 41.261847349,
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "memory_events": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "memory_limit_bytes": 8589934592,
+  "memory_limit_hit": false,
+  "measurement_wall_seconds": 305.269626314,
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/count-dataset-tokens-20261020T152023",
+  "sample_count": 1501,
+  "boundary_count": 17,
+  "source_action_count": 16,
+  "median_scan_seconds": 2.786968741,
+  "max_sample_gap_seconds": 0.248248191,
+  "changed_scan_pages": 0,
+  "excluded_nonowner_files": 0,
+  "excluded_nonowner_bytes": 0,
+  "total_container_call_seconds": 254.72424291000002,
+  "source_exit_code_disagreements": [],
+  "source_error_flag_disagreements": [],
+  "writable_layer_end_bytes": 655442789,
+  "rootfs_end_bytes": 780497099
+}

@@ -1,0 +1,30 @@
+{
+  "task_id": "apache__logging-log4j2",
+  "started_ns": 14251374782296703,
+  "backend": "rootless-podman",
+  "image": "localhost/asbp-log4j2:204d8251295d",
+  "container": "asbp-apache--logging-log4j2-20261020t152541",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "pid": 3425556,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-d5c0dfb3d68c50307d3d667fd204d3c1f2060937a301aad9167a71b6a23de27d.scope/container",
+  "container_id": "d5c0dfb3d68c50307d3d667fd204d3c1f2060937a301aad9167a71b6a23de27d",
+  "image_id": "15f25a5428ac32c80525b74b6d2589d49181382483896386c95c5c0f375942df",
+  "measurement_finished_ns": 14251872284865348,
+  "validation": {
+    "exit_code": 141,
+    "status": "FAIL",
+    "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+    "command": "cd /data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415 && test -d log4j-api/target/classes && test -d log4j-core/target/classes && find . -path '*/target/classes/*.class' | head -5"
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14251883736411666,
+  "cleanup": {
+    "container_removed": true
+  }
+}

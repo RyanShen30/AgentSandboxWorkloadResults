@@ -1,0 +1,31 @@
+{
+  "task_id": "hf-model-inference",
+  "started_ns": 14199652196702562,
+  "backend": "rootless-podman",
+  "image": "docker.io/alexgshaw/hf-model-inference@sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad",
+  "container": "asbp-hf-model-inference-20261020t010339",
+  "cpus": 2,
+  "memory_limit_bytes": 8589934592,
+  "sample_interval_seconds": 0.2,
+  "initial_cache_policy": "Warmness uncontrolled after image preparation; initial residency is measured. No global cache drop.",
+  "memory_label": "Container cgroup memory (includes charged cache; not guest physical memory)",
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "pid": 3261061,
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1012.slice/user@1012.service/user.slice/libpod-c4988b7b21a425ddc7bcc36ebe64c5c8c6696a46b04436be15be5ec27e18e327.scope/container",
+  "container_id": "c4988b7b21a425ddc7bcc36ebe64c5c8c6696a46b04436be15be5ec27e18e327",
+  "image_id": "43a3ff616ca45a6b1693e4cd436c14c6449367e090f4a50f379c9da89cd5062f",
+  "measurement_finished_ns": 14199784433441984,
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "python3 - <<'PYCHECK'\nimport json,urllib.request\nfor text,want in [('I love this excellent movie','positive'),('This is a horrible terrible movie','negative')]:\n r=urllib.request.Request('http://127.0.0.1:5000/sentiment',data=json.dumps({'text':text}).encode(),headers={'Content-Type':'application/json'})\n with urllib.request.urlopen(r,timeout=30) as f:d=json.load(f)\n assert d['sentiment']==want,d\n assert abs(sum(d['confidence'].values())-1)<1e-4,d\nprint('local service functional checks passed')\nPYCHECK"
+  },
+  "metric_monitor_errors": [],
+  "status": "COMPLETED",
+  "finished_ns": 14199794997873717,
+  "cleanup": {
+    "container_removed": true
+  },
+  "pid_adapter_scope": "Published /proc PID check targets the recorded background shell launcher, not the Python child. Cgroup measurements and HTTP validation cover the actual service."
+}

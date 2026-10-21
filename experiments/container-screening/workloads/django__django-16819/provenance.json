@@ -1,0 +1,18 @@
+{
+  "task_id": "django__django-16819",
+  "revision": "151694b6e97e29679076086b2e0f90e532676570",
+  "files": [
+    {
+      "url": "https://huggingface.co/datasets/hngl/swebench-verified-sample-100-Qwen3-30B-eval/resolve/151694b6e97e29679076086b2e0f90e532676570/django__django-16819__CbaXz2n/agent/trajectory.json",
+      "path": "sources/django__django-16819/original.json",
+      "sha256": "9225e8df8c39416b05caa8c270fb1b3b6d4cc9c56147d80a08254f8e1bc9c01a",
+      "bytes": 98662
+    },
+    {
+      "url": "https://huggingface.co/datasets/hngl/swebench-verified-sample-100-Qwen3-30B-eval/resolve/151694b6e97e29679076086b2e0f90e532676570/django__django-16819__CbaXz2n/result.json",
+      "path": "sources/django__django-16819/published-result.json",
+      "sha256": "6c5bb87aab5e00898c05c7897aed485a7f61ad75d789c8709c9481ebd0155e4d",
+      "bytes": 15949
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "memory.max": "34359738368",
+  "memory.swap.max": "0",
+  "cpu.max": "200000 100000",
+  "pids.max": "1024",
+  "checked_unix": 1792501072.8806572
+}

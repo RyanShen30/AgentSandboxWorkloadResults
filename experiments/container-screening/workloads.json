@@ -1,0 +1,140 @@
+{
+  "reshard-c4-data": {
+    "title": "C4 多文件压缩与解压",
+    "scope": "Terminal-Bench 社区公开解题轨迹，完整 36 次调用。",
+    "data": "实际输入为 /app/c4_sample：9,898 个文件、779.6 MiB（逻辑大小）；执行全量压缩、解压、逐字节内容与目录结构比较。镜像还带有 Hugging Face C4 Arrow/下载缓存；扫描覆盖这些文件，但不能据此认定本轮调用读取了所有镜像缓存。",
+    "validation": "轨迹内第 33、34 步的全量往返与目录比对通过；附加检查验证脚本存在且可编译。",
+    "limits": "第 33 步源记录中的 /dev/fd cmp Illegal seek 未复现，本轮命令成功；不是逐退出状态相同的重放。",
+    "suitability": "优先保留。输入可在多个实例之间复用，临时压缩包和解压输出主要是各实例私有页，应分别评估。",
+    "source_family": "Terminal-Bench / Lottolabs",
+    "validation_label": "全量往返比对通过",
+    "evidence_steps": [
+      33,
+      34
+    ]
+  },
+  "large-scale-text-editing": {
+    "title": "百万行 CSV 文本编辑",
+    "scope": "Terminal-Bench 社区公开轨迹，完整 50 次调用，保留原始失败尝试。",
+    "data": "实际读取 /app/input.csv 并生成 /app/output.csv；输入与期望输出各 1,000,000 行，合计约 85.0 MiB。调用包含 shell 文本变换和临时 CSV，最终与 /app/expected.csv 逐字节比较。",
+    "validation": "本轮最终 output.csv 与 expected.csv 的 cmp 返回 0。源轨迹 published_pass=False；本轮没有运行完整官方判题器。",
+    "limits": "保留 read 的全文件读取与行区间输出适配；这会产生真实文件读取，但时延不是源工具的语义摘要耗时。",
+    "suitability": "适合作为较小输入、反复文本读写的对照。初筛观察到的缓存增量有限，优先级低于 C4、模型缓存和 CompCert。",
+    "source_family": "Terminal-Bench / Lottolabs",
+    "validation_label": "输出字节比对通过；源判题失败",
+    "evidence_steps": [
+      50
+    ]
+  },
+  "hf-model-inference": {
+    "title": "模型下载、加载与 HTTP 推理",
+    "scope": "Terminal-Bench 社区公开轨迹，完整 11 次调用；CPU 运行。",
+    "data": "下载并读取 SST-2 DistilBERT 模型的固定 revision 714eb0fa89d2f80546fda750413ed43d93601a13，/app/model_cache 共 35 个普通文件、逻辑大小约 1,278.6 MiB。执行后台 Flask 服务、一次成功的轨迹内 HTTP 推理，结束后补做正负情感样例检查。snapshot_download 同时下载多个模型格式，目录大小不代表推理使用了全部权重格式。",
+    "validation": "轨迹内服务请求成功；附加正、负样例分类与概率和检查通过。",
+    "limits": "保留无效 write、缺少 curl/ps、错误请求等原始行为；IP 映射到容器 loopback，记录的 PID 映射指向后台 launcher，实际 Python 服务由 cgroup 与 HTTP 检查覆盖。",
+    "suitability": "优先保留。只读模型权重与 Python/torch 依赖适合研究跨 sandbox 复用；需区分下载缓存、各权重格式与实际加载格式。",
+    "source_family": "Terminal-Bench / Lottolabs",
+    "validation_label": "服务正负样例通过",
+    "evidence_steps": [
+      9
+    ]
+  },
+  "mozilla__pdf.js-20957": {
+    "title": "PDF.js 依赖安装与 CLI 测试",
+    "scope": "RepoLaunch setup.log 中 5 条安装、构建、CLI 测试命令；不包含完整 issue 修复轨迹。",
+    "data": "在 base commit 484518614d75c1ac1f1a8db41c943774b5231de6 执行 npm ci、构建和两轮 CLI 测试；安装 905 个 npm 包。node_modules 扫描到 27,974 个文件、逻辑大小约 230.7 MiB；安装阶段还产生 Puppeteer 浏览器缓存。",
+    "validation": "两轮 CLI 测试均为 1,127 specs、0 failures、56 pending；结束后检查 node_modules 与 build 目录。",
+    "limits": "只覆盖公开的环境准备与测试命令。排除 14 个非拥有者文件、约 5.1 MiB，其真实驻留量未知。源码与 setup.log 从 main 获取，以下载内容哈希留存；原记录未固定 archive 仓库提交。",
+    "suitability": "优先保留为短轨迹依赖安装工作负载。npm 依赖、浏览器和基础系统页具有复用机会；不能据此评价修复 Agent 的行为。",
+    "source_family": "RepoLaunch / SWE-bench-Live",
+    "validation_label": "两轮 CLI 测试通过",
+    "evidence_steps": [
+      3,
+      5
+    ]
+  },
+  "build-cython-ext": {
+    "title": "Cython 原生扩展编译",
+    "scope": "Terminal-Bench 社区公开轨迹，完整 83 次调用。",
+    "data": "克隆 pyknotid 0.5.3，读取源码、Cython 与 NumPy 头文件，尝试编译和修复扩展，再安装并运行测试。真实加载 cinvariants、chelpers、ccomplexity 三个 .so；源码与安装目录各跑一轮测试。",
+    "validation": "三个编译扩展导入成功；两轮各 18 tests passed，未发现失败汇总。",
+    "limits": "保留源命令的编译失败与修复尝试。运行时依赖没有全部固定为离线快照；native read/write 通过真实文件操作桥接。",
+    "suitability": "保留为原生编译对照。编译器和头文件可复用，编译输出多为私有页；本轮文件驻留增量较小。",
+    "source_family": "Terminal-Bench / Lottolabs",
+    "validation_label": "扩展导入及两轮 18 测试通过",
+    "evidence_steps": [
+      82
+    ]
+  },
+  "count-dataset-tokens": {
+    "title": "数据集加载与 token 计数",
+    "scope": "Terminal-Bench 社区公开轨迹，完整 16 次调用。",
+    "data": "按源轨迹安装 46 个固定版本依赖、读取固定 revision 的数据集 README，读取 OpenThoughts-1k-sample 的 1,000 行 metadata，再筛选 physics/chemistry/biology 共 26 行文本计数，结果 79,586。前一次访问不存在的 science 子集失败被保留。本项实际业务数据很小，资源曲线主要体现依赖安装、下载缓存和运行库加载。",
+    "validation": "answer.txt 精确为 79586，计数脚本 py_compile 通过。",
+    "limits": "按公开安装输出约束依赖；不转发 ALL_PROXY，使用现有 HTTP/HTTPS 代理，以避开未安装 socksio 的客户端问题。诊断失败运行未合入结果。",
+    "suitability": "作为数据加载/依赖安装对照，暂不作为大数据扫描首选；不能因数据集名称把 26 行执行称为全量大数据处理。",
+    "source_family": "Terminal-Bench / Lottolabs",
+    "validation_label": "79,586 结果检查通过",
+    "evidence_steps": [
+      13,
+      15,
+      16
+    ]
+  },
+  "apache__logging-log4j2": {
+    "title": "Log4j2 Java/Maven 编译",
+    "scope": "EnvBench 轨迹中的 9 次 Agent 命令，加 1 次 SDKMAN 初始化，共 10 次。",
+    "data": "固定项目提交 204d8251295dfa816b9b28d8d9cfaebab500f415，使用持续 Bash 保持 SDKMAN/JDK 状态。保留 Java 11 编译失败，切换 Java 17 后 Maven 构建；访问 JDK modules、Maven 依赖缓存、项目源码与 target/classes。最终 Maven 输出 474 goals。",
+    "validation": "最后编译调用退出 0、BUILD SUCCESS，且输出 class 文件。命令使用 -DskipTests，因此只证明编译，不代表测试通过。",
+    "limits": "附加检查的 find | head 在 pipefail 下返回 141（SIGPIPE）；原 FAIL 原样保留，另有 validation-evidence.json 记录编译成功证据，不覆盖原检查。",
+    "suitability": "优先保留 JVM 与 Maven 缓存场景；预安装 JDK/依赖可复用，每实例 target 构建产物应视为私有。",
+    "source_family": "EnvBench / JetBrains-Research",
+    "validation_label": "编译成功；跳过测试；检查器有 141",
+    "evidence_steps": [
+      10
+    ]
+  },
+  "compile-compcert": {
+    "title": "CompCert 与 Coq 工具链构建",
+    "scope": "Lottolabs 真正可下载的 318 调用轨迹；不采用旧候选表中的约 34 回合 T1 记录。8 GiB 初筛与 32 GiB 复测都完整采集。",
+    "data": "实际下载与解压 Coq/OCaml/CompCert 源码，配置和构建工具链，执行证明/编译尝试、后台构建与轮询；最后用生成的 CompCert 3.13.1 编译并运行小型 C 程序。/tmp 中源码和中间产物、/usr 安装工具链都进入根文件系统驻留扫描。",
+    "validation": "两轮均 318 次调用、319 个缓存边界；最终 CompCert 3.13.1 编译运行 smoke check 通过。32 GiB 复测 memory.events 全为 0。",
+    "limits": "318 次调用包含较多显式 sleep/轮询；工具合计包含这些原命令等待，较长工具不一定是前台编译。async 时延只测启动，9 处依赖完成等待单列；wget 对网络/TLS 退出 4/5 最多四次重试，每次 30 秒。第 59 步前检查 Coq 包大小 7,402,490 字节。两轮相对源记录均在 105、185、254 步退出状态不同：进程轮询时刻、ls 原错误未复现、真实 coqc 成功。",
+    "suitability": "优先保留为长轨迹编译压力场景。主结果采用 32 GiB 复测，原 8 GiB 曲线用于限额对照。需将可复用工具链/源码与私有构建输出分开，不能把全部文件页视为共享潜力。",
+    "source_family": "Terminal-Bench / Lottolabs",
+    "validation_label": "编译器编译运行通过",
+    "evidence_steps": [
+      105,
+      185,
+      254,
+      318
+    ]
+  },
+  "matplotlib__matplotlib-24177": {
+    "title": "Matplotlib 源码修复与局部测试",
+    "scope": "Devstral2 公开轨迹：94 次带 returncode 的执行加最终提交命令，共 95 次；94 次模型格式错误不算工具调用。",
+    "data": "在固定 SWE-bench 镜像中浏览与修改 lib/matplotlib/axes/_axes.py，执行直方图相关局部测试，最终 diff 与公开提交比对。根文件系统大部分是已预热的 Conda 包缓存和系统依赖；本轮新增驻留仅约 8.9 MiB。",
+    "validation": "第 93 步局部测试 60 passed、10 skipped、762 deselected；最终补丁与公开提交一致（忽略 index 缩写），导入检查通过。",
+    "limits": "专用 Podman 存储导入镜像时启用 ignore_chown_errors 兼容无法映射的 UID/GID，权限语义有所变化。扫描排除 757 个非拥有者文件、12.44 MiB；不用于评估权限隔离。",
+    "suitability": "保留为源码检索/小补丁/局部测试对照，优先级低于实测活跃文件较多的候选。约 7 GiB 暖驻留不能解释为本轮读取了约 7 GiB。",
+    "source_family": "SWE-bench / Devstral2 public trace",
+    "validation_label": "60 局部测试通过；补丁一致",
+    "evidence_steps": [
+      93,
+      95
+    ]
+  },
+  "django__django-16819": {
+    "title": "Django 源码浏览与修改",
+    "scope": "公开轨迹中 28 次终端调用全部重放；原 Agent 因 3000 秒模型超时结束，非正常完成的端到端 Agent 轨迹。",
+    "data": "持续 Bash 中读取、检索并修改 django/db/migrations/operations/models.py，保持环境变量与工作目录；没有执行完整 Django 测试。镜像环境 HEAD 与源 base 不同，但原 base 为祖先、整个 django 源码树无差异，关键文件 blob 一致。",
+    "validation": "结束后仅对改动文件做 py_compile 语法检查，结果通过；不足以证明修复正确。源记录 reward=1.0 不能代替本轮官方判题。",
+    "limits": "公开终端双反斜杠编码解码一层；不重放原模型思考和 PTY 等待时长。内存/新增驻留很小，大量初始缓存来自镜像准备。",
+    "suitability": "保留为低内存源码浏览对照，不作为大规模活跃文件缓存首选。后续需要正常完成且有测试证据的轨迹再评价修复任务。",
+    "source_family": "SWE-bench / Qwen3 public trace",
+    "validation_label": "仅语法检查通过",
+    "evidence_steps": [
+      28
+    ]
+  }
+}

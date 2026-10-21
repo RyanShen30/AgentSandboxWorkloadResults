@@ -1,0 +1,6 @@
+{
+  "exit_code": 141,
+  "status": "FAIL",
+  "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness",
+  "command": "cd /data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415 && test -d log4j-api/target/classes && test -d log4j-core/target/classes && find . -path '*/target/classes/*.class' | head -5"
+}

@@ -1,0 +1,39 @@
+{
+  "host": {
+    "arch": "amd64",
+    "cgroupManager": "systemd",
+    "cgroupVersion": "v2",
+    "cpus": 128,
+    "distribution": {
+      "distribution": "ubuntu",
+      "version": "24.04",
+      "codename": "noble"
+    },
+    "kernel": "6.19.9+",
+    "memTotal": 540491689984,
+    "security": {
+      "apparmorEnabled": false,
+      "capabilities": "CAP_CHOWN,CAP_DAC_OVERRIDE,CAP_FOWNER,CAP_FSETID,CAP_KILL,CAP_NET_BIND_SERVICE,CAP_SETFCAP,CAP_SETGID,CAP_SETPCAP,CAP_SETUID,CAP_SYS_CHROOT",
+      "rootless": true,
+      "seccompEnabled": true,
+      "seccompProfilePath": "/usr/share/containers/seccomp.json",
+      "selinuxEnabled": false
+    }
+  },
+  "store": {
+    "graphDriverName": "overlay",
+    "graphOptions": {},
+    "graphRoot": "/home/rashen/work/AgentWorkloadProbe-20261020/state/storage",
+    "runRoot": "/tmp/asbp-1012-20261020"
+  },
+  "version": {
+    "APIVersion": "4.9.3",
+    "Version": "4.9.3",
+    "GoVersion": "go1.22.2",
+    "GitCommit": "",
+    "BuiltTime": "Thu Jan  1 08:00:00 1970",
+    "Built": 0,
+    "OsArch": "linux/amd64",
+    "Os": "linux"
+  }
+}

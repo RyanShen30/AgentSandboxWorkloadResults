@@ -1,0 +1,11 @@
+[
+  {
+    "case": "delayed_acknowledgement",
+    "status": "PASS",
+    "polls": 3
+  },
+  {
+    "case": "timeout_refuses_scan_and_unpauses",
+    "status": "PASS"
+  }
+]

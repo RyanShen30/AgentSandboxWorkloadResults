@@ -1,0 +1,104 @@
+{
+  "task_id": "large-scale-text-editing",
+  "backend": "rootless-podman",
+  "actions": 50,
+  "tool_seconds": 329.177273747,
+  "peak_sampled_memory_mib": 912.69140625,
+  "peak_cgroup_memory_mib": 920.84765625,
+  "initial_boundary_file_cache_mib": 252.41796875,
+  "final_boundary_file_cache_mib": 392.6328125,
+  "peak_disk_file_charge_mib": 152.8125,
+  "nonzero_exit_calls": [
+    19,
+    37,
+    43
+  ],
+  "validation": {
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "local functional/artifact check; not the official benchmark hidden verifier",
+    "command": "test -f /app/output.csv && cmp -s /app/output.csv /app/expected.csv"
+  },
+  "status": "COMPLETED",
+  "peak_boundary_file_cache_mib": 392.6328125,
+  "pause_seconds": 56.160413402,
+  "boundary_scan_seconds": 48.361528387,
+  "scope": "one real replay; native read/write adapters and dynamic IP/PID mappings declared in normalized-steps.json; adapter timing is not original native tool timing",
+  "run_directory": "/home/rashen/work/AgentWorkloadProbe-20261020/results/large-scale-text-editing-20261020T011906",
+  "source_action_count": 50,
+  "sample_count": 1953,
+  "median_tool_seconds": 0.025660928,
+  "p95_tool_seconds": 13.381931731049978,
+  "total_container_call_seconds": 335.746444659,
+  "median_scan_seconds": 0.950114433,
+  "max_sample_gap_seconds": 0.211972661,
+  "excluded_nonowner_files": 0,
+  "excluded_nonowner_bytes": 0,
+  "changed_scan_pages": 0,
+  "initial_cache_regions": {
+    "root": {
+      "resident_bytes": 12288,
+      "logical_bytes": 901,
+      "files": 3
+    },
+    "usr": {
+      "resident_bytes": 167694336,
+      "logical_bytes": 152170516,
+      "files": 6317
+    },
+    "var": {
+      "resident_bytes": 7094272,
+      "logical_bytes": 5328682,
+      "files": 553
+    },
+    "etc": {
+      "resident_bytes": 741376,
+      "logical_bytes": 431937,
+      "files": 109
+    },
+    "input_dataset": {
+      "resident_bytes": 89137152,
+      "logical_bytes": 89133379,
+      "files": 2
+    }
+  },
+  "final_cache_regions": {
+    "root": {
+      "resident_bytes": 28672,
+      "logical_bytes": 13199,
+      "files": 4
+    },
+    "usr": {
+      "resident_bytes": 167694336,
+      "logical_bytes": 152170516,
+      "files": 6317
+    },
+    "tmp": {
+      "resident_bytes": 108933120,
+      "logical_bytes": 108210278,
+      "files": 180
+    },
+    "var": {
+      "resident_bytes": 7094272,
+      "logical_bytes": 5328682,
+      "files": 553
+    },
+    "etc": {
+      "resident_bytes": 741376,
+      "logical_bytes": 431937,
+      "files": 109
+    },
+    "app": {
+      "resident_bytes": 38076416,
+      "logical_bytes": 38067674,
+      "files": 3
+    },
+    "input_dataset": {
+      "resident_bytes": 89137152,
+      "logical_bytes": 89133379,
+      "files": 2
+    }
+  },
+  "source_error_flag_disagreements": [],
+  "source_benchmark_pass": false
+}
