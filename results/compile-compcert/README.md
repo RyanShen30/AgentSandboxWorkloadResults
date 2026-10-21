@@ -2,9 +2,9 @@
 
 Lottolabs 真正可下载的 318 调用轨迹；不采用旧候选表中的约 34 回合 T1 记录。8 GiB 初筛与 32 GiB 复测都完整采集。
 
-**本轮已完成全部公开调用和三类数据采集。** 两轮均 318 次调用、319 个缓存边界；最终 CompCert 3.13.1 编译运行 smoke check 通过。32 GiB 复测 memory.events 全为 0。
+两轮均 318 次调用、319 个缓存边界；最终 CompCert 3.13.1 编译运行 smoke check 通过。32 GiB 复测 memory.events 全为 0。
 
-主记录：`compile-compcert-20261020T205643`，实验日期 2026-10-20（Asia/Shanghai）。本地检查、轨迹重放完成与官方 benchmark 判题是不同结论。
+主记录：`compile-compcert-20261020T205643`，实验日期 2026-10-20（Asia/Shanghai）。
 
 ## 实际执行与输入范围
 
@@ -79,7 +79,7 @@ Lottolabs 真正可下载的 318 调用轨迹；不采用旧候选表中的约 3
 
 318 次调用包含较多显式 sleep/轮询；工具合计包含这些原命令等待，较长工具不一定是前台编译。async 时延只测启动，9 处依赖完成等待单列；wget 对网络/TLS 退出 4/5 最多四次重试，每次 30 秒。第 59 步前检查 Coq 包大小 7,402,490 字节。两轮相对源记录均在 105、185、254 步退出状态不同：进程轮询时刻、ls 原错误未复现、真实 coqc 成功。
 
-两遍扫描均无错误且 changed_pages=0；每个边界均记录 frozen_verified=true。非零工具退出可对应源轨迹故意保留的失败尝试，不自动说明采集失败。匿名内存、文件驻留与 cgroup 文件计费没有共同的独占物理页分母；尚未测跨租户 PFN 共享或 DAX 效果。
+两遍扫描无错误，changed_pages=0；全部边界确认 frozen=1。指标口径见[测量说明](../../docs/measurement.md)。
 
 优先保留为长轨迹编译压力场景。主结果采用 32 GiB 复测，原 8 GiB 曲线用于限额对照。需将可复用工具链/源码与私有构建输出分开，不能把全部文件页视为共享潜力。
 
@@ -112,7 +112,7 @@ Lottolabs 真正可下载的 318 调用轨迹；不采用旧候选表中的约 3
 
 - [逐工具时延 CSV](runs/compile-compcert-20261020T205643/steps.csv)、[边界指标 CSV](runs/compile-compcert-20261020T205643/boundaries.csv)、[汇总](runs/compile-compcert-20261020T205643/metrics.json)、[运行配置](runs/compile-compcert-20261020T205643/run.json)。
 - [来源 URL / revision / SHA-256](../../experiments/container-screening/workloads/compile-compcert/provenance.json)。
-- 完整连续序列、逐步命令和 stdout/stderr 保留于 cpu-15 的原始归档，本次不公开上传压缩包；它们不影响直接阅读本页图表和结果。
+- 完整连续序列、逐步命令和 stdout/stderr 保存在 cpu-15 的原始归档。
 - [数据说明](../../docs/data-and-sources.md)、[部署说明](../../docs/deployment/README.md)。
 
 [返回十任务总览](../../README.md)

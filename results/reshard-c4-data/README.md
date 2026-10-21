@@ -2,9 +2,9 @@
 
 Terminal-Bench 社区公开解题轨迹，完整 36 次调用。
 
-**本轮已完成全部公开调用和三类数据采集。** 轨迹内第 33、34 步的全量往返与目录比对通过；附加检查验证脚本存在且可编译。
+轨迹内第 33、34 步的全量往返与目录比对通过；附加检查验证脚本存在且可编译。
 
-主记录：`reshard-c4-data-20261020T011626`，实验日期 2026-10-20（Asia/Shanghai）。本地检查、轨迹重放完成与官方 benchmark 判题是不同结论。
+主记录：`reshard-c4-data-20261020T011626`，实验日期 2026-10-20（Asia/Shanghai）。
 
 ## 实际执行与输入范围
 
@@ -80,7 +80,7 @@ Terminal-Bench 社区公开解题轨迹，完整 36 次调用。
 
 第 33 步源记录中的 /dev/fd cmp Illegal seek 未复现，本轮命令成功；不是逐退出状态相同的重放。
 
-两遍扫描均无错误且 changed_pages=0；每个边界均记录 frozen_verified=true。非零工具退出可对应源轨迹故意保留的失败尝试，不自动说明采集失败。匿名内存、文件驻留与 cgroup 文件计费没有共同的独占物理页分母；尚未测跨租户 PFN 共享或 DAX 效果。
+两遍扫描无错误，changed_pages=0；全部边界确认 frozen=1。指标口径见[测量说明](../../docs/measurement.md)。
 
 优先保留。输入可在多个实例之间复用，临时压缩包和解压输出主要是各实例私有页，应分别评估。
 
@@ -94,7 +94,7 @@ Terminal-Bench 社区公开解题轨迹，完整 36 次调用。
 
 - [逐工具时延 CSV](runs/reshard-c4-data-20261020T011626/steps.csv)、[边界指标 CSV](runs/reshard-c4-data-20261020T011626/boundaries.csv)、[汇总](runs/reshard-c4-data-20261020T011626/metrics.json)、[运行配置](runs/reshard-c4-data-20261020T011626/run.json)。
 - [来源 URL / revision / SHA-256](../../experiments/container-screening/workloads/reshard-c4-data/provenance.json)。
-- 完整连续序列、逐步命令和 stdout/stderr 保留于 cpu-15 的原始归档，本次不公开上传压缩包；它们不影响直接阅读本页图表和结果。
+- 完整连续序列、逐步命令和 stdout/stderr 保存在 cpu-15 的原始归档。
 - [数据说明](../../docs/data-and-sources.md)、[部署说明](../../docs/deployment/README.md)。
 
 [返回十任务总览](../../README.md)

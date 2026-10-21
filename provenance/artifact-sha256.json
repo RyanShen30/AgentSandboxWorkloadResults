@@ -4,8 +4,8 @@
     "sha256": "a5059064bf9a7513aa87775c7fbd4b08d063def1a64b3c96d66ffed1ab89e31f"
   },
   "README.md": {
-    "bytes": 9845,
-    "sha256": "81a3e44ed94f192e48bb06b796d0cb366c4487688a96b587734bff8c5d140716"
+    "bytes": 11527,
+    "sha256": "cad0ea4220587dfe894cf5d5573c8ef77bf58018619ea237c17f8e46f82521ed"
   },
   "docs/README.md": {
     "bytes": 624,
@@ -20,12 +20,12 @@
     "sha256": "4c2150e10cee6512321054157c3e65295d556f9c732e41d57d45605a1a019312"
   },
   "docs/measurement.md": {
-    "bytes": 6030,
-    "sha256": "6faad8c14e3f2ea4fbcf851a1d3f732ea0328fa9e6f5fc2d21bb97a07243d031"
+    "bytes": 6360,
+    "sha256": "c7558c93d285a4e5f8e292b07a56c82bd53da99ad0a84f02aee54fcf788a0c80"
   },
   "docs/templates/root-readme.md": {
-    "bytes": 8020,
-    "sha256": "ddbb4fdbacfc08fd883f952afece5199de7346736243c9bd17fb50987a14f0b5"
+    "bytes": 9739,
+    "sha256": "631623479489c30fa386c37ae8d439df44a18d27add9fd300163bfcac5fc5d21"
   },
   "docs/validation.md": {
     "bytes": 4209,
@@ -272,8 +272,8 @@
     "sha256": "ef476bc502fb0f964ded06176640f9abca1a6ba3e425b580e5075b4c36548b40"
   },
   "results/apache__logging-log4j2/README.md": {
-    "bytes": 6085,
-    "sha256": "088459d0f15171515664ee980b710f3cd5dd74db623a5f0e74a8d3d3c310ad2c"
+    "bytes": 5671,
+    "sha256": "f5fc202cdf7592dc8931550540c2723e02730a8180c7057ee36f35e5fb559a20"
   },
   "results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/boundaries.csv": {
     "bytes": 4411,
@@ -320,8 +320,8 @@
     "sha256": "c23e7c257909276bdf2987e1b2245b92f291936d12d257170f7726b44f0ca50b"
   },
   "results/build-cython-ext/README.md": {
-    "bytes": 6623,
-    "sha256": "56a5b1ccfac6d65773e781f14ac3a27966172210972d51997484e92bee94c100"
+    "bytes": 6209,
+    "sha256": "4874a56eb332880bd2a9874f64bb608ddb4c89b109f99d9eb96b3f2811275ed0"
   },
   "results/build-cython-ext/runs/build-cython-ext-20261020T010948/boundaries.csv": {
     "bytes": 31592,
@@ -360,8 +360,8 @@
     "sha256": "d910a3e1d7a6b5545417e93e72a772e4e824aa62248ddd637d2ccc9625b7dd3f"
   },
   "results/compile-compcert/README.md": {
-    "bytes": 8893,
-    "sha256": "d5eaa7ff18a90bfd9d103f654f28afc4e322394222bf8a993ef95167f6804526"
+    "bytes": 8479,
+    "sha256": "e2af4ca6716ed8296ef4eddfa229d20cef5aca6a7b9e501115ca3bf197ece2c5"
   },
   "results/compile-compcert/comparison.csv": {
     "bytes": 574,
@@ -484,8 +484,8 @@
     "sha256": "044f5e0977c7a3555dc51850d678f1f2dd74a2ec7d636211671125e73154f118"
   },
   "results/count-dataset-tokens/README.md": {
-    "bytes": 7415,
-    "sha256": "423f7b21d2bdab245a136ec5ad8122123d40b09edd757fea72cdad2bfaf0ede8"
+    "bytes": 7001,
+    "sha256": "8db64943b8aebfb649972185bd5a9ce9722f97037662f3b751f7282580251157"
   },
   "results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/boundaries.csv": {
     "bytes": 6579,
@@ -528,8 +528,8 @@
     "sha256": "a54ba600e32148ec74f03cd461bc74286940cfd147d8448d80e30555a474dd3a"
   },
   "results/django__django-16819/README.md": {
-    "bytes": 6641,
-    "sha256": "1d012121fa78da9cb01aa16fe769e7d887d626163519f7a4cf7394ad64a52adb"
+    "bytes": 6227,
+    "sha256": "93dfaa8b1b057183b72faa0d33095c9ee6d6c7843c11bfd01148dea0383ad808"
   },
   "results/django__django-16819/runs/django__django-16819-20261020T165703/boundaries.csv": {
     "bytes": 11140,
@@ -580,8 +580,8 @@
     "sha256": "320d617a3ec4b80eb4824a9d104b2c6f7996eacf570c3502f0f136a59e7b4e15"
   },
   "results/hf-model-inference/README.md": {
-    "bytes": 7154,
-    "sha256": "2a2b9df1d64fba7fb4ff94a4718060ef1405039560f7cf3c8094bd758bc4502f"
+    "bytes": 6740,
+    "sha256": "654a896f35dd635815e2b0347344f48e8e8f4bbcde4a85e86f3ed35661ed4286"
   },
   "results/hf-model-inference/runs/hf-model-inference-20261020T010339/boundaries.csv": {
     "bytes": 4787,
@@ -620,8 +620,8 @@
     "sha256": "18916801dfd0c343111f13075a61c2616934241958edd3f40fd9aa82fbed2333"
   },
   "results/large-scale-text-editing/README.md": {
-    "bytes": 6771,
-    "sha256": "8f3756379d820402147f6dfa5e435186d5113cf4e83c97c85b1c5d1c9ccad0f8"
+    "bytes": 6357,
+    "sha256": "08810d41f5137edcbb92a259ea41d251cc5a0ed1b1a8e902f78ede39ee9c0af6"
   },
   "results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/boundaries.csv": {
     "bytes": 19058,
@@ -660,8 +660,8 @@
     "sha256": "52f213dd86d8dc3b301d247ceb7ddcffb7d48da62942302c28e7f20055e4756a"
   },
   "results/matplotlib__matplotlib-24177/README.md": {
-    "bytes": 6813,
-    "sha256": "8e7d25afbf5f0932536cee119dbd40658a978cdd34b04a1ade1c2ed76b12c37e"
+    "bytes": 6399,
+    "sha256": "afdf54f761a4aaaa1cccee8f36a349b5b7be5a5df1d4181341e53e7c8d81e208"
   },
   "results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/boundaries.csv": {
     "bytes": 37432,
@@ -712,8 +712,8 @@
     "sha256": "193616d58550869192da95128a8c3363866eb4c68dc00ee7f3cb8bd1239b98c3"
   },
   "results/mozilla__pdf.js-20957/README.md": {
-    "bytes": 5941,
-    "sha256": "12376bf3078c3601ecefe2b329f2818ed4cf4cf68ac404dc8f00adcaa0ada2bb"
+    "bytes": 5527,
+    "sha256": "9db18c9a94544e9a967b085d180063c9d38b5cf2d7b3911df4dad6d6576f751f"
   },
   "results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/boundaries.csv": {
     "bytes": 2587,
@@ -760,8 +760,8 @@
     "sha256": "86d55f957b96303d60826c070e531f3c31e1d5cf807035f6870d1cdd2847afe9"
   },
   "results/reshard-c4-data/README.md": {
-    "bytes": 7173,
-    "sha256": "672b492b405739d3346cfbeab87b5d521f7758e847aa3bbba5cae4e65daf82eb"
+    "bytes": 6759,
+    "sha256": "745ec8eea50badbdc29e4e1bd644b1dd7913d1c3862686b67e4bc033a5ec928d"
   },
   "results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/boundaries.csv": {
     "bytes": 14121,
@@ -808,8 +808,8 @@
     "sha256": "5e292477796c727065199958448168a9551cc684187bdb5ddd41c06a4eef7ef9"
   },
   "scripts/build_results.py": {
-    "bytes": 22049,
-    "sha256": "3213da537f328601ff33f40151ab81769eba7b5b5eb8e48910b502104edaa85e"
+    "bytes": 21719,
+    "sha256": "d12fae5167e0b4d572aeeb4a3de02483c3102f52f22c2045108acb9184db4bc7"
   },
   "scripts/fetch_sources.py": {
     "bytes": 1319,

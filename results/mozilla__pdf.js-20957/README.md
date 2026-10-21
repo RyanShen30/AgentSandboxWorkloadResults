@@ -2,9 +2,9 @@
 
 RepoLaunch setup.log 中 5 条安装、构建、CLI 测试命令；不包含完整 issue 修复轨迹。
 
-**本轮已完成全部公开调用和三类数据采集。** 两轮 CLI 测试均为 1,127 specs、0 failures、56 pending；结束后检查 node_modules 与 build 目录。
+两轮 CLI 测试均为 1,127 specs、0 failures、56 pending；结束后检查 node_modules 与 build 目录。
 
-主记录：`mozilla__pdf.js-20957-20261020T010602`，实验日期 2026-10-20（Asia/Shanghai）。本地检查、轨迹重放完成与官方 benchmark 判题是不同结论。
+主记录：`mozilla__pdf.js-20957-20261020T010602`，实验日期 2026-10-20（Asia/Shanghai）。
 
 ## 实际执行与输入范围
 
@@ -78,7 +78,7 @@ RepoLaunch setup.log 中 5 条安装、构建、CLI 测试命令；不包含完�
 
 只覆盖公开的环境准备与测试命令。排除 14 个非拥有者文件、约 5.1 MiB，其真实驻留量未知。源码与 setup.log 从 main 获取，以下载内容哈希留存；原记录未固定 archive 仓库提交。
 
-两遍扫描均无错误且 changed_pages=0；每个边界均记录 frozen_verified=true。非零工具退出可对应源轨迹故意保留的失败尝试，不自动说明采集失败。匿名内存、文件驻留与 cgroup 文件计费没有共同的独占物理页分母；尚未测跨租户 PFN 共享或 DAX 效果。
+两遍扫描无错误，changed_pages=0；全部边界确认 frozen=1。指标口径见[测量说明](../../docs/measurement.md)。
 
 优先保留为短轨迹依赖安装工作负载。npm 依赖、浏览器和基础系统页具有复用机会；不能据此评价修复 Agent 的行为。
 
@@ -90,7 +90,7 @@ RepoLaunch setup.log 中 5 条安装、构建、CLI 测试命令；不包含完�
 
 - [逐工具时延 CSV](runs/mozilla__pdf.js-20957-20261020T010602/steps.csv)、[边界指标 CSV](runs/mozilla__pdf.js-20957-20261020T010602/boundaries.csv)、[汇总](runs/mozilla__pdf.js-20957-20261020T010602/metrics.json)、[运行配置](runs/mozilla__pdf.js-20957-20261020T010602/run.json)。
 - [来源 URL / revision / SHA-256](../../experiments/container-screening/workloads/mozilla__pdf.js-20957/provenance.json)。
-- 完整连续序列、逐步命令和 stdout/stderr 保留于 cpu-15 的原始归档，本次不公开上传压缩包；它们不影响直接阅读本页图表和结果。
+- 完整连续序列、逐步命令和 stdout/stderr 保存在 cpu-15 的原始归档。
 - [数据说明](../../docs/data-and-sources.md)、[部署说明](../../docs/deployment/README.md)。
 
 [返回十任务总览](../../README.md)

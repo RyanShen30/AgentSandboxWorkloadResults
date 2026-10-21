@@ -2,9 +2,9 @@
 
 公开轨迹中 28 次终端调用全部重放；原 Agent 因 3000 秒模型超时结束，非正常完成的端到端 Agent 轨迹。
 
-**本轮已完成全部公开调用和三类数据采集。** 结束后仅对改动文件做 py_compile 语法检查，结果通过；不足以证明修复正确。源记录 reward=1.0 不能代替本轮官方判题。
+结束后仅对改动文件做 py_compile 语法检查，结果通过；不足以证明修复正确。源记录 reward=1.0 不能代替本轮官方判题。
 
-主记录：`django__django-16819-20261020T165703`，实验日期 2026-10-20（Asia/Shanghai）。本地检查、轨迹重放完成与官方 benchmark 判题是不同结论。
+主记录：`django__django-16819-20261020T165703`，实验日期 2026-10-20（Asia/Shanghai）。
 
 ## 实际执行与输入范围
 
@@ -81,7 +81,7 @@
 
 公开终端双反斜杠编码解码一层；不重放原模型思考和 PTY 等待时长。内存/新增驻留很小，大量初始缓存来自镜像准备。
 
-两遍扫描均无错误且 changed_pages=0；每个边界均记录 frozen_verified=true。非零工具退出可对应源轨迹故意保留的失败尝试，不自动说明采集失败。匿名内存、文件驻留与 cgroup 文件计费没有共同的独占物理页分母；尚未测跨租户 PFN 共享或 DAX 效果。
+两遍扫描无错误，changed_pages=0；全部边界确认 frozen=1。指标口径见[测量说明](../../docs/measurement.md)。
 
 保留为低内存源码浏览对照，不作为大规模活跃文件缓存首选。后续需要正常完成且有测试证据的轨迹再评价修复任务。
 
@@ -95,7 +95,7 @@
 
 - [逐工具时延 CSV](runs/django__django-16819-20261020T165703/steps.csv)、[边界指标 CSV](runs/django__django-16819-20261020T165703/boundaries.csv)、[汇总](runs/django__django-16819-20261020T165703/metrics.json)、[运行配置](runs/django__django-16819-20261020T165703/run.json)。
 - [来源 URL / revision / SHA-256](../../experiments/container-screening/workloads/django__django-16819/provenance.json)。
-- 完整连续序列、逐步命令和 stdout/stderr 保留于 cpu-15 的原始归档，本次不公开上传压缩包；它们不影响直接阅读本页图表和结果。
+- 完整连续序列、逐步命令和 stdout/stderr 保存在 cpu-15 的原始归档。
 - [数据说明](../../docs/data-and-sources.md)、[部署说明](../../docs/deployment/README.md)。
 
 [返回十任务总览](../../README.md)

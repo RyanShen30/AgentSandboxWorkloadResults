@@ -2,7 +2,7 @@
 
 在 cpu-15 上完成 **10 个任务的固定公开工具轨迹重放**，收集工具时延、容器内存变化和逐工具冻结后的文件缓存驻留。十任务主结果共 **{{PRIMARY_CALLS}} 次工具调用、{{PRIMARY_BOUNDARIES}} 个缓存边界**；CompCert 额外保留 8 GiB 原记录，仓库共 11 次完整运行、{{ALL_CALLS}} 次调用、{{ALL_BOUNDARIES}} 个边界。实验日期为 **2026-10-20，Asia/Shanghai**。
 
-这是为后续 Agent Sandbox FS 多租户、Page Cache 和 DAX 实验进行的容器初筛。公开轨迹直接提供工具调用，不重新创建 LLM Agent，也不调用模型 API。十项采集完成与任务修复正确、官方判题通过是不同结论；Notion 的“已跑完”也仅表示本轮采集完成。原候选共 15 项，本仓库只覆盖已运行的 10 项。
+本轮为 Agent Sandbox FS 的多租户文件共享、Page Cache 和 DAX 实验筛选 workload，采用固定工具轨迹重放，不调用模型 API。
 
 ## 十任务整体结果
 
@@ -47,8 +47,6 @@ rootless 扫描只计拥有的普通文件，以避免 mincore 对非拥有者�
 
 ## 如何解读与继续使用
 
-C4、模型下载/推理、PDF.js 依赖安装、Log4j2 和 CompCert 优先用于后续文件共享实验；Cython、CSV 可作为编译/文本处理对照。token 计数、Matplotlib 与 Django 更适合作为小业务输入或小增量对照。这个顺序依据本轮执行内容与驻留变化，尚未通过并发实验验证共享节省量。
-
 Matplotlib 与 Django 的大部分驻留在轨迹开始前已存在。新写入的构建目录、压缩包、模型下载副本和安装输出也未必跨 sandbox 共享。后续需要在相同输入/只读快照、多实例并发和受控缓存条件下，另测实际访问与唯一物理页；本轮没有多租户 PFN 去重或 DAX 对照，不能推出内存节省比例。
 
 所有实验容器已删除，第二批及 CompCert 复测本轮新增镜像已清理；第一批镜像仍留在 cpu-15 的专用存储供复用。结束时容器可写层只在第二批/复测采集，**不是磁盘峰值**。原始数值、日志和命令已归档，容器镜像/层不进 Git。
@@ -79,4 +77,22 @@ MPLCONFIGDIR=/tmp/aswr-matplotlib python3 scripts/build_results.py
 python3 scripts/verify_archive.py
 ```
 
-本仓库参考 [IncrementalDAX_moti](https://github.com/132ash/IncrementalDAX_moti) 的“实验规程 / 部署文档 / 按任务结果”组织方式，并保留可重算的完整数值序列。该仓库的 AgentENV/TrEnv-X、guest/PFN 指标与本轮容器测量不同；参考版本为 `a9bc7deadb68a6e24b7242eab343dfedf953ea38`，没有复制其 API 凭据或整套基线。
+文档组织参考 [IncrementalDAX_moti](https://github.com/132ash/IncrementalDAX_moti)（`a9bc7deadb68a6e24b7242eab343dfedf953ea38`）。本轮为容器测量，该仓库的 guest/PFN 指标不能直接与本轮结果比较。
+
+## 论文实验任务建议
+
+建议以 **C4、HF 推理、PDF.js、Log4j2** 为主实验候选，Cython、CSV 作对照，CompCert 作压力补充。
+
+| 用途 | 任务 | 实测依据与实验重点 |
+| --- | --- | --- |
+| 主实验候选 | [C4](results/reshard-c4-data/README.md) | 36 次调用，9,898 个输入文件；峰值驻留较初始增加 1,729.9 MiB。研究固定输入复用与私有压缩/解压输出。 |
+| 主实验候选 | [HF 推理](results/hf-model-inference/README.md) | 11 次调用，驻留增加 1,282.3 MiB。研究固定 revision 的模型权重及运行库复用，区分下载缓存与实际加载格式。 |
+| 主实验候选 | [PDF.js](results/mozilla__pdf.js-20957/README.md) | 5 次调用，驻留增加 1,458.8 MiB。覆盖依赖安装、构建和测试中的多文件访问；作为 setup workload 使用。 |
+| 主实验候选 | [Log4j2](results/apache__logging-log4j2/README.md) | 10 次调用，驻留增加 844.7 MiB。研究 JDK/Maven 依赖复用与私有 target 输出；本轨迹跳过测试。 |
+| 对照实验 | [Cython](results/build-cython-ext/README.md)、[CSV](results/large-scale-text-editing/README.md) | 峰值驻留增量分别为 343.8、140.2 MiB，提供原生编译和反复文本读写的较小缓存变化对照。 |
+| 压力补充 | [CompCert](results/compile-compcert/README.md) | 318 次调用，内存峰值约 12.76 GiB。采用 32 GiB 配置，单列长轨迹编译压力；大量 sleep/轮询增加重放成本。 |
+| 暂不列为主实验 | [token 计数](results/count-dataset-tokens/README.md)、[Matplotlib](results/matplotlib__matplotlib-24177/README.md)、[Django](results/django__django-16819/README.md) | token 任务实际仅计数 26 行；后两项初始暖缓存较大，新增驻留约 8.9 MiB、40 KiB。需补充冷缓存或文件访问证据后再评估活跃工作集。 |
+
+驻留增量均为“边界峰值 − 初始值”，不等于读取字节数或可共享内存；暖缓存下的小增量也不能证明工作集小。以上为候选选择，尚无跨实例共享率或 DAX 对照结果。
+
+正式实验保留完整轨迹基线，并增加同一只读输入/依赖快照场景；下载/安装与读取/加载分阶段报告，输出保持各实例私有。先做 1/2/4 实例、冷/暖缓存及每配置至少 3 次重复，统计宿主实际内存、共享物理页和工具时延。性能运行不插入逐工具暂停，暂停扫描另用于资源剖析。

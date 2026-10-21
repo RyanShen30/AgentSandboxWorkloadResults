@@ -2,9 +2,9 @@
 
 EnvBench 轨迹中的 9 次 Agent 命令，加 1 次 SDKMAN 初始化，共 10 次。
 
-**本轮已完成全部公开调用和三类数据采集。** 最后编译调用退出 0、BUILD SUCCESS，且输出 class 文件。命令使用 -DskipTests，因此只证明编译，不代表测试通过。
+最后编译调用退出 0、BUILD SUCCESS，且输出 class 文件。命令使用 -DskipTests，因此只证明编译，不代表测试通过。
 
-主记录：`apache__logging-log4j2-20261020T152541`，实验日期 2026-10-20（Asia/Shanghai）。本地检查、轨迹重放完成与官方 benchmark 判题是不同结论。
+主记录：`apache__logging-log4j2-20261020T152541`，实验日期 2026-10-20（Asia/Shanghai）。
 
 ## 实际执行与输入范围
 
@@ -80,7 +80,7 @@ EnvBench 轨迹中的 9 次 Agent 命令，加 1 次 SDKMAN 初始化，共 10 �
 
 附加检查的 find | head 在 pipefail 下返回 141（SIGPIPE）；原 FAIL 原样保留，另有 validation-evidence.json 记录编译成功证据，不覆盖原检查。
 
-两遍扫描均无错误且 changed_pages=0；每个边界均记录 frozen_verified=true。非零工具退出可对应源轨迹故意保留的失败尝试，不自动说明采集失败。匿名内存、文件驻留与 cgroup 文件计费没有共同的独占物理页分母；尚未测跨租户 PFN 共享或 DAX 效果。
+两遍扫描无错误，changed_pages=0；全部边界确认 frozen=1。指标口径见[测量说明](../../docs/measurement.md)。
 
 优先保留 JVM 与 Maven 缓存场景；预安装 JDK/依赖可复用，每实例 target 构建产物应视为私有。
 
@@ -93,7 +93,7 @@ EnvBench 轨迹中的 9 次 Agent 命令，加 1 次 SDKMAN 初始化，共 10 �
 
 - [逐工具时延 CSV](runs/apache__logging-log4j2-20261020T152541/steps.csv)、[边界指标 CSV](runs/apache__logging-log4j2-20261020T152541/boundaries.csv)、[汇总](runs/apache__logging-log4j2-20261020T152541/metrics.json)、[运行配置](runs/apache__logging-log4j2-20261020T152541/run.json)。
 - [来源 URL / revision / SHA-256](../../experiments/container-screening/workloads/apache__logging-log4j2/provenance.json)。
-- 完整连续序列、逐步命令和 stdout/stderr 保留于 cpu-15 的原始归档，本次不公开上传压缩包；它们不影响直接阅读本页图表和结果。
+- 完整连续序列、逐步命令和 stdout/stderr 保存在 cpu-15 的原始归档。
 - [数据说明](../../docs/data-and-sources.md)、[部署说明](../../docs/deployment/README.md)。
 
 [返回十任务总览](../../README.md)

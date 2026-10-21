@@ -2,9 +2,9 @@
 
 Terminal-Bench 社区公开轨迹，完整 83 次调用。
 
-**本轮已完成全部公开调用和三类数据采集。** 三个编译扩展导入成功；两轮各 18 tests passed，未发现失败汇总。
+三个编译扩展导入成功；两轮各 18 tests passed，未发现失败汇总。
 
-主记录：`build-cython-ext-20261020T010948`，实验日期 2026-10-20（Asia/Shanghai）。本地检查、轨迹重放完成与官方 benchmark 判题是不同结论。
+主记录：`build-cython-ext-20261020T010948`，实验日期 2026-10-20（Asia/Shanghai）。
 
 ## 实际执行与输入范围
 
@@ -78,7 +78,7 @@ Terminal-Bench 社区公开轨迹，完整 83 次调用。
 
 保留源命令的编译失败与修复尝试。运行时依赖没有全部固定为离线快照；native read/write 通过真实文件操作桥接。
 
-两遍扫描均无错误且 changed_pages=0；每个边界均记录 frozen_verified=true。非零工具退出可对应源轨迹故意保留的失败尝试，不自动说明采集失败。匿名内存、文件驻留与 cgroup 文件计费没有共同的独占物理页分母；尚未测跨租户 PFN 共享或 DAX 效果。
+两遍扫描无错误，changed_pages=0；全部边界确认 frozen=1。指标口径见[测量说明](../../docs/measurement.md)。
 
 保留为原生编译对照。编译器和头文件可复用，编译输出多为私有页；本轮文件驻留增量较小。
 
@@ -92,7 +92,7 @@ Terminal-Bench 社区公开轨迹，完整 83 次调用。
 
 - [逐工具时延 CSV](runs/build-cython-ext-20261020T010948/steps.csv)、[边界指标 CSV](runs/build-cython-ext-20261020T010948/boundaries.csv)、[汇总](runs/build-cython-ext-20261020T010948/metrics.json)、[运行配置](runs/build-cython-ext-20261020T010948/run.json)。
 - [来源 URL / revision / SHA-256](../../experiments/container-screening/workloads/build-cython-ext/provenance.json)。
-- 完整连续序列、逐步命令和 stdout/stderr 保留于 cpu-15 的原始归档，本次不公开上传压缩包；它们不影响直接阅读本页图表和结果。
+- 完整连续序列、逐步命令和 stdout/stderr 保存在 cpu-15 的原始归档。
 - [数据说明](../../docs/data-and-sources.md)、[部署说明](../../docs/deployment/README.md)。
 
 [返回十任务总览](../../README.md)
