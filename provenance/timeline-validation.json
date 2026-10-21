@@ -1,0 +1,232 @@
+{
+  "status": "PASS",
+  "renderer": "scripts/plot_timelines.py",
+  "source": "Existing 2026-10-20 measurements; no workload reruns",
+  "views": [
+    "Recorded wall clock with tool/pause/async intervals",
+    "Pause-removed display; all paused samples retained as gray dots"
+  ],
+  "reference": "https://arxiv.org/pdf/2602.09345v3#page=4",
+  "per_run": {
+    "reshard-c4-data-20261020T011626": {
+      "tool_calls": 36,
+      "cache_snapshots": 37,
+      "continuous_samples": 738,
+      "samples_during_pauses": 605,
+      "wall_seconds": 149.46984444,
+      "pause_seconds": 120.985639635,
+      "display_seconds_without_pauses": 28.484204805000005,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "large-scale-text-editing-20261020T011906": {
+      "tool_calls": 50,
+      "cache_snapshots": 51,
+      "continuous_samples": 1953,
+      "samples_during_pauses": 283,
+      "wall_seconds": 392.189402787,
+      "pause_seconds": 56.160413402,
+      "display_seconds_without_pauses": 336.028989385,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "hf-model-inference-20261020T010339": {
+      "tool_calls": 11,
+      "cache_snapshots": 12,
+      "continuous_samples": 656,
+      "samples_during_pauses": 275,
+      "wall_seconds": 132.236739422,
+      "pause_seconds": 55.941821556,
+      "display_seconds_without_pauses": 76.29491786599999,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "mozilla__pdf.js-20957-20261020T010602": {
+      "tool_calls": 5,
+      "cache_snapshots": 6,
+      "continuous_samples": 1070,
+      "samples_during_pauses": 225,
+      "wall_seconds": 215.336879692,
+      "pause_seconds": 46.065520305,
+      "display_seconds_without_pauses": 169.271359387,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "build-cython-ext-20261020T010948": {
+      "tool_calls": 83,
+      "cache_snapshots": 84,
+      "continuous_samples": 1911,
+      "samples_during_pauses": 1230,
+      "wall_seconds": 385.038899139,
+      "pause_seconds": 246.232403435,
+      "display_seconds_without_pauses": 138.80649570399999,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "count-dataset-tokens-20261020T152023": {
+      "tool_calls": 16,
+      "cache_snapshots": 17,
+      "continuous_samples": 1501,
+      "samples_during_pauses": 234,
+      "wall_seconds": 305.269626314,
+      "pause_seconds": 46.798004578,
+      "display_seconds_without_pauses": 258.471621736,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "apache__logging-log4j2-20261020T152541": {
+      "tool_calls": 10,
+      "cache_snapshots": 11,
+      "continuous_samples": 2475,
+      "samples_during_pauses": 280,
+      "wall_seconds": 497.502568645,
+      "pause_seconds": 56.898647091,
+      "display_seconds_without_pauses": 440.603921554,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "compile-compcert-20261020T205643": {
+      "tool_calls": 318,
+      "cache_snapshots": 319,
+      "continuous_samples": 24519,
+      "samples_during_pauses": 13389,
+      "wall_seconds": 4951.419154335,
+      "pause_seconds": 2713.578745159,
+      "display_seconds_without_pauses": 2237.840409175999,
+      "async_wait_intervals": 9,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "matplotlib__matplotlib-24177-20261020T161817": {
+      "tool_calls": 95,
+      "cache_snapshots": 96,
+      "continuous_samples": 10868,
+      "samples_during_pauses": 10595,
+      "wall_seconds": 2205.876597701,
+      "pause_seconds": 2147.10101622,
+      "display_seconds_without_pauses": 58.775581481000245,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "django__django-16819-20261020T165703": {
+      "tool_calls": 28,
+      "cache_snapshots": 29,
+      "continuous_samples": 1106,
+      "samples_during_pauses": 1077,
+      "wall_seconds": 225.241533418,
+      "pause_seconds": 218.209577276,
+      "display_seconds_without_pauses": 7.031956142000013,
+      "async_wait_intervals": 0,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    },
+    "compile-compcert-20261020T182356": {
+      "tool_calls": 318,
+      "cache_snapshots": 319,
+      "continuous_samples": 24385,
+      "samples_during_pauses": 13537,
+      "wall_seconds": 4925.637704702,
+      "pause_seconds": 2745.002687459,
+      "display_seconds_without_pauses": 2180.635017243,
+      "async_wait_intervals": 9,
+      "checks": {
+        "one_clock_and_ordered_intervals": true,
+        "tools_do_not_overlap_scan_pauses": true,
+        "latency_matches_recorded_interval": true,
+        "cache_scans_inside_confirmed_freeze": true,
+        "compact_transform_preserves_every_tool_duration": true,
+        "compact_transform_removes_only_pause_duration": true,
+        "all_memory_samples_retained_in_both_views": true,
+        "all_n_plus_one_cache_snapshots_retained": true
+      }
+    }
+  }
+}

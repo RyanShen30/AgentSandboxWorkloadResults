@@ -4,8 +4,8 @@
     "sha256": "a5059064bf9a7513aa87775c7fbd4b08d063def1a64b3c96d66ffed1ab89e31f"
   },
   "README.md": {
-    "bytes": 11527,
-    "sha256": "cad0ea4220587dfe894cf5d5573c8ef77bf58018619ea237c17f8e46f82521ed"
+    "bytes": 12357,
+    "sha256": "9060fd5c76473f196ba795258b8efd35e49c6beaef36edd37481ac6c000c91f6"
   },
   "docs/README.md": {
     "bytes": 624,
@@ -20,16 +20,16 @@
     "sha256": "4c2150e10cee6512321054157c3e65295d556f9c732e41d57d45605a1a019312"
   },
   "docs/measurement.md": {
-    "bytes": 6360,
-    "sha256": "c7558c93d285a4e5f8e292b07a56c82bd53da99ad0a84f02aee54fcf788a0c80"
+    "bytes": 7749,
+    "sha256": "fc5c3b92cf60ea9318f4823a7799aded37b5a7f3d2eccc90482ab3175d8f687c"
   },
   "docs/templates/root-readme.md": {
-    "bytes": 9739,
-    "sha256": "631623479489c30fa386c37ae8d439df44a18d27add9fd300163bfcac5fc5d21"
+    "bytes": 10569,
+    "sha256": "6863bcaeab3308aa8a560b921d7e00bfed17dadaa50692a240804481f20c3073"
   },
   "docs/validation.md": {
-    "bytes": 4209,
-    "sha256": "7f9cde162541ed8e0ea27f2fe5fbf1852bdc618a6e1168d8d7e2b5d36b363f7f"
+    "bytes": 4855,
+    "sha256": "a3dbf097ef04a99629a9ff470a895ffe3fd04b0bd10e13c50c19e26ccd3ee6cf"
   },
   "experiments/container-screening/README.md": {
     "bytes": 4698,
@@ -244,8 +244,8 @@
     "sha256": "560be2c90c98971b7dd378df9bfa502cf4629fd77072b388cae6836fff42a406"
   },
   "provenance/qa-review.json": {
-    "bytes": 1371,
-    "sha256": "7339e18b67478dcf884e197662f167d009e9710abc67224b4e3248d494aa9bee"
+    "bytes": 4652,
+    "sha256": "f5075da472af7c588b9ed3f16002cdf5949473dfeb106f5ff0eea903317ff975"
   },
   "provenance/report-plan.json": {
     "bytes": 720,
@@ -263,29 +263,41 @@
     "bytes": 715,
     "sha256": "fe0e1e7734f7f272f9877ba9b40ed8f54a22ada4e216a9b83e0e9512e37cc250"
   },
+  "provenance/timeline-validation.json": {
+    "bytes": 9315,
+    "sha256": "de20bec62137db4d3d4d8d900b2c611c95e801d2231fed3ed09d45070a12c813"
+  },
   "requirements-report.txt": {
     "bytes": 108,
     "sha256": "ff9b08e72211ae104896a372b358b38ebe84f961de6af58f111054d2deb356c8"
   },
   "results/README.md": {
-    "bytes": 1722,
-    "sha256": "ef476bc502fb0f964ded06176640f9abca1a6ba3e425b580e5075b4c36548b40"
+    "bytes": 1993,
+    "sha256": "1226c47eeff2f8b89f25a741209ef43c53aca606e6fd681803a7051b83f18389"
   },
   "results/apache__logging-log4j2/README.md": {
-    "bytes": 5671,
-    "sha256": "f5fc202cdf7592dc8931550540c2723e02730a8180c7057ee36f35e5fb559a20"
+    "bytes": 6219,
+    "sha256": "a16c7016f8ee19b64f555298c0d7cfbf0d936a3cfd56487d2f77d05072190f00"
   },
   "results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/boundaries.csv": {
     "bytes": 4411,
     "sha256": "73c2b6bbca134d75cdc6272ce445298d7eea3ac69f1e229af0affee0e7dd66cb"
   },
+  "results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves-active.png": {
+    "bytes": 231573,
+    "sha256": "b511674eb6efc6d3feedba8b567c520882361a1e48ccc689cb01c565e19878f9"
+  },
+  "results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves-active.svg": {
+    "bytes": 129434,
+    "sha256": "b0f292d8bc22e7ce618c263d9b6693f4ebc929ca8209d40fdf299e63d4021050"
+  },
   "results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves.png": {
-    "bytes": 183138,
-    "sha256": "f0d1c574534737c07249800b23cd997364fd1772ae773b89a5cfa52754ff388b"
+    "bytes": 271005,
+    "sha256": "57d05da2d362db61e1471e80e37cae7c951d40e61bdb4f3df90fc56664d5ec51"
   },
   "results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves.svg": {
-    "bytes": 105549,
-    "sha256": "9227d395df844107cf162589e7b802ce7d44d64e30a728fddc3ab26eadd3de20"
+    "bytes": 139270,
+    "sha256": "4de8cf42817c3c19b608a0c9d65b899ed1b2f9189a24f51e0295d37b0d83b3d6"
   },
   "results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/disk-summary.json": {
     "bytes": 133,
@@ -320,20 +332,28 @@
     "sha256": "c23e7c257909276bdf2987e1b2245b92f291936d12d257170f7726b44f0ca50b"
   },
   "results/build-cython-ext/README.md": {
-    "bytes": 6209,
-    "sha256": "4874a56eb332880bd2a9874f64bb608ddb4c89b109f99d9eb96b3f2811275ed0"
+    "bytes": 6745,
+    "sha256": "4a8b3c34677d973631d4dbc0316ea2786b979f768166c14730cd7555819dfc4b"
   },
   "results/build-cython-ext/runs/build-cython-ext-20261020T010948/boundaries.csv": {
     "bytes": 31592,
     "sha256": "aeaa0a3415da25cf510bd986f48cbc6dbfcee2bbcc297874da41d45aab11b2eb"
   },
+  "results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves-active.png": {
+    "bytes": 274753,
+    "sha256": "0ecb93df4f2a900938ecc36350b2869ec1768f6b4f73ad598014a7c2e6e59d11"
+  },
+  "results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves-active.svg": {
+    "bytes": 221720,
+    "sha256": "a8920e702686df209a613146248c06057ae9d9533ebfbc79bcda0cd941169f2b"
+  },
   "results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves.png": {
-    "bytes": 209184,
-    "sha256": "5d970fe4fd26d9cbec33cb12cb4e7ddd754b6f3efd6341d01cff9a274e646c98"
+    "bytes": 394217,
+    "sha256": "b06ca6174b938a995bb6377570ce128d88b4d48a93185e945b66698dd325a3e2"
   },
   "results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves.svg": {
-    "bytes": 131426,
-    "sha256": "445cfc20ef33e34cbb9cbda32b07aa35431cce605d2831bc456d87b2c62369af"
+    "bytes": 290413,
+    "sha256": "5f53ba2416ad70fa2de2bf58c96028eba2bf42ce4d1e816f7a714f43bc03a336"
   },
   "results/build-cython-ext/runs/build-cython-ext-20261020T010948/memory-events.json": {
     "bytes": 115,
@@ -360,20 +380,20 @@
     "sha256": "d910a3e1d7a6b5545417e93e72a772e4e824aa62248ddd637d2ccc9625b7dd3f"
   },
   "results/compile-compcert/README.md": {
-    "bytes": 8479,
-    "sha256": "e2af4ca6716ed8296ef4eddfa229d20cef5aca6a7b9e501115ca3bf197ece2c5"
+    "bytes": 9103,
+    "sha256": "1e5653e57c65fcb7fd78ea151697519da51d40d1133c0817379550c8c31f8784"
   },
   "results/compile-compcert/comparison.csv": {
     "bytes": 574,
     "sha256": "a8dfe1ec546346014ac81aeda4a226cef39f7db2e1e28a1f0ce1f50d5c33fb12"
   },
   "results/compile-compcert/comparison.png": {
-    "bytes": 211853,
-    "sha256": "1f348190cbfe4acb3fe3dc5f489235c1b4f19581674ab0853af363c7395cddfe"
+    "bytes": 583714,
+    "sha256": "e40e2f0e89a2c820de039f90621a1d5de77f1cf4bd958cbe1f10b0327c093eda"
   },
   "results/compile-compcert/comparison.svg": {
-    "bytes": 196854,
-    "sha256": "01b3bba55ce2080ec6ecb3310e2d1387b3288a08fdd773994b351af123827d38"
+    "bytes": 1739636,
+    "sha256": "e7c259037a3e6ecba718b706cd283d902bd9ff4569070ea519d31c8a2bea5dde"
   },
   "results/compile-compcert/runs/compile-compcert-20261020T182356/async-barriers.jsonl": {
     "bytes": 2212,
@@ -383,13 +403,21 @@
     "bytes": 129903,
     "sha256": "2a54590de467907b6a17a9ac7b9cb69190268309b5de7f15e194cb10117cc270"
   },
+  "results/compile-compcert/runs/compile-compcert-20261020T182356/curves-active.png": {
+    "bytes": 305413,
+    "sha256": "2b4ffa4b6de6a992b590d76bae346bb4aaa91ddfb78f0b413acfd54e5ea46be4"
+  },
+  "results/compile-compcert/runs/compile-compcert-20261020T182356/curves-active.svg": {
+    "bytes": 769683,
+    "sha256": "1fdf404512c6b711f11f3a2fc1c838434d1782fc69d0a42846b297c96fa17b1f"
+  },
   "results/compile-compcert/runs/compile-compcert-20261020T182356/curves.png": {
-    "bytes": 227837,
-    "sha256": "3f6291b6058852753756d181bf3e6232a1b142ee409625ed371bd540110b05bd"
+    "bytes": 485990,
+    "sha256": "6c7f820db2d7c09da93beee7bfcb1f9aa52cbeb6eb0b6fb407dadad9ca91857d"
   },
   "results/compile-compcert/runs/compile-compcert-20261020T182356/curves.svg": {
-    "bytes": 285709,
-    "sha256": "2c6a67aba6b836efe7562c10792b4f8d88e44bce4f182a9f6aa05b1eb5eac476"
+    "bytes": 1003911,
+    "sha256": "c8cb01c12a9fb9de6aa95f1196e4c79ea4123acb26ca5fa15a607938dae8ab24"
   },
   "results/compile-compcert/runs/compile-compcert-20261020T182356/disk-summary.json": {
     "bytes": 134,
@@ -435,13 +463,21 @@
     "bytes": 129994,
     "sha256": "03199e34118eadbbb88840cac39daeb7ecf48ea07198763df366f5ea08b2f79f"
   },
+  "results/compile-compcert/runs/compile-compcert-20261020T205643/curves-active.png": {
+    "bytes": 282197,
+    "sha256": "5ecc821c9e8d779bb3941ed4de31cc0d39627c24024fb3d391bb4c5a3c440568"
+  },
+  "results/compile-compcert/runs/compile-compcert-20261020T205643/curves-active.svg": {
+    "bytes": 753730,
+    "sha256": "39c664e46e9ff06345b00f7c443535a07cf739e4fb4831bc44f93267ee420f03"
+  },
   "results/compile-compcert/runs/compile-compcert-20261020T205643/curves.png": {
-    "bytes": 212116,
-    "sha256": "090d1029ff298096d2698be8a5450680287ef3fc00a177398ebddb215d501fdd"
+    "bytes": 466354,
+    "sha256": "f03ad28c1e805b66eb313c315023f31ae3793bca32a5b5afc04b7623b8f90723"
   },
   "results/compile-compcert/runs/compile-compcert-20261020T205643/curves.svg": {
-    "bytes": 278215,
-    "sha256": "260a9b2c6bf5a14f26e2bd79a4bb901105b431cf329d53dae0864d6946d8625a"
+    "bytes": 990338,
+    "sha256": "d387a15f33181f27eef4c30747c3b33195167591dbe3d918770477a1c4f13ddd"
   },
   "results/compile-compcert/runs/compile-compcert-20261020T205643/disk-summary.json": {
     "bytes": 134,
@@ -484,20 +520,28 @@
     "sha256": "044f5e0977c7a3555dc51850d678f1f2dd74a2ec7d636211671125e73154f118"
   },
   "results/count-dataset-tokens/README.md": {
-    "bytes": 7001,
-    "sha256": "8db64943b8aebfb649972185bd5a9ce9722f97037662f3b751f7282580251157"
+    "bytes": 7545,
+    "sha256": "6acf9cfec4d1be6f14ae6b01222b3714ef4e067220cc9b26f4a4c93573fdccc4"
   },
   "results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/boundaries.csv": {
     "bytes": 6579,
     "sha256": "537ec4f73dc374a6d920a3c0a180f7938551932e1ca98dd0fbb9199b1b570a9f"
   },
+  "results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves-active.png": {
+    "bytes": 234760,
+    "sha256": "22ae3792c6e237343c00801f1484eda0f72db79ed8a62bfb9c777bd5086d6125"
+  },
+  "results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves-active.svg": {
+    "bytes": 131534,
+    "sha256": "1dce40533576125d3b2cda77614ba9191d92c1f1cf5dc79fd15a2b3dbd2fb388"
+  },
   "results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves.png": {
-    "bytes": 192514,
-    "sha256": "2461170a604f3a2aaf80f522e9375ffccb29308e4d3b9d56a03c845754be5599"
+    "bytes": 287806,
+    "sha256": "5c8608cb82b97f6be49e68ddabe853bc8406cd46a05591f7b8aa7912bbd6ec2e"
   },
   "results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves.svg": {
-    "bytes": 98872,
-    "sha256": "9b84f99f36e5a320192e918771f1b3c573db890863c0b4c568cb784a8d249407"
+    "bytes": 144465,
+    "sha256": "86004cdfe58334c2e7f5ac29df884b44fccb846d2a3a9a58693198d384cb5a16"
   },
   "results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/disk-summary.json": {
     "bytes": 132,
@@ -528,20 +572,28 @@
     "sha256": "a54ba600e32148ec74f03cd461bc74286940cfd147d8448d80e30555a474dd3a"
   },
   "results/django__django-16819/README.md": {
-    "bytes": 6227,
-    "sha256": "93dfaa8b1b057183b72faa0d33095c9ee6d6c7843c11bfd01148dea0383ad808"
+    "bytes": 6771,
+    "sha256": "8518a6011ebacd4e81db9d06698d0c6b46899a4a54bcb7520c340664f0d54820"
   },
   "results/django__django-16819/runs/django__django-16819-20261020T165703/boundaries.csv": {
     "bytes": 11140,
     "sha256": "501790be835185d9168cb40f6a672241299ba89c9b3afbc0e57984a7029118f9"
   },
+  "results/django__django-16819/runs/django__django-16819-20261020T165703/curves-active.png": {
+    "bytes": 213069,
+    "sha256": "54cee38da5e7bc199880e963d7a0a02514bef1ea383340620183c6ecac2f29b5"
+  },
+  "results/django__django-16819/runs/django__django-16819-20261020T165703/curves-active.svg": {
+    "bytes": 133878,
+    "sha256": "02a4c70f79003dc6ac3cbd32bd4194346301dafbac145f52d646c378a8172d2c"
+  },
   "results/django__django-16819/runs/django__django-16819-20261020T165703/curves.png": {
-    "bytes": 170230,
-    "sha256": "2b18ba5ae86c516cabd07dc8d25b79bc7218784357fffe8b75d1891b88b66946"
+    "bytes": 303211,
+    "sha256": "978c96d8a8e562ca1a0a1459f48825d9ef4187d7e576131055203f55ab140492"
   },
   "results/django__django-16819/runs/django__django-16819-20261020T165703/curves.svg": {
-    "bytes": 92469,
-    "sha256": "29b26ee80378fbb247078ae5efaca0469e06c46b0c14c65be3e3f3e6919fbbb2"
+    "bytes": 160180,
+    "sha256": "a1d2b35a45c96eb2a0a369981fd446842c9a237d9aacd097ed67f3b292b2cd41"
   },
   "results/django__django-16819/runs/django__django-16819-20261020T165703/disk-summary.json": {
     "bytes": 131,
@@ -580,20 +632,28 @@
     "sha256": "320d617a3ec4b80eb4824a9d104b2c6f7996eacf570c3502f0f136a59e7b4e15"
   },
   "results/hf-model-inference/README.md": {
-    "bytes": 6740,
-    "sha256": "654a896f35dd635815e2b0347344f48e8e8f4bbcde4a85e86f3ed35661ed4286"
+    "bytes": 7280,
+    "sha256": "65cb38b96f31c83a032bab003810f806562ea665073abbd4a5204aa1b21b9a3f"
   },
   "results/hf-model-inference/runs/hf-model-inference-20261020T010339/boundaries.csv": {
     "bytes": 4787,
     "sha256": "359cafd319ae0408b75dffbf27b07677a5c420a784f79a999d510e7dd7b407c4"
   },
+  "results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves-active.png": {
+    "bytes": 222937,
+    "sha256": "1dbbfee8ce0996f6c64b7fa13e02805f2e1bed49afa3f1e5a68b49453d1889f5"
+  },
+  "results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves-active.svg": {
+    "bytes": 121302,
+    "sha256": "9cbd8287af7304b1afd8cefc49e99a2d880359303c828e57e6b4f961c12e7d75"
+  },
   "results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves.png": {
-    "bytes": 176110,
-    "sha256": "d1c04f22badb271c69fc96958c4cf83701f923df9f43477adbb3cea10ae8a9f8"
+    "bytes": 269484,
+    "sha256": "ed6a07d90f62178650d006e2a9be29bd295c880f7aef5f7d868b84ccc6d53a49"
   },
   "results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves.svg": {
-    "bytes": 91966,
-    "sha256": "481f84792e7949cd5ce03046d4006d75b05731dc9780660cbe11ea976c4191b1"
+    "bytes": 130604,
+    "sha256": "554fcee1d99cfb762aa3fa267befaf82a37931fa1decb5b4be7ab30ffe675c60"
   },
   "results/hf-model-inference/runs/hf-model-inference-20261020T010339/memory-events.json": {
     "bytes": 115,
@@ -620,20 +680,28 @@
     "sha256": "18916801dfd0c343111f13075a61c2616934241958edd3f40fd9aa82fbed2333"
   },
   "results/large-scale-text-editing/README.md": {
-    "bytes": 6357,
-    "sha256": "08810d41f5137edcbb92a259ea41d251cc5a0ed1b1a8e902f78ede39ee9c0af6"
+    "bytes": 6909,
+    "sha256": "7581ce476a39b5a240c470001b70dd6b389c542098da5c9438781f016c28e11d"
   },
   "results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/boundaries.csv": {
     "bytes": 19058,
     "sha256": "ffe8720772325c4ac3eea867a05896fefec3e410bb564f843a3c32cc4d2ead5f"
   },
+  "results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves-active.png": {
+    "bytes": 225201,
+    "sha256": "210fb00c20feb183a5c9e9f5bde1248462ece2fc2042c227cdaeb2a2af6d4187"
+  },
+  "results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves-active.svg": {
+    "bytes": 164119,
+    "sha256": "26b9578bfa77342a839e9bef383336d8e430100f2a094d6ec9bb0d392e01fc33"
+  },
   "results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves.png": {
-    "bytes": 183109,
-    "sha256": "8638dc9faaf2742fa3948a0b83988195f031682f112d8faf509c941d4241a92c"
+    "bytes": 300665,
+    "sha256": "3bcd0d45af465f427504f342121586fa459070dd556048d6381cf20d7e33c84b"
   },
   "results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves.svg": {
-    "bytes": 102862,
-    "sha256": "404cd85faf0deafe5c40c773c9dbffaee8f94c66078b8fcfe8781d2f7d44d2d6"
+    "bytes": 206362,
+    "sha256": "6170ebd34a5cd7bc08af7508b83695eb5aa6b6b1a706928ee44ad9f1295070cd"
   },
   "results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/memory-events.json": {
     "bytes": 115,
@@ -660,20 +728,28 @@
     "sha256": "52f213dd86d8dc3b301d247ceb7ddcffb7d48da62942302c28e7f20055e4756a"
   },
   "results/matplotlib__matplotlib-24177/README.md": {
-    "bytes": 6399,
-    "sha256": "afdf54f761a4aaaa1cccee8f36a349b5b7be5a5df1d4181341e53e7c8d81e208"
+    "bytes": 6959,
+    "sha256": "68cbda616af6c0f216627cb5519f2ad9e3129e447903c3bfb20e92d62bf4a4d6"
   },
   "results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/boundaries.csv": {
     "bytes": 37432,
     "sha256": "1dd24b7061587941cd3b559215c085f33ec7032fc811e183f75ab6716c9bda55"
   },
+  "results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves-active.png": {
+    "bytes": 280193,
+    "sha256": "75ab8f6116f020c313f52682ae737dec8f72d202ebabd813dc57a7d29bb62edf"
+  },
+  "results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves-active.svg": {
+    "bytes": 223711,
+    "sha256": "8b1a3ba3ed1e641c0eafd0f5e2cee2a02cd43792e2a8e2e9ff8ea5ed7aa58da8"
+  },
   "results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves.png": {
-    "bytes": 203104,
-    "sha256": "d6c59fec652e3822700d53b0ecce7a0b63b95d811bd33293e553a92683afcc15"
+    "bytes": 343221,
+    "sha256": "39c1e5bb116336be3bef37aa8b12a03ab657aa6e8c0f162699cd26e03fab0ff3"
   },
   "results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves.svg": {
-    "bytes": 129527,
-    "sha256": "2807715f1fef369daaa526c7ce60e2c52453e88ee4f1c21504d86278faa8a4c5"
+    "bytes": 308459,
+    "sha256": "f6f4ad1dcf39e85cbd224ef9d1a593264a16a3f4b7a10a229395772e9dc86d75"
   },
   "results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/disk-summary.json": {
     "bytes": 133,
@@ -712,20 +788,28 @@
     "sha256": "193616d58550869192da95128a8c3363866eb4c68dc00ee7f3cb8bd1239b98c3"
   },
   "results/mozilla__pdf.js-20957/README.md": {
-    "bytes": 5527,
-    "sha256": "9db18c9a94544e9a967b085d180063c9d38b5cf2d7b3911df4dad6d6576f751f"
+    "bytes": 6073,
+    "sha256": "18d417b0836f2f958c0ccda9bb95d5ce9f1cb69c35bbb79dd449f86e135d8336"
   },
   "results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/boundaries.csv": {
     "bytes": 2587,
     "sha256": "5374c27a9a660ecb1751cb426d6e39c9d29f634db4f316e7621a0f61b9d8c606"
   },
+  "results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves-active.png": {
+    "bytes": 230544,
+    "sha256": "2a1234a00218347528d022df76e04891cdb64ac9888a2448bb8b4bec9d27a250"
+  },
+  "results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves-active.svg": {
+    "bytes": 123480,
+    "sha256": "50e36048c87c773eb764317e6d6bed58b1f7346f1a93435df044b475eca88ab8"
+  },
   "results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves.png": {
-    "bytes": 203107,
-    "sha256": "1466d2ee8baa2b83570c37f1beab1e955ea032ec1b77b974e58dd883bbb9fb19"
+    "bytes": 259083,
+    "sha256": "fb03aebfa48c4afc27ae6163b17a43a55e34d8c38494fe35254c34318d5aaf9e"
   },
   "results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves.svg": {
-    "bytes": 104950,
-    "sha256": "1f40fc568dca70f822a267618019e73797935058202e74782a1d27e1be05b6d1"
+    "bytes": 126390,
+    "sha256": "217ea5d363a93db3207266d10e63c7c10f1e3a65676b5bcb29300ce0f1499fa7"
   },
   "results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/memory-events.json": {
     "bytes": 115,
@@ -752,28 +836,36 @@
     "sha256": "392b3ee0f5e59bc0758b46370b61167cb195d65ac7f22f09b3b0b8def7796883"
   },
   "results/overview.png": {
-    "bytes": 145719,
-    "sha256": "9c027b3a3c5effe4aeab72426db4df65ada00dc368ab3faf9a34aaa4c9144e2f"
+    "bytes": 148920,
+    "sha256": "c5c019aec59b2b97848687dc844df9e7c821076fd09b36b868cd01e4a2f9fc5b"
   },
   "results/overview.svg": {
-    "bytes": 79888,
-    "sha256": "86d55f957b96303d60826c070e531f3c31e1d5cf807035f6870d1cdd2847afe9"
+    "bytes": 79206,
+    "sha256": "a5b5a834a78bfd094a2b470837668c55e78faf18a06501d533a555a00bf42f44"
   },
   "results/reshard-c4-data/README.md": {
-    "bytes": 6759,
-    "sha256": "745ec8eea50badbdc29e4e1bd644b1dd7913d1c3862686b67e4bc033a5ec928d"
+    "bytes": 7293,
+    "sha256": "00280deb5eca9a0b68f23e8b960946c9014b173f6851f1282f8e34129fc0cb01"
   },
   "results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/boundaries.csv": {
     "bytes": 14121,
     "sha256": "24e365f45d6efe3a17ae25601228ac10578d29fc7db686089f834e27302fd41c"
   },
+  "results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves-active.png": {
+    "bytes": 254474,
+    "sha256": "6694849159184f280228390783cb6816ce3d0eb0a195093e28b04b013ff222cc"
+  },
+  "results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves-active.svg": {
+    "bytes": 143820,
+    "sha256": "1492449d531eeda378972ab01df399be57ed9d5b991eccb1aacb6050e48a48a4"
+  },
   "results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves.png": {
-    "bytes": 194037,
-    "sha256": "710519b9d2e9a42c954e23d074fd9604bdc0370e8ebdb0bca89651bfead35c2d"
+    "bytes": 333978,
+    "sha256": "a33e9e276559c948e8b5cab7a9322cd517920ebdc378c3c37a4310d95b4afcf8"
   },
   "results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves.svg": {
-    "bytes": 95856,
-    "sha256": "0554316f15253044adcdbfe4c3aabd8e34531174ab297086c03e6589e8c20262"
+    "bytes": 174567,
+    "sha256": "19de23ade1362768951a5236f7d5716f89c5d2d51444a1d90a4c75f6c6446811"
   },
   "results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/memory-events.json": {
     "bytes": 115,
@@ -808,8 +900,8 @@
     "sha256": "5e292477796c727065199958448168a9551cc684187bdb5ddd41c06a4eef7ef9"
   },
   "scripts/build_results.py": {
-    "bytes": 21719,
-    "sha256": "d12fae5167e0b4d572aeeb4a3de02483c3102f52f22c2045108acb9184db4bc7"
+    "bytes": 19408,
+    "sha256": "27dc1682405933b808797f9d47caebafce6391781bdf075d4df187a4f8d99a3b"
   },
   "scripts/fetch_sources.py": {
     "bytes": 1319,
@@ -818,6 +910,10 @@
   "scripts/materialize_replay.py": {
     "bytes": 2622,
     "sha256": "b43ffaf0ecad206aae3986a0451cbe6fcd4596c094dae25a8f2c0d6d1c693dfb"
+  },
+  "scripts/plot_timelines.py": {
+    "bytes": 15897,
+    "sha256": "c7e2ac6f107d0d8414a2c2c39781434b7951b9bdf0e38c93e612dd8bcd5d2058"
   },
   "scripts/prepare_image.py": {
     "bytes": 1755,

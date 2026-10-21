@@ -30,6 +30,14 @@
 
 CompCert 8 GiB 原运行峰值触及 8 GiB，`memory.events.max=31`，`oom=0`、`oom_kill=0`。32 GiB 复测内存峰值约 **12.762 GiB**，文件驻留峰值/结束值约 **4.860 GiB**，限额与 OOM 事件均为 0。[两轮曲线及指标](results/compile-compcert/README.md#8-gib-与-32-gib-复测)保留原记录，时延变化不能单独归因于限额。
 
+## 工具时延、内存与 Page Cache 曲线
+
+各任务的三个面板共用时间轴，参照 [AgentCgroup 图 5、6](https://arxiv.org/pdf/2602.09345v3#page=4) 标出工具执行区间，并另标暂停扫描与异步等待。下面以 HF 推理为例；第三幅的蓝色圆点为暂停后扫描得到的宿主文件 Page Cache 驻留量。
+
+![HF 推理：工具时延、容器内存与 Page Cache，统一墙钟时间轴](results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves.png)
+
+[HF 去除扫描暂停的辅助图](results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves-active.png) · [全部十任务曲线](results/README.md) · [时间轴与指标口径](docs/measurement.md#时间轴与未测项)。辅助图只压缩暂停区间，暂停期间的内存样本保留为灰点。
+
 ## 实际执行了哪些数据与操作
 
 | 任务 | 实际执行范围 |

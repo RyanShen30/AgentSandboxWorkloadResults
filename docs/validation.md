@@ -24,7 +24,9 @@ token 任务会加载 1,000 行 metadata，再筛选 26 行计数，不把 26 �
 
 ## 图表与解释核对
 
-所有图由 `scripts/build_results.py` 生成，采用从 0 开始的纵轴、明确单位、独立的工具编号/墙钟横轴，区分 cgroup memory、匿名内存、根文件驻留和 file−shmem 计费。初始驻留保留；不将不同分量峰值相加。CompCert 主设置与受限对照在图题和表格中标注。
+所有图由 `scripts/build_results.py` 与 `scripts/plot_timelines.py` 生成，纵轴从 0 开始，注明单位。每个 run 的三个面板共用时间轴和工具区间阴影，并分别提供完整墙钟图与去除扫描暂停的辅助图。内存与缓存口径分开，初始暖驻留保留；不将不同分量峰值相加。CompCert 对照按 8/32 GiB 分列，三个指标同样按实际墙钟对齐。
+
+[时间轴校验](../provenance/timeline-validation.json) 覆盖全部 11 个 run：工具起止与时延一致，扫描位于已确认冻结的区间内，工具与暂停不重叠，辅助图减去的时长等于原记录暂停总量，全部连续样本与 N+1 个缓存点均保留。暂停内样本在辅助图中显示为灰点。
 
 图表的人工预览结果、覆盖和归档检查保存于 [qa-review.json](../provenance/qa-review.json)。按图审阅后才将状态标为完成。表格以原始数据计算，展示值按统一精度取舍，不使用绘图抽样后的数值汇总。
 
@@ -33,6 +35,13 @@ token 任务会加载 1,000 行 metadata，再筛选 26 行计数，不把 26 �
 ```bash
 MPLCONFIGDIR=/tmp/aswr-matplotlib python3 scripts/build_results.py
 python3 scripts/verify_archive.py
+```
+
+只重画图表、保留已有结果表与任务文档：
+
+```bash
+ASWR_ARCHIVE_ROOT=/home/rashen/work/AgentSandboxWorkloadResults \
+  MPLCONFIGDIR=/tmp/aswr-matplotlib python3 scripts/build_results.py --figures-only
 ```
 
 构建图表会更新派生文件；若有意修改报告/图表，审核后更新校验清单：

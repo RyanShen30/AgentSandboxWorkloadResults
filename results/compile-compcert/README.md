@@ -35,9 +35,11 @@ Lottolabs 真正可下载的 318 调用轨迹；不采用旧候选表中的约 3
 
 ## 三项曲线
 
-![工具时延、容器内存和边界文件驻留](runs/compile-compcert-20261020T205643/curves.png)
+![统一时间轴：工具时延、容器内存与 Page Cache](runs/compile-compcert-20261020T205643/curves.png)
 
-[矢量图](runs/compile-compcert-20261020T205643/curves.svg)。第一幅按工具编号显示时延，空心标记为非零退出；后两幅横轴含人为暂停扫描和后台等待，不含模型思考。初始暖驻留按实测保留。内核 memory.peak 可能高于 200 ms 序列捕获的峰值，也可能包含预检。
+[矢量图](runs/compile-compcert-20261020T205643/curves.svg)。三幅图共用测量墙钟：蓝色阴影标出工具执行区间，灰色斜线标出暂停扫描，金色点纹标出异步依赖等待（如有）。第一幅显示逐工具时延，空心点表示非零退出；第二幅为容器 cgroup 内存；第三幅明确显示 Page Cache，其中圆点为暂停后的 mincore 扫描值，点间虚线只辅助阅读。
+
+[去除扫描暂停的辅助图](runs/compile-compcert-20261020T205643/curves-active.png) · [辅助图 SVG](runs/compile-compcert-20261020T205643/curves-active.svg)。辅助图只压缩暂停区间，仍保留调度与异步等待；暂停期间的内存样本用灰点显示。两种视图均保留初始暖缓存，不包含模型思考。指标定义见[测量说明](../../docs/measurement.md#时间轴与未测项)。
 
 ## 文件范围与驻留
 
@@ -106,7 +108,7 @@ Lottolabs 真正可下载的 318 调用轨迹；不采用旧候选表中的约 3
 
 ![CompCert 两轮对照](comparison.png)
 
-[原 8 GiB 三项曲线](runs/compile-compcert-20261020T182356/curves.png) · [两轮数据表](comparison.csv)。32 GiB 主记录峰值约 12.76 GiB，说明这一轮超过了原 8 GiB 配置；不代表所有并发或环境下的统一上界。
+[原 8 GiB 墙钟图](runs/compile-compcert-20261020T182356/curves.png) · [原 8 GiB 去暂停辅助图](runs/compile-compcert-20261020T182356/curves-active.png) · [两轮数据表](comparison.csv)。32 GiB 主记录峰值约 12.76 GiB，说明这一轮超过了原 8 GiB 配置；不代表所有并发或环境下的统一上界。
 
 ## 数据、来源与复现
 
