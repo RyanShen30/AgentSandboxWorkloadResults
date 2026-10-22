@@ -1,7 +1,7 @@
 """Aligned tool/memory/cache figures from existing records; never runs a workload.
 
 Chart contract: relate tool execution intervals to observed memory/cache changes.
-Use latency stems/intervals plus two time-series panels on one shared time axis,
+Use one latency bar per call, plus memory/cache panels sharing a time axis,
 following AgentCgroup figures 5/6. Export PNG/SVG into the existing run folders.
 Wall-clock figures retain all samples and scan pauses. A second, explicitly
 labelled view removes only pause intervals for display; samples taken inside
@@ -136,10 +136,10 @@ def _phase_handles(timeline, compact):
 
 
 def draw_panels(axes, timeline, metrics, compact=False, scale=1, titles=True, annotate=True):
-    """Every panel uses exactly the same clock transform and x limits."""
+    """Latency uses call index; memory/cache share the same clock transform."""
     x = lambda stamps: timeline.seconds(stamps, compact) / scale
     duration = float(x(timeline.end))
-    for ax in axes:
+    for ax in axes[1:]:
         ax.set_facecolor('white')
         if not compact:
             for a, b in timeline.pauses:
@@ -162,29 +162,36 @@ def draw_panels(axes, timeline, metrics, compact=False, scale=1, titles=True, an
         ax.ticklabel_format(axis='y', style='plain', useOffset=False)
 
     steps = timeline.steps
-    starts = x([s['started_ns'] for s in steps])
-    ends = x([s['finished_ns'] for s in steps])
-    latencies = np.asarray([s['tool_seconds'] for s in steps])
+    call_ids = np.asarray([step['step'] for step in steps])
+    latencies = np.asarray([step['tool_seconds'] for step in steps])
     ax = axes[0]
-    ax.vlines(ends, 0, latencies, color=BLUE, alpha=.4, lw=.7)
-    ax.hlines(latencies, starts, ends, color=BLUE, lw=1.5)
-    ax.scatter(ends, latencies, color=BLUE, s=11, zorder=3)
-    errors = np.asarray([s['exit_code'] != 0 for s in steps])
+    ax.bar(call_ids, latencies, width=.7, color=BLUE,
+           label='One bar per tool call', zorder=2)
+    errors = np.asarray([step['exit_code'] != 0 for step in steps])
     if errors.any():
-        ax.scatter(ends[errors], latencies[errors], s=33, facecolor='white',
+        ax.scatter(call_ids[errors], latencies[errors], s=33, facecolor='white',
                    edgecolor=INK, lw=.8, label='Nonzero exit', zorder=4)
-    ax.set_ylabel('Tool latency (s)')
-    ax.set_ylim(0, max(latencies) * 1.23)
-    if annotate:
+    ax.set(xlabel='Tool call index', ylabel='Tool latency (s)',
+           xlim=(.4, len(steps) + .6), ylim=(0, max(latencies) * 1.23))
+    ax.grid(axis='y', color='#DCE0E4', lw=.6)
+    ax.set_axisbelow(True)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True, nbins=10))
+    if len(steps) <= 15:
+        ax.set_xticks(call_ids)
+    ax.yaxis.set_major_locator(MaxNLocator(nbins=5, min_n_ticks=3))
+    ax.tick_params(axis='both', labelsize=9)
+    if annotate and len(steps) <= 15:
+        for index, value in zip(call_ids, latencies):
+            label = f'{value:.3f}' if value < 1 else f'{value:.2f}'
+            ax.annotate(label, (index, value), xytext=(0, 6),
+                        textcoords='offset points', ha='center', fontsize=8, color=INK)
+    elif annotate:
         k = int(np.argmax(latencies))
-        left = ends[k] > duration * .65
-        ax.annotate(f"#{steps[k]['step']}  {latencies[k]:.2f} s",
-                    (ends[k], latencies[k]), xytext=(-6 if left else 6, 9),
-                    textcoords='offset points', ha='right' if left else 'left',
-                    fontsize=8, color=INK)
-    if errors.any():
-        ax.legend(loc='lower left', bbox_to_anchor=(0, 1.02),
-                  frameon=False, fontsize=8, borderaxespad=0)
+        ax.annotate(f"#{call_ids[k]}  {latencies[k]:.2f} s",
+                    (call_ids[k], latencies[k]), xytext=(0, 9),
+                    textcoords='offset points', ha='center', fontsize=8, color=INK)
+    ax.legend(loc='lower left', bbox_to_anchor=(0, 1.02), ncol=2,
+              frameon=False, fontsize=8, borderaxespad=0)
 
     stamps = [m['timestamp_ns'] for m in timeline.samples]
     tx = x(stamps)
@@ -226,7 +233,7 @@ def draw_panels(axes, timeline, metrics, compact=False, scale=1, titles=True, an
                   handlelength=2.4, columnspacing=1.5)
     if titles:
         for ax, title in zip(axes, [
-                'A  Tool execution latency',
+                'A  Per-call tool execution latency',
                 'B  Container memory usage (200 ms sampling target)',
                 'C  Page Cache: scanned rootfs files on the host']):
             ax.set_title(title, loc='left', fontsize=11, pad=32)
@@ -241,8 +248,10 @@ def plot_run(rec, pack, timeline, output_dir):
     for compact, filename in [(False, 'curves'), (True, 'curves-active')]:
         duration = float(timeline.seconds(timeline.end, compact))
         scale = 60 if duration >= 600 else 1
-        fig, axes = plt.subplots(3, 1, figsize=(12, 10.2), sharex=True)
-        fig.subplots_adjust(left=.095, right=.98, bottom=.125, top=.79, hspace=.64)
+        fig, axes = plt.subplots(3, 1, figsize=(12, 10.2))
+        axes[2].sharex(axes[1])
+        axes[1].tick_params(labelbottom=False)
+        fig.subplots_adjust(left=.095, right=.98, bottom=.125, top=.79, hspace=.8)
         fig.suptitle(rec['task_id'], x=.095, ha='left', fontsize=16, y=.975)
         mode = 'Pause-removed display' if compact else 'Recorded wall-clock timeline'
         fig.text(.095, .936, f"{mode} | {rec['run_id']}", fontsize=10, color=GRAY)
@@ -255,7 +264,7 @@ def plot_run(rec, pack, timeline, output_dir):
         if compact:
             note = 'Only pause/scan time is removed; gray dots retain samples from those pauses. Async waits remain.'
         else:
-            note = 'Same wall-clock axis in all panels. Shading marks actual tool execution, scan pauses, and recorded async waits.'
+            note = 'Latency is grouped by tool call; memory/cache share wall time with tool, scan-pause and async-wait shading.'
         fig.text(.095, .06, note, fontsize=8, color=GRAY)
         fig.text(.095, .037,
                  'Cache dots = frozen scans; dotted line is a guide. Scope: rootfs files owned by host user rashen; not guest-wide cache.',
@@ -270,8 +279,13 @@ def plot_run(rec, pack, timeline, output_dir):
 def plot_comparison(recs, packs, timelines, output_dir):
     ordered = [next(r for r in recs if r['role'] != 'primary'),
                next(r for r in recs if r['role'] == 'primary')]
-    fig, axes = plt.subplots(3, 2, figsize=(15.5, 10.2), sharey='row', sharex=True)
-    fig.subplots_adjust(left=.075, right=.98, bottom=.12, top=.79, hspace=.64, wspace=.12)
+    fig, axes = plt.subplots(3, 2, figsize=(15.5, 10.2), sharey='row')
+    axes[0, 1].sharex(axes[0, 0])
+    for ax in [axes[1, 1], axes[2, 0], axes[2, 1]]:
+        ax.sharex(axes[1, 0])
+    for ax in axes[1, :]:
+        ax.tick_params(labelbottom=False)
+    fig.subplots_adjust(left=.075, right=.98, bottom=.12, top=.79, hspace=.8, wspace=.12)
     fig.suptitle('CompCert: 8 GiB and 32 GiB memory limits', x=.075, ha='left', y=.975, fontsize=16)
     fig.text(.075, .938, 'Recorded wall-clock timelines | 318 identical tool scripts per run | 2 CPU | one run per setting',
              fontsize=10, color=GRAY)
@@ -292,7 +306,7 @@ def plot_comparison(recs, packs, timelines, output_dir):
     axes[1, 0].set_ylim(0, max(a['peak_sampled_memory_bytes'] / GIB for a in all_metrics) * 1.12)
     axes[2, 0].set_ylim(0, max(max(a['peak_file_resident_bytes'], a['peak_disk_file_charge_bytes']) / GIB for a in all_metrics) * 1.12)
     axes[2, 0].set_xlim(0, max((timelines[r['run_id']].end - timelines[r['run_id']].t0) / 60e9 for r in ordered) * 1.004)
-    fig.text(.075, .055, 'All panels share recorded elapsed wall time; blank tails follow the end of a run. Pauses are hatched.',
+    fig.text(.075, .055, 'Latency is grouped by call index. Memory/cache share elapsed wall time; blank tails follow the end of a run.',
              fontsize=8, color=GRAY)
     fig.text(.075, .033, 'Cache dots = frozen mincore scans of rootfs files owned by host user rashen. Host load, network and cache warmness were not controlled.',
              fontsize=8, color=GRAY)

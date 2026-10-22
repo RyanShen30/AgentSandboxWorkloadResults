@@ -35,9 +35,9 @@ Terminal-Bench 社区公开解题轨迹，完整 36 次调用。
 
 ## 三项曲线
 
-![统一时间轴：工具时延、容器内存与 Page Cache](runs/reshard-c4-data-20261020T011626/curves.png)
+![逐次工具时延与内存、Page Cache 时间曲线](runs/reshard-c4-data-20261020T011626/curves.png)
 
-[矢量图](runs/reshard-c4-data-20261020T011626/curves.svg)。三幅图共用测量墙钟：蓝色阴影标出工具执行区间，灰色斜线标出暂停扫描，金色点纹标出异步依赖等待（如有）。第一幅显示逐工具时延，空心点表示非零退出；第二幅为容器 cgroup 内存；第三幅明确显示 Page Cache，其中圆点为暂停后的 mincore 扫描值，点间虚线只辅助阅读。
+[矢量图](runs/reshard-c4-data-20261020T011626/curves.svg)。第一幅按调用序号画工具时延柱状图，每根柱子表示该次调用的总耗时，空心点表示非零退出。后两幅共用测量墙钟：蓝色阴影标出工具执行区间，灰色斜线标出暂停扫描，金色点纹标出异步依赖等待（如有）；第二幅为容器 cgroup 内存；第三幅明确显示 Page Cache，其中圆点为暂停后的 mincore 扫描值，点间虚线只辅助阅读。
 
 [去除扫描暂停的辅助图](runs/reshard-c4-data-20261020T011626/curves-active.png) · [辅助图 SVG](runs/reshard-c4-data-20261020T011626/curves-active.svg)。辅助图只压缩暂停区间，仍保留调度与异步等待；暂停期间的内存样本用灰点显示。两种视图均保留初始暖缓存，不包含模型思考。指标定义见[测量说明](../../docs/measurement.md#时间轴与未测项)。
 

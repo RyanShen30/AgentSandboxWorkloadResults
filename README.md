@@ -32,7 +32,7 @@ CompCert 8 GiB 原运行峰值触及 8 GiB，`memory.events.max=31`，`oom=0`、
 
 ## 工具时延、内存与 Page Cache 曲线
 
-每张图依次展示工具时延、容器内存和 Page Cache，三个面板共用时间轴，参照 [AgentCgroup 图 5、6](https://arxiv.org/pdf/2602.09345v3#page=4) 标出工具执行、暂停扫描和异步等待区间。
+每张图依次展示工具时延、容器内存和 Page Cache。工具时延按调用序号画柱状图；内存和 Page Cache 共用时间轴，参照 [AgentCgroup 图 5、6](https://arxiv.org/pdf/2602.09345v3#page=4) 标出工具执行、暂停扫描和异步等待区间。
 
 | 任务与结果文档 | 完整墙钟图 | 去除扫描暂停的辅助图 |
 | --- | --- | --- |

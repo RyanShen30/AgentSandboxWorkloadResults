@@ -2,107 +2,96 @@
   "status": "PASS",
   "numerical_review": "All 11 runs rebuilt from full JSONL, 10 primary task counts and original peak/timing checks passed",
   "visual_review": {
-    "revision": "2026-10-21 aligned AgentCgroup-style timelines",
-    "shared_x_axis": "Tool latency, cgroup memory, and Page Cache use one monotonic clock",
-    "views_per_run": [
-      "Full measured wall clock with tool/pause/async shading",
-      "Pause-removed display with every paused sample retained as a gray dot"
-    ],
+    "revision": "2026-10-22 per-call latency bars; memory/cache aligned timeline",
+    "latency": "One bar per call index, exact original tool_seconds; no horizontal duration segments",
+    "time_axis": "Only memory/cache share elapsed time and tool/scan/async shading",
     "inspected_final_exports": [
-      "HF wall clock",
-      "PDF.js wall clock",
-      "C4 wall clock",
-      "CSV wall clock",
-      "Cython wall clock",
-      "Token counting wall clock",
-      "Log4j2 wall clock",
-      "Matplotlib wall clock and pause-removed",
-      "Django pause-removed",
-      "CompCert side-by-side 8/32 GiB comparison",
-      "Ten-task overview"
+      "HF wall-clock: all 11 call durations labelled",
+      "Matplotlib pause-removed: 95 individual latency bars",
+      "CompCert 8/32 GiB comparison: 318 calls per run"
     ],
-    "checks": "Titles/legends/units readable; no clipping or overlapping labels in inspected exports",
-    "metric_tables_unchanged": true,
     "independent_numeric_artist_checks": {
       "reshard-c4-data-20261020T011626": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "large-scale-text-editing-20261020T011906": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "hf-model-inference-20261020T010339": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "mozilla__pdf.js-20957-20261020T010602": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "build-cython-ext-20261020T010948": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "count-dataset-tokens-20261020T152023": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "apache__logging-log4j2-20261020T152541": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "compile-compcert-20261020T205643": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "matplotlib__matplotlib-24177-20261020T161817": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "django__django-16819-20261020T165703": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       },
       "compile-compcert-20261020T182356": {
-        "independent_integer_pause_projection": "PASS",
-        "shared_axes": "PASS",
-        "all_tool_markers": "PASS",
-        "every_memory_value_preserved": "PASS",
-        "every_cache_scan_preserved": "PASS"
+        "every_latency_bar_matches_original_tool_seconds": "PASS",
+        "every_bar_center_matches_call_index": "PASS",
+        "memory_and_cache_share_time_axis": "PASS",
+        "latency_axis_is_independent": "PASS",
+        "every_memory_and_cache_value_preserved": "PASS"
       }
     },
-    "workloads_rerun": false
+    "metric_tables_unchanged": true,
+    "workloads_rerun": false,
+    "layout_review": "No overlapping labels in inspected exports; top axis is call index, lower two panels share time"
   },
   "document_review": {
     "task_documents": 10,
