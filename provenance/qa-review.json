@@ -2,96 +2,127 @@
   "status": "PASS",
   "numerical_review": "All 11 runs rebuilt from full JSONL, 10 primary task counts and original peak/timing checks passed",
   "visual_review": {
-    "revision": "2026-10-22 per-call latency bars; memory/cache aligned timeline",
-    "latency": "One bar per call index, exact original tool_seconds; no horizontal duration segments",
-    "time_axis": "Only memory/cache share elapsed time and tool/scan/async shading",
+    "revision": "2026-10-22 review against all eight AgentCgroup figures",
+    "reference_paper": {
+      "url": "https://arxiv.org/pdf/2602.09345v3",
+      "sha256": "535ea6b9d278dd3a83c653212a1e108a320816f6752c6a2bfb9d2477ad7b9cee",
+      "pdf_pages_viewed": [
+        2,
+        3,
+        4,
+        6
+      ],
+      "figures_viewed": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "choices": {
+      "latency": "One bar per call index",
+      "memory": "Continuous cgroup observations with pale interval shading",
+      "page_cache": "Only actual frozen scan points; no interpolation or mixed cgroup charge curve",
+      "latency_summary": "Within-run median/P95/max dots on a log time axis",
+      "overview": "Memory peak bars and initial/peak/end cache dots",
+      "compcert": "Matched units and scales in side-by-side panels"
+    },
     "inspected_final_exports": [
-      "HF wall-clock: all 11 call durations labelled",
-      "Matplotlib pause-removed: 95 individual latency bars",
-      "CompCert 8/32 GiB comparison: 318 calls per run"
+      "HF full timeline with all 11 call latencies labelled",
+      "Django pause-removed with MiB memory units",
+      "CSV full timeline with MiB memory and cache units",
+      "Matplotlib full timeline with faint pause background",
+      "CompCert 8/32 GiB side-by-side comparison",
+      "Ten-task memory/cache overview",
+      "Ten-task latency quantile summary"
     ],
     "independent_numeric_artist_checks": {
       "reshard-c4-data-20261020T011626": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "large-scale-text-editing-20261020T011906": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "hf-model-inference-20261020T010339": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "mozilla__pdf.js-20957-20261020T010602": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "build-cython-ext-20261020T010948": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "count-dataset-tokens-20261020T152023": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "apache__logging-log4j2-20261020T152541": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "compile-compcert-20261020T205643": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "matplotlib__matplotlib-24177-20261020T161817": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "django__django-16819-20261020T165703": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       },
       "compile-compcert-20261020T182356": {
-        "every_latency_bar_matches_original_tool_seconds": "PASS",
-        "every_bar_center_matches_call_index": "PASS",
-        "memory_and_cache_share_time_axis": "PASS",
-        "latency_axis_is_independent": "PASS",
-        "every_memory_and_cache_value_preserved": "PASS"
+        "original_latencies_preserved": "PASS",
+        "memory_and_cache_shared_time": "PASS",
+        "memory_samples_preserved_with_explicit_units": "PASS",
+        "all_cache_points_preserved_without_interpolation": "PASS",
+        "p50_p95_max_match_original_calls": "PASS"
       }
     },
+    "summary_scatter_coordinates": "PASS",
     "metric_tables_unchanged": true,
     "workloads_rerun": false,
-    "layout_review": "No overlapping labels in inspected exports; top axis is call index, lower two panels share time"
+    "layout_review": "Inspected actual PNG exports for small/large values, short/long traces, pause-heavy runs, controls and summaries; labels/legends fit"
   },
   "document_review": {
     "task_documents": 10,

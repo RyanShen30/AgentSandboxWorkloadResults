@@ -34,6 +34,8 @@ CompCert 8 GiB 原运行峰值触及 8 GiB，`memory.events.max=31`，`oom=0`、
 
 每张图依次展示工具时延、容器内存和 Page Cache。工具时延按调用序号画柱状图；内存和 Page Cache 共用时间轴，参照 [AgentCgroup 图 5、6](https://arxiv.org/pdf/2602.09345v3#page=4) 标出工具执行、暂停扫描和异步等待区间。
 
+[十任务工具时延分位数对比](results/tool-latency-summary.png) · [矢量图](results/tool-latency-summary.svg)。按每条轨迹内的调用计算中位数、P95 和最大值；不是多次实验的误差范围。
+
 | 任务与结果文档 | 完整墙钟图 | 去除扫描暂停的辅助图 |
 | --- | --- | --- |
 | [C4 压缩/解压](results/reshard-c4-data/README.md) | [PNG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves.png) · [SVG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves.svg) | [PNG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves-active.png) · [SVG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves-active.svg) |

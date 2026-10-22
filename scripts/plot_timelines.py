@@ -22,6 +22,7 @@ from matplotlib.ticker import MaxNLocator
 import numpy as np
 
 GIB = 1024 ** 3
+MIB = 1024 ** 2
 BLUE = '#3366A3'
 GOLD = '#BC8528'
 INK = '#29333D'
@@ -127,7 +128,7 @@ def _phase_handles(timeline, compact):
         handles.append(Line2D([], [], color=GRAY, marker='.', ls='none', ms=5,
                               label='Samples during omitted pauses'))
     else:
-        handles.append(Patch(facecolor=PAUSE, edgecolor='#AAB0B7', hatch='///',
+        handles.append(Patch(facecolor=PAUSE, edgecolor='#AAB0B7',
                              lw=.3, label='Pause / cache scan'))
     if timeline.waits:
         handles.append(Patch(facecolor=GOLD, alpha=.16, hatch='..',
@@ -143,8 +144,8 @@ def draw_panels(axes, timeline, metrics, compact=False, scale=1, titles=True, an
         ax.set_facecolor('white')
         if not compact:
             for a, b in timeline.pauses:
-                ax.axvspan(*x([a, b]), facecolor=PAUSE, alpha=.42,
-                           edgecolor='#C4C8CE', hatch='///', linewidth=.15, zorder=0)
+                ax.axvspan(*x([a, b]), facecolor=PAUSE, alpha=.45,
+                           edgecolor='none', linewidth=0, zorder=0)
         for wait in timeline.waits:
             ax.axvspan(*x([wait['started_ns'], wait['finished_ns']]),
                        facecolor=GOLD, alpha=.13, edgecolor=GOLD,
@@ -196,13 +197,16 @@ def draw_panels(axes, timeline, metrics, compact=False, scale=1, titles=True, an
     stamps = [m['timestamp_ns'] for m in timeline.samples]
     tx = x(stamps)
     paused = timeline.paused_samples()
+    memory_unit = GIB if metrics['peak_sampled_memory_bytes'] >= GIB else MIB
+    memory_label = 'GiB' if memory_unit == GIB else 'MiB'
+    cache_unit = GIB if metrics['peak_file_resident_bytes'] >= GIB else MIB
+    cache_label = 'GiB' if cache_unit == GIB else 'MiB'
     series = [
         (axes[1], 'memory_current_bytes', BLUE, '-', 'Cgroup memory.current'),
         (axes[1], 'anon_bytes', GOLD, '--', 'Anonymous memory'),
-        (axes[2], 'disk_file_charge_bytes', GOLD, '--', 'Cgroup file - shmem charge'),
     ]
     for ax, key, color, style, label in series:
-        values = np.asarray([m[key] / GIB for m in timeline.samples])
+        values = np.asarray([m[key] / memory_unit for m in timeline.samples])
         if compact:
             # Keep every paused sample visible, without inventing time inside
             # a removed interval or discarding a pause-period memory peak.
@@ -212,18 +216,18 @@ def draw_panels(axes, timeline, metrics, compact=False, scale=1, titles=True, an
                        alpha=.42, linewidths=0, rasterized=True, zorder=2)
         else:
             ax.plot(tx, values, color=color, ls=style, lw=1.2, label=label, zorder=3)
-    axes[1].set_ylabel('Memory (GiB)')
+    axes[1].set_ylabel(f'Memory ({memory_label})')
     if metrics['memory_events'].get('max', 0):
-        axes[1].axhline(metrics['memory_limit_gib'], color=INK, ls=':', lw=1,
+        axes[1].axhline(metrics['memory_limit_gib'] * GIB / memory_unit, color=INK, ls=':', lw=1,
                        label='Configured limit (max event)')
-    axes[1].set_ylim(0, max(metrics['peak_sampled_memory_bytes'] / GIB,
-                            metrics['memory_limit_gib'] if metrics['memory_events'].get('max', 0) else 0) * 1.12)
+    axes[1].set_ylim(0, max(metrics['peak_sampled_memory_bytes'] / memory_unit,
+                            metrics['memory_limit_gib'] * GIB / memory_unit if metrics['memory_events'].get('max', 0) else 0) * 1.12)
     bt = x([b['finished_ns'] for b in timeline.boundaries])
-    cache = [b['resident_bytes'] / GIB for b in timeline.boundaries]
-    axes[2].plot(bt, cache, color=BLUE, ls=':', lw=1.1, marker='o', ms=3,
-                 label='mincore: scanned rootfs file pages', zorder=4)
-    axes[2].set_ylabel('Page Cache (GiB)')
-    axes[2].set_ylim(0, max(max(cache), metrics['peak_disk_file_charge_bytes'] / GIB) * 1.12)
+    cache = [b['resident_bytes'] / cache_unit for b in timeline.boundaries]
+    axes[2].plot(bt, cache, color=BLUE, ls='none', marker='o', ms=3.5,
+                 label='mincore: discrete frozen scans', zorder=4)
+    axes[2].set_ylabel(f'Page Cache ({cache_label})')
+    axes[2].set_ylim(0, max(cache) * 1.12)
     for ax in axes[1:]:
         handles, labels = ax.get_legend_handles_labels()
         if ax is axes[2]:
@@ -267,7 +271,7 @@ def plot_run(rec, pack, timeline, output_dir):
             note = 'Latency is grouped by tool call; memory/cache share wall time with tool, scan-pause and async-wait shading.'
         fig.text(.095, .06, note, fontsize=8, color=GRAY)
         fig.text(.095, .037,
-                 'Cache dots = frozen scans; dotted line is a guide. Scope: rootfs files owned by host user rashen; not guest-wide cache.',
+                 'Each cache dot is one frozen scan; no interpolation between scans. Scope: rootfs files owned by host user rashen.',
                  fontsize=8, color=GRAY)
         fig.text(.095, .014,
                  'No model thinking replayed. Async tool latency measures launch; background work can continue between calls.',
@@ -304,11 +308,48 @@ def plot_comparison(recs, packs, timelines, output_dir):
     all_metrics = [packs[r['run_id']][0] for r in ordered]
     axes[0, 0].set_ylim(0, max(a['tool_max_seconds'] for a in all_metrics) * 1.18)
     axes[1, 0].set_ylim(0, max(a['peak_sampled_memory_bytes'] / GIB for a in all_metrics) * 1.12)
-    axes[2, 0].set_ylim(0, max(max(a['peak_file_resident_bytes'], a['peak_disk_file_charge_bytes']) / GIB for a in all_metrics) * 1.12)
+    axes[2, 0].set_ylim(0, max(a['peak_file_resident_bytes'] / GIB for a in all_metrics) * 1.12)
     axes[2, 0].set_xlim(0, max((timelines[r['run_id']].end - timelines[r['run_id']].t0) / 60e9 for r in ordered) * 1.004)
     fig.text(.075, .055, 'Latency is grouped by call index. Memory/cache share elapsed wall time; blank tails follow the end of a run.',
              fontsize=8, color=GRAY)
     fig.text(.075, .033, 'Cache dots = frozen mincore scans of rootfs files owned by host user rashen. Host load, network and cache warmness were not controlled.',
              fontsize=8, color=GRAY)
     save_figure(fig, Path(output_dir) / 'comparison')
+    plt.close(fig)
+
+
+def plot_latency_summary(data, output_dir):
+    """Compare within-run call latency quantiles; no repeat-run uncertainty."""
+    names = {
+        'reshard-c4-data': 'C4', 'large-scale-text-editing': 'CSV',
+        'hf-model-inference': 'HF inference', 'mozilla__pdf.js-20957': 'PDF.js',
+        'build-cython-ext': 'Cython', 'count-dataset-tokens': 'Token counting',
+        'apache__logging-log4j2': 'Log4j2', 'compile-compcert': 'CompCert (32 GiB)',
+        'matplotlib__matplotlib-24177': 'Matplotlib', 'django__django-16819': 'Django',
+    }
+    fig, ax = plt.subplots(figsize=(12, 6.7))
+    yy = np.arange(len(data))
+    median = [r['tool_p50_seconds'] for r in data]
+    p95 = [r['tool_p95_seconds'] for r in data]
+    maximum = [r['tool_max_seconds'] for r in data]
+    ax.hlines(yy, median, maximum, color='#B0B7BE', lw=.9, zorder=1)
+    ax.scatter(median, yy, s=48, facecolors='white', edgecolors=BLUE,
+               marker='o', linewidths=1.2, label='Median', zorder=3)
+    ax.scatter(p95, yy, s=28, color=BLUE, marker='s', label='P95', zorder=3)
+    ax.scatter(maximum, yy, s=43, color=GOLD, marker='x', label='Maximum', zorder=4)
+    ax.set_yticks(yy, [f"{names[r['task_id']]}   (n={r['tool_calls']})" for r in data])
+    ax.set_xscale('log')
+    ax.set_xlim(.001, 1000)
+    ax.set_xticks([.001, .01, .1, 1, 10, 100, 1000], ['0.001', '0.01', '0.1', '1', '10', '100', '1000'])
+    ax.set_xlabel('Tool execution latency (seconds, logarithmic scale)')
+    ax.invert_yaxis()
+    ax.grid(axis='x', which='major', color='#E1E5E9', lw=.7)
+    ax.set_axisbelow(True)
+    ax.legend(loc='lower left', bbox_to_anchor=(0, 1.02), ncol=3, frameon=False, fontsize=9)
+    fig.suptitle('Per-call tool latency across ten workloads', x=.23, ha='left', y=.975, fontsize=15)
+    fig.text(.23, .922, 'Within one replay per task | n = number of calls | all call types retained', fontsize=9, color=GRAY)
+    fig.subplots_adjust(left=.23, right=.975, top=.81, bottom=.18)
+    fig.text(.23, .075, 'Percentiles describe calls within a run; the connecting segment is not a confidence interval.', fontsize=8, color=GRAY)
+    fig.text(.23, .038, 'Call mix differs by task. CompCert includes background launches and sleep/poll calls.', fontsize=8, color=GRAY)
+    save_figure(fig, Path(output_dir) / 'tool-latency-summary')
     plt.close(fig)
