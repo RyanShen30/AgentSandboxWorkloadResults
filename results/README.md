@@ -1,3 +1,5 @@
+> 此页为 2026-10-20 Podman 历史初筛索引；最新 guest 文件缓存结果见 [AgentENV 测试](agentenv/README.md)。
+
 # 十任务实验结果
 
 > 公开范围：本次只提交文档、图表、汇总/CSV、配置与脚本。完整原始日志、轨迹和重放输入包保留在 cpu-15；重算/重放须提供 ASWR_ARCHIVE_ROOT，见[数据说明](../docs/data-and-sources.md)。

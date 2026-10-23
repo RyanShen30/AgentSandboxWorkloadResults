@@ -1,0 +1,63 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "bash",
+      "command": "npm ci",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "c2c663b8f694dce366b91a792891bf819c89e0eea4895622b7eadafe6704b7d6",
+      "source_exit_code": null
+    },
+    {
+      "step": 2,
+      "tool": "bash",
+      "command": "cat package.json",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "53687908ff4c136145876727ea69e7418c0622bf67335b240590000fa6b83e01",
+      "source_exit_code": null
+    },
+    {
+      "step": 3,
+      "tool": "bash",
+      "command": "npx gulp unittestcli",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "e8151020fc5f4dcbb91181f5a9da572a188f89c2d25cb17f886a339d29eb6569",
+      "source_exit_code": null
+    },
+    {
+      "step": 4,
+      "tool": "bash",
+      "command": "sed -n '1,200p' test/reporter.js",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "137de892622aa79279c29389643ad36fea0c710c162c465656eb9a9622912c90",
+      "source_exit_code": null
+    },
+    {
+      "step": 5,
+      "tool": "bash",
+      "command": "npx gulp unittestcli",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "e8151020fc5f4dcbb91181f5a9da572a188f89c2d25cb17f886a339d29eb6569",
+      "source_exit_code": null
+    }
+  ],
+  "files": {
+    "001.sh": "npm ci\n",
+    "002.sh": "cat package.json\n",
+    "003.sh": "npx gulp unittestcli\n",
+    "004.sh": "sed -n '1,200p' test/reporter.js\n",
+    "005.sh": "npx gulp unittestcli\n"
+  },
+  "source_reference_run": "mozilla__pdf.js-20957-20261020T010602",
+  "scope": "normalized executable inputs; no original conversation or tool outputs"
+}

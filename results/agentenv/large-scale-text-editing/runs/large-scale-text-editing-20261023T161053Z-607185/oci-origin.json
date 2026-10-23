@@ -1,0 +1,31 @@
+{
+  "task_id": "large-scale-text-editing",
+  "source_image": "docker.io/alexgshaw/large-scale-text-editing@sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c",
+  "source_podman_image_id": "4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+  "started_ns": 1792771848692683762,
+  "method": "existing Podman image exported to OCI; filesystem diff IDs and runtime config verified",
+  "verification": {
+    "manifest_digest": "sha256:2f48451c9819d2c7f1adca7e9f5d21f8d1ea19efb9e1f1cd814e402605c5e18c",
+    "config_digest": "sha256:ec98854c92a02361b43f9b0353b58c3fd95d992c7a292a3ecf5e9c080855012c",
+    "rootfs_diff_ids": [
+      "sha256:eb5f13bce9936c760b9fa73aeb1b608787daa36106cc888104132e353ed37252",
+      "sha256:2a9c7b727490d026db269bdf2bf74ce80e17abe26fc4dd99bd53b3d1686e58dc",
+      "sha256:1ce62254e2a41ba52d6f4edab1c02c6733a219d0b27ff7b0d495f2987fc165ad",
+      "sha256:56ffb1fa8b190de199776ee5e02b4c9d482f5300e4aaa162e66fe09778c1a243",
+      "sha256:bb90eb063b6e7bec0bb1f27ff7d6d84dbd5f9c1c3932cbec014527582d94733c",
+      "sha256:cf1c0fa1a7009341365fedea520f3d7eb8aa9e3de31c9148f300cc8569bd05a1",
+      "sha256:f2625ec62d0489e7d0f0cbab2b3046ca7faf5ef465d2c0e76562bf3aa9bc0c26",
+      "sha256:f35d804266abfa81bc6865668dbbf23d247e8faac098b319f18bc9b28ef473d0"
+    ],
+    "layer_bytes": 78024407,
+    "layers": 8,
+    "platform": [
+      "linux",
+      "amd64"
+    ],
+    "source_image_id": "4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+    "runtime_config_fields_match": true
+  },
+  "finished_ns": 1792771850202073460,
+  "status": "VERIFIED"
+}

@@ -1,0 +1,32 @@
+{
+  "task_id": "matplotlib__matplotlib-24177",
+  "source_image": "docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24177@sha256:901249fde9753b8d559a93f6a279ef1371e06426300c1ea1aa64e1723c82099e",
+  "source_podman_image_id": "5b52f28e9ada3fed0770b503d3c853977b9621797e1d947f97c14a0201c06505",
+  "started_ns": 1792773592871129173,
+  "method": "fixed registry digest copied to OCI",
+  "registry_transport": "existing host HTTP proxy",
+  "verification": {
+    "manifest_digest": "sha256:7cd1c8287287da69bee7b60943aeda8b6028fc9613295c486accf719ffa77c39",
+    "config_digest": "sha256:5b52f28e9ada3fed0770b503d3c853977b9621797e1d947f97c14a0201c06505",
+    "rootfs_diff_ids": [
+      "sha256:beb59027b96ddbf30ac9c80b527668fe7011f4f553fe83f5e59199e9a84fb5ca",
+      "sha256:24df650e8ccc41451cf4f7113e09420f7ec00ca9ae41e8be09c60bc467cdf4fe",
+      "sha256:098cb03ec50e1bd1637b7db5e2696a4d1dc3f1c3811adbbe444f43f631f2e7fd",
+      "sha256:fc3a8fa12509a555b3cea8d1f7457c0837ab8360be78e7a380294e09f96fe2f2",
+      "sha256:a3540f5c375c231bc054e7472d0de5a6d8fe5c96b92948f7655914860647fb54",
+      "sha256:f3684f1a85d5159913e2c41a55a86947882302421241b14b57583633bfc31873",
+      "sha256:d814c079cba1d703670eccf9bf4959316924f5e113c557b074214e2cf7a0ee92",
+      "sha256:c0430093083146abe67309dd7d440fb522ed43637d7b424c18b5bfc0f4d0c8b3",
+      "sha256:eebd9c4db40a13b1575d28bcead64934bc43f4a398800f26ab437f50710f578f",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    ],
+    "layer_bytes": 3137388839,
+    "layers": 10,
+    "platform": [
+      "linux",
+      "amd64"
+    ]
+  },
+  "finished_ns": 1792773745734068926,
+  "status": "VERIFIED"
+}

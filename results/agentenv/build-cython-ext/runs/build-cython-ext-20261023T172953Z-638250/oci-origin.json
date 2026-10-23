@@ -1,0 +1,30 @@
+{
+  "task_id": "build-cython-ext",
+  "source_image": "docker.io/alexgshaw/build-cython-ext@sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594",
+  "source_podman_image_id": "b2a41c10dde020d36fbea4643794d8791118afb77db125e61837f21a02c1a3af",
+  "started_ns": 1792776583176856757,
+  "method": "attest existing local OCI export",
+  "verification": {
+    "manifest_digest": "sha256:27e4d0278fa8ea636bf9e88f99360b46eb91c03d43e665ada7aacd9103009384",
+    "config_digest": "sha256:e28aeb77de853ddab298e3441da1d742cc94ee0b7b19fd0e42db6c2badf32a3a",
+    "rootfs_diff_ids": [
+      "sha256:eb5f13bce9936c760b9fa73aeb1b608787daa36106cc888104132e353ed37252",
+      "sha256:2a9c7b727490d026db269bdf2bf74ce80e17abe26fc4dd99bd53b3d1686e58dc",
+      "sha256:1ce62254e2a41ba52d6f4edab1c02c6733a219d0b27ff7b0d495f2987fc165ad",
+      "sha256:56ffb1fa8b190de199776ee5e02b4c9d482f5300e4aaa162e66fe09778c1a243",
+      "sha256:bb90eb063b6e7bec0bb1f27ff7d6d84dbd5f9c1c3932cbec014527582d94733c",
+      "sha256:0279c844de650d26e2d94ac05f72113989f2d27594196f5cd1f02f3a70f46383",
+      "sha256:bb177088b6024fb7f9547d5c45c36f47e43ca93138d6d9e675ba96a534cac101"
+    ],
+    "layer_bytes": 313967221,
+    "layers": 7,
+    "platform": [
+      "linux",
+      "amd64"
+    ],
+    "source_image_id": "b2a41c10dde020d36fbea4643794d8791118afb77db125e61837f21a02c1a3af",
+    "runtime_config_fields_match": true
+  },
+  "finished_ns": 1792776583739320941,
+  "status": "VERIFIED"
+}

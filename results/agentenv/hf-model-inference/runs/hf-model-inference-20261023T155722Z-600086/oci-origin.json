@@ -1,0 +1,29 @@
+{
+  "task_id": "hf-model-inference",
+  "source_image": "docker.io/alexgshaw/hf-model-inference@sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad",
+  "source_podman_image_id": "43a3ff616ca45a6b1693e4cd436c14c6449367e090f4a50f379c9da89cd5062f",
+  "started_ns": 1792770207615467165,
+  "method": "existing Podman image exported to OCI; filesystem diff IDs and runtime config verified",
+  "verification": {
+    "manifest_digest": "sha256:1e01c9a30b9b667c01a0aa582d8a7907d943dc08a5e7ad206ab2f85ce2cc259d",
+    "config_digest": "sha256:43a3ff616ca45a6b1693e4cd436c14c6449367e090f4a50f379c9da89cd5062f",
+    "rootfs_diff_ids": [
+      "sha256:6143ee9e3de07e6ca35edaf392cf93dea566a5bcd0d3696607ae6c324193d099",
+      "sha256:707f05f9c84b69f54cf66e9ea2fc9a4e703fe023e727f517e590e97907bf36a8",
+      "sha256:017c8400b647e014fa8f6e90501a0741f5b8a3e9b4f268868e8cc7941f59a8ec",
+      "sha256:7ee20433ac93391e8d93cf192a4b5552f84308a7c4ca4b53dcf8a79ba9aa3738",
+      "sha256:097b2e6d819c7a4f9d0d9db00e9a3c289dcd59b7aca88cb4a12970a5976dcf55",
+      "sha256:ac9c531c06d288d526060f50b1e2c4cd17b0de3c02f47cb5cc65a8b27a78c037"
+    ],
+    "layer_bytes": 341379341,
+    "layers": 6,
+    "platform": [
+      "linux",
+      "amd64"
+    ],
+    "source_image_id": "43a3ff616ca45a6b1693e4cd436c14c6449367e090f4a50f379c9da89cd5062f",
+    "runtime_config_fields_match": true
+  },
+  "finished_ns": 1792770216806488343,
+  "status": "VERIFIED"
+}

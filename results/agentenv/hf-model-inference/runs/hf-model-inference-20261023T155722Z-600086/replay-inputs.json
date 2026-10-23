@@ -1,0 +1,138 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "bash",
+      "command": "ls -la /app && python3 --version && pip list 2>/dev/null | grep -i -E \"torch|transformers|flask|pip\" || true",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "5f8384fe0ca609a40d804f2820d7d96b12add796739943cd3f65f4deed168658",
+      "source_exit_code": 0
+    },
+    {
+      "step": 2,
+      "tool": "write",
+      "command": "mkdir -p /app && cat /probe/input/002.payload > /app/download_model.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Pin the public model revision; network download time remains part of this tool.",
+        "Native write tool is bridged to a real in-container file write; original content is preserved except explicitly declared adaptations."
+      ],
+      "script_sha256": "88e1dde70aabffe14810e2ddeca3c4a06db679aa4eea14a98fed1de3a8636251",
+      "source_exit_code": 0
+    },
+    {
+      "step": 3,
+      "tool": "bash",
+      "command": "python3 /app/download_model.py && ls -la /app/model_cache/sentiment_model",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "a88c7f8c5b6ca1c348011a0cf51661302418ec3ba679a6aa975c80b8aae71a66",
+      "source_exit_code": 0
+    },
+    {
+      "step": 4,
+      "tool": "write",
+      "command": "printf '%s\\n' 'write: required path argument is missing' >&2; exit 64",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Preserve invalid source write as a validation failure; no destination is inferred."
+      ],
+      "script_sha256": "bb851f58c901d54ce26f32cda0da0c9eb49118a15b9dc9a22da49d7abd987163",
+      "source_exit_code": null
+    },
+    {
+      "step": 5,
+      "tool": "write",
+      "command": "mkdir -p /app && cat /probe/input/005.payload > /app/app.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Native write tool is bridged to a real in-container file write; original content is preserved except explicitly declared adaptations."
+      ],
+      "script_sha256": "12420f1a4e2cf988eed076d5530cadda43efa08eb21cdcda38eaf7086fddee30",
+      "source_exit_code": 0
+    },
+    {
+      "step": 6,
+      "tool": "bash",
+      "command": "cd /app && nohup python3 app.py > /app/service.log 2>&1 & pid=$!; printf \"%s\\n\" \"$pid\" > /probe/work/service.pid; echo \"started pid $pid\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Record background service PID for later identity checks."
+      ],
+      "script_sha256": "6c5baff4faa6b336a6aa7b9db630933d3e2040707b856798e40ec395fcff03d4",
+      "source_exit_code": 0
+    },
+    {
+      "step": 7,
+      "tool": "bash",
+      "command": "sleep 8 && cat /app/service.log && echo \"---TEST POSITIVE---\" && curl -s -X POST http://localhost:5000/sentiment -H \"Content-Type: application/json\" -d '{\"text\": \"I absolutely loved this movie, it was wonderful!\"}' && echo && echo \"---TEST NEGATIVE---\" && curl -s -X POST http://localhost:5000/sentiment -H \"Content-Type: application/json\" -d '{\"text\": \"This was terrible and I hated every minute of it.\"}'",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "9abb206ad1cf78da647862280f1efe0394f08bb0fe0da59f7b07056050d91fe3",
+      "source_exit_code": 127
+    },
+    {
+      "step": 8,
+      "tool": "bash",
+      "command": "python3 - <<'EOF'\nimport json, urllib.request\n\ndef post(payload, raw=False):\n    data = payload if isinstance(payload, (bytes, str)) else json.dumps(payload).encode()\n    req = urllib.request.Request(\"http://127.0.0.1:5000/sentiment\", data=data,\n                                 headers={\"Content-Type\": \"application/json\"}, method=\"POST\")\n    try:\n        with urllib.request.urlopen(req) as r:\n            return r.status, json.loads(r.read())\n    except urllib.error.HTTPError as e:\n        return e.code, json.loads(e.read())\n\nprint(\"positive:\", post({\"text\": \"I absolutely loved this movie, it was wonderful!\"}))\nprint(\"negative:\", post({\"text\": \"This was terrible and I hated every minute of it.\"}))\nprint(\"missing text:\", post({}))\nprint(\"non-string text:\", post({\"text\": 123}))\nprint(\"empty text:\", post({\"text\": \"   \"}))\nprint(\"no json body:\", post(\"not json\", raw=True))\nEOF",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "abfe2684fc66334a4661b46f515a28aa1cc885b264f9605993feca8d5b642b07",
+      "source_exit_code": 1
+    },
+    {
+      "step": 9,
+      "tool": "bash",
+      "command": "python3 - <<'EOF'\nimport json, urllib.request\n\nreq = urllib.request.Request(\"http://127.0.0.1:5000/sentiment\", data=b\"not json at all\",\n                             headers={\"Content-Type\": \"application/json\"}, method=\"POST\")\ntry:\n    with urllib.request.urlopen(req) as r:\n        print(\"status:\", r.status, \"body:\", json.loads(r.read()))\nexcept urllib.error.HTTPError as e:\n    print(\"status:\", e.code, \"body:\", json.loads(e.read()))\nEOF",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "434d4a5c8115766ba19df8a8f8dc7e1f801918c923f47a6e83dbfed818819893",
+      "source_exit_code": 0
+    },
+    {
+      "step": 10,
+      "tool": "bash",
+      "command": "python3 - <<'EOF'\nimport json, urllib.request\nreq = urllib.request.Request(\"http://127.0.0.1:5000/sentiment\",\n                             data=json.dumps({\"text\": \"Great product, highly recommend!\"}).encode(),\n                             headers={\"Content-Type\": \"application/json\"}, method=\"POST\")\nwith urllib.request.urlopen(req) as r:\n    print(\"external-IP status:\", r.status, \"body:\", json.loads(r.read()))\nEOF\nps aux | grep \"[a]pp.py\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Map published container IP to loopback for the same in-container HTTP check."
+      ],
+      "script_sha256": "4c2e76a1ed4141483d206bec0274c64b034fb5114ebc8b28bfc8a0cd30800180",
+      "source_exit_code": 1
+    },
+    {
+      "step": 11,
+      "tool": "bash",
+      "command": "pid=\"$(cat /probe/work/service.pid)\"; ls -d /proc/$pid && cat /proc/$pid/cmdline | tr '\\0' ' ' && echo && tail -5 /app/service.log",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Map published PID to the recorded background launcher PID; the Python service can run as its child."
+      ],
+      "script_sha256": "b263f8f61c7e6e1b31c58e406514869ddcc10a2a35ac4e56cea87a20a40394d2",
+      "source_exit_code": 0
+    }
+  ],
+  "files": {
+    "001.sh": "ls -la /app && python3 --version && pip list 2>/dev/null | grep -i -E \"torch|transformers|flask|pip\" || true\n",
+    "002.payload": "\"\"\"Download the SST-2 DistilBERT sentiment model to /app/model_cache/sentiment_model.\"\"\"\nfrom huggingface_hub import snapshot_download\n\nMODEL_ID = \"distilbert-base-uncased-finetuned-sst-2-english\"\nLOCAL_DIR = \"/app/model_cache/sentiment_model\"\n\npath = snapshot_download(MODEL_ID, revision=\"714eb0fa89d2f80546fda750413ed43d93601a13\", local_dir=LOCAL_DIR)\nprint(\"Downloaded model to:\", path)\n",
+    "002.sh": "mkdir -p /app && cat /probe/input/002.payload > /app/download_model.py\n",
+    "003.sh": "python3 /app/download_model.py && ls -la /app/model_cache/sentiment_model\n",
+    "004.sh": "printf '%s\\n' 'write: required path argument is missing' >&2; exit 64\n",
+    "005.payload": "\"\"\"Flask API serving sentiment analysis with a local DistilBERT SST-2 model.\"\"\"\nimport torch\nfrom flask import Flask, jsonify, request\nfrom transformers import AutoModelForSequenceClassification, AutoTokenizer\n\nMODEL_PATH = \"/app/model_cache/sentiment_model\"\n\napp = Flask(__name__)\n\n_tokenizer = None\n_model = None\n\n\ndef _load():\n    \"\"\"Lazily load tokenizer and model on first request.\"\"\"\n    global _tokenizer, _model\n    if _tokenizer is None or _model is None:\n        _tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)\n        _model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)\n        _model.eval()\n    return _tokenizer, _model\n\n\n@app.route(\"/sentiment\", methods=[\"POST\"])\ndef sentiment():\n    data = request.get_json(force=True, silent=True)\n\n    if not isinstance(data, dict):\n        return jsonify({\"error\": \"Request body must be a JSON object.\"}), 400\n\n    if \"text\" not in data:\n        return jsonify({\"error\": \"Missing required field 'text' in request body.\"}), 400\n\n    text = data[\"text\"]\n    if not isinstance(text, str):\n        return jsonify({\"error\": \"Field 'text' must be a string.\"}), 400\n\n    if not text.strip():\n        return jsonify({\"error\": \"Field 'text' must be a non-empty string.\"}), 400\n\n    try:\n        tokenizer, model = _load()\n        inputs = tokenizer(text, return_tensors=\"pt\", truncation=True, max_length=512)\n        with torch.no_grad():\n            outputs = model(**inputs)\n        probabilities = torch.softmax(outputs.logits, dim=-1)[0]\n\n        labels = model.config.id2label\n        if labels is None:\n            labels = {0: \"NEGATIVE\", 1: \"POSITIVE\"}\n\n        scores = {}\n        for idx, prob in enumerate(probabilities):\n            name = str(labels.get(idx, idx)).lower()\n            scores[name] = float(prob.item())\n\n        sentiment_label = max(scores, key=lambda k: scores[k])\n\n        return jsonify(\n            {\n                \"sentiment\": sentiment_label,\n                \"confidence\": {\n                    \"positive\": scores.get(\"positive\", 0.0),\n                    \"negative\": scores.get(\"negative\", 0.0),\n                },\n            }\n        )\n    except Exception as exc:  # pragma: no cover - defensive\n        return jsonify({\"error\": f\"Failed to analyze sentiment: {exc}\"}), 400\n\n\nif __name__ == \"__main__\":\n    app.run(host=\"0.0.0.0\", port=5000)\n",
+    "005.sh": "mkdir -p /app && cat /probe/input/005.payload > /app/app.py\n",
+    "006.sh": "cd /app && nohup python3 app.py > /app/service.log 2>&1 & pid=$!; printf \"%s\\n\" \"$pid\" > /probe/work/service.pid; echo \"started pid $pid\"\n",
+    "007.sh": "sleep 8 && cat /app/service.log && echo \"---TEST POSITIVE---\" && curl -s -X POST http://localhost:5000/sentiment -H \"Content-Type: application/json\" -d '{\"text\": \"I absolutely loved this movie, it was wonderful!\"}' && echo && echo \"---TEST NEGATIVE---\" && curl -s -X POST http://localhost:5000/sentiment -H \"Content-Type: application/json\" -d '{\"text\": \"This was terrible and I hated every minute of it.\"}'\n",
+    "008.sh": "python3 - <<'EOF'\nimport json, urllib.request\n\ndef post(payload, raw=False):\n    data = payload if isinstance(payload, (bytes, str)) else json.dumps(payload).encode()\n    req = urllib.request.Request(\"http://127.0.0.1:5000/sentiment\", data=data,\n                                 headers={\"Content-Type\": \"application/json\"}, method=\"POST\")\n    try:\n        with urllib.request.urlopen(req) as r:\n            return r.status, json.loads(r.read())\n    except urllib.error.HTTPError as e:\n        return e.code, json.loads(e.read())\n\nprint(\"positive:\", post({\"text\": \"I absolutely loved this movie, it was wonderful!\"}))\nprint(\"negative:\", post({\"text\": \"This was terrible and I hated every minute of it.\"}))\nprint(\"missing text:\", post({}))\nprint(\"non-string text:\", post({\"text\": 123}))\nprint(\"empty text:\", post({\"text\": \"   \"}))\nprint(\"no json body:\", post(\"not json\", raw=True))\nEOF\n",
+    "009.sh": "python3 - <<'EOF'\nimport json, urllib.request\n\nreq = urllib.request.Request(\"http://127.0.0.1:5000/sentiment\", data=b\"not json at all\",\n                             headers={\"Content-Type\": \"application/json\"}, method=\"POST\")\ntry:\n    with urllib.request.urlopen(req) as r:\n        print(\"status:\", r.status, \"body:\", json.loads(r.read()))\nexcept urllib.error.HTTPError as e:\n    print(\"status:\", e.code, \"body:\", json.loads(e.read()))\nEOF\n",
+    "010.sh": "python3 - <<'EOF'\nimport json, urllib.request\nreq = urllib.request.Request(\"http://127.0.0.1:5000/sentiment\",\n                             data=json.dumps({\"text\": \"Great product, highly recommend!\"}).encode(),\n                             headers={\"Content-Type\": \"application/json\"}, method=\"POST\")\nwith urllib.request.urlopen(req) as r:\n    print(\"external-IP status:\", r.status, \"body:\", json.loads(r.read()))\nEOF\nps aux | grep \"[a]pp.py\"\n",
+    "011.sh": "pid=\"$(cat /probe/work/service.pid)\"; ls -d /proc/$pid && cat /proc/$pid/cmdline | tr '\\0' ' ' && echo && tail -5 /app/service.log\n"
+  },
+  "source_reference_run": "hf-model-inference-20261020T010339",
+  "scope": "normalized executable inputs; no original conversation or tool outputs"
+}

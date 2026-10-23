@@ -1,0 +1,6 @@
+{
+  "exit_code": 1,
+  "status": "FAIL",
+  "command": "test \"$(cat /app/answer.txt)\" = 79586 && grep -Ex '[0-9]+' /app/answer.txt && python3 -m py_compile /app/count_tokens.py",
+  "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "host_head": {
+    "method": "HEAD",
+    "url": "https://github.com/ocaml/dune/releases/download/2.8.5/dune-2.8.5.tbz",
+    "status": 200,
+    "content_type": "application/octet-stream"
+  },
+  "guest_connect_status": "HTTP/1.1 200 Connection established",
+  "data_downloaded_before_trajectory": false,
+  "scope": "host HEAD plus guest Bash HTTP CONNECT before F0; no guest Python preinstallation; original wget remains in step223"
+}

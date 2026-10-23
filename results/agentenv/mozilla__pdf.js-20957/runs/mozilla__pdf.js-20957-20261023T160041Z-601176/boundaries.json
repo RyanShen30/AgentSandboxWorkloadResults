@@ -1,0 +1,153 @@
+[
+  {
+    "started_ns": 875830878,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/testbed/node_modules",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/testbed/build",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/testbed",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 250728577,
+        "files": 2446
+      },
+      {
+        "path": "/root/.cache",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 11519361,
+        "files": 2018
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 262247938,
+    "files": 4464,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 0,
+    "finished_ns": 1017705634,
+    "scan_seconds": 0.141874678,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 47881363830,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/testbed/node_modules",
+        "status": "SCANNED",
+        "resident_bytes": 647168,
+        "logical_bytes": 241915956,
+        "files": 27974
+      },
+      {
+        "path": "/testbed/build",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/testbed",
+        "status": "SCANNED",
+        "resident_bytes": 4096,
+        "logical_bytes": 250728577,
+        "files": 2446
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 583872512,
+        "logical_bytes": 1069197992,
+        "files": 644
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 11519361,
+        "files": 2018
+      }
+    ],
+    "resident_bytes": 584523776,
+    "stable_resident_bytes": 584523776,
+    "logical_bytes": 1573361886,
+    "files": 33082,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 130,
+    "finished_ns": 48607205078,
+    "scan_seconds": 0.725841074,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 1
+  },
+  {
+    "started_ns": 173675443031,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/testbed/node_modules",
+        "status": "SCANNED",
+        "resident_bytes": 7991296,
+        "logical_bytes": 241915956,
+        "files": 27974
+      },
+      {
+        "path": "/testbed/build",
+        "status": "SCANNED",
+        "resident_bytes": 12288,
+        "logical_bytes": 33800947,
+        "files": 1035
+      },
+      {
+        "path": "/testbed",
+        "status": "SCANNED",
+        "resident_bytes": 11776000,
+        "logical_bytes": 253234447,
+        "files": 2560
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 1069225448,
+        "files": 645
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 11519361,
+        "files": 2018
+      }
+    ],
+    "resident_bytes": 19779584,
+    "stable_resident_bytes": 19779584,
+    "logical_bytes": 1609696159,
+    "files": 34232,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 130,
+    "finished_ns": 174359631144,
+    "scan_seconds": 0.684187968,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 5
+  }
+]

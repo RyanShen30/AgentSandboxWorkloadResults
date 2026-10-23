@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "bytes": 16777216,
+  "page_size": 4096,
+  "cold_resident_bytes": 0,
+  "second_cold_resident_bytes": 0,
+  "warm_resident_bytes": 16777216,
+  "changed_pages": 0,
+  "scope": "one newly created private 16 MiB guest file; no global cache drop"
+}

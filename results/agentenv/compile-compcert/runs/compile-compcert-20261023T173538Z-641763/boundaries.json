@@ -1,0 +1,132 @@
+[
+  {
+    "started_ns": 2707574104,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/tmp/CompCert",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/coq-8.16.1",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 0,
+    "files": 0,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 0,
+    "finished_ns": 2708094708,
+    "scan_seconds": 0.00052024,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 1004072903757,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/tmp/CompCert",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 18525045,
+        "files": 1030
+      },
+      {
+        "path": "/tmp/coq-8.16.1",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 18525045,
+    "files": 1030,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 0,
+    "finished_ns": 1004090438759,
+    "scan_seconds": 0.017534822,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 185
+  },
+  {
+    "started_ns": 2087048322369,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/tmp/CompCert",
+        "status": "SCANNED",
+        "resident_bytes": 148094976,
+        "logical_bytes": 279596682,
+        "files": 4161
+      },
+      {
+        "path": "/tmp/coq-8.16.1",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 11595776,
+        "logical_bytes": 349278932,
+        "files": 4269
+      },
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      }
+    ],
+    "resident_bytes": 159690752,
+    "stable_resident_bytes": 159690752,
+    "logical_bytes": 628875614,
+    "files": 8430,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 0,
+    "finished_ns": 2087226783295,
+    "scan_seconds": 0.178460681,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 318
+  }
+]

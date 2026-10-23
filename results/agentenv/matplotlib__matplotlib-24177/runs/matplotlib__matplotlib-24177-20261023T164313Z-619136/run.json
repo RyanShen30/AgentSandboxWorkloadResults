@@ -1,0 +1,64 @@
+{
+  "status": "COMPLETED",
+  "backend": "agentenv",
+  "task_id": "matplotlib__matplotlib-24177",
+  "run_id": "matplotlib__matplotlib-24177-20261023T164313Z-619136",
+  "expected_actions": 95,
+  "reference_run": "matplotlib__matplotlib-24177-20261020T161817",
+  "cpus": 2,
+  "memory_mib": 8192,
+  "service_image": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "sample_interval_seconds": 0.2,
+  "started_ns": 14544026725169012,
+  "cache_policy": "new cold-start guest; host backing warmness uncontrolled; official DAMON retained",
+  "file_cache_metric": "guest Cached-Shmem approximation; Buffers separate",
+  "declared_file_roots": [
+    "/testbed",
+    "/opt/conda",
+    "/opt/miniconda3"
+  ],
+  "file_boundary_after_steps": [
+    0,
+    60,
+    95
+  ],
+  "physical_deduplication": "NOT_MEASURED",
+  "source_hashes": {
+    "workload_probe.c": "38ee337daec7b464c73693da64fa7d815b23fe1863a0ec9cc4b4b4227e50b564",
+    "workload_timer.c": "4c88254bd618a359e792004b35d22722e1aae34ec3cdefc82e395f788ac2715c",
+    "workload_memory.h": "d426b8db3e6511b52b8d5fd09ac055a268aeeee5abec7b2f7af4952152a16e47",
+    "agentenv_workload_client.py": "78f6d5437922d0d58e75ff00ba575aea74e2157cde26605a2edde20431764e12",
+    "run_agentenv_workloads.py": "460c3736bd96c2dab58b0134b6a3320d59fc747d9ac8d9842e3059e7eeaf2bc2"
+  },
+  "source_image": "docker.io/swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24177@sha256:901249fde9753b8d559a93f6a279ef1371e06426300c1ea1aa64e1723c82099e",
+  "requested_image": "aswr.local/matplotlib__matplotlib-24177:replay-v1",
+  "sandbox_id": "01a169a5-2471-7b23-996a-b009a5aeabcd",
+  "workload_umask": "0077",
+  "source_preflight_status": "PASS",
+  "git_safe_directory": "/testbed",
+  "git_http_version": "HTTP/1.1",
+  "guest_proxy_configured": true,
+  "measurement_dispatched_ns": 14544027337430676,
+  "measurement_finished_ns": 14544091628688422,
+  "runner_exit_code": 0,
+  "final_source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "actions": 95,
+  "tool_seconds": 55.927245343,
+  "exit_differences": [],
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "guest_monitor": {
+    "status": "PASS",
+    "samples": 322,
+    "interval_seconds": 0.2,
+    "elapsed_seconds": 64.273527625,
+    "user_cpu_seconds": 0.017497,
+    "system_cpu_seconds": 0.035251,
+    "maxrss_kib": 1596
+  },
+  "cleanup": {
+    "sandbox_deleted": true
+  },
+  "finished_ns": 14544092707912251
+}

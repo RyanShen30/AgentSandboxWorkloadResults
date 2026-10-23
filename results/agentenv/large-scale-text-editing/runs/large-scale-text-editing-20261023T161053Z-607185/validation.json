@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "command": "test -f /app/output.csv && cmp -s /app/output.csv /app/expected.csv",
+  "scope": "local functional/artifact check; not the official benchmark hidden verifier"
+}

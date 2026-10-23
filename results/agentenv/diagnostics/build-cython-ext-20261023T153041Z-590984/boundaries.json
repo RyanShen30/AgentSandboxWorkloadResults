@@ -1,0 +1,92 @@
+[
+  {
+    "started_ns": 353001215634,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/pyknotid",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 107085909,
+        "files": 3006
+      },
+      {
+        "path": "/usr/include",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 20030255,
+        "files": 2285
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 17102540,
+        "files": 9
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 144218704,
+    "files": 5300,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 3,
+    "finished_ns": 353213976450,
+    "scan_seconds": 0.212760679,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 536311663422,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/pyknotid",
+        "status": "SCANNED",
+        "resident_bytes": 15056896,
+        "logical_bytes": 32042177,
+        "files": 269
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 76693504,
+        "logical_bytes": 355866781,
+        "files": 13703
+      },
+      {
+        "path": "/usr/include",
+        "status": "SCANNED",
+        "resident_bytes": 1003520,
+        "logical_bytes": 20030255,
+        "files": 2285
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 745472,
+        "logical_bytes": 68963301,
+        "files": 211
+      }
+    ],
+    "resident_bytes": 93499392,
+    "stable_resident_bytes": 93499392,
+    "logical_bytes": 476902514,
+    "files": 16468,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 3,
+    "finished_ns": 536743137457,
+    "scan_seconds": 0.431473801,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 83
+  }
+]

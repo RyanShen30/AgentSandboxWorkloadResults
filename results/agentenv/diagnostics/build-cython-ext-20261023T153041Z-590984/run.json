@@ -1,0 +1,55 @@
+{
+  "status": "COMPLETED",
+  "backend": "agentenv",
+  "task_id": "build-cython-ext",
+  "run_id": "build-cython-ext-20261023T153041Z-590984",
+  "expected_actions": 83,
+  "reference_run": "build-cython-ext-20261020T010948",
+  "cpus": 2,
+  "memory_mib": 8192,
+  "service_image": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "sample_interval_seconds": 0.2,
+  "started_ns": 14539674712927824,
+  "cache_policy": "new cold-start guest; host backing warmness uncontrolled; official DAMON retained",
+  "file_cache_metric": "guest Cached-Shmem approximation; Buffers separate",
+  "physical_deduplication": "NOT_MEASURED",
+  "source_hashes": {
+    "workload_probe.c": "38ee337daec7b464c73693da64fa7d815b23fe1863a0ec9cc4b4b4227e50b564",
+    "workload_timer.c": "4c88254bd618a359e792004b35d22722e1aae34ec3cdefc82e395f788ac2715c",
+    "workload_memory.h": "d426b8db3e6511b52b8d5fd09ac055a268aeeee5abec7b2f7af4952152a16e47",
+    "agentenv_workload_client.py": "78f6d5437922d0d58e75ff00ba575aea74e2157cde26605a2edde20431764e12",
+    "run_agentenv_workloads.py": "49e8c99807f263a3a8fbb1cb659635aa0f13c9021377e1ba0992830453d96eb2"
+  },
+  "source_image": "docker.io/alexgshaw/build-cython-ext@sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594",
+  "requested_image": "aswr.local/build-cython-ext:replay-v1",
+  "sandbox_id": "01a1695d-5d57-7fd2-a8a4-dfb8f615da61",
+  "guest_proxy_configured": false,
+  "measurement_dispatched_ns": 14539674984977083,
+  "measurement_finished_ns": 14539858835243976,
+  "runner_exit_code": 0,
+  "actions": 83,
+  "tool_seconds": 182.851657171,
+  "exit_differences": [
+    {
+      "step": 47,
+      "reference_exit": 0,
+      "actual_exit": 128
+    }
+  ],
+  "strict_exit_match": false,
+  "validation_status": "PASS",
+  "guest_monitor": {
+    "status": "PASS",
+    "samples": 919,
+    "interval_seconds": 0.2,
+    "elapsed_seconds": 183.830072633,
+    "user_cpu_seconds": 0.073251,
+    "system_cpu_seconds": 0.082407,
+    "maxrss_kib": 1588
+  },
+  "cleanup": {
+    "sandbox_deleted": true
+  },
+  "finished_ns": 14539859737269000
+}

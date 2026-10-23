@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "command": "python3 - <<'PYCHECK'\nimport json,urllib.request\nfor text,want in [('I love this excellent movie','positive'),('This is a horrible terrible movie','negative')]:\n r=urllib.request.Request('http://127.0.0.1:5000/sentiment',data=json.dumps({'text':text}).encode(),headers={'Content-Type':'application/json'})\n with urllib.request.urlopen(r,timeout=30) as f:d=json.load(f)\n assert d['sentiment']==want,d\n assert abs(sum(d['confidence'].values())-1)<1e-4,d\nprint('local service functional checks passed')\nPYCHECK",
+  "scope": "local functional/artifact check; not the official benchmark hidden verifier"
+}

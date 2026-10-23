@@ -1,0 +1,114 @@
+{
+  "task_id": "count-dataset-tokens",
+  "run_id": "count-dataset-tokens-20261023T162720Z-612179",
+  "backend": "agentenv",
+  "actions": 16,
+  "memory_mib": 8192,
+  "cpus": 2,
+  "tool_seconds": 225.575810775,
+  "tool_p50_seconds": 5.296049871999999,
+  "tool_p95_seconds": 62.98472327475,
+  "guest_initial_file_cache_bytes": 24043520,
+  "guest_peak_observed_file_cache_bytes": 603172864,
+  "guest_final_file_cache_bytes": 107937792,
+  "guest_net_file_cache_change_bytes": 83894272,
+  "guest_peak_observed_nonfree_bytes": 906448896,
+  "sampled_file_cache_peak_bytes": 603172864,
+  "initial_declared_file_resident_bytes": 0,
+  "final_declared_file_resident_bytes": 90816512,
+  "boundary_scan_seconds": 0.444065499,
+  "file_boundaries": 3,
+  "samples": 1131,
+  "max_sample_gap_seconds": 0.208618841,
+  "sample_gaps_over_600ms": 0,
+  "guest_measurement_span_seconds": 225.760556954,
+  "strict_exit_match": false,
+  "validation_status": "FAIL",
+  "validation_exit_code": 1,
+  "checks": {
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
+    "async_completion_schedule": true,
+    "no_tool_timeout": true,
+    "sandbox_deleted": true
+  },
+  "semantics": {},
+  "exit_differences": [
+    {
+      "step": 5,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 6,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 7,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 8,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 9,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 13,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 16,
+      "reference_exit": 0,
+      "actual_exit": 1
+    }
+  ],
+  "async_barrier_count": 0,
+  "async_wait_seconds": 0,
+  "async_job_exit_codes": [],
+  "boundary_coverage": [
+    {
+      "after_step": 0,
+      "status": "PASS",
+      "files": 1224,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 3,
+      "missing_roots": [
+        "/root/.cache"
+      ]
+    },
+    {
+      "after_step": 1,
+      "status": "PASS",
+      "files": 1224,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 3,
+      "missing_roots": [
+        "/root/.cache"
+      ]
+    },
+    {
+      "after_step": 16,
+      "status": "PASS",
+      "files": 15710,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 10,
+      "missing_roots": []
+    }
+  ],
+  "scope": "guest logical memory and declared regular-file residency; host PFN sharing not measured"
+}

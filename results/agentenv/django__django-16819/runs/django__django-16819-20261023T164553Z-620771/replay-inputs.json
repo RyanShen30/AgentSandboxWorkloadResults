@@ -1,0 +1,373 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "bash",
+      "command": "ls -la\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "855e6cb74bbfce6c372c8d332f562a3c0e121cfc628c1fde6e953c63373b3582",
+      "source_exit_code": null
+    },
+    {
+      "step": 2,
+      "tool": "bash",
+      "command": "pwd\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "eeb483a421342b8014444047b48abcf49fbc12b608c9c98fcbba828cbbedeab6",
+      "source_exit_code": null
+    },
+    {
+      "step": 3,
+      "tool": "bash",
+      "command": "git log --oneline -10\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "d08de9293e71b693ff11c42148f5203fb255fad9fe7158e1780a7e6be3dac027",
+      "source_exit_code": null
+    },
+    {
+      "step": 4,
+      "tool": "bash",
+      "command": "find django -name \"*migration*\" -type f | head -20\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "67fa1e899feed1a6b1eccf7424dedb7b2d6ee6591cda11f91d50e6349b376e2d",
+      "source_exit_code": null
+    },
+    {
+      "step": 5,
+      "tool": "bash",
+      "command": "find django -name \"*.py\" -exec grep -l \"AddIndex\\|RemoveIndex\" {} \\;\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "050ee089c48e80b1209d047c8dfa9efef2c0c995742c2f7573b4d1bde936bfc5",
+      "source_exit_code": null
+    },
+    {
+      "step": 6,
+      "tool": "bash",
+      "command": "find django/db/migrations -name \"*.py\" -exec grep -l \"index\" {} \\;\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "0195c5948814cda7010ae183eb0cdb08b46aaa94ffec6d581cdcf0ad26535577",
+      "source_exit_code": null
+    },
+    {
+      "step": 7,
+      "tool": "bash",
+      "command": "cat django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "048bf0f3b35d7a6199d62d2ac49f3697932855e23f55fb1c6319520181a06ad0",
+      "source_exit_code": null
+    },
+    {
+      "step": 8,
+      "tool": "bash",
+      "command": "grep -n -A 10 -B 5 \"AddIndex\\|RemoveIndex\" django/db/migrations/autodetector.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "7b63ac5efc5b8a271085986dbb8d493c3bf10bfa4bd6dceb571e33848e7c8622",
+      "source_exit_code": null
+    },
+    {
+      "step": 9,
+      "tool": "bash",
+      "command": "cat django/core/management/commands/optimizemigration.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "d4b2e21ca5c4c5938ac0b0f51e18a563f702356149d07638c49bd0568942e892",
+      "source_exit_code": null
+    },
+    {
+      "step": 10,
+      "tool": "bash",
+      "command": "find django -name \"*.py\" -exec grep -l \"MigrationOptimizer\" {} \\;\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "d7a767378eab747df739d1acd69cffed6d115bbc64cf2c32856d3d998d12e949",
+      "source_exit_code": null
+    },
+    {
+      "step": 11,
+      "tool": "bash",
+      "command": "find django -name \"*optimizer*\"\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "fe1d3ee27d0247c46014f83a8bd499cd1e3c85e16340e29a20df30bb57f483e6",
+      "source_exit_code": null
+    },
+    {
+      "step": 12,
+      "tool": "bash",
+      "command": "cat django/db/migrations/optimizer.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "cd30634aa5d5d1c49c16bf64c34812c18952a6ee51199ed6f1b07d5f30d43d80",
+      "source_exit_code": null
+    },
+    {
+      "step": 13,
+      "tool": "bash",
+      "command": "find tests -name \"*migration*\" -type f | head -10\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "73adf196b7a07d0a6cb2e14a839d3879bfc71f176da7134dc9018c01fd4e38d0",
+      "source_exit_code": null
+    },
+    {
+      "step": 14,
+      "tool": "bash",
+      "command": "find tests -name \"*.py\" -exec grep -l \"AddIndex\\|RemoveIndex\" {} \\;\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "edd7a1b4ae3d0ba61c48a1fd85e73bce2c1d0e4cd143352bf8e7c9087cda7a2e",
+      "source_exit_code": null
+    },
+    {
+      "step": 15,
+      "tool": "bash",
+      "command": "find tests -name \"*.py\" -exec grep -l \"index\" {} \\; | grep migration\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "8d2d19c2e5421f11989adf0f1c33fcf058488af309fe49ede8cef0355f6bf2ec",
+      "source_exit_code": null
+    },
+    {
+      "step": 16,
+      "tool": "bash",
+      "command": "grep -n -A 10 -B 5 \"AddIndex\\|RemoveIndex\" tests/migrations/test_operations.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "98e23b461748d3a2892eff2583d614e4150d90b17397a1aa9a99d7dd93fcaeba",
+      "source_exit_code": null
+    },
+    {
+      "step": 17,
+      "tool": "bash",
+      "command": "grep -n -A 15 -B 5 \"AddIndex\\|RemoveIndex\" tests/migrations/test_optimizer.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "2b1ada5b334fc9bb088af542de9ed9a92f8fcb14ce46c9c7d70991a86dd9e47a",
+      "source_exit_code": null
+    },
+    {
+      "step": 18,
+      "tool": "bash",
+      "command": "head -50 tests/migrations/test_optimizer.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "f285ad17e6e780dcced89ad2c4af04696c36b0a5e95aafe252e33a7b17b75b38",
+      "source_exit_code": null
+    },
+    {
+      "step": 19,
+      "tool": "bash",
+      "command": "cp django/db/migrations/operations/models.py django/db/migrations/operations/models.py.backup\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "92bee31d2818d7fb5b15fb723b87b5a772f1125d4ede6ffa64899fac94b0af25",
+      "source_exit_code": null
+    },
+    {
+      "step": 20,
+      "tool": "bash",
+      "command": "sed -i '/class AddIndex/,/class RemoveIndex/s/def reduce(self, operation, app_label):/def reduce(self, operation, app_label):\\n        # Check if this AddIndex can be removed due to a later RemoveIndex with same name\\n        if isinstance(operation, RemoveIndex) and self.index.name == operation.name:\\n            return []\\n        # Fall back to parent implementation\\n        return super().reduce(operation, app_label)/' django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "cb35cde8f879ddd09015cf87057d2f11fe8bd7583db9fbd627238e4c1e11cc82",
+      "source_exit_code": null
+    },
+    {
+      "step": 21,
+      "tool": "bash",
+      "command": "sed -i '/class RemoveIndex/,/class AddConstraint/s/def reduce(self, operation, app_label):/def reduce(self, operation, app_label):\\n        # Check if this RemoveIndex can be removed due to a later AddIndex with same name\\n        if isinstance(operation, AddIndex) and self.name == operation.index.name:\\n            return []\\n        # Fall back to parent implementation\\n        return super().reduce(operation, app_label)/' django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "5526d361ac25dc6d810477bb65cd1bc9a0d21f7f5356c7b65f87f03ad736b3d7",
+      "source_exit_code": null
+    },
+    {
+      "step": 22,
+      "tool": "bash",
+      "command": "grep -n -A 10 -B 2 \"def reduce\" django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "83351bdfc0b0a93a46d798ee7eb07bf68adc3b5bc4803bdd31f0b5b6c8393bfc",
+      "source_exit_code": null
+    },
+    {
+      "step": 23,
+      "tool": "bash",
+      "command": "grep -n -A 20 \"class AddIndex\" django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "6d80649d0f86d809b7d925064152c3c34c9d7ff98a05d012763c8de620ffbcdf",
+      "source_exit_code": null
+    },
+    {
+      "step": 24,
+      "tool": "bash",
+      "command": "sed -n '811,900p' django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "f14a164348fdbb38ad0948ebac6fecd1762a247d3b30005b341815a599e44954",
+      "source_exit_code": null
+    },
+    {
+      "step": 25,
+      "tool": "bash",
+      "command": "sed -n '900,950p' django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "701b496c1e53f7f3ac91ba634e8d30d19612c69b34a0078fede5e26502848b73",
+      "source_exit_code": null
+    },
+    {
+      "step": 26,
+      "tool": "bash",
+      "command": "grep -n -A 10 -B 5 \"class IndexOperation\" django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "28e2ce04db2155b4f195216f0182def28769a2419ac2077ee776bbbebc6a4131",
+      "source_exit_code": null
+    },
+    {
+      "step": 27,
+      "tool": "bash",
+      "command": "cp django/db/migrations/operations/models.py.backup django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "1fbd5ef59b71467809c3849f4b13b69d09678204a9513d0b2a00a032efeee6d7",
+      "source_exit_code": null
+    },
+    {
+      "step": 28,
+      "tool": "bash",
+      "command": "sed -i '850,860s/    @property/    def reduce(self, operation, app_label):\\n        # Check if this AddIndex can be removed due to a later RemoveIndex with same name\\n        if isinstance(operation, RemoveIndex) and self.index.name == operation.name:\\n            return []\\n        # Fall back to parent implementation\\n        return super().reduce(operation, app_label)\\n\\n    @property/' django/db/migrations/operations/models.py\n",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Decode doubled terminal backslashes once; published echoed commands show one backslash (notably find terminators and sed newline replacements). Preserve command content after this terminal encoding layer.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "a31e7b148ef5cd7d7ad4d6b606401be087224a516293344e1cdadcd4c7e189c7",
+      "source_exit_code": null
+    }
+  ],
+  "files": {
+    "001.sh": "ls -la\n\n",
+    "002.sh": "pwd\n\n",
+    "003.sh": "git log --oneline -10\n\n",
+    "004.sh": "find django -name \"*migration*\" -type f | head -20\n\n",
+    "005.sh": "find django -name \"*.py\" -exec grep -l \"AddIndex\\|RemoveIndex\" {} \\;\n\n",
+    "006.sh": "find django/db/migrations -name \"*.py\" -exec grep -l \"index\" {} \\;\n\n",
+    "007.sh": "cat django/db/migrations/operations/models.py\n\n",
+    "008.sh": "grep -n -A 10 -B 5 \"AddIndex\\|RemoveIndex\" django/db/migrations/autodetector.py\n\n",
+    "009.sh": "cat django/core/management/commands/optimizemigration.py\n\n",
+    "010.sh": "find django -name \"*.py\" -exec grep -l \"MigrationOptimizer\" {} \\;\n\n",
+    "011.sh": "find django -name \"*optimizer*\"\n\n",
+    "012.sh": "cat django/db/migrations/optimizer.py\n\n",
+    "013.sh": "find tests -name \"*migration*\" -type f | head -10\n\n",
+    "014.sh": "find tests -name \"*.py\" -exec grep -l \"AddIndex\\|RemoveIndex\" {} \\;\n\n",
+    "015.sh": "find tests -name \"*.py\" -exec grep -l \"index\" {} \\; | grep migration\n\n",
+    "016.sh": "grep -n -A 10 -B 5 \"AddIndex\\|RemoveIndex\" tests/migrations/test_operations.py\n\n",
+    "017.sh": "grep -n -A 15 -B 5 \"AddIndex\\|RemoveIndex\" tests/migrations/test_optimizer.py\n\n",
+    "018.sh": "head -50 tests/migrations/test_optimizer.py\n\n",
+    "019.sh": "cp django/db/migrations/operations/models.py django/db/migrations/operations/models.py.backup\n\n",
+    "020.sh": "sed -i '/class AddIndex/,/class RemoveIndex/s/def reduce(self, operation, app_label):/def reduce(self, operation, app_label):\\n        # Check if this AddIndex can be removed due to a later RemoveIndex with same name\\n        if isinstance(operation, RemoveIndex) and self.index.name == operation.name:\\n            return []\\n        # Fall back to parent implementation\\n        return super().reduce(operation, app_label)/' django/db/migrations/operations/models.py\n\n",
+    "021.sh": "sed -i '/class RemoveIndex/,/class AddConstraint/s/def reduce(self, operation, app_label):/def reduce(self, operation, app_label):\\n        # Check if this RemoveIndex can be removed due to a later AddIndex with same name\\n        if isinstance(operation, AddIndex) and self.name == operation.index.name:\\n            return []\\n        # Fall back to parent implementation\\n        return super().reduce(operation, app_label)/' django/db/migrations/operations/models.py\n\n",
+    "022.sh": "grep -n -A 10 -B 2 \"def reduce\" django/db/migrations/operations/models.py\n\n",
+    "023.sh": "grep -n -A 20 \"class AddIndex\" django/db/migrations/operations/models.py\n\n",
+    "024.sh": "sed -n '811,900p' django/db/migrations/operations/models.py\n\n",
+    "025.sh": "sed -n '900,950p' django/db/migrations/operations/models.py\n\n",
+    "026.sh": "grep -n -A 10 -B 5 \"class IndexOperation\" django/db/migrations/operations/models.py\n\n",
+    "027.sh": "cp django/db/migrations/operations/models.py.backup django/db/migrations/operations/models.py\n\n",
+    "028.sh": "sed -i '850,860s/    @property/    def reduce(self, operation, app_label):\\n        # Check if this AddIndex can be removed due to a later RemoveIndex with same name\\n        if isinstance(operation, RemoveIndex) and self.index.name == operation.name:\\n            return []\\n        # Fall back to parent implementation\\n        return super().reduce(operation, app_label)\\n\\n    @property/' django/db/migrations/operations/models.py\n\n",
+    "session-server.sh": "#!/bin/bash\ncd /testbed\nmkfifo /probe/work/request\nexec 3<>/probe/work/request\ntouch /probe/work/session-ready\nwhile IFS= read -r ASBP_STEP <&3; do\n  ASBP_START=$(/probe/clock_ns)\n  source \"/probe/input/${ASBP_STEP}.sh\" > \"/probe/work/${ASBP_STEP}.stdout\" 2> \"/probe/work/${ASBP_STEP}.stderr\"\n  ASBP_RC=$?\n  ASBP_END=$(/probe/clock_ns)\n  printf '{\"started_ns\":%s,\"finished_ns\":%s,\"exit_code\":%s,\"timed_out\":false}\\n' \"$ASBP_START\" \"$ASBP_END\" \"$ASBP_RC\" > \"/probe/work/${ASBP_STEP}.tmp\"\n  mv \"/probe/work/${ASBP_STEP}.tmp\" \"/probe/work/${ASBP_STEP}.json\"\ndone\n"
+  },
+  "source_reference_run": "django__django-16819-20261020T165703",
+  "scope": "normalized executable inputs; no original conversation or tool outputs"
+}

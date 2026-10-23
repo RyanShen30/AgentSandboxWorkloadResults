@@ -1,0 +1,81 @@
+{
+  "task_id": "build-cython-ext",
+  "run_id": "build-cython-ext-20261023T172953Z-638250",
+  "backend": "agentenv",
+  "actions": 83,
+  "memory_mib": 8192,
+  "cpus": 2,
+  "tool_seconds": 143.669351291,
+  "tool_p50_seconds": 0.064550017,
+  "tool_p95_seconds": 5.709097973799982,
+  "guest_initial_file_cache_bytes": 24743936,
+  "guest_peak_observed_file_cache_bytes": 297279488,
+  "guest_final_file_cache_bytes": 112611328,
+  "guest_net_file_cache_change_bytes": 87867392,
+  "guest_peak_observed_nonfree_bytes": 725176320,
+  "sampled_file_cache_peak_bytes": 297279488,
+  "initial_declared_file_resident_bytes": 0,
+  "final_declared_file_resident_bytes": 86032384,
+  "boundary_scan_seconds": 0.637190709,
+  "file_boundaries": 3,
+  "samples": 724,
+  "max_sample_gap_seconds": 0.20374565,
+  "sample_gaps_over_600ms": 0,
+  "guest_measurement_span_seconds": 144.440348695,
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "validation_exit_code": 0,
+  "checks": {
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
+    "async_completion_schedule": true,
+    "no_tool_timeout": true,
+    "sandbox_deleted": true
+  },
+  "semantics": {
+    "final_two_test_summaries_18_passed": true
+  },
+  "exit_differences": [],
+  "async_barrier_count": 0,
+  "async_wait_seconds": 0,
+  "async_job_exit_codes": [],
+  "boundary_coverage": [
+    {
+      "after_step": 0,
+      "status": "PASS",
+      "files": 5300,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 3,
+      "missing_roots": [
+        "/app/pyknotid",
+        "/tmp/pyknotid-full"
+      ]
+    },
+    {
+      "after_step": 69,
+      "status": "PASS",
+      "files": 16650,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 3,
+      "missing_roots": []
+    },
+    {
+      "after_step": 83,
+      "status": "PASS",
+      "files": 16468,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 3,
+      "missing_roots": [
+        "/tmp/pyknotid-full"
+      ]
+    }
+  ],
+  "scope": "guest logical memory and declared regular-file residency; host PFN sharing not measured"
+}

@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "command": "test -d /testbed/node_modules && test -d /testbed/build",
+  "scope": "local functional/artifact check; not the official benchmark hidden verifier"
+}

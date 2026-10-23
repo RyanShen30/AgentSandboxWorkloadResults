@@ -1,0 +1,122 @@
+{
+  "task_id": "compile-compcert",
+  "run_id": "compile-compcert-20261023T164620Z-620929",
+  "backend": "agentenv",
+  "actions": 318,
+  "memory_mib": 32768,
+  "cpus": 2,
+  "tool_seconds": 2020.691704482,
+  "tool_p50_seconds": 0.0315290605,
+  "tool_p95_seconds": 24.986522996299918,
+  "guest_initial_file_cache_bytes": 26292224,
+  "guest_peak_observed_file_cache_bytes": 2024280064,
+  "guest_final_file_cache_bytes": 215416832,
+  "guest_net_file_cache_change_bytes": 189124608,
+  "guest_peak_observed_nonfree_bytes": 8701222912,
+  "sampled_file_cache_peak_bytes": 2024280064,
+  "initial_declared_file_resident_bytes": 0,
+  "final_declared_file_resident_bytes": 138592256,
+  "boundary_scan_seconds": 0.24072563700000002,
+  "file_boundaries": 3,
+  "samples": 10686,
+  "max_sample_gap_seconds": 0.215603216,
+  "sample_gaps_over_600ms": 0,
+  "guest_measurement_span_seconds": 2139.112349238,
+  "strict_exit_match": false,
+  "validation_status": "PASS",
+  "validation_exit_code": 0,
+  "checks": {
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
+    "async_completion_schedule": true,
+    "no_tool_timeout": true,
+    "sandbox_deleted": true
+  },
+  "semantics": {},
+  "exit_differences": [
+    {
+      "step": 223,
+      "reference_exit": 0,
+      "actual_exit": 4
+    },
+    {
+      "step": 224,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 225,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 227,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 234,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 235,
+      "reference_exit": 0,
+      "actual_exit": 1
+    }
+  ],
+  "async_barrier_count": 9,
+  "async_wait_seconds": 116.905022134,
+  "async_job_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "boundary_coverage": [
+    {
+      "after_step": 0,
+      "status": "PASS",
+      "files": 0,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 0,
+      "missing_roots": [
+        "/tmp/CompCert",
+        "/tmp/coq-8.16.1"
+      ]
+    },
+    {
+      "after_step": 185,
+      "status": "PASS",
+      "files": 1030,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 0,
+      "missing_roots": [
+        "/tmp/coq-8.16.1"
+      ]
+    },
+    {
+      "after_step": 318,
+      "status": "PASS",
+      "files": 8430,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 0,
+      "missing_roots": [
+        "/tmp/coq-8.16.1"
+      ]
+    }
+  ],
+  "scope": "guest logical memory and declared regular-file residency; host PFN sharing not measured"
+}

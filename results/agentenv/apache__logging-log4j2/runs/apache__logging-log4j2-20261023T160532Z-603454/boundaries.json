@@ -1,0 +1,117 @@
+[
+  {
+    "started_ns": 985327534,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/root/.m2",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/root/.sdkman",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 838850742,
+        "files": 729
+      },
+      {
+        "path": "/data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 22852314,
+        "files": 6020
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 861703056,
+    "files": 6749,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 215,
+    "finished_ns": 1234148673,
+    "scan_seconds": 0.248821049,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 68271347842,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/root/.m2",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 35369431,
+        "files": 345
+      },
+      {
+        "path": "/root/.sdkman",
+        "status": "SCANNED",
+        "resident_bytes": 541982720,
+        "logical_bytes": 1380028266,
+        "files": 1100
+      },
+      {
+        "path": "/data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 22852340,
+        "files": 6021
+      }
+    ],
+    "resident_bytes": 541982720,
+    "stable_resident_bytes": 541982720,
+    "logical_bytes": 1438250037,
+    "files": 7466,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 429,
+    "finished_ns": 68634743519,
+    "scan_seconds": 0.363394747,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 9
+  },
+  {
+    "started_ns": 315217305604,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/root/.m2",
+        "status": "SCANNED",
+        "resident_bytes": 24473600,
+        "logical_bytes": 294547633,
+        "files": 3750
+      },
+      {
+        "path": "/root/.sdkman",
+        "status": "SCANNED",
+        "resident_bytes": 18366464,
+        "logical_bytes": 1380028266,
+        "files": 1100
+      },
+      {
+        "path": "/data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415",
+        "status": "SCANNED",
+        "resident_bytes": 23207936,
+        "logical_bytes": 48961020,
+        "files": 10383
+      }
+    ],
+    "resident_bytes": 66048000,
+    "stable_resident_bytes": 66048000,
+    "logical_bytes": 1723536919,
+    "files": 15233,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 429,
+    "finished_ns": 315737889448,
+    "scan_seconds": 0.520583753,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 10
+  }
+]

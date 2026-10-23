@@ -1,0 +1,10 @@
+{
+  "scope": "exact git diff --cached from final original tool step 95",
+  "source_stdout_sha256": "31f1866fc3d3d615396bfdc21da740f30a0c23a8cfce99395feb128882e57462",
+  "patch_sha256": "6c4d4dd9337bde6d806220e51740b238840dadad3dd3806365c30b2e4945f4d8",
+  "reference_run": "matplotlib__matplotlib-24177-20261020T161817",
+  "reference_patch_sha256": "6c4d4dd9337bde6d806220e51740b238840dadad3dd3806365c30b2e4945f4d8",
+  "reference_patch_exact_match": true,
+  "collector_unstaged_patch_bytes": 0,
+  "note": "derived without rerunning business commands; original empty unstaged capture retained in private raw archive"
+}

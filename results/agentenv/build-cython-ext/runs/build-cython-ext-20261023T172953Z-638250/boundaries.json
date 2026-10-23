@@ -1,0 +1,155 @@
+[
+  {
+    "started_ns": 1015554210,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/pyknotid",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/pyknotid-full",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 107085909,
+        "files": 3006
+      },
+      {
+        "path": "/usr/include",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 20030255,
+        "files": 2285
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 17102540,
+        "files": 9
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 144218704,
+    "files": 5300,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 3,
+    "finished_ns": 1266926635,
+    "scan_seconds": 0.251372164,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 137572144541,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/pyknotid",
+        "status": "SCANNED",
+        "resident_bytes": 8032256,
+        "logical_bytes": 26522683,
+        "files": 262
+      },
+      {
+        "path": "/tmp/pyknotid-full",
+        "status": "SCANNED",
+        "resident_bytes": 3153920,
+        "logical_bytes": 4869020,
+        "files": 190
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 57520128,
+        "logical_bytes": 355855410,
+        "files": 13702
+      },
+      {
+        "path": "/usr/include",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 20030255,
+        "files": 2285
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 475136,
+        "logical_bytes": 68963508,
+        "files": 211
+      }
+    ],
+    "resident_bytes": 69181440,
+    "stable_resident_bytes": 69181440,
+    "logical_bytes": 476240876,
+    "files": 16650,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 3,
+    "finished_ns": 137822084552,
+    "scan_seconds": 0.249939771,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 69
+  },
+  {
+    "started_ns": 145454797536,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/pyknotid",
+        "status": "SCANNED",
+        "resident_bytes": 15552512,
+        "logical_bytes": 32042177,
+        "files": 269
+      },
+      {
+        "path": "/tmp/pyknotid-full",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 70004736,
+        "logical_bytes": 355866781,
+        "files": 13703
+      },
+      {
+        "path": "/usr/include",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 20030255,
+        "files": 2285
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 475136,
+        "logical_bytes": 68963508,
+        "files": 211
+      }
+    ],
+    "resident_bytes": 86032384,
+    "stable_resident_bytes": 86032384,
+    "logical_bytes": 476902721,
+    "files": 16468,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 3,
+    "finished_ns": 145590676460,
+    "scan_seconds": 0.135878774,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 83
+  }
+]

@@ -1,0 +1,113 @@
+[
+  {
+    "started_ns": 1515531220,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/testbed",
+        "status": "SCANNED",
+        "resident_bytes": 1363968,
+        "logical_bytes": 142890782,
+        "files": 6738
+      },
+      {
+        "path": "/opt/conda",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/opt/miniconda3",
+        "status": "SCANNED",
+        "resident_bytes": 12103680,
+        "logical_bytes": 2042952700,
+        "files": 25741
+      }
+    ],
+    "resident_bytes": 13467648,
+    "stable_resident_bytes": 13467648,
+    "logical_bytes": 2185843482,
+    "files": 32479,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 4327,
+    "finished_ns": 2764867130,
+    "scan_seconds": 1.24933579,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 10312922768,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/testbed",
+        "status": "SCANNED",
+        "resident_bytes": 23355392,
+        "logical_bytes": 142890782,
+        "files": 6738
+      },
+      {
+        "path": "/opt/conda",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/opt/miniconda3",
+        "status": "SCANNED",
+        "resident_bytes": 12103680,
+        "logical_bytes": 2042952700,
+        "files": 25741
+      }
+    ],
+    "resident_bytes": 35459072,
+    "stable_resident_bytes": 35459072,
+    "logical_bytes": 2185843482,
+    "files": 32479,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 4327,
+    "finished_ns": 10533017116,
+    "scan_seconds": 0.220094273,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 14
+  },
+  {
+    "started_ns": 14209625486,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/testbed",
+        "status": "SCANNED",
+        "resident_bytes": 25362432,
+        "logical_bytes": 142931508,
+        "files": 6739
+      },
+      {
+        "path": "/opt/conda",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/opt/miniconda3",
+        "status": "SCANNED",
+        "resident_bytes": 12103680,
+        "logical_bytes": 2042952700,
+        "files": 25741
+      }
+    ],
+    "resident_bytes": 37466112,
+    "stable_resident_bytes": 37466112,
+    "logical_bytes": 2185884208,
+    "files": 32480,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 4327,
+    "finished_ns": 14486492040,
+    "scan_seconds": 0.276866489,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 28
+  }
+]

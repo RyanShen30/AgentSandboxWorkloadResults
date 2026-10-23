@@ -1,0 +1,24 @@
+{
+  "monotonic_ns": 1013789987,
+  "timestamp_ns": 1792776593716696557,
+  "memory": {
+    "MemTotal": 8352477184,
+    "MemFree": 8258273280,
+    "MemAvailable": 8133136384,
+    "Cached": 25575424,
+    "Buffers": 2236416,
+    "Shmem": 831488,
+    "AnonPages": 3178496,
+    "Slab": 13209600,
+    "SReclaimable": 2334720,
+    "SUnreclaim": 10874880,
+    "Active(file)": 6643712,
+    "Inactive(file)": 20185088,
+    "Dirty": 8257536,
+    "Writeback": 0,
+    "PageTables": 356352,
+    "KernelStack": 1196032,
+    "disk_file_cache_bytes": 24743936,
+    "nonfree_bytes": 94203904
+  }
+}

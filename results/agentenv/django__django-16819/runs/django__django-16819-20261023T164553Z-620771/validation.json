@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "status": "PASS",
+  "command": "cd /testbed && git rev-parse HEAD && git diff --stat && python -m py_compile django/db/migrations/operations/models.py",
+  "scope": "local artifact/smoke check only; recorded trajectory completion is independent of official benchmark correctness"
+}

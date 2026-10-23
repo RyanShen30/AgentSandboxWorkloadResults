@@ -1,3 +1,5 @@
+> 旧 Podman 部署记录保留于下；本轮 sudo/KVM 与 microVM 部署见 [AgentENV 部署](../agentenv-deployment.md)。
+
 # 环境搭建与部署
 
 > 公开范围：本次只提交文档、图表、汇总/CSV、配置与脚本。完整原始日志、轨迹和重放输入包保留在 cpu-15；重算/重放须提供 ASWR_ARCHIVE_ROOT，见[数据说明](../data-and-sources.md)。

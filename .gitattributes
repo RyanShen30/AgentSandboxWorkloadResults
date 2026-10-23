@@ -1,0 +1,2 @@
+# Preserve exact numerical CSV bytes for artifact hashes.
+*.csv -text

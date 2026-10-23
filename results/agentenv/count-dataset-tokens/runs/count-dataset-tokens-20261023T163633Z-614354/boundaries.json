@@ -1,0 +1,115 @@
+[
+  {
+    "started_ns": 975030360,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/root/.cache",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 29923699,
+        "files": 1224
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 29923699,
+    "files": 1224,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 3,
+    "finished_ns": 1034121613,
+    "scan_seconds": 0.059091105,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 1045391729,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/root/.cache",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 29923699,
+        "files": 1224
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 29923699,
+    "files": 1224,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 3,
+    "finished_ns": 1063132633,
+    "scan_seconds": 0.017740783,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 1
+  },
+  {
+    "started_ns": 197387922391,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 4096,
+        "logical_bytes": 2097,
+        "files": 2
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 39583744,
+        "logical_bytes": 167851443,
+        "files": 309
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 57470976,
+        "logical_bytes": 517557042,
+        "files": 15400
+      }
+    ],
+    "resident_bytes": 97058816,
+    "stable_resident_bytes": 97058816,
+    "logical_bytes": 685410582,
+    "files": 15711,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 10,
+    "finished_ns": 197997002641,
+    "scan_seconds": 0.609080011,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 16
+  }
+]

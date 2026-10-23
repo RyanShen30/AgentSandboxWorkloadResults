@@ -17,7 +17,13 @@ def main():
    if re.match(r'^[a-z]+:',link) or link.startswith('#'):continue
    links+=1
    if not (f.parent/unquote(link.split('#',1)[0])).exists():errors.append(str(f.relative_to(R))+' -> '+link)
- docs=list(R.glob('results/*/README.md'))
+ docs=[p for p in R.glob('results/*/README.md') if p.parent.name!='agentenv']
+ agentenv=R/'provenance/agentenv-runs.json'
+ if agentenv.exists():
+  selected=json.loads(agentenv.read_text())['primary']
+  if len(selected)!=10 or len({r['task_id'] for r in selected})!=10:errors.append('Expected ten AgentENV primary tasks')
+  for r in selected:
+   if not (R/'results/agentenv'/r['task_id']/'README.md').exists():errors.append('Missing AgentENV task document: '+r['task_id'])
  if len(docs)!=10:errors.append('Expected ten task documents')
  print(json.dumps({'status':'FAIL' if errors else 'PASS','public_files':len(data)+1,'local_links':links,'task_documents':len(docs),'raw_archives':'excluded from public commit; retained on cpu-15','errors':errors},ensure_ascii=False,indent=2));raise SystemExit(bool(errors))
 if __name__=='__main__':main()

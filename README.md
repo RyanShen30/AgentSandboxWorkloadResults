@@ -1,131 +1,53 @@
 # Agent Sandbox Workload Results
 
-在 cpu-15 上完成 **10 个任务的固定公开工具轨迹重放**，收集工具时延、容器内存变化和逐工具冻结后的文件缓存驻留。十任务主结果共 **652 次工具调用、662 个缓存边界**；CompCert 额外保留 8 GiB 原记录，仓库共 11 次完整运行、970 次调用、981 个边界。实验日期为 **2026-10-20，Asia/Shanghai**。
+最新实验于 **2026-10-23 至 24（Asia/Shanghai）** 在 cpu-15 的 AgentENV microVM 中完成：**10 个任务、652 次固定工具调用**，约每 200 ms 采集 guest 内存，每任务 3 个指定文件驻留边界。输入沿用原轨迹，不调用模型 API；失败尝试也单独归档。
 
-本轮为 Agent Sandbox FS 的多租户文件共享、Page Cache 和 DAX 实验筛选 workload，采用固定工具轨迹重放，不调用模型 API。
+这轮测量“**独立 guest 中有多少文件缓存**”。旧 Podman 初筛完整保留在 [2026-10-20 历史报告](PODMAN-20261020.md) 和 [旧结果索引](results/README.md)。宿主文件驻留、容器 cgroup 记账和 guest 文件缓存的范围不同，不能互相替代。
 
-## 十任务整体结果
+## 最新 AgentENV 结果
 
-各项顺序运行，2 CPU；除 CompCert 主记录为 **32 GiB** 外均为 **8 GiB** 上限。内存以 cgroup v2 计费为准；文件驻留由冻结容器后的两遍 mincore 扫描得到，只覆盖拥有且可扫描的根文件系统普通文件。文件驻留包含初始暖缓存，不能当作本轮实际读取量，也不能与 cgroup 内存相加。
+每项新建独立 VM，2 vCPU，除 CompCert 为 32 GiB 外均为 8 GiB RAM。下表缓存采用 guest `max(0,Cached-Shmem)`，Buffers 单列保存在 CSV；单位 MiB=2²⁰ bytes。峰值合并轨迹阶段周期样本、工具前后快照及 F0/Fend，排除扫描区间的周期样本。
 
-| 任务与结果文档 | 调用数 | 工具合计 (s) | cgroup 峰值 (MiB) | 文件驻留 初始→最大→结束 (MiB) | 本地验证范围 |
-| --- | --- | --- | --- | --- | --- |
-| [reshard-c4-data](results/reshard-c4-data/README.md) | 36 | 23.42 | 2620.7 | 2660.7 → 4390.6 → 2660.8 | 全量往返比对通过 |
-| [large-scale-text-editing](results/large-scale-text-editing/README.md) | 50 | 329.18 | 920.8 | 252.4 → 392.6 → 392.6 | 输出字节比对通过；源判题失败 |
-| [hf-model-inference](results/hf-model-inference/README.md) | 11 | 74.68 | 1674.0 | 1152.0 → 2434.3 → 2434.3 | 服务正负样例通过 |
-| [mozilla__pdf.js-20957](results/mozilla__pdf.js-20957/README.md) | 5 | 168.36 | 2721.1 | 1376.7 → 2835.4 → 2835.4 | 两轮 CLI 测试通过 |
-| [build-cython-ext](results/build-cython-ext/README.md) | 83 | 127.51 | 787.1 | 801.4 → 1145.2 → 1140.1 | 扩展导入及两轮 18 测试通过 |
-| [count-dataset-tokens](results/count-dataset-tokens/README.md) | 16 | 250.33 | 1050.1 | 123.4 → 779.8 → 779.8 | 79,586 结果检查通过 |
-| [apache__logging-log4j2](results/apache__logging-log4j2/README.md) | 10 | 440.00 | 2930.5 | 1871.5 → 2716.3 → 2716.3 | 编译成功；跳过测试；检查器有 141 |
-| [compile-compcert](results/compile-compcert/README.md) | 318 | 2068.81 | 13068.3 | 80.9 → 4976.7 → 4976.7 | 编译器编译运行通过 |
-| [matplotlib__matplotlib-24177](results/matplotlib__matplotlib-24177/README.md) | 95 | 48.58 | 360.2 | 7129.5 → 7138.4 → 7138.4 | 60 局部测试通过；补丁一致 |
-| [django__django-16819](results/django__django-16819/README.md) | 28 | 5.85 | 21.2 | 3049.0 → 3049.0 → 3049.0 | 仅语法检查通过 |
+| 任务 | 调用数 | 工具合计 (s) | guest 文件缓存 初始→观测峰值→结束 (MiB) | 实际验证范围 |
+| --- | ---: | ---: | --- | --- |
+| [build-cython-ext](results/agentenv/build-cython-ext/README.md) | 83 | 143.67 | 23.6 → 283.5 → 107.4 | 扩展导入、两轮各 18 测试通过 |
+| [reshard-c4-data](results/agentenv/reshard-c4-data/README.md) | 36 | 38.76 | 23.2 → 3110.4 → 590.8 | 9,898 文件全量内容/结构往返通过 |
+| [hf-model-inference](results/agentenv/hf-model-inference/README.md) | 11 | 83.34 | 21.3 → 651.3 → 324.5 | HTTP 服务正负样例通过 |
+| [mozilla__pdf.js-20957](results/agentenv/mozilla__pdf.js-20957/README.md) | 5 | 171.90 | 23.0 → 950.5 → 60.6 | 两轮 CLI 测试通过 |
+| [apache__logging-log4j2](results/agentenv/apache__logging-log4j2/README.md) | 10 | 313.54 | 34.5 → 670.1 → 77.5 | Maven 编译成功；跳过测试；检查器 141 |
+| [large-scale-text-editing](results/agentenv/large-scale-text-editing/README.md) | 50 | 337.95 | 23.1 → 203.3 → 121.2 | 输出字节比对通过；不改原判题结论 |
+| [count-dataset-tokens](results/agentenv/count-dataset-tokens/README.md) | 16 | 196.25 | 22.8 → 578.6 → 109.2 | 79,586 答案检查通过；实际计数 26 行 |
+| [matplotlib__matplotlib-24177](results/agentenv/matplotlib__matplotlib-24177/README.md) | 95 | 55.93 | 70.7 → 248.0 → 138.7 | 最终两轮 60 passed；补丁与旧记录一致 |
+| [django__django-16819](results/agentenv/django__django-16819/README.md) | 28 | 11.01 | 44.3 → 68.5 → 68.4 | 仅原范围语法检查通过 |
+| [compile-compcert](results/agentenv/compile-compcert/README.md) | 318 | 1939.82 | 28.8 → 1937.0 → 226.0 | 最终编译器编译运行检查通过 |
 
+全部主记录的工具退出码与原 Podman 重放记录一致；原预期非零调用仍保留。Log4j 的原检查器退出 **141**，没有改写成通过；其 Maven BUILD SUCCESS 与检查器状态分别报告。任务完成和局部验证不代表源 benchmark 的模型修复正确性。
 
-原始单位为 bytes、ns、s；MiB=2²⁰ bytes，GiB=2³⁰ bytes。`memory.peak` 是内核高水位，可能包含预检；连续曲线覆盖基线与轨迹测量。各项单次运行，没有误差条。详细结果、失败调用、文件区域表和曲线均可点击任务名称阅读。
+![AgentENV guest 文件缓存](results/agentenv/overview.png)
 
-![十任务内存与文件驻留概览](results/overview.png)
+[详细结果索引](results/agentenv/README.md) · [汇总 CSV](results/agentenv/summary.csv) · [汇总 JSON](results/agentenv/summary.json) · [矢量图](results/agentenv/overview.svg) · [失败与诊断尝试](results/agentenv/diagnostics/README.md)
 
-[汇总 CSV](results/summary.csv) · [汇总 JSON](results/summary.json) · [矢量图](results/overview.svg) · [结果索引](results/README.md)
+每个任务页面含工具时延、guest 总内存/匿名内存/文件缓存三幅曲线，以及连续 CSV、工具 CSV、首尾快照、指定文件 mincore 边界、校准、验证、镜像和代码身份。固定可执行输入与实际 guest 控制脚本也公开。完整 stdout/stderr 和二进制归档保留在 cpu-15，不公开凭据或原对话。
 
-CompCert 8 GiB 原运行峰值触及 8 GiB，`memory.events.max=31`，`oom=0`、`oom_kill=0`。32 GiB 复测内存峰值约 **12.762 GiB**，文件驻留峰值/结束值约 **4.860 GiB**，限额与 OOM 事件均为 0。[两轮曲线及指标](results/compile-compcert/README.md#8-gib-与-32-gib-复测)保留原记录，时延变化不能单独归因于限额。
+## 结果边界
 
-## 工具时延、内存与 Page Cache 曲线
+本轮采用新 guest，未控制 host backing 的冷暖，保持官方 guest 内核 6.1.175 与 DAMON 默认回收策略。初始值包含开机、辅助工具和校准后的状态；源轨迹中的业务安装/下载仍在原位置执行。结束值取自最终扫描和独立验证之前。
 
-每张图依次展示工具时延、容器内存和 Page Cache。工具时延按调用序号画柱状图；内存和 Page Cache 共用时间轴，参照 [AgentCgroup 图 5、6](https://arxiv.org/pdf/2602.09345v3#page=4) 标出工具执行、暂停扫描和异步等待区间。
+指定文件驻留只覆盖 `run.json` 声明路径的普通文件；它与整个 guest 的 Cached-Shmem 范围不同。CompCert 声明列表未覆盖 `/tmp/rocq-*` 等全部工具链源码目录，不能把其 mincore 点当作完整文件工作集。文件驻留扫描不提供实际读写字节量或 host PFN 去重。
 
-[十任务工具时延分位数对比](results/tool-latency-summary.png) · [矢量图](results/tool-latency-summary.svg)。按每条轨迹内的调用计算中位数、P95 和最大值；不是多次实验的误差范围。
+每任务仅一次主记录，没有重复统计或置信区间。与旧 Podman 的差异同时受记账范围、guest 缓存状态、内核、DAMON 和测量协议影响，**不据此推导跨沙箱共享率、DAX 收益或内存节省比例，也不作为配对性能比较**。
 
-| 任务与结果文档 | 完整墙钟图 | 去除扫描暂停的辅助图 |
-| --- | --- | --- |
-| [C4 压缩/解压](results/reshard-c4-data/README.md) | [PNG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves.png) · [SVG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves.svg) | [PNG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves-active.png) · [SVG](results/reshard-c4-data/runs/reshard-c4-data-20261020T011626/curves-active.svg) |
-| [百万行 CSV](results/large-scale-text-editing/README.md) | [PNG](results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves.png) · [SVG](results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves.svg) | [PNG](results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves-active.png) · [SVG](results/large-scale-text-editing/runs/large-scale-text-editing-20261020T011906/curves-active.svg) |
-| [HF 模型推理](results/hf-model-inference/README.md) | [PNG](results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves.png) · [SVG](results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves.svg) | [PNG](results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves-active.png) · [SVG](results/hf-model-inference/runs/hf-model-inference-20261020T010339/curves-active.svg) |
-| [PDF.js](results/mozilla__pdf.js-20957/README.md) | [PNG](results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves.png) · [SVG](results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves.svg) | [PNG](results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves-active.png) · [SVG](results/mozilla__pdf.js-20957/runs/mozilla__pdf.js-20957-20261020T010602/curves-active.svg) |
-| [Cython 扩展](results/build-cython-ext/README.md) | [PNG](results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves.png) · [SVG](results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves.svg) | [PNG](results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves-active.png) · [SVG](results/build-cython-ext/runs/build-cython-ext-20261020T010948/curves-active.svg) |
-| [Token 计数](results/count-dataset-tokens/README.md) | [PNG](results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves.png) · [SVG](results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves.svg) | [PNG](results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves-active.png) · [SVG](results/count-dataset-tokens/runs/count-dataset-tokens-20261020T152023/curves-active.svg) |
-| [Log4j2](results/apache__logging-log4j2/README.md) | [PNG](results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves.png) · [SVG](results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves.svg) | [PNG](results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves-active.png) · [SVG](results/apache__logging-log4j2/runs/apache__logging-log4j2-20261020T152541/curves-active.svg) |
-| [CompCert（32 GiB）](results/compile-compcert/README.md) | [PNG](results/compile-compcert/runs/compile-compcert-20261020T205643/curves.png) · [SVG](results/compile-compcert/runs/compile-compcert-20261020T205643/curves.svg) | [PNG](results/compile-compcert/runs/compile-compcert-20261020T205643/curves-active.png) · [SVG](results/compile-compcert/runs/compile-compcert-20261020T205643/curves-active.svg) |
-| [Matplotlib](results/matplotlib__matplotlib-24177/README.md) | [PNG](results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves.png) · [SVG](results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves.svg) | [PNG](results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves-active.png) · [SVG](results/matplotlib__matplotlib-24177/runs/matplotlib__matplotlib-24177-20261020T161817/curves-active.svg) |
-| [Django](results/django__django-16819/README.md) | [PNG](results/django__django-16819/runs/django__django-16819-20261020T165703/curves.png) · [SVG](results/django__django-16819/runs/django__django-16819-20261020T165703/curves.svg) | [PNG](results/django__django-16819/runs/django__django-16819-20261020T165703/curves-active.png) · [SVG](results/django__django-16819/runs/django__django-16819-20261020T165703/curves-active.svg) |
+## 核查与复算
 
-完整墙钟图保留暂停扫描时间；辅助图只压缩暂停区间，暂停期间的内存样本保留为灰点。Page Cache 圆点表示暂停后扫描得到的宿主文件缓存驻留量。[时间轴与指标口径](docs/measurement.md#时间轴与未测项)。
+[测量口径](docs/agentenv-measurement.md) · [部署与失败恢复](docs/agentenv-deployment.md) · [重放规程与采集代码](experiments/agentenv-memory/README.md) · [运行选择清单](provenance/agentenv-runs.json) · [校验回执](provenance/agentenv-validation.json) · [环境与清理回执](provenance/agentenv-environment.json)
 
-## 实际执行了哪些数据与操作
-
-| 任务 | 实际执行范围 |
-| --- | --- |
-| C4 | 9,898 个文件、779.6 MiB 输入的全量压缩/解压、内容和目录往返比对 |
-| 百万行 CSV | 读取一百万行输入、生成输出，与一百万行期望输出做字节比对；输入与期望合计约 85.0 MiB |
-| HF 推理 | 下载约 1,278.6 MiB 的多格式模型快照，启动 CPU 服务并进行 HTTP 推理；不意味着推理读取了所有权重格式 |
-| PDF.js | 905 个 npm 包安装、构建和两轮 CLI 测试；node_modules 约 230.7 MiB，另有浏览器下载缓存 |
-| Cython | pyknotid 源码与头文件访问、原生扩展构建、三个 .so 导入和两轮各 18 个测试 |
-| token 计数 | 46 个依赖版本安装，读取 1,000 行 metadata，筛选三个领域共 **26 行**文本计数，结果 79,586 |
-| Log4j2 | 固定提交上的 Java 11/17 环境切换和 Maven 编译，`-DskipTests`，不含测试 |
-| CompCert | Coq/OCaml/CompCert 源码与工具链构建、后台构建轮询、证明尝试和最终编译运行 |
-| Matplotlib | 源码检索、局部补丁和直方图相关测试，最终 60 passed、10 skipped、762 deselected |
-| Django | 公开轨迹中 28 次源码检索/修改调用，结束后仅补做语法检查 |
-
-这些范围由固定命令、stdout/stderr、本地验证及边界目录统计支持。**本轮没有收集系统调用级 read/write 字节量、逐文件访问次数或缺页事件**；扫描返回的是“哪些文件页当时驻留”。不能据此给出活跃工作集的完整访问清单。
-
-## 权限条件与测量方式
-
-实验时 Agent Sandbox 平台暂不可用，`rashen` 账号未能访问 KVM，sudo 需要密码。经确认采用 **rootless Podman + 用户 cgroup v2**；没有修改 KVM/用户组权限，也没有运行 microVM。因此内存曲线是 **容器 cgroup 内存，不是 guest 物理内存**。
-
-每次工具执行采用容器内单调时钟计时；约每 200 ms 采集 `memory.current`、`memory.peak`、`memory.stat` 等。工具结束后暂停容器、确认 `cgroup.events` 的 `frozen=1`，对 `/proc/<pid>/root` 执行两遍 `PROT_NONE mmap + mincore` 扫描，再恢复容器。初始边界加每个工具后的边界，共 N+1 个。扫描、冻结等待和异步依赖等待单列，不计入工具执行时延。图中的测量墙钟包含这些等待，不保留原模型思考间隔。[完整口径与边界](docs/measurement.md)。
-
-rootless 扫描只计拥有的普通文件，以避免 mincore 对非拥有者文件返回保守驻留信息：PDF.js 排除 14 个文件约 5.1 MiB，Matplotlib 排除 757 个约 12.44 MiB，其驻留量未知。Matplotlib 镜像导入在专用存储启用 `ignore_chown_errors`，因此该项不能用于权限隔离评估。
-
-`read/write` 工具通过真实文件操作桥接；持续 shell、异步调用、IP/PID 和固定依赖等适配均留有逐步记录。适配保持可执行的文件系统行为，不声称源 Agent 原生工具的实现与时延完全等价。
-
-## 如何解读与继续使用
-
-Matplotlib 与 Django 的大部分驻留在轨迹开始前已存在。新写入的构建目录、压缩包、模型下载副本和安装输出也未必跨 sandbox 共享。后续需要在相同输入/只读快照、多实例并发和受控缓存条件下，另测实际访问与唯一物理页；本轮没有多租户 PFN 去重或 DAX 对照，不能推出内存节省比例。
-
-所有实验容器已删除，第二批及 CompCert 复测本轮新增镜像已清理；第一批镜像仍留在 cpu-15 的专用存储供复用。结束时容器可写层只在第二批/复测采集，**不是磁盘峰值**。本次公开提交包含文档、图表、汇总、可读 CSV 和脚本；完整压缩原始序列、日志与轨迹单独保留在 cpu-15。
-
-## 文档与目录
-
-| 入口 | 内容 |
-| --- | --- |
-| [环境搭建与部署](docs/deployment/README.md) | 硬件、权限边界、依赖、镜像构建、代理与断线运行 |
-| [测量口径](docs/measurement.md) | 时延、内存、Page Cache、扫描范围、图表时间轴 |
-| [实验规程与重放](experiments/container-screening/README.md) | 固定轨迹、运行入口、适配和清理 |
-| [十任务结果索引](results/README.md) | 每任务实验文档、数据表、PNG/SVG 与 CompCert 对照 |
-| [来源与数据布局](docs/data-and-sources.md) | 轨迹 URL/revision/哈希、压缩序列、原始日志、服务器存档 |
-| [数据校验](docs/validation.md) | 覆盖、N+1 边界、冻结、OOM、来源、图表及复现校验 |
-
-```text
-experiments/container-screening/  固定规程、原采集器、环境定义与来源记录
-results/<task>/README.md          每任务说明、表格、曲线与解释
-results/<task>/runs/<run-id>/     指标 CSV、配置、验证记录与 PNG/SVG 曲线
-provenance/                      来源清单、原始校验、文件哈希与服务器索引
-scripts/                         重算、部署准备、来源下载和归档校验
-```
-
-复算需要 cpu-15 的完整本地归档；在新 checkout 中先设置 ASWR_ARCHIVE_ROOT。只阅读本仓库的文档、图表和汇总不需要这些归档。
+仅用公开数据即可复算新摘要并重画；不重新执行业务任务：
 
 ```bash
-MPLCONFIGDIR=/tmp/aswr-matplotlib python3 scripts/build_results.py
+python3 -m pip install -r experiments/agentenv-memory/requirements-analysis.txt
+python3 scripts/rebuild_agentenv_public.py --root . --verify-only
+python3 scripts/rebuild_agentenv_public.py --root .
 python3 scripts/verify_archive.py
 ```
 
-文档组织参考 [IncrementalDAX_moti](https://github.com/132ash/IncrementalDAX_moti)（`a9bc7deadb68a6e24b7242eab343dfedf953ea38`）。本轮为容器测量，该仓库的 guest/PFN 指标不能直接与本轮结果比较。
-
-## 论文实验任务建议
-
-建议以 **C4、HF 推理、PDF.js、Log4j2** 为主实验候选，Cython、CSV 作对照，CompCert 作压力补充。
-
-| 用途 | 任务 | 实测依据与实验重点 |
-| --- | --- | --- |
-| 主实验候选 | [C4](results/reshard-c4-data/README.md) | 36 次调用，9,898 个输入文件；峰值驻留较初始增加 1,729.9 MiB。研究固定输入复用与私有压缩/解压输出。 |
-| 主实验候选 | [HF 推理](results/hf-model-inference/README.md) | 11 次调用，驻留增加 1,282.3 MiB。研究固定 revision 的模型权重及运行库复用，区分下载缓存与实际加载格式。 |
-| 主实验候选 | [PDF.js](results/mozilla__pdf.js-20957/README.md) | 5 次调用，驻留增加 1,458.8 MiB。覆盖依赖安装、构建和测试中的多文件访问；作为 setup workload 使用。 |
-| 主实验候选 | [Log4j2](results/apache__logging-log4j2/README.md) | 10 次调用，驻留增加 844.7 MiB。研究 JDK/Maven 依赖复用与私有 target 输出；本轨迹跳过测试。 |
-| 对照实验 | [Cython](results/build-cython-ext/README.md)、[CSV](results/large-scale-text-editing/README.md) | 峰值驻留增量分别为 343.8、140.2 MiB，提供原生编译和反复文本读写的较小缓存变化对照。 |
-| 压力补充 | [CompCert](results/compile-compcert/README.md) | 318 次调用，内存峰值约 12.76 GiB。采用 32 GiB 配置，单列长轨迹编译压力；大量 sleep/轮询增加重放成本。 |
-| 暂不列为主实验 | [token 计数](results/count-dataset-tokens/README.md)、[Matplotlib](results/matplotlib__matplotlib-24177/README.md)、[Django](results/django__django-16819/README.md) | token 任务实际仅计数 26 行；后两项初始暖缓存较大，新增驻留约 8.9 MiB、40 KiB。需补充冷缓存或文件访问证据后再评估活跃工作集。 |
-
-驻留增量均为“边界峰值 − 初始值”，不等于读取字节数或可共享内存；暖缓存下的小增量也不能证明工作集小。以上为候选选择，尚无跨实例共享率或 DAX 对照结果。
-
-正式实验保留完整轨迹基线，并增加同一只读输入/依赖快照场景；下载/安装与读取/加载分阶段报告，输出保持各实例私有。先做 1/2/4 实例、冷/暖缓存及每配置至少 3 次重复，统计宿主实际内存、共享物理页和工具时延。性能运行不插入逐工具暂停，暂停扫描另用于资源剖析。
+重画图片可能因字体/绘图库版本而改变图片哈希；数值哈希单独校验。若有意更新图片，再用 `python3 scripts/verify_archive.py --write-manifest` 刷新公开文件清单。旧 `build_results.py` 仍需 cpu-15 完整原始归档，重建的历史首页写入 `PODMAN-20261020.md`。

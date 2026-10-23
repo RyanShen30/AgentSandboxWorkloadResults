@@ -1,0 +1,255 @@
+[
+  {
+    "started_ns": 764500723,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/c4_sample",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 817461269,
+        "files": 9898
+      },
+      {
+        "path": "/tmp/c4out",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/finalout",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/out1",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/out2",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/t1",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/t2",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/uvout",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 1752373589,
+        "files": 6296
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 0,
+        "logical_bytes": 35406150,
+        "files": 1436
+      }
+    ],
+    "resident_bytes": 0,
+    "stable_resident_bytes": 0,
+    "logical_bytes": 2605241008,
+    "files": 17630,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 41,
+    "finished_ns": 1084251117,
+    "scan_seconds": 0.319750337,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 0
+  },
+  {
+    "started_ns": 6988230765,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/c4_sample",
+        "status": "SCANNED",
+        "resident_bytes": 837795840,
+        "logical_bytes": 817461269,
+        "files": 9898
+      },
+      {
+        "path": "/tmp/c4out",
+        "status": "SCANNED",
+        "resident_bytes": 818176000,
+        "logical_bytes": 818055644,
+        "files": 55
+      },
+      {
+        "path": "/tmp/finalout",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/out1",
+        "status": "SCANNED",
+        "resident_bytes": 3497984,
+        "logical_bytes": 3426318,
+        "files": 40
+      },
+      {
+        "path": "/tmp/out2",
+        "status": "SCANNED",
+        "resident_bytes": 37425152,
+        "logical_bytes": 37410006,
+        "files": 5
+      },
+      {
+        "path": "/tmp/t1",
+        "status": "SCANNED",
+        "resident_bytes": 3497984,
+        "logical_bytes": 3426318,
+        "files": 40
+      },
+      {
+        "path": "/tmp/t2",
+        "status": "SCANNED",
+        "resident_bytes": 37425152,
+        "logical_bytes": 37410006,
+        "files": 5
+      },
+      {
+        "path": "/tmp/uvout",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 102400,
+        "logical_bytes": 51546,
+        "files": 20
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 8192,
+        "logical_bytes": 1752375332,
+        "files": 6298
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 6860800,
+        "logical_bytes": 35406150,
+        "files": 1436
+      }
+    ],
+    "resident_bytes": 1744789504,
+    "stable_resident_bytes": 1744789504,
+    "logical_bytes": 3505022589,
+    "files": 17797,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 45,
+    "finished_ns": 7131827567,
+    "scan_seconds": 0.143596742,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 25
+  },
+  {
+    "started_ns": 40076646354,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/app/c4_sample",
+        "status": "SCANNED",
+        "resident_bytes": 574611456,
+        "logical_bytes": 817461269,
+        "files": 9898
+      },
+      {
+        "path": "/tmp/c4out",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/finalout",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/out1",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/out2",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/t1",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/t2",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/tmp/uvout",
+        "status": "MISSING",
+        "resident_bytes": null
+      },
+      {
+        "path": "/app",
+        "status": "SCANNED",
+        "resident_bytes": 45056,
+        "logical_bytes": 51546,
+        "files": 20
+      },
+      {
+        "path": "/root/.cache",
+        "status": "SCANNED",
+        "resident_bytes": 4096,
+        "logical_bytes": 1752375332,
+        "files": 6298
+      },
+      {
+        "path": "/usr/local/lib",
+        "status": "SCANNED",
+        "resident_bytes": 5365760,
+        "logical_bytes": 35406150,
+        "files": 1436
+      }
+    ],
+    "resident_bytes": 580026368,
+    "stable_resident_bytes": 580026368,
+    "logical_bytes": 2605294297,
+    "files": 17652,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 45,
+    "finished_ns": 40405496273,
+    "scan_seconds": 0.328849695,
+    "status": "PASS",
+    "scope": "guest regular-file inode/offset residency in declared roots; two immediate mincore calls per chunk; not PFN deduplication",
+    "after_step": 36
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "status": "COMPLETED",
+  "backend": "agentenv",
+  "task_id": "reshard-c4-data",
+  "run_id": "reshard-c4-data-20261023T154157Z-593615",
+  "expected_actions": 36,
+  "reference_run": "reshard-c4-data-20261020T011626",
+  "cpus": 2,
+  "memory_mib": 8192,
+  "service_image": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "sample_interval_seconds": 0.2,
+  "started_ns": 14540350443509427,
+  "cache_policy": "new cold-start guest; host backing warmness uncontrolled; official DAMON retained",
+  "file_cache_metric": "guest Cached-Shmem approximation; Buffers separate",
+  "declared_file_roots": [
+    "/app/c4_sample",
+    "/tmp/c4out",
+    "/tmp/finalout",
+    "/tmp/out1",
+    "/tmp/out2",
+    "/tmp/t1",
+    "/tmp/t2",
+    "/tmp/uvout",
+    "/app",
+    "/root/.cache",
+    "/usr/local/lib"
+  ],
+  "file_boundary_after_steps": [
+    0,
+    25,
+    36
+  ],
+  "physical_deduplication": "NOT_MEASURED",
+  "source_hashes": {
+    "workload_probe.c": "38ee337daec7b464c73693da64fa7d815b23fe1863a0ec9cc4b4b4227e50b564",
+    "workload_timer.c": "4c88254bd618a359e792004b35d22722e1aae34ec3cdefc82e395f788ac2715c",
+    "workload_memory.h": "d426b8db3e6511b52b8d5fd09ac055a268aeeee5abec7b2f7af4952152a16e47",
+    "agentenv_workload_client.py": "78f6d5437922d0d58e75ff00ba575aea74e2157cde26605a2edde20431764e12",
+    "run_agentenv_workloads.py": "fd4472634661489fab34310872fad86c0fa91473cb52971f26c9b639f524747d"
+  },
+  "source_image": "docker.io/alexgshaw/reshard-c4-data@sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a",
+  "requested_image": "aswr.local/reshard-c4-data:replay-v1",
+  "cold_create_seconds": 19.253230126,
+  "sandbox_id": "01a1696d-585b-7891-8653-04dcec77d469",
+  "git_http_version": "HTTP/1.1",
+  "guest_proxy_configured": false,
+  "measurement_dispatched_ns": 14540369887467891,
+  "measurement_finished_ns": 14540409606812869,
+  "runner_exit_code": 0,
+  "actions": 36,
+  "tool_seconds": 38.755360613,
+  "exit_differences": [],
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "guest_monitor": {
+    "status": "PASS",
+    "samples": 199,
+    "interval_seconds": 0.2,
+    "elapsed_seconds": 39.704079605,
+    "user_cpu_seconds": 0.005532,
+    "system_cpu_seconds": 0.027661,
+    "maxrss_kib": 1440
+  },
+  "cleanup": {
+    "sandbox_deleted": true
+  },
+  "finished_ns": 14540410393274222
+}

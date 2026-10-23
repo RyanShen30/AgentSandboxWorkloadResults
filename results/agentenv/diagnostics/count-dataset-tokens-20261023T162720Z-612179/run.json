@@ -1,0 +1,97 @@
+{
+  "status": "COMPLETED",
+  "backend": "agentenv",
+  "task_id": "count-dataset-tokens",
+  "run_id": "count-dataset-tokens-20261023T162720Z-612179",
+  "expected_actions": 16,
+  "reference_run": "count-dataset-tokens-20261020T152023",
+  "cpus": 2,
+  "memory_mib": 8192,
+  "service_image": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "sample_interval_seconds": 0.2,
+  "started_ns": 14543073220608221,
+  "cache_policy": "new cold-start guest; host backing warmness uncontrolled; official DAMON retained",
+  "file_cache_metric": "guest Cached-Shmem approximation; Buffers separate",
+  "declared_file_roots": [
+    "/app",
+    "/root/.cache",
+    "/usr/local/lib"
+  ],
+  "file_boundary_after_steps": [
+    0,
+    1,
+    16
+  ],
+  "physical_deduplication": "NOT_MEASURED",
+  "source_hashes": {
+    "workload_probe.c": "38ee337daec7b464c73693da64fa7d815b23fe1863a0ec9cc4b4b4227e50b564",
+    "workload_timer.c": "4c88254bd618a359e792004b35d22722e1aae34ec3cdefc82e395f788ac2715c",
+    "workload_memory.h": "d426b8db3e6511b52b8d5fd09ac055a268aeeee5abec7b2f7af4952152a16e47",
+    "agentenv_workload_client.py": "78f6d5437922d0d58e75ff00ba575aea74e2157cde26605a2edde20431764e12",
+    "run_agentenv_workloads.py": "460c3736bd96c2dab58b0134b6a3320d59fc747d9ac8d9842e3059e7eeaf2bc2"
+  },
+  "source_image": "docker.io/alexgshaw/count-dataset-tokens@sha256:9c513c4ba342bd95be501f6f5eadd4806a2b18749c87c251615825100130232d",
+  "requested_image": "aswr.local/count-dataset-tokens:replay-v1",
+  "sandbox_id": "01a16996-9898-73c2-866d-fa0fe66b9c4e",
+  "workload_umask": "0077",
+  "git_http_version": "HTTP/1.1",
+  "guest_proxy_configured": true,
+  "measurement_dispatched_ns": 14543073461420457,
+  "measurement_finished_ns": 14543299763908626,
+  "runner_exit_code": 0,
+  "actions": 16,
+  "tool_seconds": 225.575810775,
+  "exit_differences": [
+    {
+      "step": 5,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 6,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 7,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 8,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 9,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 13,
+      "reference_exit": 0,
+      "actual_exit": 1
+    },
+    {
+      "step": 16,
+      "reference_exit": 0,
+      "actual_exit": 1
+    }
+  ],
+  "strict_exit_match": false,
+  "validation_status": "FAIL",
+  "guest_monitor": {
+    "status": "PASS",
+    "samples": 1131,
+    "interval_seconds": 0.2,
+    "elapsed_seconds": 226.288816536,
+    "user_cpu_seconds": 0.097666,
+    "system_cpu_seconds": 0.088787,
+    "maxrss_kib": 1552
+  },
+  "cleanup": {
+    "sandbox_deleted": true
+  },
+  "finished_ns": 14543300177327902
+}
