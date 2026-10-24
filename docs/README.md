@@ -13,3 +13,5 @@
 - [校验与复现状态](validation.md)：数值、来源、冻结、图表、归档与部署入口核对。
 - [实验规程](../experiments/container-screening/README.md)：准备与单任务重放命令。
 - [十任务结果](../results/README.md)：每任务文档与图表。
+
+本机目录于 2026-10-24 合并为 `/home/rashen/work/AgentSandboxWorkloadResults`，原 `-public` 后缀已移除。旧 Podman 原始文件按原路径保留在 Git 忽略范围内；不同的旧整理版本归入本机私有归档。已清理临时发布副本及四个可按固定 digest 重拉的镜像缓存，保留本地 PDF.js 构建镜像和基础镜像。详见[本机清理回执](../provenance/local-cleanup-20261024.json)。

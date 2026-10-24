@@ -16,8 +16,8 @@
     "sha256": "9f633d5cee56989038c26f6e4235cec9881cd7fe6c0b629ab2370833b655f0f1"
   },
   "docs/README.md": {
-    "bytes": 907,
-    "sha256": "30dcdd24b4c504c7dfbf7723520f04bbbdc407eb36aa153c19da78b0a700dd42"
+    "bytes": 1348,
+    "sha256": "2dd586596c96a196889b7a0b75f043842e2b0aad089c1b94f376714b0abe5ede"
   },
   "docs/agentenv-deployment.md": {
     "bytes": 6138,
@@ -318,6 +318,10 @@
   "provenance/images.json": {
     "bytes": 2864,
     "sha256": "90c8e75427ad31d21cf4b5afc710b71a40b3c5cb232f387141f90da4e8c97f1f"
+  },
+  "provenance/local-cleanup-20261024.json": {
+    "bytes": 5387,
+    "sha256": "2c9e50a141f92452c4b107877bfeeecf046e0e537fde1d57a8cd66cc7b2a2671"
   },
   "provenance/publication-content-check.json": {
     "bytes": 192,
@@ -2116,8 +2120,8 @@
     "sha256": "5750991f5a28ae2514f234f126ff31dffd92913d8c5d985df2fd346ca7d9d15e"
   },
   "scripts/verify_archive.py": {
-    "bytes": 2046,
-    "sha256": "8f9f50d0806ad21f42a3a600aa9b015ddb4c05c740f11a1e4a46fbc48438238e"
+    "bytes": 2133,
+    "sha256": "cf0ad4208d83a8e1ecd63ce1ee5ba85f8075e4ba4ca207627322bdae2a4ba01c"
   },
   "scripts/verify_full_archive.py": {
     "bytes": 3768,

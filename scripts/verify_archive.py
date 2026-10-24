@@ -6,7 +6,7 @@ from urllib.parse import unquote
 R=Path(__file__).resolve().parents[1]
 def main():
  a=argparse.ArgumentParser();a.add_argument('--write-manifest',action='store_true');args=a.parse_args();p=R/'provenance/artifact-sha256.json'
- data={str(f.relative_to(R)):{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in sorted(R.rglob('*')) if f.is_file() and '.git' not in f.parts and '__pycache__' not in f.parts and '.venv' not in f.parts and not f.name.endswith('.gz') and f!=p}
+ data={str(f.relative_to(R)):{'bytes':f.stat().st_size,'sha256':hashlib.sha256(f.read_bytes()).hexdigest()} for f in sorted(R.rglob('*')) if f.is_file() and '.git' not in f.parts and '__pycache__' not in f.parts and '.venv' not in f.parts and not f.name.endswith('.gz') and f.name not in {'validation.stdout','validation.stderr','dependency-inventory.txt'} and f!=p}
  if args.write_manifest:p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
  errors=[]
  if not p.exists() or json.loads(p.read_text())!=data:errors.append('Public artifact manifest mismatch')

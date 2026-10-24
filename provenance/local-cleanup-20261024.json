@@ -1,0 +1,112 @@
+{
+  "status": "COMPLETE",
+  "date": "2026-10-24",
+  "timezone": "Asia/Shanghai",
+  "scope": "local files and dedicated Podman cache for the ten workloads; recorded benchmark measurements unchanged",
+  "canonical_results_directory": "/home/rashen/work/AgentSandboxWorkloadResults",
+  "git_remote": "https://github.com/RyanShen30/AgentSandboxWorkloadResults.git",
+  "removed_redundant_checkout_name": "/home/rashen/work/AgentSandboxWorkloadResults-public",
+  "temporary_paths_removed": [
+    "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-combined-public",
+    "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-workload-public",
+    "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-workload-reexport-check",
+    "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-upload-batches",
+    "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-workload-build",
+    "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-public-inventory.json"
+  ],
+  "temporary_files_removed": 1074,
+  "temporary_allocated_bytes_released": 75481088,
+  "dedicated_podman_cache": {
+    "containers_before": 0,
+    "removed_images": [
+      {
+        "id": "43a3ff616ca45a6b1693e4cd436c14c6449367e090f4a50f379c9da89cd5062f",
+        "names": [
+          "docker.io/alexgshaw/hf-model-inference@sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad"
+        ],
+        "digest": "sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad"
+      },
+      {
+        "id": "b2a41c10dde020d36fbea4643794d8791118afb77db125e61837f21a02c1a3af",
+        "names": [
+          "docker.io/alexgshaw/build-cython-ext@sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594"
+        ],
+        "digest": "sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594"
+      },
+      {
+        "id": "a1ea118e6dbb44200cb77c4de3dc38023bf80387b0e781512c2d615189ad2562",
+        "names": [
+          "docker.io/alexgshaw/reshard-c4-data@sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a"
+        ],
+        "digest": "sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a"
+      },
+      {
+        "id": "4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+        "names": [
+          "docker.io/alexgshaw/large-scale-text-editing@sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c"
+        ],
+        "digest": "sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c"
+      }
+    ],
+    "registry_digest_availability_checks": [
+      {
+        "image": "alexgshaw/hf-model-inference",
+        "digest": "sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad",
+        "status": 200,
+        "registry_digest": "sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad",
+        "available": true
+      },
+      {
+        "image": "alexgshaw/build-cython-ext",
+        "digest": "sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594",
+        "status": 200,
+        "registry_digest": "sha256:3612a38fadb89a96f74a1a951fb0b0af734198fd160571eeaba6401593234594",
+        "available": true
+      },
+      {
+        "image": "alexgshaw/reshard-c4-data",
+        "digest": "sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a",
+        "status": 200,
+        "registry_digest": "sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a",
+        "available": true
+      },
+      {
+        "image": "alexgshaw/large-scale-text-editing",
+        "digest": "sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c",
+        "status": 200,
+        "registry_digest": "sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c",
+        "available": true
+      }
+    ],
+    "remaining_images": [
+      {
+        "id": "7978236cab552f316c5d54e867a8b1cfcc4620ba3b1703b483ae5a0c3f795e60",
+        "names": [
+          "localhost/asbp-pdfjs:484518614d75"
+        ]
+      },
+      {
+        "id": "8f3dff4193637723b9f3f4ded64cccf28c7b35dc1c96d3320b1f5a64ff41e76d",
+        "names": [
+          "docker.io/library/node@sha256:0e5f906573693feaa1e21057ebdcfdb5bd5021f050b2dc7c9deceb629c7da2a8"
+        ]
+      }
+    ],
+    "allocated_bytes_released": 4915990528,
+    "reason": "unused task image caches; exact remote digest availability verified before removal; local PDF.js build and Node base retained"
+  },
+  "verified_released_bytes": 4991471616,
+  "original_results_migration": {
+    "source_original_files": 306,
+    "identical_current_files": 153,
+    "private_originals_merged": 97,
+    "older_variants_preserved": 56
+  },
+  "retained_paths": {
+    "previous_podman_runs_and_sources": "/home/rashen/work/AgentWorkloadProbe-20261020",
+    "agentenv_raw_archive": "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-workload-archive/20261023T151330Z-585205",
+    "older_results_variants": "/home/rashen/work/AgentSandboxBench/.artifacts/workload-cleanup-20261024/legacy-results-variants",
+    "private_migration_hash_manifest": "/home/rashen/work/AgentSandboxBench/.artifacts/workload-cleanup-20261024/consolidation.json"
+  },
+  "validation_scope": "Public manifest excludes gitignored full validation output and dependency inventories as well as compressed raw files; executable replay inputs and archived source versions retained."
+}
