@@ -1,0 +1,23 @@
+[
+  {
+    "phase_label": "setup_download",
+    "actions": 8,
+    "tool_seconds": 128.169222134,
+    "observed_guest_file_cache_peak_bytes": 218275840,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "task_or_inspect",
+    "actions": 73,
+    "tool_seconds": 19.768553101,
+    "observed_guest_file_cache_peak_bytes": 205950976,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "mixed_setup_task",
+    "actions": 2,
+    "tool_seconds": 27.976760954,
+    "observed_guest_file_cache_peak_bytes": 143114240,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  }
+]

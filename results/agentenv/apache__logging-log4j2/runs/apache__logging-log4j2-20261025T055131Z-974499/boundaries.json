@@ -1,0 +1,1795 @@
+[
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 1011768167,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 29048832,
+        "logical_bytes": 1879828000,
+        "files": 34276
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 24510464,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 0,
+        "logical_bytes": 838854415,
+        "files": 732
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 0,
+        "logical_bytes": 22852314,
+        "files": 6020
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4214784,
+        "logical_bytes": 17762801,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 323584,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 29048832,
+    "stable_resident_bytes": 29048832,
+    "logical_bytes": 1879828000,
+    "files": 34276,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 2246680026,
+    "scan_seconds": 1.23491178,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 2218,
+    "business_cpu_after_usec": 2218,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 0,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 993008556,
+        "finished_ns": 1003138627,
+        "elapsed_seconds": 0.010129989,
+        "cpu_usage_before_usec": 2218,
+        "cpu_usage_after_usec": 2218,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 2247695949,
+        "finished_ns": 2247726988,
+        "elapsed_seconds": 3.0992e-05,
+        "cpu_usage_before_usec": 2224,
+        "cpu_usage_after_usec": 2224,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8230350848,
+        "MemAvailable": 8113647616,
+        "Cached": 39030784,
+        "Buffers": 4038656,
+        "Shmem": 921600,
+        "AnonPages": 8900608,
+        "Slab": 16855040,
+        "SReclaimable": 3645440,
+        "SUnreclaim": 13209600,
+        "Active(file)": 15302656,
+        "Inactive(file)": 27078656,
+        "Dirty": 8298496,
+        "Writeback": 0,
+        "PageTables": 761856,
+        "KernelStack": 1359872,
+        "disk_file_cache_bytes": 38109184,
+        "nonfree_bytes": 122126336
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8134516736,
+        "MemAvailable": 8071565312,
+        "Cached": 44904448,
+        "Buffers": 41041920,
+        "Shmem": 892928,
+        "AnonPages": 13996032,
+        "Slab": 85659648,
+        "SReclaimable": 68497408,
+        "SUnreclaim": 17162240,
+        "Active(file)": 52449280,
+        "Inactive(file)": 32579584,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 737280,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 44011520,
+        "nonfree_bytes": 217960448
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 2284875007,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 30035968,
+        "logical_bytes": 1879828000,
+        "files": 34276
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 25366528,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 118784,
+        "logical_bytes": 838854415,
+        "files": 732
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 0,
+        "logical_bytes": 22852314,
+        "files": 6020
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4214784,
+        "logical_bytes": 17762801,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 335872,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 30035968,
+    "stable_resident_bytes": 30035968,
+    "logical_bytes": 1879828000,
+    "files": 34276,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 2502011149,
+    "scan_seconds": 0.217136071,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 24325,
+    "business_cpu_after_usec": 24325,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 1,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 2273794532,
+        "finished_ns": 2283897418,
+        "elapsed_seconds": 0.010102831,
+        "cpu_usage_before_usec": 24325,
+        "cpu_usage_after_usec": 24325,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 2503468434,
+        "finished_ns": 2503497827,
+        "elapsed_seconds": 2.935e-05,
+        "cpu_usage_before_usec": 24325,
+        "cpu_usage_after_usec": 24325,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8133238784,
+        "MemAvailable": 8070762496,
+        "Cached": 45854720,
+        "Buffers": 41041920,
+        "Shmem": 892928,
+        "AnonPages": 14827520,
+        "Slab": 85540864,
+        "SReclaimable": 68497408,
+        "SUnreclaim": 17043456,
+        "Active(file)": 53399552,
+        "Inactive(file)": 32579584,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 737280,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 44961792,
+        "nonfree_bytes": 219238400
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8129110016,
+        "MemAvailable": 8066691072,
+        "Cached": 45920256,
+        "Buffers": 41095168,
+        "Shmem": 892928,
+        "AnonPages": 14827520,
+        "Slab": 89341952,
+        "SReclaimable": 68497408,
+        "SUnreclaim": 20844544,
+        "Active(file)": 53399552,
+        "Inactive(file)": 32698368,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 737280,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 45027328,
+        "nonfree_bytes": 223367168
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 2524191221,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 30175232,
+        "logical_bytes": 1879828000,
+        "files": 34276
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 25505792,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 118784,
+        "logical_bytes": 838854415,
+        "files": 732
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 0,
+        "logical_bytes": 22852314,
+        "files": 6020
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4214784,
+        "logical_bytes": 17762801,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 335872,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 30175232,
+    "stable_resident_bytes": 30175232,
+    "logical_bytes": 1879828000,
+    "files": 34276,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 2735707146,
+    "scan_seconds": 0.211515859,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 30147,
+    "business_cpu_after_usec": 30147,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 2,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 2511536292,
+        "finished_ns": 2522697685,
+        "elapsed_seconds": 0.011161344,
+        "cpu_usage_before_usec": 30147,
+        "cpu_usage_after_usec": 30147,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 2737481279,
+        "finished_ns": 2737510636,
+        "elapsed_seconds": 2.93e-05,
+        "cpu_usage_before_usec": 30147,
+        "cpu_usage_after_usec": 30147,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8129110016,
+        "MemAvailable": 8066752512,
+        "Cached": 46039040,
+        "Buffers": 41095168,
+        "Shmem": 892928,
+        "AnonPages": 14827520,
+        "Slab": 85659648,
+        "SReclaimable": 68497408,
+        "SUnreclaim": 17162240,
+        "Active(file)": 53399552,
+        "Inactive(file)": 32817152,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 737280,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 45146112,
+        "nonfree_bytes": 223367168
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8128598016,
+        "MemAvailable": 8066240512,
+        "Cached": 46039040,
+        "Buffers": 41095168,
+        "Shmem": 892928,
+        "AnonPages": 15065088,
+        "Slab": 88748032,
+        "SReclaimable": 68497408,
+        "SUnreclaim": 20250624,
+        "Active(file)": 53399552,
+        "Inactive(file)": 32817152,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 737280,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 45146112,
+        "nonfree_bytes": 223879168
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 2759340623,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 30179328,
+        "logical_bytes": 1879828000,
+        "files": 34276
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 25505792,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 118784,
+        "logical_bytes": 838854415,
+        "files": 732
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 4096,
+        "logical_bytes": 22852314,
+        "files": 6020
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4214784,
+        "logical_bytes": 17762801,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 335872,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 30179328,
+    "stable_resident_bytes": 30179328,
+    "logical_bytes": 1879828000,
+    "files": 34276,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 2973161951,
+    "scan_seconds": 0.213821267,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 36628,
+    "business_cpu_after_usec": 36628,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 3,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 2746536522,
+        "finished_ns": 2757700813,
+        "elapsed_seconds": 0.011164251,
+        "cpu_usage_before_usec": 36628,
+        "cpu_usage_after_usec": 36628,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 2974830021,
+        "finished_ns": 2974860750,
+        "elapsed_seconds": 3.0666e-05,
+        "cpu_usage_before_usec": 36628,
+        "cpu_usage_after_usec": 36628,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8127823872,
+        "MemAvailable": 8065466368,
+        "Cached": 46039040,
+        "Buffers": 41095168,
+        "Shmem": 892928,
+        "AnonPages": 15183872,
+        "Slab": 85553152,
+        "SReclaimable": 68497408,
+        "SUnreclaim": 17055744,
+        "Active(file)": 53399552,
+        "Inactive(file)": 32817152,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 737280,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 45146112,
+        "nonfree_bytes": 224653312
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8127565824,
+        "MemAvailable": 8065294336,
+        "Cached": 46186496,
+        "Buffers": 41095168,
+        "Shmem": 1003520,
+        "AnonPages": 15204352,
+        "Slab": 89698304,
+        "SReclaimable": 68616192,
+        "SUnreclaim": 21082112,
+        "Active(file)": 53497856,
+        "Inactive(file)": 32776192,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 741376,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 45182976,
+        "nonfree_bytes": 224911360
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 2998167365,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 30220288,
+        "logical_bytes": 1879828587,
+        "files": 34276
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 25505792,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 118784,
+        "logical_bytes": 838854415,
+        "files": 732
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 45056,
+        "logical_bytes": 22852314,
+        "files": 6020
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4214784,
+        "logical_bytes": 17763388,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 335872,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 30220288,
+    "stable_resident_bytes": 30220288,
+    "logical_bytes": 1879828587,
+    "files": 34276,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 3213857858,
+    "scan_seconds": 0.215690426,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 44637,
+    "business_cpu_after_usec": 44637,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 4,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 2985655670,
+        "finished_ns": 2996823196,
+        "elapsed_seconds": 0.011167489,
+        "cpu_usage_before_usec": 44637,
+        "cpu_usage_after_usec": 44637,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 3215514296,
+        "finished_ns": 3215543933,
+        "elapsed_seconds": 2.958e-05,
+        "cpu_usage_before_usec": 44637,
+        "cpu_usage_after_usec": 44637,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8126791680,
+        "MemAvailable": 8064520192,
+        "Cached": 46186496,
+        "Buffers": 41095168,
+        "Shmem": 1003520,
+        "AnonPages": 15204352,
+        "Slab": 85778432,
+        "SReclaimable": 68616192,
+        "SUnreclaim": 17162240,
+        "Active(file)": 53497856,
+        "Inactive(file)": 32776192,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 741376,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 45182976,
+        "nonfree_bytes": 225685504
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8126869504,
+        "MemAvailable": 8064598016,
+        "Cached": 46186496,
+        "Buffers": 41095168,
+        "Shmem": 1003520,
+        "AnonPages": 15204352,
+        "Slab": 90292224,
+        "SReclaimable": 68616192,
+        "SUnreclaim": 21676032,
+        "Active(file)": 53497856,
+        "Inactive(file)": 32776192,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 741376,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 45182976,
+        "nonfree_bytes": 225607680
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 4835566822,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 37310464,
+        "logical_bytes": 1879829032,
+        "files": 34276
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 32579584,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 118784,
+        "logical_bytes": 838854415,
+        "files": 732
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 45056,
+        "logical_bytes": 22852314,
+        "files": 6020
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4214784,
+        "logical_bytes": 17763833,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 352256,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 37310464,
+    "stable_resident_bytes": 37310464,
+    "logical_bytes": 1879829032,
+    "files": 34276,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 5114561369,
+    "scan_seconds": 0.278994488,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 216699,
+    "business_cpu_after_usec": 216699,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 5,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 4821749990,
+        "finished_ns": 4831984391,
+        "elapsed_seconds": 0.010234155,
+        "cpu_usage_before_usec": 216699,
+        "cpu_usage_after_usec": 216699,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 5116353210,
+        "finished_ns": 5116392524,
+        "elapsed_seconds": 3.9255e-05,
+        "cpu_usage_before_usec": 216699,
+        "cpu_usage_after_usec": 216699,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8110153728,
+        "MemAvailable": 8054497280,
+        "Cached": 57090048,
+        "Buffers": 43008000,
+        "Shmem": 1093632,
+        "AnonPages": 16539648,
+        "Slab": 86409216,
+        "SReclaimable": 69271552,
+        "SUnreclaim": 17137664,
+        "Active(file)": 55652352,
+        "Inactive(file)": 43196416,
+        "Dirty": 18989056,
+        "Writeback": 0,
+        "PageTables": 765952,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 55996416,
+        "nonfree_bytes": 242323456
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8110153728,
+        "MemAvailable": 8054640640,
+        "Cached": 57217024,
+        "Buffers": 43008000,
+        "Shmem": 1118208,
+        "AnonPages": 16580608,
+        "Slab": 90279936,
+        "SReclaimable": 69304320,
+        "SUnreclaim": 20975616,
+        "Active(file)": 55799808,
+        "Inactive(file)": 43302912,
+        "Dirty": 19001344,
+        "Writeback": 0,
+        "PageTables": 753664,
+        "KernelStack": 1310720,
+        "disk_file_cache_bytes": 56098816,
+        "nonfree_bytes": 242323456
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 23934696656,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 39202816,
+        "logical_bytes": 1915199470,
+        "files": 34622
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 4243456,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 34910208,
+        "logical_bytes": 874223846,
+        "files": 1077
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 24576,
+        "logical_bytes": 22852340,
+        "files": 6021
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4096,
+        "logical_bytes": 17764814,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 20480,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 39202816,
+    "stable_resident_bytes": 39202816,
+    "logical_bytes": 1915199470,
+    "files": 34622,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 24926957762,
+    "scan_seconds": 0.992260691,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 17821261,
+    "business_cpu_after_usec": 17821261,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 6,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 23920796287,
+        "finished_ns": 23931054447,
+        "elapsed_seconds": 0.010257936,
+        "cpu_usage_before_usec": 17821261,
+        "cpu_usage_after_usec": 17821261,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 24928085315,
+        "finished_ns": 24928120048,
+        "elapsed_seconds": 3.4669e-05,
+        "cpu_usage_before_usec": 17821267,
+        "cpu_usage_after_usec": 17821267,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8148938752,
+        "MemAvailable": 8070975488,
+        "Cached": 52252672,
+        "Buffers": 1232896,
+        "Shmem": 1224704,
+        "AnonPages": 18939904,
+        "Slab": 88576000,
+        "SReclaimable": 71249920,
+        "SUnreclaim": 17326080,
+        "Active(file)": 26906624,
+        "Inactive(file)": 25350144,
+        "Dirty": 13336576,
+        "Writeback": 0,
+        "PageTables": 729088,
+        "KernelStack": 1294336,
+        "disk_file_cache_bytes": 51027968,
+        "nonfree_bytes": 203538432
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8125972480,
+        "MemAvailable": 8052813824,
+        "Cached": 38297600,
+        "Buffers": 24403968,
+        "Shmem": 1249280,
+        "AnonPages": 19062784,
+        "Slab": 89206784,
+        "SReclaimable": 71675904,
+        "SUnreclaim": 17530880,
+        "Active(file)": 46583808,
+        "Inactive(file)": 14856192,
+        "Dirty": 13336576,
+        "Writeback": 0,
+        "PageTables": 720896,
+        "KernelStack": 1310720,
+        "disk_file_cache_bytes": 37048320,
+        "nonfree_bytes": 226504704
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 26743792147,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 39346176,
+        "logical_bytes": 1915200095,
+        "files": 34622
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 18575360,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 20475904,
+        "logical_bytes": 874223846,
+        "files": 1077
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 24576,
+        "logical_bytes": 22852340,
+        "files": 6021
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4096,
+        "logical_bytes": 17765439,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 266240,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 39346176,
+    "stable_resident_bytes": 39346176,
+    "logical_bytes": 1915200095,
+    "files": 34622,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2147,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2141,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 27574179819,
+    "scan_seconds": 0.830387603,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 18134457,
+    "business_cpu_after_usec": 18134457,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 7,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 26727442027,
+        "finished_ns": 26740130584,
+        "elapsed_seconds": 0.012688256,
+        "cpu_usage_before_usec": 18134457,
+        "cpu_usage_after_usec": 18134457,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 27575484357,
+        "finished_ns": 27575516550,
+        "elapsed_seconds": 3.2131e-05,
+        "cpu_usage_before_usec": 18134457,
+        "cpu_usage_after_usec": 18134457,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8124723200,
+        "MemAvailable": 8051859456,
+        "Cached": 50921472,
+        "Buffers": 12394496,
+        "Shmem": 1265664,
+        "AnonPages": 19165184,
+        "Slab": 88936448,
+        "SReclaimable": 71663616,
+        "SUnreclaim": 17272832,
+        "Active(file)": 45424640,
+        "Inactive(file)": 16621568,
+        "Dirty": 13340672,
+        "Writeback": 0,
+        "PageTables": 692224,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 49655808,
+        "nonfree_bytes": 227753984
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8122662912,
+        "MemAvailable": 8058994688,
+        "Cached": 50831360,
+        "Buffers": 30711808,
+        "Shmem": 1298432,
+        "AnonPages": 19140608,
+        "Slab": 89468928,
+        "SReclaimable": 71901184,
+        "SUnreclaim": 17567744,
+        "Active(file)": 63668224,
+        "Inactive(file)": 16531456,
+        "Dirty": 13340672,
+        "Writeback": 0,
+        "PageTables": 716800,
+        "KernelStack": 1310720,
+        "disk_file_cache_bytes": 49532928,
+        "nonfree_bytes": 229814272
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 61273119499,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 546934784,
+        "logical_bytes": 2456377888,
+        "files": 34993
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 4943872,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 541970432,
+        "logical_bytes": 1415401426,
+        "files": 1448
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 0,
+        "logical_bytes": 22852340,
+        "files": 6021
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 0,
+        "logical_bytes": 17765652,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 20480,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 546934784,
+    "stable_resident_bytes": 546934784,
+    "logical_bytes": 2456377888,
+    "files": 34993,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2361,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2355,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 62407597820,
+    "scan_seconds": 1.13447796,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 37596211,
+    "business_cpu_after_usec": 37596211,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 8,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 61260478971,
+        "finished_ns": 61271650994,
+        "elapsed_seconds": 0.011171975,
+        "cpu_usage_before_usec": 37596211,
+        "cpu_usage_after_usec": 37596211,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 62408754662,
+        "finished_ns": 62408791815,
+        "elapsed_seconds": 3.7096e-05,
+        "cpu_usage_before_usec": 37596218,
+        "cpu_usage_after_usec": 37596218,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 7644647424,
+        "MemAvailable": 8019742720,
+        "Cached": 556474368,
+        "Buffers": 2387968,
+        "Shmem": 1417216,
+        "AnonPages": 18550784,
+        "Slab": 106565632,
+        "SReclaimable": 87523328,
+        "SUnreclaim": 19042304,
+        "Active(file)": 273735680,
+        "Inactive(file)": 283807744,
+        "Dirty": 543707136,
+        "Writeback": 0,
+        "PageTables": 720896,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 555057152,
+        "nonfree_bytes": 707829760
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 7618285568,
+        "MemAvailable": 7996133376,
+        "Cached": 553967616,
+        "Buffers": 7720960,
+        "Shmem": 1433600,
+        "AnonPages": 18657280,
+        "Slab": 107048960,
+        "SReclaimable": 87646208,
+        "SUnreclaim": 19402752,
+        "Active(file)": 410648576,
+        "Inactive(file)": 149585920,
+        "Dirty": 543686656,
+        "Writeback": 0,
+        "PageTables": 724992,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 552534016,
+        "nonfree_bytes": 734191616
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 63405416379,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 559898624,
+        "logical_bytes": 2456378211,
+        "files": 34993
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 17649664,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 541978624,
+        "logical_bytes": 1415401426,
+        "files": 1448
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 0,
+        "logical_bytes": 22852340,
+        "files": 6021
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 4096,
+        "logical_bytes": 17765975,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 266240,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 559898624,
+    "stable_resident_bytes": 559898624,
+    "logical_bytes": 2456378211,
+    "files": 34993,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2361,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2355,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 64204322513,
+    "scan_seconds": 0.798906068,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 37771509,
+    "business_cpu_after_usec": 37771509,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 9,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 63391544244,
+        "finished_ns": 63401776167,
+        "elapsed_seconds": 0.0102317,
+        "cpu_usage_before_usec": 37771509,
+        "cpu_usage_after_usec": 37771509,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 64205502887,
+        "finished_ns": 64205537075,
+        "elapsed_seconds": 3.4142e-05,
+        "cpu_usage_before_usec": 37771517,
+        "cpu_usage_after_usec": 37771517,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 7605194752,
+        "MemAvailable": 7998705664,
+        "Cached": 569593856,
+        "Buffers": 7770112,
+        "Shmem": 1454080,
+        "AnonPages": 18718720,
+        "Slab": 106889216,
+        "SReclaimable": 87683072,
+        "SUnreclaim": 19206144,
+        "Active(file)": 526000128,
+        "Inactive(file)": 49876992,
+        "Dirty": 543694848,
+        "Writeback": 0,
+        "PageTables": 737280,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 568139776,
+        "nonfree_bytes": 747282432
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 7579389952,
+        "MemAvailable": 7997435904,
+        "Cached": 569442304,
+        "Buffers": 32165888,
+        "Shmem": 1474560,
+        "AnonPages": 18681856,
+        "Slab": 110874624,
+        "SReclaimable": 88256512,
+        "SUnreclaim": 22618112,
+        "Active(file)": 550465536,
+        "Inactive(file)": 49659904,
+        "Dirty": 543694848,
+        "Writeback": 0,
+        "PageTables": 720896,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 567967744,
+        "nonfree_bytes": 773087232
+      }
+    }
+  },
+  {
+    "scan_path_policy": "canonical_absolute_v2",
+    "started_ns": 257284267657,
+    "page_size": 4096,
+    "roots": [
+      {
+        "path": "/",
+        "status": "SCANNED",
+        "resident_bytes": 95731712,
+        "logical_bytes": 2741665786,
+        "files": 42760
+      }
+    ],
+    "by_top_level": [
+      {
+        "path": "/app",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/testbed",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/tmp",
+        "resident_bytes": 0,
+        "logical_bytes": 0,
+        "files": 0
+      },
+      {
+        "path": "/usr",
+        "resident_bytes": 6430720,
+        "logical_bytes": 771714101,
+        "files": 14872
+      },
+      {
+        "path": "/opt",
+        "resident_bytes": 0,
+        "logical_bytes": 224934709,
+        "files": 10904
+      },
+      {
+        "path": "/root",
+        "resident_bytes": 64622592,
+        "logical_bytes": 1674579628,
+        "files": 4853
+      },
+      {
+        "path": "/data",
+        "resident_bytes": 24653824,
+        "logical_bytes": 48961005,
+        "files": 10383
+      },
+      {
+        "path": "/var",
+        "resident_bytes": 0,
+        "logical_bytes": 17766683,
+        "files": 1492
+      },
+      {
+        "path": "other",
+        "resident_bytes": 24576,
+        "logical_bytes": 3709660,
+        "files": 256
+      }
+    ],
+    "resident_bytes": 95731712,
+    "stable_resident_bytes": 95731712,
+    "logical_bytes": 2741665786,
+    "files": 42760,
+    "errors": 0,
+    "changed_pages_or_files": 0,
+    "excluded_entries": 2361,
+    "exclusions": {
+      "observer_and_virtual_paths": 4,
+      "symlinks": 2355,
+      "other_filesystems": 2,
+      "special_files": 0
+    },
+    "finished_ns": 258520023770,
+    "scan_seconds": 1.235755997,
+    "status": "PASS",
+    "business_frozen_verified": true,
+    "business_cpu_before_usec": 261630212,
+    "business_cpu_after_usec": 261630212,
+    "scope": "guest regular-file inode/offset residency; business cgroup frozen when requested; kernel reclaim remains active; not PFN deduplication",
+    "after_step": 10,
+    "quiescence": {
+      "freeze": {
+        "status": "PASS",
+        "frozen": true,
+        "populated": true,
+        "started_ns": 257270798337,
+        "finished_ns": 257280997302,
+        "elapsed_seconds": 0.010198784,
+        "cpu_usage_before_usec": 261630212,
+        "cpu_usage_after_usec": 261630212,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "thaw": {
+        "status": "PASS",
+        "frozen": false,
+        "populated": true,
+        "started_ns": 258521164582,
+        "finished_ns": 258521199946,
+        "elapsed_seconds": 3.5302e-05,
+        "cpu_usage_before_usec": 261630220,
+        "cpu_usage_after_usec": 261630220,
+        "cpu_stable": true,
+        "members": [
+          378
+        ],
+        "scope": "business subtree frozen; not whole-VM or kernel freeze"
+      },
+      "memory_before": {
+        "MemTotal": 8352477184,
+        "MemFree": 8079572992,
+        "MemAvailable": 8041930752,
+        "Cached": 106205184,
+        "Buffers": 5136384,
+        "Shmem": 2646016,
+        "AnonPages": 19034112,
+        "Slab": 114778112,
+        "SReclaimable": 95272960,
+        "SUnreclaim": 19505152,
+        "Active(file)": 64360448,
+        "Inactive(file)": 44519424,
+        "Dirty": 21164032,
+        "Writeback": 0,
+        "PageTables": 651264,
+        "KernelStack": 1343488,
+        "disk_file_cache_bytes": 103559168,
+        "nonfree_bytes": 272904192
+      },
+      "memory_after": {
+        "MemTotal": 8352477184,
+        "MemFree": 8034414592,
+        "MemAvailable": 8018120704,
+        "Cached": 106381312,
+        "Buffers": 47370240,
+        "Shmem": 2666496,
+        "AnonPages": 18976768,
+        "Slab": 115441664,
+        "SReclaimable": 95780864,
+        "SUnreclaim": 19660800,
+        "Active(file)": 106721280,
+        "Inactive(file)": 44343296,
+        "Dirty": 22712320,
+        "Writeback": 0,
+        "PageTables": 724992,
+        "KernelStack": 1327104,
+        "disk_file_cache_bytes": 103714816,
+        "nonfree_bytes": 318062592
+      }
+    }
+  }
+]

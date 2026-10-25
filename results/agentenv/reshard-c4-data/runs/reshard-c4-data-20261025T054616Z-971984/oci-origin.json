@@ -1,0 +1,30 @@
+{
+  "task_id": "reshard-c4-data",
+  "source_image": "docker.io/alexgshaw/reshard-c4-data@sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a",
+  "source_podman_image_id": "a1ea118e6dbb44200cb77c4de3dc38023bf80387b0e781512c2d615189ad2562",
+  "started_ns": 1792907173674253815,
+  "method": "attest existing local OCI export",
+  "verification": {
+    "manifest_digest": "sha256:92d209e704785e17ad6b3f740e813dd72bc7ac33982ce435d197ab9d890eac2a",
+    "config_digest": "sha256:a1ea118e6dbb44200cb77c4de3dc38023bf80387b0e781512c2d615189ad2562",
+    "rootfs_diff_ids": [
+      "sha256:eb5f13bce9936c760b9fa73aeb1b608787daa36106cc888104132e353ed37252",
+      "sha256:2a9c7b727490d026db269bdf2bf74ce80e17abe26fc4dd99bd53b3d1686e58dc",
+      "sha256:1ce62254e2a41ba52d6f4edab1c02c6733a219d0b27ff7b0d495f2987fc165ad",
+      "sha256:56ffb1fa8b190de199776ee5e02b4c9d482f5300e4aaa162e66fe09778c1a243",
+      "sha256:bb90eb063b6e7bec0bb1f27ff7d6d84dbd5f9c1c3932cbec014527582d94733c",
+      "sha256:8acceab24404139ca340e8f4c9007bfba3a7ac6047052e8f9317922392580876",
+      "sha256:4e3da664ff4c13e4913d1ef5f82a969502371f180c762a49abdb2a926229b352",
+      "sha256:021efa192874cbe7e686f823418cca7ad97c8476337fb423ce4fa9b2454305fd",
+      "sha256:8dc3a77bdcd0b0168f7e998498ef4443454130c121c735a314f56355afdea1f5"
+    ],
+    "layer_bytes": 1432498021,
+    "layers": 9,
+    "platform": [
+      "linux",
+      "amd64"
+    ]
+  },
+  "finished_ns": 1792907174696538340,
+  "status": "VERIFIED"
+}

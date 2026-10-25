@@ -1,0 +1,71 @@
+{
+  "status": "COMPLETED",
+  "backend": "agentenv",
+  "task_id": "hf-model-inference",
+  "run_id": "hf-model-inference-20261025T054751Z-972885",
+  "protocol": "agentenv-frozen-tools-v2",
+  "expected_actions": 11,
+  "reference_run": "hf-model-inference-20261020T010339",
+  "cpus": 2,
+  "memory_mib": 8192,
+  "service_image": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "sample_interval_seconds": 0.2,
+  "started_ns": 14677504814361599,
+  "cache_policy": "new cold-start guest; host backing warmness uncontrolled; official DAMON retained",
+  "file_cache_metric": "guest Cached-Shmem approximation; Buffers separate",
+  "declared_file_roots": [
+    "/"
+  ],
+  "file_boundary_after_steps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "pause_scope": "guest business cgroup; observer and kernel runnable",
+  "physical_deduplication": "NOT_MEASURED",
+  "source_hashes": {
+    "workload_probe.c": "fc483a6698bfeeddb3912e73c1c64143129cf213688e8035b5375d6549a62c33",
+    "workload_timer.c": "4c88254bd618a359e792004b35d22722e1aae34ec3cdefc82e395f788ac2715c",
+    "workload_memory.h": "d426b8db3e6511b52b8d5fd09ac055a268aeeee5abec7b2f7af4952152a16e47",
+    "agentenv_workload_client.py": "78f6d5437922d0d58e75ff00ba575aea74e2157cde26605a2edde20431764e12",
+    "run_agentenv_workloads.py": "22bdfe78f5c561a4b1aada0fc83caf11a881efe2e960333eec073169445cf56b"
+  },
+  "source_image": "docker.io/alexgshaw/hf-model-inference@sha256:0ef475aebda8abb8cbf3a1d97aee8ac4b09ca9720550e25a4a46a47930cd3bad",
+  "requested_image": "aswr.local/hf-model-inference:replay-v1",
+  "sandbox_id": "01a17199-daf2-7d82-8ef5-3a61c75dda9d",
+  "workload_umask": "0077",
+  "git_http_version": "HTTP/1.1",
+  "guest_proxy_configured": true,
+  "measurement_dispatched_ns": 14677505053981539,
+  "measurement_finished_ns": 14677599827951477,
+  "runner_exit_code": 0,
+  "frozen_boundaries_verified": 12,
+  "actions": 11,
+  "tool_seconds": 89.607623675,
+  "exit_differences": [],
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "guest_monitor": {
+    "status": "PASS",
+    "samples": 474,
+    "interval_seconds": 0.2,
+    "elapsed_seconds": 94.736228947,
+    "user_cpu_seconds": 0.055597,
+    "system_cpu_seconds": 0.046338,
+    "maxrss_kib": 1504
+  },
+  "cleanup": {
+    "sandbox_deleted": true
+  },
+  "finished_ns": 14677600670181743
+}

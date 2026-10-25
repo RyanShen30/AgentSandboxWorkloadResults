@@ -1,53 +1,57 @@
 # Agent Sandbox Workload Results
 
-最新实验于 **2026-10-23 至 24（Asia/Shanghai）** 在 cpu-15 的 AgentENV microVM 中完成：**10 个任务、652 次固定工具调用**，约每 200 ms 采集 guest 内存，每任务 3 个指定文件驻留边界。输入沿用原轨迹，不调用模型 API；失败尝试也单独归档。
+最新批次为 **2026-10-24 至 25 的 AgentENV v2 逐工具冻结扫描补测**：10 个任务、652 次固定工具调用、**662 个文件驻留边界**（每任务初始点加每次工具返回后的点）。同一任务在一台新 VM 内顺序重放，保留原命令、预期非零退出、持续 Shell 与后台任务；不调用模型重新规划。
 
-这轮测量“**独立 guest 中有多少文件缓存**”。旧 Podman 初筛完整保留在 [2026-10-20 历史报告](PODMAN-20261020.md) 和 [旧结果索引](results/README.md)。宿主文件驻留、容器 cgroup 记账和 guest 文件缓存的范围不同，不能互相替代。
+交付三类数据：逐工具时延、约 200 ms 的 guest 内存曲线、guest page cache 与逐工具文件驻留曲线。业务 worker 及其后台进程进入本次 guest cgroup，边界验证 `frozen=1` 与 CPU 不推进后扫描，再解冻。**暂停的是业务进程，不是整台 VM**；guest 探针与内核仍可运行。cgroup 用作冻结控制；宿主服务 cgroup 只作辅助监控。
 
-## 最新 AgentENV 结果
+[结果解释与限制](docs/agentenv-results.md) · [阅读与指标说明](docs/README.md) · [完整测量协议](docs/agentenv-measurement.md) · [部署与补测记录](docs/agentenv-deployment.md) · [运行与复算](experiments/agentenv-memory/README.md)
 
-每项新建独立 VM，2 vCPU，除 CompCert 为 32 GiB 外均为 8 GiB RAM。下表缓存采用 guest `max(0,Cached-Shmem)`，Buffers 单列保存在 CSV；单位 MiB=2²⁰ bytes。峰值合并轨迹阶段周期样本、工具前后快照及 F0/Fend，排除扫描区间的周期样本。
+## 最新结果
 
-| 任务 | 调用数 | 工具合计 (s) | guest 文件缓存 初始→观测峰值→结束 (MiB) | 实际验证范围 |
-| --- | ---: | ---: | --- | --- |
-| [build-cython-ext](results/agentenv/build-cython-ext/README.md) | 83 | 143.67 | 23.6 → 283.5 → 107.4 | 扩展导入、两轮各 18 测试通过 |
-| [reshard-c4-data](results/agentenv/reshard-c4-data/README.md) | 36 | 38.76 | 23.2 → 3110.4 → 590.8 | 9,898 文件全量内容/结构往返通过 |
-| [hf-model-inference](results/agentenv/hf-model-inference/README.md) | 11 | 83.34 | 21.3 → 651.3 → 324.5 | HTTP 服务正负样例通过 |
-| [mozilla__pdf.js-20957](results/agentenv/mozilla__pdf.js-20957/README.md) | 5 | 171.90 | 23.0 → 950.5 → 60.6 | 两轮 CLI 测试通过 |
-| [apache__logging-log4j2](results/agentenv/apache__logging-log4j2/README.md) | 10 | 313.54 | 34.5 → 670.1 → 77.5 | Maven 编译成功；跳过测试；检查器 141 |
-| [large-scale-text-editing](results/agentenv/large-scale-text-editing/README.md) | 50 | 337.95 | 23.1 → 203.3 → 121.2 | 输出字节比对通过；不改原判题结论 |
-| [count-dataset-tokens](results/agentenv/count-dataset-tokens/README.md) | 16 | 196.25 | 22.8 → 578.6 → 109.2 | 79,586 答案检查通过；实际计数 26 行 |
-| [matplotlib__matplotlib-24177](results/agentenv/matplotlib__matplotlib-24177/README.md) | 95 | 55.93 | 70.7 → 248.0 → 138.7 | 最终两轮 60 passed；补丁与旧记录一致 |
-| [django__django-16819](results/agentenv/django__django-16819/README.md) | 28 | 11.01 | 44.3 → 68.5 → 68.4 | 仅原范围语法检查通过 |
-| [compile-compcert](results/agentenv/compile-compcert/README.md) | 318 | 1939.82 | 28.8 → 1937.0 → 226.0 | 最终编译器编译运行检查通过 |
+2 vCPU；除 CompCert 为 32 GiB 外均为 8 GiB guest RAM。下表分别给出 **整个 guest 的 `max(0,Cached-Shmem)`** 和 **根文件系统普通文件的 mincore 驻留量**，Buffers 另列。前者峰值合并非扫描阶段周期样本与工具前后快照，后者仅为冻结边界中的最大值；两者范围与时刻不同，不能相加。单位 MiB=2²⁰ bytes。
 
-全部主记录的工具退出码与原 Podman 重放记录一致；原预期非零调用仍保留。Log4j 的原检查器退出 **141**，没有改写成通过；其 Maven BUILD SUCCESS 与检查器状态分别报告。任务完成和局部验证不代表源 benchmark 的模型修复正确性。
+| 任务 | 调用数 | 工具合计 (s) | guest 文件缓存 初始→观测峰值→结束 (MiB) | 文件驻留 初始→边界峰值→结束 (MiB) | 实际验证范围 |
+| --- | ---: | ---: | --- | --- | --- |
+| [build-cython-ext](results/agentenv/build-cython-ext/README.md) | 83 | 175.91 | 23.7 → 208.2 → 120.0 | 5.3 → 186.9 → 115.7 | 扩展导入、两轮各 18 测试通过 |
+| [reshard-c4-data](results/agentenv/reshard-c4-data/README.md) | 36 | 39.58 | 23.4 → 2820.8 → 175.8 | 5.3 → 1740.6 → 169.2 | 9,898 文件全量内容/结构往返通过 |
+| [hf-model-inference](results/agentenv/hf-model-inference/README.md) | 11 | 89.61 | 23.0 → 832.5 → 262.4 | 5.3 → 764.3 → 254.6 | HTTP 服务正负样例通过 |
+| [mozilla__pdf.js-20957](results/agentenv/mozilla__pdf.js-20957/README.md) | 5 | 244.47 | 23.1 → 891.7 → 67.6 | 5.3 → 544.9 → 59.0 | 两轮 CLI 测试通过 |
+| [apache__logging-log4j2](results/agentenv/apache__logging-log4j2/README.md) | 10 | 249.89 | 35.0 → 563.7 → 98.6 | 27.7 → 534.0 → 91.3 | Maven 编译成功；跳过测试；检查器 141 |
+| [large-scale-text-editing](results/agentenv/large-scale-text-editing/README.md) | 50 | 338.45 | 23.3 → 180.4 → 117.5 | 5.3 → 134.9 → 112.6 | 输出字节比对通过；不改原判题结论 |
+| [count-dataset-tokens](results/agentenv/count-dataset-tokens/README.md) | 16 | 112.61 | 23.0 → 604.4 → 123.7 | 5.3 → 500.5 → 115.9 | 79,586 答案检查通过；实际计数 26 行 |
+| [matplotlib__matplotlib-24177](results/agentenv/matplotlib__matplotlib-24177/README.md) | 95 | 61.11 | 70.8 → 229.7 → 29.2 | 52.2 → 146.8 → 12.9 | 最终两轮 60 passed；补丁与旧记录一致 |
+| [django__django-16819](results/agentenv/django__django-16819/README.md) | 28 | 11.06 | 40.7 → 56.4 → 9.7 | 22.9 → 36.4 → 3.6 | 仅原范围语法检查通过 |
+| [compile-compcert](results/agentenv/compile-compcert/README.md) | 318 | 2010.08 | 29.1 → 1961.3 → 124.3 | 5.3 → 1950.1 → 115.6 | 最终编译器编译运行检查通过 |
 
-![AgentENV guest 文件缓存](results/agentenv/overview.png)
+![guest 文件缓存概览](results/agentenv/overview.png)
 
-[详细结果索引](results/agentenv/README.md) · [汇总 CSV](results/agentenv/summary.csv) · [汇总 JSON](results/agentenv/summary.json) · [矢量图](results/agentenv/overview.svg) · [失败与诊断尝试](results/agentenv/diagnostics/README.md)
+全部 652 次工具退出码与固定 Podman 参考重放一致；`replay-inputs.json.source_exit_code` 是原轨迹元数据，二者来源不同。严格重放一致不等于原 benchmark 的全面正确性。
 
-每个任务页面含工具时延、guest 总内存/匿名内存/文件缓存三幅曲线，以及连续 CSV、工具 CSV、首尾快照、指定文件 mincore 边界、校准、验证、镜像和代码身份。固定可执行输入与实际 guest 控制脚本也公开。完整 stdout/stderr 和二进制归档保留在 cpu-15，不公开凭据或原对话。
+[任务索引与曲线](results/agentenv/README.md) · [汇总 CSV](results/agentenv/summary.csv) · [汇总 JSON](results/agentenv/summary.json) · [诊断与失败尝试](results/agentenv/diagnostics/README.md)
 
-## 结果边界
+每个任务另有 **逐工具冻结边界图**：guest 总占用、总文件缓存、根文件系统普通文件驻留，以及按顶层目录分组的驻留。`boundaries.csv/json` 保留冻结证明、扫描前后计数、覆盖和排除项；`steps.csv` 保留时延、退出码和阶段标签；`phase-summary.csv/json` 区分明确的安装下载、混合动作和其余任务/检查窗口。
 
-本轮采用新 guest，未控制 host backing 的冷暖，保持官方 guest 内核 6.1.175 与 DAMON 默认回收策略。初始值包含开机、辅助工具和校准后的状态；源轨迹中的业务安装/下载仍在原位置执行。结束值取自最终扫描和独立验证之前。
+## 采集影响与结果边界
 
-指定文件驻留只覆盖 `run.json` 声明路径的普通文件；它与整个 guest 的 Cached-Shmem 范围不同。CompCert 声明列表未覆盖 `/tmp/rocq-*` 等全部工具链源码目录，不能把其 mincore 点当作完整文件工作集。文件驻留扫描不提供实际读写字节量或 host PFN 去重。
+本批扫描合计 452.60 s，冻结控制区间合计 462.41 s；二者存在包含关系，不能相加。工具计时在扫描前结束，扫描成本单列；时延只含 guest 命令执行，模型耗时和 AgentENV RPC 往返另属其他口径。全根遍历可能加载目录/文件系统元数据并影响后续回收，排除扫描阶段样本不能消除这些影响；本批不用于平台速度比较。
 
-每任务仅一次主记录，没有重复统计或置信区间。与旧 Podman 的差异同时受记账范围、guest 缓存状态、内核、DAMON 和测量协议影响，**不据此推导跨沙箱共享率、DAX 收益或内存节省比例，也不作为配对性能比较**。
+**总内存曲线存在显著采集扰动。** Matplotlib 在首条业务工具执行前的根扫描期间，非空闲内存变化 +428.55 MiB，Slab +303.96 MiB，Buffers +133.57 MiB。这些是扫描前后观测，不能当作无扫描对照的因果差值；总内存曲线包含观察器与元数据，不能用作纯业务内存需求。文件缓存也可能受后续回收间接影响，均应按本协议下的观测解释。各任务变化见[结果解释与限制](docs/agentenv-results.md)。
 
-## 核查与复算
+扫描覆盖根文件系统中可通过路径访问的普通文件，包括 CompCert 实际 `/tmp/rocq-*`、OCaml、Dune 构建树；虚拟文件系统、其他挂载、符号链接与观察器控制路径明确排除。根文件扫描与 Cached-Shmem 的范围不同，未链接但仍映射的文件及目录/块缓存等不能据此精确逐文件归因。内核回收没有冻结；本批 5 个边界因两遍扫描间变化标为 PARTIAL，变化计数和稳定驻留量均保留，不能称为原子物理快照。
 
-[测量口径](docs/agentenv-measurement.md) · [部署与失败恢复](docs/agentenv-deployment.md) · [重放规程与采集代码](experiments/agentenv-memory/README.md) · [运行选择清单](provenance/agentenv-runs.json) · [校验回执](provenance/agentenv-validation.json) · [环境与清理回执](provenance/agentenv-environment.json)
+阶段标签描述**工具执行时间窗口**，不是内存页的来源；某业务窗口仍可能保留之前安装/下载的缓存。混合调用不强行拆开，缓存峰值不能跨阶段相加。初始值取业务开始前、开机/辅助工具/校准之后；结束值取最终扫描与独立验证之前。净变化不是累计读取量或新增分配总量。
 
-仅用公开数据即可复算新摘要并重画；不重新执行业务任务：
+原验证范围保持：Log4j Maven 编译成功但原检查器 141、源命令跳过测试；Django 仅语法检查；token 实际计数 26 行。重放完成不等于原 benchmark 全面正确。每任务一次主记录、未控制宿主 backing 冷暖，保持原 guest 内核与 DAMON 策略；没有物理共享、DAX 收益或统计性能结论。
+
+## 历史与复算
+
+本次补测保留 v1 的所有运行数据：[v1 轻量报告](AGENTENV-LIGHTWEIGHT-20261024.md)、[v1 选择清单](provenance/agentenv-runs-lightweight-v1.json)。v1 每任务仅三个文件扫描点，不应称作已完成逐工具冻结扫描。[旧 Podman 报告](PODMAN-20261020.md)也保留。
 
 ```bash
 python3 -m pip install -r experiments/agentenv-memory/requirements-analysis.txt
 python3 scripts/rebuild_agentenv_public.py --root . --verify-only
-python3 scripts/rebuild_agentenv_public.py --root .
+python3 scripts/rebuild_agentenv_public.py --root . --manifest provenance/agentenv-runs-lightweight-v1.json --verify-only
 python3 scripts/verify_archive.py
 ```
 
-重画图片可能因字体/绘图库版本而改变图片哈希；数值哈希单独校验。若有意更新图片，再用 `python3 scripts/verify_archive.py --write-manifest` 刷新公开文件清单。旧 `build_results.py` 仍需 cpu-15 完整原始归档，重建的历史首页写入 `PODMAN-20261020.md`。
+无需完整日志即可核对公开 CSV、冻结边界与阶段摘要并重画：`python3 scripts/rebuild_agentenv_public.py --root .`。原始完整日志、二进制、校准和失败证据保留在 cpu-15 私有归档，公开仅含数值、固定可执行输入、版本和安全的元数据。

@@ -1,69 +1,74 @@
-# AgentENV：guest 文件缓存测量口径
+# AgentENV v2：逐工具冻结扫描的测量口径
 
-本轮将 2026-10-20 的十条主轨迹迁移到 AgentENV，各保留一次完整主记录。目标是测量**独立 guest 内的文件缓存**，补上旧 Podman 结果的记账范围缺口。固定工具输入，不调用模型 API；输入内容与原归档逐文件 SHA-256 核对。所有实际执行过的失败尝试也保留，主记录选择见 [运行清单](../provenance/agentenv-runs.json)。
+本轮对应三个交付：**逐工具时延、guest 内存变化曲线、page cache 变化曲线**。每个任务新建一台 VM，在同一 VM 内执行固定原轨迹；不重新调用模型。业务开始前和每次工具返回后都有文件扫描边界。10 任务共 652 次调用，预期 662 个边界。
 
-## 三种范围
+## 与 v1 的区别
 
-| 范围 | 本轮字段 | 解释 |
+v1 有 200 ms 内存计数与每工具前后快照，但每任务只有开始、中间、结束三次文件扫描，且没有冻结业务。v2 保留 v1 的全部运行记录，新采每工具冻结边界，不把旧数据包装成已完成暂停扫描。历史见 [v1 报告](../AGENTENV-LIGHTWEIGHT-20261024.md)。
+
+## 指标定义与联系
+
+| 指标 | 数据来源 | 解释 |
 | --- | --- | --- |
-| guest 连续文件缓存 | `max(0, Cached-Shmem)` | 来自 guest `/proc/meminfo`，近似磁盘文件缓存；原始 Cached、Shmem、Buffers 均保留，Buffers 不并入该近似量 |
-| guest 指定文件驻留 | 边界 `resident_bytes` | guest 内对声明路径的普通文件做 `PROT_NONE mmap + mincore`，按 inode/offset 去重；仅覆盖列出的根路径 |
-| 私有服务 cgroup | host-service CSV | 整个私有 AgentENV 服务的主机记账，包括服务、VMM 和 backing 等；不等于 guest 文件缓存，也不是主机物理页去重结果 |
+| 工具执行时延 | guest 单调时钟包围原命令 | 仅 guest 内命令执行；不含模型耗时、AgentENV RPC 往返、冻结和扫描；异步调用为启动耗时 |
+| guest 整体已用量 | `MemTotal-MemFree`，同时保留 MemAvailable | 包含程序、内核、缓存和观察器，也含可回收部分；不等于不可回收需求或宿主独占物理量 |
+| guest 文件缓存近似量 F(t) | `max(0,Cached-Shmem)` | 整个 guest 的磁盘文件缓存近似量，排除 tmpfs/shmem；Buffers 另列 |
+| 根文件系统普通文件驻留 R(i) | 每个冻结边界对普通文件做 mincore | 页数乘实际页大小；按设备/inode 去重，最后不足一页仍按一页计 |
+| Buffers、AnonPages、Slab 等 | 原始 meminfo 字段 | 辅助区分文件内容、块缓存/元数据及其他开销，不能无条件与已用量相加 |
+| 宿主服务 cgroup | host-service CSV | 服务、VMM、backing 的总体记账背景；不作为 guest 文件缓存 |
 
-guest 总量用 `MemTotal-MemFree`，另列 MemAvailable、AnonPages、Slab、页表等。它与 Podman 的 `memory.current` 定义不同。原始字段单位为 bytes，时间为 ns/s；图表采用 MiB=2²⁰ bytes。
+普通文件的驻留内容通常属于 page cache；F(t) 看总体计数，R(i) 看可通过路径扫描的普通文件。两者范围和读取时刻不同，不能要求相等或相加。R(i) 不含已删除但仍映射的文件、目录/块缓存及排除的挂载；F(t) 也不是系统调用读写量。
 
-旧 Podman 的 `memory.stat file-shmem` 表示该 cgroup 被记账的磁盘文件页。共享页由其他 cgroup 先分配时，不一定转归后来使用它的容器；“启动前分配”并非自动排除规则，真正区别是页的记账归属。[Linux cgroup v2：Memory Ownership](https://docs.kernel.org/admin-guide/cgroup-v2.html#memory-ownership)。旧宿主 mincore 的全文件驻留也不等于容器记账。**不能将旧驻留量减去旧 cgroup 峰值，或把本轮与旧轮的差值称为节省内存。**
+初始值 F0 在 VM 开机、辅助工具上传和专用校准后、业务开始前取得。最后一条工具返回后，先取 Fend，再最终扫描；独立验证在测量窗口外。峰值合并阶段已知且非扫描阶段的 200 ms 样本、每工具前后计数和 F0/Fend；阶段不明样本数另列，不纳入峰值。`Fend-F0`、`max(F)-F0` 是净变化，不是累计读取量、累计新增分配或只读可共享量。启动到基线之间没有完整连续曲线。
 
-## 基线与时间窗口
+## 每个边界实际发生什么
 
-每任务新建 cold-start VM，2 vCPU、8192 MiB RAM；CompCert 为 32768 MiB。cold start 仅表示新 VM，host backing 的冷暖未控制。保持官方 guest 内核 6.1.175 与 DAMON reclaim 默认配置，未进行全局 drop_caches。
-
-业务开始前已经完成开机、工具辅助文件上传、专用 16 MiB fixture 校准及必要的源码身份检查。fixture 已删除。此时读取 F0，随后做 B0 文件边界扫描。原轨迹包含的 pip/npm/模型下载仍在原命令位置执行，没有提前安装业务依赖或下载模型权重。
-
-CompCert 最终主记录还在 F0 前完成控制端 Dune 发布 URL 的 HEAD，以及 guest Bash 的代理 CONNECT 检查；没有预下载该发布包或在最小镜像里预装 Python。这一预检及上游配置变更单独记录。
-
-轨迹中只做一次中间文件扫描，完整结束后先读取 Fend、再做最终文件扫描。连续监控覆盖这些扫描，并在图中以灰带标出。轨迹结束后的独立验证不进入内存测量窗口。结束值不包含独立验证造成的缓存。
-
-| 汇总字段 | 定义 |
-| --- | --- |
-| initial | 第一次扫描前 F0 的 Cached-Shmem |
-| observed peak | 非 `cache_scan/complete` 阶段的周期样本、每工具前后快照、F0 和 Fend 中的最大值 |
-| final | 最终文件扫描前 Fend 的 Cached-Shmem |
-| net change | Fend−F0，允许负数；不是新增分配总量或读取字节量 |
-| tool_seconds | guest 单调时钟包围原工具调用；不含文件扫描和独立验证；原 sleep/poll 保留 |
-| measurement span | F0 到 Fend 的跨度，包含中途扫描和异步依赖等待；与工具合计存在包含关系 |
-
-扫描发生后的元数据缓存与后续回收会影响后面的工具；排除扫描区间的样本不能消除这种影响。本轮没有采样开关配对试验，不能声称测量零扰动，也不将旧 Podman 时延作为平台性能比较基线。极短工具的峰值仍可能漏采，因此始终称“观测峰值”。
-
-## 采样与文件扫描
-
-静态 C 采样器约每 200 ms 读取 16 个 meminfo 字段，日志写入已有 guest tmpfs `/dev/shm/aswr-work`。tmpfs 消耗反映在 Shmem 和总内存中；文件缓存近似量将其扣除。每工具前后还读一次 meminfo；持续 shell 的工具采用相同边界计数。监控的实际间隔、最大缺口、CPU 时间和 maxrss 保留在 run/summary 中。超过 600 ms 的缺口在折线中断开，不插值补齐。
-
-文件探针遍历声明路径，以 dev/inode 去重硬链接并避免重叠根重复计数；跳过符号链接、特殊文件和其他文件系统。每 64 MiB 分块，连续两次 mincore，记录 resident、stable resident 与变化。上限为 50 万文件或 90 秒，超限/错误标为 PARTIAL；不存在的路径记为 MISSING，不当成测得零。目录归属是按声明根的先后顺序增量分配，不能把后列的 `/app` 当作其全部子树的独立总量。
-
-mincore 的两遍检查不是对整棵目录的原子快照，扫描时回收/后台进程仍可能改变驻留。`resident_bytes` 按页向上取整，可能略大于文件逻辑长度。此处不读取文件数据，不返回 PFN；不同 inode 的相同内容不做物理去重。
-
-CompCert 的声明根包括 `/tmp/CompCert` 和 `/usr/local/lib`，没有列出实际的 `/tmp/rocq-*`、`/tmp/ocaml-*`、`/tmp/dune-*` 构建树。因此该任务的 mincore 点不代表全部工具链文件；声明的 `/tmp/coq-8.16.1` 若不存在会明确标为 MISSING。连续 Cached-Shmem 仍覆盖整个 guest，不受声明目录列表限制。
-
-每个主/诊断运行均先校准本次创建的 16 MiB 普通文件：fsync + 对该 fixture 的 FADV_DONTNEED 后冷扫描应为零；重复冷扫描仍为零；实际读取后应为 16 MiB。校准回执保留在各运行目录。没有对业务文件执行 DONTNEED。
-
-## 轨迹、验证与适配
-
-完整保留原命令、工作目录、原预期非零退出、read/write 文件桥接、Log4j/Django 持续 shell、CompCert 后台构建与原依赖屏障。所有新运行的 workload umask 为 0077，与旧容器可能不同；本轮不评估权限隔离。网络采用已有主机 HTTP 代理的临时窄端口 relay，Git 仅在业务进程中设 HTTP/1.1；SWE 镜像仅对 `/testbed` 设置进程级 safe.directory。源命令内容未改写为预期答案。
-
-任务验证沿用原范围：C4 全量 9,898 文件内容/结构往返，CSV 字节比对，HF 正负样例，Cython 扩展导入与两轮各 18 测试，token 的 79,586 答案，CompCert 编译运行，Matplotlib 原局部测试，Django 仅语法检查。源 benchmark 的模型修复正确性未重新判分。
-
-Log4j 的原编译命令跳过测试；其检查器使用 `find | head` 配合 pipefail，退出 141 原样保留。编译 BUILD SUCCESS、工具退出码与检查器状态分开报告，不将检查器改成 0。诊断记录中的额外网络错误也不改写为平台成功。
-
-## 可复算内容与未测项
-
-每运行公开 `memory.csv`、`steps.csv`、F0/Fend、文件边界、固定输入、源/镜像身份、实际 guest 控制脚本、校准/验证摘要、PNG/SVG 和哈希。SWE 任务另存最终补丁及初始源码身份。完整 stdout/stderr、二进制辅助程序和私有服务归档保留在 cpu-15；凭据及原对话不公开。
-
-公开 CSV 可直接校验并重画，无需私有日志：
-
-```bash
-python3 scripts/rebuild_agentenv_public.py --root . --verify-only
-python3 scripts/rebuild_agentenv_public.py --root .
+```text
+原工具结束 → 停止工具计时并保存退出码
+→ 冻结本次 guest 业务 cgroup，等待 cgroup.events frozen=1
+→ 检查该组 CPU 不再推进，保存成员 PID
+→ 读取扫描前 meminfo → 扫描普通文件驻留 → 读取扫描后 meminfo
+→ 确认业务组仍冻结且 CPU 不推进 → 解冻
+→ 开始下一条工具
 ```
 
-本轮每任务一次，无实验重复或置信区间；轨迹内工具时延分位数不代表独立重复。没有系统调用级实际读写量、完整工作集、host PFN 集合、跨 VM 共享、DAX 对照或节省比例。不同内核、guest 启动状态、DAMON、镜像转换和缓存范围均会影响与旧轮的差异。
+worker 与其继承的子进程、后台任务均位于 `/sys/fs/cgroup/aswr-business`。控制器、采样器、扫描器在组外；AgentENV 平台系统进程也保持运行。持续 Shell 的 cwd、函数和变量由同一 worker 保留；普通工具仍使用独立 Bash。预期的非零退出继续执行，不自动判定平台失败。
+
+**冻结的是业务进程，不是整台 VM。** guest 探针与内核继续运行；这使 guest 内 mincore 可以执行。宿主 cgroup 未用于冻结 guest，也没有创建持久 VM snapshot。异步调用返回即形成边界，后台任务一起冻结后恢复；不会为测量而提前等所有后台任务完成。原依赖完成屏障和 sleep/poll 保留。暂停会延长业务墙钟并改变后台运行机会；睡眠计时器和网络/内核事件仍按时间推进，因此不能拿此批工具时延与无暂停批次作配对性能比较。
+
+## 覆盖、排除和稳定性
+
+扫描入口为 guest `/`，遍历相同根文件系统的所有可达普通文件，包括 `/tmp/rocq-*`、OCaml、Dune、CompCert 与后来创建的构建输出，无须预先猜测目录名称。按顶层目录输出 `/app`、`/testbed`、`/tmp`、`/usr`、`/opt`、`/root`、`/data`、`/var` 和 other 分类。硬链接按首次遇到的路径归类，同一 inode 总量只算一次。
+
+明确排除 `/proc`、`/sys`、`/dev`、`/probe`、观察器输入包 `/tmp/aswr-input.tar`；不跟随符号链接，不跨其他挂载，跳过特殊文件。`exclusions` 保存各类排除计数，原始挂载布局留在 preflight 输出。未测的其他文件系统不能记成零。目录归因不是跨 inode 的物理去重。
+
+每个文件按 64 MiB 分块做两次立即 mincore，记录 resident、stable resident 和变化页数。单次上限 50 万个普通文件、90 秒；扫描错误不能当作成功。业务冻结不冻结内核回收，因此两遍之间仍可能变化。变化点保留为 PARTIAL，不按结果好坏挑选重试，也不宣称整棵目录是原子快照。
+
+每边界保存冻结和解冻回执、扫描前后 meminfo、成员 PID 与 CPU 读数。扫描前后变化与最大变化量公开；这包含内核回收等并发变化，不是观察器开销的因果估计。两遍无变化也只表示各小块在检查间稳定，不证明整个扫描期间没有变化。
+
+## 时间、阶段和测量影响
+
+工具时延由 guest 单调时钟包围原动作，结束后才冻结和扫描。它衡量 guest 命令执行；模型耗时与 AgentENV API 往返不在此字段中。异步工具计时代表启动调用，后台工作总寿命不能从这一个时延读出。文件扫描时间与冻结控制区间单独统计，后者包含扫描，二者不能相加。测量墙钟还包含准备、控制等待和依赖同步。
+
+全根遍历不主动读取业务文件内容，但会读取目录和文件系统元数据。本批 Matplotlib 初始扫描期间非空闲内存增加约 429 MiB、Slab 约 304 MiB、Buffers 约 134 MiB，实际影响显著，详见[结果解释](agentenv-results.md)。这些是前后观测，不是无观察器对照的因果估计；元数据占用也可能间接改变文件页回收。采样器日志位于 `/dev/shm`，观察器占用也会影响 guest 总量。灰带为扫描区间；排除该段样本不能消除后续影响。本批用于规定协议下、包含观察器的资源画像；总内存曲线不能用作无扫描时的纯业务内存需求，也不用于无监控时性能推断。
+
+`steps.csv` 中的阶段标签按固定原命令的透明规则生成：
+
+| 标签 | 含义 |
+| --- | --- |
+| setup_download | 明确安装/下载相关调用，含已知模型下载入口；不保证本次真的访问了网络 |
+| mixed_setup_task | 同一调用包含安装/下载与构建/测试等动作；保持原命令，不强行拆开 |
+| wait_or_inspect | 明确 sleep/poll/日志检查；此时后台构建可能仍在运行 |
+| task_or_inspect | 其余固定轨迹，包括读取、修改、执行与检查，不称为纯业务计算 |
+
+`phase_basis` 公开分类依据；规则在 `classify_tool` 中。阶段摘要是这些时间窗口内的**整个 guest 缓存峰值**，包括前面安装留下的缓存，不是页来源划分。不同阶段峰值不能相加；阶段归类也不等于独立的“预装/未预装”对照。
+
+## 验证与限制
+
+[校准回执](../provenance/agentenv-protocol-calibration.json)保留实际 VM 协议回归证据。实际 VM 校准覆盖前台和后台冻结、解冻后继续、16 MiB 冷/热文件、非零退出与持续 Shell 状态；本机 C 探针还检查硬链接、符号链接、空文件及最后半页计数。每任务保留固定输入 SHA-256、实际控制/worker 脚本、采集源码版本、完整顺序和校准/清理结果。
+
+严格退出码一致性比较对象为固定 Podman 参考重放，而非原对话中的退出码元数据；后者在 `replay-inputs.json.source_exit_code` 原样保留。原验证范围不扩大：Log4j 跳过测试且原检查器返回 141，Maven 编译成功单列；Django 只有语法检查；token 实际处理 26 行；其他任务按各自原命令验证。平台重放完成与模型修复正确性分别报告。
+
+每任务一个主记录，未控制宿主 backing 冷暖，沿用固定官方 guest 内核及 DAMON；没有重复统计、host PFN 去重、多 VM 共享或 DAX 收益结论。旧 Podman 总驻留与 cgroup 记账范围不同，不与本轮相减计算节省比例。
+
+[字段和复算入口](../experiments/agentenv-memory/README.md) · [部署与失败恢复](agentenv-deployment.md) · [结果索引](../results/agentenv/README.md)

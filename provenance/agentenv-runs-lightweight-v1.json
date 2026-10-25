@@ -1,0 +1,73 @@
+{
+  "protocol": "agentenv-lightweight-v1",
+  "primary": [
+    {
+      "task_id": "build-cython-ext",
+      "run_id": "build-cython-ext-20261023T172953Z-638250"
+    },
+    {
+      "task_id": "reshard-c4-data",
+      "run_id": "reshard-c4-data-20261023T154157Z-593615"
+    },
+    {
+      "task_id": "hf-model-inference",
+      "run_id": "hf-model-inference-20261023T155722Z-600086"
+    },
+    {
+      "task_id": "mozilla__pdf.js-20957",
+      "run_id": "mozilla__pdf.js-20957-20261023T160041Z-601176"
+    },
+    {
+      "task_id": "apache__logging-log4j2",
+      "run_id": "apache__logging-log4j2-20261023T160532Z-603454"
+    },
+    {
+      "task_id": "large-scale-text-editing",
+      "run_id": "large-scale-text-editing-20261023T161053Z-607185"
+    },
+    {
+      "task_id": "count-dataset-tokens",
+      "run_id": "count-dataset-tokens-20261023T163633Z-614354"
+    },
+    {
+      "task_id": "matplotlib__matplotlib-24177",
+      "run_id": "matplotlib__matplotlib-24177-20261023T164313Z-619136"
+    },
+    {
+      "task_id": "django__django-16819",
+      "run_id": "django__django-16819-20261023T164553Z-620771"
+    },
+    {
+      "task_id": "compile-compcert",
+      "run_id": "compile-compcert-20261023T173538Z-641763"
+    }
+  ],
+  "diagnostics": [
+    {
+      "task_id": "build-cython-ext",
+      "run_id": "build-cython-ext-20261023T153041Z-590984",
+      "reason": "Git promisor fetch connection reset at step47; retained; repeat planned with working proxy and HTTP/1.1"
+    },
+    {
+      "task_id": "hf-model-inference",
+      "run_id": "hf-model-inference-20261023T154637Z-594275",
+      "reason": "direct Hugging Face TLS reset; model download and independent validation failed"
+    },
+    {
+      "task_id": "count-dataset-tokens",
+      "run_id": "count-dataset-tokens-20261023T162720Z-612179",
+      "reason": "Hugging Face TLS EOF on metadata/download URLs; answer artifact absent; kept as diagnostic; fresh-VM retry after endpoint recovery passed unchanged inputs"
+    },
+    {
+      "task_id": "compile-compcert",
+      "run_id": "compile-compcert-20261023T164620Z-620929",
+      "reason": "host upstream proxy port expired: Dune step223 download failed and five later commands lacked files; final compiler smoke PASS; kept as diagnostic; retry uses reloadable upstream plus metadata preflight"
+    },
+    {
+      "task_id": "compile-compcert",
+      "run_id": "compile-compcert-20261023T173225Z-639078",
+      "reason": "preflight assumed Python in minimal base image; stopped before any original business action; fixed to controller HEAD plus guest Bash CONNECT; guest deleted"
+    }
+  ],
+  "aggregate_summary": "results/agentenv/history/lightweight-v1/summary.json"
+}

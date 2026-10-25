@@ -1,0 +1,70 @@
+{
+  "status": "COMPLETED",
+  "backend": "agentenv",
+  "task_id": "apache__logging-log4j2",
+  "run_id": "apache__logging-log4j2-20261025T055131Z-974499",
+  "protocol": "agentenv-frozen-tools-v2",
+  "expected_actions": 10,
+  "reference_run": "apache__logging-log4j2-20261020T152541",
+  "cpus": 2,
+  "memory_mib": 8192,
+  "service_image": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "sample_interval_seconds": 0.2,
+  "started_ns": 14677724357326036,
+  "cache_policy": "new cold-start guest; host backing warmness uncontrolled; official DAMON retained",
+  "file_cache_metric": "guest Cached-Shmem approximation; Buffers separate",
+  "declared_file_roots": [
+    "/"
+  ],
+  "file_boundary_after_steps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "pause_scope": "guest business cgroup; observer and kernel runnable",
+  "physical_deduplication": "NOT_MEASURED",
+  "source_hashes": {
+    "workload_probe.c": "fc483a6698bfeeddb3912e73c1c64143129cf213688e8035b5375d6549a62c33",
+    "workload_timer.c": "4c88254bd618a359e792004b35d22722e1aae34ec3cdefc82e395f788ac2715c",
+    "workload_memory.h": "d426b8db3e6511b52b8d5fd09ac055a268aeeee5abec7b2f7af4952152a16e47",
+    "agentenv_workload_client.py": "78f6d5437922d0d58e75ff00ba575aea74e2157cde26605a2edde20431764e12",
+    "run_agentenv_workloads.py": "22bdfe78f5c561a4b1aada0fc83caf11a881efe2e960333eec073169445cf56b"
+  },
+  "source_image": "localhost/asbp-log4j2:204d8251295d",
+  "requested_image": "aswr.local/apache__logging-log4j2:replay-v1",
+  "sandbox_id": "01a1719d-349d-7930-b589-2d5cad4193f2",
+  "workload_umask": "0077",
+  "git_http_version": "HTTP/1.1",
+  "guest_proxy_configured": true,
+  "measurement_dispatched_ns": 14677724555425947,
+  "measurement_finished_ns": 14677982340459949,
+  "runner_exit_code": 0,
+  "frozen_boundaries_verified": 11,
+  "actions": 10,
+  "tool_seconds": 249.89080370599999,
+  "exit_differences": [],
+  "strict_exit_match": true,
+  "validation_status": "FAIL",
+  "guest_monitor": {
+    "status": "PASS",
+    "samples": 1288,
+    "interval_seconds": 0.2,
+    "elapsed_seconds": 257.746776288,
+    "user_cpu_seconds": 0.085083,
+    "system_cpu_seconds": 0.111671,
+    "maxrss_kib": 1524
+  },
+  "cleanup": {
+    "sandbox_deleted": true
+  },
+  "finished_ns": 14677982918997571
+}

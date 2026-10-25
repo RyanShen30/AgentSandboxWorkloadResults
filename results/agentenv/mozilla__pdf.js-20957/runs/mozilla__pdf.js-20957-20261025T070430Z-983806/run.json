@@ -1,0 +1,65 @@
+{
+  "status": "COMPLETED",
+  "backend": "agentenv",
+  "task_id": "mozilla__pdf.js-20957",
+  "run_id": "mozilla__pdf.js-20957-20261025T070430Z-983806",
+  "protocol": "agentenv-frozen-tools-v2",
+  "expected_actions": 5,
+  "reference_run": "mozilla__pdf.js-20957-20261020T010602",
+  "cpus": 2,
+  "memory_mib": 8192,
+  "service_image": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "sample_interval_seconds": 0.2,
+  "started_ns": 14682103103188377,
+  "cache_policy": "new cold-start guest; host backing warmness uncontrolled; official DAMON retained",
+  "file_cache_metric": "guest Cached-Shmem approximation; Buffers separate",
+  "declared_file_roots": [
+    "/"
+  ],
+  "file_boundary_after_steps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "pause_scope": "guest business cgroup; observer and kernel runnable",
+  "physical_deduplication": "NOT_MEASURED",
+  "source_hashes": {
+    "workload_probe.c": "fc483a6698bfeeddb3912e73c1c64143129cf213688e8035b5375d6549a62c33",
+    "workload_timer.c": "4c88254bd618a359e792004b35d22722e1aae34ec3cdefc82e395f788ac2715c",
+    "workload_memory.h": "d426b8db3e6511b52b8d5fd09ac055a268aeeee5abec7b2f7af4952152a16e47",
+    "agentenv_workload_client.py": "78f6d5437922d0d58e75ff00ba575aea74e2157cde26605a2edde20431764e12",
+    "run_agentenv_workloads.py": "22bdfe78f5c561a4b1aada0fc83caf11a881efe2e960333eec073169445cf56b"
+  },
+  "source_image": "localhost/asbp-pdfjs:484518614d75",
+  "requested_image": "aswr.local/mozilla__pdf.js-20957:replay-v1",
+  "sandbox_id": "01a171e0-0553-7e02-96f3-5030189d2dfb",
+  "workload_umask": "0077",
+  "git_http_version": "HTTP/1.1",
+  "guest_proxy_configured": true,
+  "measurement_dispatched_ns": 14682103278109329,
+  "measurement_finished_ns": 14682354047759516,
+  "runner_exit_code": 0,
+  "frozen_boundaries_verified": 6,
+  "actions": 5,
+  "tool_seconds": 244.46859932700002,
+  "exit_differences": [],
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "guest_monitor": {
+    "status": "PASS",
+    "samples": 1253,
+    "interval_seconds": 0.2,
+    "elapsed_seconds": 250.734049726,
+    "user_cpu_seconds": 0.107847,
+    "system_cpu_seconds": 0.116207,
+    "maxrss_kib": 1572
+  },
+  "cleanup": {
+    "sandbox_deleted": true
+  },
+  "finished_ns": 14682354600304801
+}

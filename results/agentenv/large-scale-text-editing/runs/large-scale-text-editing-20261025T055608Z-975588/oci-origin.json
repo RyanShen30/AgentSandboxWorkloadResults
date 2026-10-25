@@ -1,0 +1,30 @@
+{
+  "task_id": "large-scale-text-editing",
+  "source_image": "docker.io/alexgshaw/large-scale-text-editing@sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c",
+  "source_podman_image_id": "4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+  "started_ns": 1792907751925632304,
+  "method": "fixed registry digest copied to OCI",
+  "registry_transport": "existing host HTTP proxy",
+  "verification": {
+    "manifest_digest": "sha256:719adca3f1388220546ce6a155eee56eff3c4fe318183100320606a210f6b59c",
+    "config_digest": "sha256:4ca0b429596fd62b9fab0a787e276ee7ee3faf2761b56473232327218c462c56",
+    "rootfs_diff_ids": [
+      "sha256:eb5f13bce9936c760b9fa73aeb1b608787daa36106cc888104132e353ed37252",
+      "sha256:2a9c7b727490d026db269bdf2bf74ce80e17abe26fc4dd99bd53b3d1686e58dc",
+      "sha256:1ce62254e2a41ba52d6f4edab1c02c6733a219d0b27ff7b0d495f2987fc165ad",
+      "sha256:56ffb1fa8b190de199776ee5e02b4c9d482f5300e4aaa162e66fe09778c1a243",
+      "sha256:bb90eb063b6e7bec0bb1f27ff7d6d84dbd5f9c1c3932cbec014527582d94733c",
+      "sha256:cf1c0fa1a7009341365fedea520f3d7eb8aa9e3de31c9148f300cc8569bd05a1",
+      "sha256:f2625ec62d0489e7d0f0cbab2b3046ca7faf5ef465d2c0e76562bf3aa9bc0c26",
+      "sha256:f35d804266abfa81bc6865668dbbf23d247e8faac098b319f18bc9b28ef473d0"
+    ],
+    "layer_bytes": 73308403,
+    "layers": 8,
+    "platform": [
+      "linux",
+      "amd64"
+    ]
+  },
+  "finished_ns": 1792907761437723814,
+  "status": "VERIFIED"
+}

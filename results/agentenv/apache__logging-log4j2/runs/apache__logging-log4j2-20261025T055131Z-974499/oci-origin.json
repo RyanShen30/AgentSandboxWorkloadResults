@@ -1,0 +1,41 @@
+{
+  "task_id": "apache__logging-log4j2",
+  "source_image": "localhost/asbp-log4j2:204d8251295d",
+  "source_podman_image_id": "15f25a5428ac32c80525b74b6d2589d49181382483896386c95c5c0f375942df",
+  "started_ns": 1792907369233837821,
+  "rebuilt_local_image": {
+    "source_commit": "204d8251295dfa816b9b28d8d9cfaebab500f415",
+    "containerfile_sha256": "ec21d8411ff88efa4a1df1fb53846192ab32383b9e99c4d2c1c8adece52133ff",
+    "base_image": "ghcr.io/jetbrains-research/envbench-jvm@sha256:e6dbfbdc8f67e420b029440eb54988514bf7d9eca005ce5bad530a823414d388",
+    "prior_image_id": "15f25a5428ac32c80525b74b6d2589d49181382483896386c95c5c0f375942df",
+    "actual_image_id": "9c6aca2ed1f81bbe68f2119af7e4b16d576e0686540ff0c5a0c57081061dbd5d"
+  },
+  "method": "existing Podman image exported to OCI; filesystem diff IDs and runtime config verified",
+  "verification": {
+    "manifest_digest": "sha256:62640316ab1c15923796d7731028e8bdc594c8cbce2243d5d1db522912b5a990",
+    "config_digest": "sha256:71a1db768df75f4b8163325dc2a8808cf2314c9cb158e367bc84ed1f42307a2a",
+    "rootfs_diff_ids": [
+      "sha256:f862e1968e4b4c3c3af141e37d2ec22b19ec0fd50d6a8aaf683de6729e296226",
+      "sha256:4423c3a3a58e092f1fbf98bd3b95baf7e8716ec7ac59a6cab1a25a265ce558c9",
+      "sha256:322342d0f69211e1f5b7c6efd0595bb322eb2b11af3b14f3ad82cec50150032f",
+      "sha256:740bed6b94fc76d74f00de8976f8eb5ebaac7a1b8521553fd2c6186ce5b875e4",
+      "sha256:7e1bb8bdbef1e301caeefa5c20eafd4091e62602b8266a3846f0558add9802b9",
+      "sha256:f11949a4b73a9473f316f0766db69c7cd5638b45dd57cb04b850053edd51d2c1",
+      "sha256:712d2a9d83789476c446ef14eae65c59d4fe0fa24feb1a1edbeeeb04684bd047",
+      "sha256:5c3da76b184544024f2cf906913d5738d67ade4e096f1565390c8f65a8b92c84",
+      "sha256:6f459e3b5d92bfed388a0eb6790c369644d3f2aee33d64b9e0864df81e560956",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "sha256:da4db4e2c06914bd2dd292180f9ef7433a4163c6608e274420d5e68e8fb0167c"
+    ],
+    "layer_bytes": 1167194507,
+    "layers": 11,
+    "platform": [
+      "linux",
+      "amd64"
+    ],
+    "source_image_id": "9c6aca2ed1f81bbe68f2119af7e4b16d576e0686540ff0c5a0c57081061dbd5d",
+    "runtime_config_fields_match": true
+  },
+  "finished_ns": 1792907475444826148,
+  "status": "VERIFIED"
+}

@@ -1,0 +1,32 @@
+{
+  "task_id": "mozilla__pdf.js-20957",
+  "source_image": "localhost/asbp-pdfjs:484518614d75",
+  "source_podman_image_id": "7978236cab552f316c5d54e867a8b1cfcc4620ba3b1703b483ae5a0c3f795e60",
+  "started_ns": 1792911848589500332,
+  "method": "existing Podman image exported to OCI; filesystem diff IDs and runtime config verified",
+  "verification": {
+    "manifest_digest": "sha256:c56d745e25d78c0bcec99846906f933d714ee8bc7ae82d3ddf2a8153aba5aaca",
+    "config_digest": "sha256:7978236cab552f316c5d54e867a8b1cfcc4620ba3b1703b483ae5a0c3f795e60",
+    "rootfs_diff_ids": [
+      "sha256:6439a9e3affca36e4cc323dd241724b62721af4a3f4aa590ced4ae11f8083a4b",
+      "sha256:7345f80a66167d9ae4a3c28d9280aabd743986ec04e5d862d67a5b8e5d886e78",
+      "sha256:1049cbfdfb0acf4035a0996bbbf3e5bfc20fcfef65c3d50f09b16c0607afbb38",
+      "sha256:060a1e8ce9048ff68647726be1cfe515884725d6e527f2fd2382a039f5c0a111",
+      "sha256:bedfd0d8a8b647d21e9b5730058a6f3b32bbde7ab38ea8dfe575273c5929f11e",
+      "sha256:dad03b483a454947d91e98aea582cdd804b30f30726fa808c7a39e13b4396f1a",
+      "sha256:a46c116914a3211120a744aeba4aab0db1b1c2b3427c6067edd753bbd23a455c",
+      "sha256:e148f71c5284fca3712efd71ff0e97429c1e3c789c655c75766b89b760ac6582",
+      "sha256:e23b4ffaba233ae87e538e31d2422df4067af5cea08d30ceef1a335a2cff189a"
+    ],
+    "layer_bytes": 630260656,
+    "layers": 9,
+    "platform": [
+      "linux",
+      "amd64"
+    ],
+    "source_image_id": "7978236cab552f316c5d54e867a8b1cfcc4620ba3b1703b483ae5a0c3f795e60",
+    "runtime_config_fields_match": true
+  },
+  "finished_ns": 1792911856125767018,
+  "status": "VERIFIED"
+}

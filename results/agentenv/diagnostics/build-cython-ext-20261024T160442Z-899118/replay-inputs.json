@@ -1,0 +1,965 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "bash",
+      "command": "git clone --depth 1 --branch 0.5.3 https://github.com/SPOCKnots/pyknotid.git /app/pyknotid",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "f1bf71fdaa9759f54349d4f878617166210e2337e44ffd9955e02c339ee33261",
+      "source_exit_code": 0
+    },
+    {
+      "step": 2,
+      "tool": "bash",
+      "command": "ls -la /app/pyknotid && ls -la /app/pyknotid/pyknotid && python -c \"import numpy; print(numpy.__version__)\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "a2f61b9f3b59ff2eb314a270fd720671db4b88e0c6562da758ed590f30bb8935",
+      "source_exit_code": 0
+    },
+    {
+      "step": 3,
+      "tool": "read",
+      "command": "python3 /probe/input/003-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "95308dd9aacb796492f90777c5cbb0700bb168ba69df7ac195a875229df7b696",
+      "source_exit_code": 0
+    },
+    {
+      "step": 4,
+      "tool": "read",
+      "command": "python3 /probe/input/004-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "b396c5c1e9cc27d6c9acb690e50f1a9aa339ae2480c6511a6f1a6d6e87319cb8",
+      "source_exit_code": 0
+    },
+    {
+      "step": 5,
+      "tool": "bash",
+      "command": "ls /app/pyknotid/pyknotid/spacecurves /app/pyknotid/pyknotid/simplify /app/pyknotid/tests",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "8ef8c19b489a4f49dbb179fbeef54256f20c79a5998aed96b7286b71c86a940b",
+      "source_exit_code": 0
+    },
+    {
+      "step": 6,
+      "tool": "read",
+      "command": "python3 /probe/input/006-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "3317fcc18070af95165f969daeedec2fa9efc2274b233cf15f5ead3920da5876",
+      "source_exit_code": 0
+    },
+    {
+      "step": 7,
+      "tool": "read",
+      "command": "python3 /probe/input/007-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "6045f68eca5a5a4d60a0ab1ab6f5835d077aea23bc28473275f8ddb27a135aa4",
+      "source_exit_code": 0
+    },
+    {
+      "step": 8,
+      "tool": "read",
+      "command": "python3 /probe/input/008-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "5780b404a347e01b6e61b494b9ded41d9e9d22bf64c6b8c023eb23de141f6c80",
+      "source_exit_code": 0
+    },
+    {
+      "step": 9,
+      "tool": "read",
+      "command": "python3 /probe/input/009-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "5f9cea830330ae243a5a1b7e45393a255c1ccd5ae943d3d5641bb350d106d1d5",
+      "source_exit_code": 0
+    },
+    {
+      "step": 10,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && grep -rn \"np\\.int\\b\\|np\\.float\\b\\|np\\.unicode\\|np\\.object\\b\\|np\\.NaN\\|np\\.Inf\\|np\\.bool8\\|np\\.NAN\\|n\\.int\\b\\|n\\.float\\b\\|np\\.alltrue\\|np\\.sometrue\\|np\\.in1d\\|np\\.row_stack\\|np\\.trapz\\|np\\.issubsctype\\|np\\.safe_eval\\|np\\.round_\\|np\\.mat\\b\\|np\\.find_common_type\\|np\\.maximum_sctype\\|np\\.deprecate\\|np\\.asfarray\\|np\\.set_string_function\" --include=\"*.py\" --include=\"*.pyx\" . | head -50",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "08c65ba7b45e3d5df620ba8492a960e2639d31318bf4ae1cfe81b074cab1204c",
+      "source_exit_code": 0
+    },
+    {
+      "step": 11,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && grep -rnE \"n(p)?\\.(int|float|complex|bool|object|str|long|unicode)(_|[^(]|$)\" --include=\"*.py\" --include=\"*.pyx\" . | grep -vE \"n(p)?\\.(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float16|float32|float64|float128|complex64|complex128|bool_|str_|intp|intc|complex256|float_|longdouble)\" | head -60",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "574f5d9a59b7c0c8be9f3ca285165ae7d7e904175ba7bd3c84ad1465adf20d00",
+      "source_exit_code": 0
+    },
+    {
+      "step": 12,
+      "tool": "read",
+      "command": "python3 /probe/input/012-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "794027e5bb9b4ac40bc7ac470f0550a206331163751f1fdaba186e1a4f1c267e",
+      "source_exit_code": 0
+    },
+    {
+      "step": 13,
+      "tool": "read",
+      "command": "python3 /probe/input/013-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "f54fe99b05b2b8f57037b4b90fd89b4b4ca45a3599d5561ad26a360170ee6f18",
+      "source_exit_code": 0
+    },
+    {
+      "step": 14,
+      "tool": "read",
+      "command": "python3 /probe/input/014-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "a24950a61d7ff7d168202daf31333d60124d67770884b11369067e4f52ca7447",
+      "source_exit_code": 0
+    },
+    {
+      "step": 15,
+      "tool": "read",
+      "command": "python3 /probe/input/015-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "46578a4c1eecda147ebf52cc7917386c367cee7586d30a9d7504b447074598d2",
+      "source_exit_code": 0
+    },
+    {
+      "step": 16,
+      "tool": "bash",
+      "command": "wc -l /app/pyknotid/tests/*.py && cat /app/pyknotid/tests/test_knot.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "c7dd6811f6d4d86dc35d2f7c99057f5dcd1f2c1e482fcbca70f4e4c1b9fd8d14",
+      "source_exit_code": 0
+    },
+    {
+      "step": 17,
+      "tool": "bash",
+      "command": "python --version; pip list 2>/dev/null | head -60; which python; python -c \"import sys; print(sys.prefix)\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "3501fa903495cf14d5d95179520efa56500e93d8e60c8072018b55914727d467",
+      "source_exit_code": 0
+    },
+    {
+      "step": 18,
+      "tool": "bash",
+      "command": "cat /app/pyknotid/pyknotid/__init__.py /app/pyknotid/pyknotid/make/__init__.py /app/pyknotid/pyknotid/spacecurves/__init__.py /app/pyknotid/pyknotid/representations/__init__.py /app/pyknotid/pyknotid/utils.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "9a44a25e3bd4718127e5e57c7131a9536d9486bc16959e0e865a51ae17a0381e",
+      "source_exit_code": 0
+    },
+    {
+      "step": 19,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && head -40 pyknotid/spacecurves/spacecurve.py pyknotid/spacecurves/knot.py pyknotid/spacecurves/link.py pyknotid/spacecurves/openknot.py pyknotid/spacecurves/periodiccell.py pyknotid/invariants.py pyknotid/representations/gausscode.py pyknotid/representations/planardiagram.py pyknotid/representations/representation.py pyknotid/representations/dtnotation.py pyknotid/make/named.py pyknotid/make/torus.py pyknotid/writhes.py pyknotid/simplify/octree.py pyknotid/spacecurves/complexity.py pyknotid/spacecurves/helpers.py pyknotid/spacecurves/geometry.py pyknotid/spacecurves/rotation.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "a1d8430352fbf726a8f82f300d5ba792a788530277005af56fa090664d8dc079",
+      "source_exit_code": 0
+    },
+    {
+      "step": 20,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && head -30 pyknotid/visualise.py && grep -n \"^import\\|^from\\|^ *import\\|^ *from\" pyknotid/visualise.py | head -30 && grep -rn \"vispy\\|matplotlib\\|mayavi\" pyknotid/*.py pyknotid/spacecurves/*.py pyknotid/make/*.py | grep -v \"\\.pyc\" | grep \"import\" ",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "0e98a51d94909ab05c4ab720034114d2bb72f245b80c8b537fdbe5689f389ace",
+      "source_exit_code": 0
+    },
+    {
+      "step": 21,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && grep -rn \"planarity\\|networkx\\|peewee\\|appdirs\\|requests\\|tqdm\" --include=\"*.py\" pyknotid/ | grep -v \"#\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "9e9e4e99c5a070d8d599f051f7b9bfa45ffd26f38e4e350f1282c295bb203993",
+      "source_exit_code": 0
+    },
+    {
+      "step": 22,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && cat pyknotid/io.py && grep -n \"import\" pyknotid/spacecurves/knot.py | head -20 && grep -n \"import\" pyknotid/spacecurves/periodiccell.py pyknotid/spacecurves/periodicline.py pyknotid/spacecurves/periodic.py pyknotid/make/__init__.py pyknotid/make/ideal.py 2>/dev/null | head",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "a4b937c41e7c647bf960c0708049960a12fc23033972b8eb2fc58cc28560b778",
+      "source_exit_code": 0
+    },
+    {
+      "step": 23,
+      "tool": "read",
+      "command": "python3 /probe/input/023-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "bac6c367de88d24e9effcde78171cf5547781a52d7d7a136cffb115638c667d3",
+      "source_exit_code": 0
+    },
+    {
+      "step": 24,
+      "tool": "bash",
+      "command": "which gcc g++ cc; gcc --version | head -1; pip install --quiet cython sympy pytest 2>&1 | tail -5; python -c \"import Cython, sympy, pytest; print('Cython', Cython.__version__, '| sympy', sympy.__version__, '| pytest', pytest.__version__)\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "443504ac86578c7c60e4ca2df2f3565cbc30fb599d2701e28c0cae4550b49205",
+      "source_exit_code": 0
+    },
+    {
+      "step": 25,
+      "tool": "bash",
+      "command": "pip install --quiet vispy 2>&1 | tail -3; python -c \"import vispy; print('vispy', vispy.__version__)\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "0c9d1971b23f0deb11aa9287cc0ab9e6c2577b3a60dc85cb24bd4650a63ccef8",
+      "source_exit_code": 0
+    },
+    {
+      "step": 26,
+      "tool": "bash",
+      "command": "pip install --quiet networkx peewee appdirs requests tqdm matplotlib 2>&1 | tail -3; pip install --quiet planarity 2>&1 | tail -5; python -c \"\nfor m in ['networkx','peewee','appdirs','requests','tqdm','matplotlib']:\n    mod = __import__(m); print(m, mod.__version__ if hasattr(mod,'__version__') else 'ok')\ntry:\n    import planarity; print('planarity', planarity.__version__)\nexcept Exception as e:\n    print('planarity FAIL:', e)\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "d0f586c85965c8b758cea34c1e569ec75e555ed6c2ebe797bec2d93d90ce46f9",
+      "source_exit_code": 0
+    },
+    {
+      "step": 27,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && grep -rn \"from collections import\\|from fractions import\\|getargspec\\|import imp\\b\\|np\\.NaN\\|np\\.Inf\\b\\|n\\.NaN\\|n\\.Inf\\b\\|np\\.row_stack\\|np\\.trapz\\|np\\.product\\|np\\.cumproduct\\|np\\.round_\\|np\\.in1d\\|np\\.float_\\|n\\.float_\\|np\\.unicode\\|np\\.asfarray\\|np\\.issctype\\|np\\.issubsctype\\|np\\.deprecate\\|np\\.safe_eval\\|np\\.msort\\|np\\.find_common_type\\|np\\.maximum_sctype\\|np\\.set_string_function\\|np\\.disp\\|np\\.who\\|np\\.source\\|np\\.lookfor\" --include=\"*.py\" --include=\"*.pyx\" .",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "0845194227471e8b1cf8544e2fefefaaa6c589232006cd3d290a60d3b7e7b7f2",
+      "source_exit_code": 0
+    },
+    {
+      "step": 28,
+      "tool": "bash",
+      "command": "wc -l /app/pyknotid/pyknotid/spacecurves/spacecurve.py /app/pyknotid/pyknotid/spacecurves/knot.py /app/pyknotid/pyknotid/spacecurves/openknot.py /app/pyknotid/pyknotid/spacecurves/periodiccell.py /app/pyknotid/pyknotid/spacecurves/ccomplexity.pyx /app/pyknotid/pyknotid/invariants.py /app/pyknotid/pyknotid/simplify/octree.py /app/pyknotid/pyknotid/make/periodic_knot.py /app/pyknotid/pyknotid/make/torus.py /app/pyknotid/pyknotid/representations/gausscode.py /app/pyknotid/pyknotid/representations/dtnotation.py /app/pyknotid/pyknotid/representations/representation.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "01c429736bcffaf5428b07bb900b145d59481af741bb75eb50ea0132aee0476d",
+      "source_exit_code": 0
+    },
+    {
+      "step": 29,
+      "tool": "read",
+      "command": "python3 /probe/input/029-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "95c654712dd630b8512a4ac50de5fce0cfddd4503e5582c9386c4e6b147a115d",
+      "source_exit_code": 0
+    },
+    {
+      "step": 30,
+      "tool": "read",
+      "command": "python3 /probe/input/030-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "316d6f4f03ac6b22066a7ff8cd264241bdc5acf19389d573994d469827a9a663",
+      "source_exit_code": 0
+    },
+    {
+      "step": 31,
+      "tool": "write",
+      "command": "mkdir -p /app && cat /probe/input/031.payload > /app/fix_numpy_compat.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Native write tool is bridged to a real in-container file write; original content is preserved except explicitly declared adaptations."
+      ],
+      "script_sha256": "459535118bc5b35d67e975b5e897d08d03b685d88978531912124b457c288070",
+      "source_exit_code": 0
+    },
+    {
+      "step": 32,
+      "tool": "bash",
+      "command": "python /app/fix_numpy_compat.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "926c98736401fcc12411ecb97dcd977f51170f6f356172af986f518a98aa09e8",
+      "source_exit_code": 0
+    },
+    {
+      "step": 33,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && grep -rnE \"n(p)?\\.(int|float|complex|bool|object|str|long|unicode)(_|[^(]|$)\" --include=\"*.py\" --include=\"*.pyx\" pyknotid/ | grep -vE \"n(p)?\\.(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float16|float32|float64|float128|complex64|complex128|bool_|str_|intp|intc|complex256|float_|longdouble)\"; echo \"---grep done (empty above = clean)---\"; git diff --stat",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "e8053a0be564551780849be89eb26018a943791148d2b683681fee2716b477a8",
+      "source_exit_code": 0
+    },
+    {
+      "step": 34,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && python -W error::DeprecationWarning -c \"\nimport pyknotid\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nfrom pyknotid.spacecurves import Knot\nk = Knot(mk.three_twist(num_points=100))\nprint('alexander(-1) =', k.alexander_polynomial(-1))\nprint('gauss code =', k.gauss_code())\n\" 2>&1 | tail -20",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "bb42b3b39b79d6e69927d26aadbf8bdc372cfb98b1fc5bcfcc958c679f46f656",
+      "source_exit_code": 0
+    },
+    {
+      "step": 35,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && pip install --no-build-isolation --no-warn-script-location . 2>&1 | tail -25",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "dd1041254e4a3040707ac1fb31e790a7cabcf5b84b93b889a5cfe8397ec49d89",
+      "source_exit_code": 0
+    },
+    {
+      "step": 36,
+      "tool": "bash",
+      "command": "pip install --quiet setuptools wheel 2>&1 | tail -2; python -c \"import setuptools; print('setuptools', setuptools.__version__)\" && cd /app/pyknotid && pip install --no-build-isolation --no-warn-script-location . 2>&1 | tail -25",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "869f30d02b9a21032f683e9e454731d311a0f4d9acf4e81b35281a50586ecce2",
+      "source_exit_code": 0
+    },
+    {
+      "step": 37,
+      "tool": "bash",
+      "command": "ls /usr/local/lib/python3.13/site-packages/pyknotid/*.so /usr/local/lib/python3.13/site-packages/pyknotid/spacecurves/*.so /usr/local/lib/python3.13/site-packages/pyknotid/simplify/*.so 2>&1; cd /tmp && python -c \"\nimport pyknotid\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nimport numpy\nprint('numpy', numpy.__version__)\nprint('chelpers:', chelpers.__file__)\nprint('ccomplexity:', ccomplexity.__file__)\nprint('cinvariants:', cinvariants.__file__)\n\nk = sp.Knot(mk.three_twist(num_points=100))\nout = k.alexander_polynomial(-1)\nprint('alexander_polynomial(-1) =', out)\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "a3e256e957461dbd4789cedd001f9b9d2f97246f890d898de92de3284974348f",
+      "source_exit_code": 0
+    },
+    {
+      "step": 38,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && grep -rn \"ccomplexity\\|cinvariants\\|coctree\" --include=\"*.py\" pyknotid/ | grep -v \"^Binary\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "7f5c87e73b81c87dcf83b3d31256197b617fbf0e753b1f09d941072a49f2b68e",
+      "source_exit_code": 0
+    },
+    {
+      "step": 39,
+      "tool": "read",
+      "command": "python3 /probe/input/039-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "6362e01699bf44f53a69abedce4e13be9a25bc41e94dc22348c471ebe4d096f2",
+      "source_exit_code": 0
+    },
+    {
+      "step": 40,
+      "tool": "read",
+      "command": "python3 /probe/input/040-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "a059f3e8fa46651f1b33431e9e674f738d041f3bfbde1fac2d9de2b40db721f5",
+      "source_exit_code": 0
+    },
+    {
+      "step": 41,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot, chelpers, ccomplexity\nfrom pyknotid import cinvariants\nfrom pyknotid import make as mk\n\n# --- chelpers: used by find_crossings / gauss_code (try_cython=True) ---\nk = Knot(mk.trefoil())\ng1 = k.gauss_code(recalculate=True, try_cython=True)\ng2 = k.gauss_code(recalculate=True, try_cython=False)\nassert str(g1) == str(g2) == '1+a,2-a,3+a,1-a,2+a,3-a', (g1, g2)\nprint('chelpers find_crossings OK:', str(g1))\n\n# direct call of chelpers.find_crossings in its original context\nv = k.points[0].astype(float); dv = (k.points[1]-k.points[0]).astype(float)\npts = np.ascontiguousarray(k.points[1:], dtype=float)\nsl = np.linalg.norm(np.diff(k.points, axis=0), axis=1).astype(float)\nres = chelpers.find_crossings(v, dv, pts, sl, 0, 1, max(sl)*10, 3)\nprint('chelpers.find_crossings direct OK, n =', len(res))\n\n# --- cinvariants: vassiliev_degree_3 via Knot (uses cinvariants) ---\nk2 = Knot(mk.trefoil())\nv3 = k2.vassiliev_degree_3()\nassert v3 == -1, v3\nprint('cinvariants vassiliev_degree_3 OK:', v3)\n\n# direct call of cinvariants.vassiliev_degree_3\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\nfrom pyknotid.representations.gausscode import GaussCode\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\narrows = _crossing_arrows_and_signs_numpy(gc, gc.crossing_numbers)\nprint('arrows dtype:', arrows.dtype)\nprint('cinvariants direct OK:', cinvariants.vassiliev_degree_3(arrows))\n\n# --- ccomplexity: second order writhes (original context in complexity.py) ---\nfrom pyknotid.spacecurves.complexity import second_order_writhes\npts = mk.trefoil(num_points=20)\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nprint('ccomplexity second_order_writhes:', r1, 'py:', r2)\nassert np.allclose(r1, r2), (r1, r2)\nprint('ccomplexity OK')\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "bde48d153f1da93d27616d28bd0d58784ed781ec1e310154228625bcb92ed63b",
+      "source_exit_code": 1
+    },
+    {
+      "step": 42,
+      "tool": "read",
+      "command": "python3 /probe/input/042-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "aed2f8a2dcf61f1a74f986d9dedeee8df867cb719e42e553feb9057a00ccf731",
+      "source_exit_code": 0
+    },
+    {
+      "step": 43,
+      "tool": "bash",
+      "command": "python -c \"\nimport re\nr = re.compile('[ \\n]*')\nprint(repr(r.split('1+c,2-c')))\nprint(repr(r.split('1+c\\n2-c')))\nprint(repr(r.split('1+c, 2-c')))\nprint(repr(re.split('[ \\n]*', 'abc')))\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "62e96d71b2f7f531b3c4ef87b039696bb476a83b73401c98e0a0d6af8d520cf7",
+      "source_exit_code": 0
+    },
+    {
+      "step": 44,
+      "tool": "bash",
+      "command": "cd /tmp && git clone --quiet --filter=blob:none https://github.com/SPOCKnots/pyknotid.git pyknotid-full 2>/dev/null; cd pyknotid-full && git log --oneline -- pyknotid/representations/gausscode.py | head -20",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "97543189456d8757f5bd83f77919bcc9daccadfa333eaee76c7c6728557988cd",
+      "source_exit_code": 0
+    },
+    {
+      "step": 45,
+      "tool": "bash",
+      "command": "cd /tmp/pyknotid-full && git show 076b63f --stat && git show 076b63f | head -120 && git tag --contains 076b63f | head; git log --oneline --all | head -30",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "03f694069e6435fa924c8f03fb4a98ba864254acd473dced7f97088005412b3d",
+      "source_exit_code": 0
+    },
+    {
+      "step": 46,
+      "tool": "bash",
+      "command": "cd /tmp/pyknotid-full && git tag -l && git log --oneline 0.5.3 | head -5; echo ---; git merge-base --is-ancestor 076b63f 441c807 && echo \"076b63f IS ancestor of 441c807\" || echo \"076b63f NOT ancestor of 441c807\"; git log --oneline master | head -12; echo ---; git show 441c807:pyknotid/representations/gausscode.py | sed -n '175,185p'; echo ---; git show 441c807:pyknotid/make/torus.py | sed -n '12,16p'",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "79bfefa8620f0f77361f1b59007f2923cab9110b1b98382be2e0c93007922705",
+      "source_exit_code": 0
+    },
+    {
+      "step": 47,
+      "tool": "bash",
+      "command": "cd /tmp/pyknotid-full && git show ff1717d --stat && git show ff1717d | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\" | head -100",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "b6c26dc3e6e8cf5b1a45a1b3af546b436fbe82fe88f577b81872d5b7e5c65daa",
+      "source_exit_code": 0
+    },
+    {
+      "step": 48,
+      "tool": "bash",
+      "command": "cd /tmp/pyknotid-full && git show ff1717d -- pyknotid/spacecurves/ccomplexity.pyx pyknotid/spacecurves/knot.py pyknotid/spacecurves/openknot.py pyknotid/simplify/octree.py pyknotid/representations/gausscode.py | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\"; echo ===TESTS===; git show ff1717d -- tests/ | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "c975f9c5e0582ce86a399deb0d15198228fbfbbd1377f6d168f16c0314b40661",
+      "source_exit_code": 0
+    },
+    {
+      "step": 49,
+      "tool": "bash",
+      "command": "cd /tmp/pyknotid-full && git grep -nE \"n(p)?\\.(int|float|bool|complex|long)\\b\" master -- pyknotid/ | head; echo ---; git show 3d8752e | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\"; echo ---; git show 514a3f0 | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\" | head",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "7ae5e6100425bfb315a936a444608c4a1e007c5aee4ffbf81bd5148932cb9278",
+      "source_exit_code": 0
+    },
+    {
+      "step": 50,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && grep -rn \"re\\.compile\\|re\\.split\\|re\\.findall\\|re\\.match\\|re\\.search\\|re\\.sub\" --include=\"*.py\" --include=\"*.pyx\" pyknotid/",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "ff6f2dafbbc21230a9ea9c4108bd3bd07334a959b604841865980f72a65fe874",
+      "source_exit_code": 0
+    },
+    {
+      "step": 51,
+      "tool": "read",
+      "command": "python3 /probe/input/051-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "6237c62035a75cbee04e63da258feb7158d7fbd857d438adadc833b09a0a9600",
+      "source_exit_code": 0
+    },
+    {
+      "step": 52,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && sed -n '100,160p' pyknotid/representations/gausscode.py && echo ===DT=== && sed -n '40,80p' pyknotid/representations/dtnotation.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "0c0c393e2b119f3330a4dbb3fe85a13cec39e02b629e4e4a0ef1cf6154f512d2",
+      "source_exit_code": 0
+    },
+    {
+      "step": 53,
+      "tool": "write",
+      "command": "mkdir -p /app && cat /probe/input/053.payload > /app/fix_regex_compat.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Native write tool is bridged to a real in-container file write; original content is preserved except explicitly declared adaptations."
+      ],
+      "script_sha256": "b02938ada0ff7f334701ce45fe1a7843d2920b982edeec1bd17efc3ce3d64f03",
+      "source_exit_code": 0
+    },
+    {
+      "step": 54,
+      "tool": "bash",
+      "command": "python /app/fix_regex_compat.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "6f3831cb737536903b34e0af61008fdfe67f8a3327a716aa4646cdfdefb1b9d4",
+      "source_exit_code": 0
+    },
+    {
+      "step": 55,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && pip install --no-build-isolation --no-warn-script-location . 2>&1 | tail -3 && cd /tmp && python -m pytest /app/pyknotid/tests/test_knot.py /app/pyknotid/tests/test_spacecurve.py -v 2>&1 | tail -40",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "d44b7ba13d2b7caa5241916e660a2e324404e5c4cf7a44a03855de16b58dfee8",
+      "source_exit_code": 0
+    },
+    {
+      "step": 56,
+      "tool": "read",
+      "command": "python3 /probe/input/056-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "442177db02fe0a77b42e1d41ab93cb2c2f620b2d477ae957a6fb9d006bcd6a78",
+      "source_exit_code": 0
+    },
+    {
+      "step": 57,
+      "tool": "bash",
+      "command": "python -c \"import planarity, inspect; print(planarity.__file__); print([n for n in dir(planarity.PGraph) if not n.startswith('_')])\" && python -c \"\nimport inspect, planarity\nsrc = inspect.getsource(planarity.PGraph.embed_drawplanar)\nprint(src)\nsrc2 = inspect.getsource(planarity.networkx_graph)\nprint(src2[:3000])\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "330ce298d162c1e0f330739315eb679217c2ffcce893ca29af0516d02c39b75a",
+      "source_exit_code": 1
+    },
+    {
+      "step": 58,
+      "tool": "bash",
+      "command": "python -c \"\nimport networkx as nx\nimport planarity\n\n# trefoil planar diagram as built by pyknotid\nfrom pyknotid.representations.gausscode import GaussCode\nfrom pyknotid.representations.planardiagram import PlanarDiagram\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\npd = PlanarDiagram(gc)\ng, duplicates, heights, first_edge = pd.as_networkx_extended()\nprint('nodes:', list(g.nodes), 'edges:', list(g.edges))\npg = planarity.PGraph(g)\npg.embed_drawplanar()\nprint('PGraph attrs:', [a for a in dir(pg) if not a.startswith('_')])\ntry:\n    print('pos attr:', pg.pos)\nexcept Exception as e:\n    print('pos attr error:', e)\ng2 = planarity.networkx_graph(pg)\nprint('nodes data:', list(g2.nodes(data=True))[:3])\nprint('node attrs:', {n: list(d.keys()) for n, d in list(g2.nodes(data=True))[:3]})\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "64ebde75ec8f6599295abf6b9c5180b5e9fddfce88d126219258fff56160ac49",
+      "source_exit_code": 0
+    },
+    {
+      "step": 59,
+      "tool": "bash",
+      "command": "pip install 'planarity==0.8' 2>&1 | tail -6",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "6441434715ed7f8019f3979803e0d9af8e0b3527ff733d2562d3bc2e5bc03d3f",
+      "source_exit_code": 0
+    },
+    {
+      "step": 60,
+      "tool": "bash",
+      "command": "pip install 'planarity==0.6' 2>&1 | tail -4 && python -c \"\nimport planarity, inspect\nprint('file:', planarity.__file__)\nprint([a for a in dir(planarity.PGraph) if not a.startswith('_')])\nimport pyknotid.representations.planardiagram as pdm\nfrom pyknotid.representations.gausscode import GaussCode\nfrom pyknotid.representations.planardiagram import PlanarDiagram\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\npd = PlanarDiagram(gc)\ng, duplicates, heights, first_edge = pd.as_networkx_extended()\npg = planarity.PGraph(g)\npg.embed_drawplanar()\ng2 = planarity.networkx_graph(pg)\nprint('node attrs:', {n: list(d.keys()) for n, d in list(g2.nodes(data=True))[:3]})\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "a9adfa5528b44e9e4a93a312b54b1de9bbd469c49cedc33f05efea5c87223518",
+      "source_exit_code": 0
+    },
+    {
+      "step": 61,
+      "tool": "bash",
+      "command": "cd /tmp && python -m pytest /app/pyknotid/tests/test_knot.py /app/pyknotid/tests/test_spacecurve.py -v 2>&1 | tail -30",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "e0a881dc855f4be3a86bb33c3581c7908327cd442fe6c879077bf70c2c39eba5",
+      "source_exit_code": 0
+    },
+    {
+      "step": 62,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot, Link, OpenKnot, SpaceCurve\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nfrom pyknotid import make as mk\nfrom pyknotid.representations import GaussCode, Representation, DTNotation, PlanarDiagram\n\n# 1. GaussCode string parsing (was broken by re.split empty-match change)\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nprint('GaussCode str OK:', str(gc).replace(chr(10),' '))\ngc2 = GaussCode.calculating_orientations('1+,2-,3+,1-,2+,3-')\nprint('calculating_orientations OK:', str(gc2).replace(chr(10),' '))\n\n# 2. ccomplexity in original context (complexity.py)\nfrom pyknotid.spacecurves.complexity import second_order_writhes, higher_order_writhe_integral\npts = mk.trefoil(num_points=15)\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nassert np.allclose(r1, r2), (r1, r2)\nprint('second_order_writhes cython==python:', [round(x,4) for x in r1])\nh1 = higher_order_writhe_integral(pts, try_cython=True)\nh2 = higher_order_writhe_integral(pts, try_cython=False)\nassert np.isclose(h1, h2), (h1, h2)\nprint('higher_order_writhe_integral cython==python:', round(h1,4))\n\n# 3. cinvariants direct\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\narrows = _crossing_arrows_and_signs_numpy(gc[0] if isinstance(gc[0], list) else gc._gauss_code[0], gc.crossing_numbers)\nprint('vassiliev_degree_3 direct:', cinvariants.vassiliev_degree_3(arrows))\nk = Knot(mk.trefoil())\nassert k.vassiliev_degree_3() == -1\nprint('Knot.vassiliev_degree_3:', k.vassiliev_degree_3())\n\n# 4. chelpers in original context\ng1 = k.gauss_code(recalculate=True, try_cython=True)\ng2 = k.gauss_code(recalculate=True, try_cython=False)\nassert str(g1) == str(g2)\nprint('chellers gauss_code cython==python:', str(g1).replace(chr(10),' '))\n\n# 5. other invariants\nprint('determinant:', k.determinant(), 'alexander_at_root((2,3,4)):', k.alexander_at_root((2,3,4)))\nprint('alexander_polynomial(-1):', k.alexander_polynomial(-1))\nprint('jones_polynomial:', k.jones_polynomial())\nprint('hyperbolic_volume skipped; all checks passed')\n\" 2>&1 | grep -v \"^\\s*$\" | tail -25",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "c8e3ebdffc14bd577e10a0b43a5b84af16bbca88d01b92c793ad1e15b7433e80",
+      "source_exit_code": 0
+    },
+    {
+      "step": 63,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nfrom pyknotid import cinvariants\nfrom pyknotid.representations import GaussCode\n\n# ccomplexity in original context (complexity.py) with raw points\nfrom pyknotid.spacecurves.complexity import second_order_writhes, higher_order_writhe_integral\npts = mk.trefoil(num_points=15).points\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nassert np.allclose(r1, r2), (r1, r2)\nprint('second_order_writhes cython==python:', [round(x,4) for x in r1])\nh1 = higher_order_writhe_integral(pts, try_cython=True)\nh2 = higher_order_writhe_integral(pts, try_cython=False)\nassert np.isclose(h1, h2), (h1, h2)\nprint('higher_order_writhe_integral cython==python:', round(h1,4))\n\n# cinvariants direct\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\narrows = _crossing_arrows_and_signs_numpy(gc._gauss_code[0], gc.crossing_numbers)\nprint('vassiliev_degree_3 direct:', cinvariants.vassiliev_degree_3(arrows))\nk = Knot(mk.trefoil())\nassert k.vassiliev_degree_3() == -1\nprint('Knot.vassiliev_degree_3:', k.vassiliev_degree_3())\nprint('determinant:', k.determinant(), 'alexander_at_root((2,3,4)):', k.alexander_at_root((2,3,4)))\nprint('alexander_polynomial(-1):', k.alexander_polynomial(-1))\nprint('jones_polynomial:', k.jones_polynomial())\nprint('ALL CHECKS PASSED')\n\" 2>&1 | tail -12",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "c86cc5cd30bcacb276eb3632fbc0101e53b9f58820f74cdd86389c1f679d0fbb",
+      "source_exit_code": 0
+    },
+    {
+      "step": 64,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nfrom pyknotid import cinvariants\nfrom pyknotid.representations import GaussCode\nfrom pyknotid.invariants import jones_polynomial\n\nfrom pyknotid.spacecurves.complexity import second_order_writhes, higher_order_writhe_integral\npts = mk.trefoil(num_points=15).points\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nassert np.allclose(r1, r2), (r1, r2)\nprint('second_order_writhes cython==python:', [round(x,4) for x in r1])\nh1 = higher_order_writhe_integral(pts, try_cython=True)\nh2 = higher_order_writhe_integral(pts, try_cython=False)\nassert np.isclose(h1, h2), (h1, h2)\nprint('higher_order_writhe_integral cython==python:', round(h1,4))\n\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\narrows = _crossing_arrows_and_signs_numpy(gc._gauss_code[0], gc.crossing_numbers)\nprint('vassiliev_degree_3 direct:', cinvariants.vassiliev_degree_3(arrows))\nk = Knot(mk.trefoil())\nassert k.vassiliev_degree_3() == -1\nprint('Knot.vassiliev_degree_3:', k.vassiliev_degree_3())\nprint('jones_polynomial (invariants):', jones_polynomial(k.gauss_code(recalculate=True)))\nprint('ALL CHECKS PASSED')\n\" 2>&1 | grep -E \"second_order|higher_order|vassiliev|jones|ALL|Error|assert\" ",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "491069e73d57cb8c719c683a5c25e8ec897982812f6c27d51caed86d797b5d9a",
+      "source_exit_code": 0
+    },
+    {
+      "step": 65,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid import cinvariants\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy, vassiliev_degree_3\nfrom pyknotid.representations import GaussCode\n\nfor s in ['1+c,2-c,3+c,1-c,2+c,3-c', '1+a,2-a,3+a,1-a,2+a,3-a']:\n    gc = GaussCode(s)\n    arrows = _crossing_arrows_and_signs_numpy(gc._gauss_code[0], gc.crossing_numbers)\n    cy = cinvariants.vassiliev_degree_3(arrows)\n    py = vassiliev_degree_3(gc)\n    print(s, '-> cython:', cy, ' python:', py, ' match:', int(round(cy)) == int(py))\n\" 2>&1 | grep -E \"1\\+[ca]|match|Error\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "c2a00f7cbfde8b38155370b88c148f47158313e14cfe80d6ce54de477c1baf6c",
+      "source_exit_code": 0
+    },
+    {
+      "step": 66,
+      "tool": "read",
+      "command": "python3 /probe/input/066-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "f8df9ad44c922b75231571a459eeb52cc013d7e4ae1fde76413e32bd9eb7aa1f",
+      "source_exit_code": 0
+    },
+    {
+      "step": 67,
+      "tool": "bash",
+      "command": "cd /tmp && sed -n '448,470p' /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py | cat -n | sed 's/^/    /' | awk '{printf \"%d: %s\", NR+447, substr($0, index($0,$2)); print \"\"}' 2>/dev/null || sed -n '448,470p' /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "564cbca45eb983bfb63b672044812aa4d1dd1939441c19a5a7f78cca538746b4",
+      "source_exit_code": 0
+    },
+    {
+      "step": 68,
+      "tool": "bash",
+      "command": "cd /tmp && grep -n \"def crossings_connectedness_order\" -A 30 /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py | head -40; python -c \"\nfrom pyknotid.invariants import crossings_connectedness_order\nfrom pyknotid.representations import GaussCode\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nout = crossings_connectedness_order(gc)\nprint(type(out), out)\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "d52aaf930d310e672a43e2ed4f2789fbf78c21d1454ee06fb7d52ff9d0c293c0",
+      "source_exit_code": 1
+    },
+    {
+      "step": 69,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport traceback\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nfrom pyknotid.invariants import jones_polynomial\nk = Knot(mk.trefoil())\ntry:\n    print(jones_polynomial(k.gauss_code(recalculate=True)))\nexcept Exception:\n    traceback.print_exc()\n\" 2>&1 | tail -20",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "58f6b35bf4bd99a52f1f5ed8b89d2702a8612b1ca64c848577f77db801e77c60",
+      "source_exit_code": 0
+    },
+    {
+      "step": 70,
+      "tool": "bash",
+      "command": "cd /tmp && sed -n '436,448p' /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py && python -c \"\nfrom pyknotid.invariants import crossings_connectedness_order\nfrom pyknotid.representations import GaussCode, PlanarDiagram\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\npd = PlanarDiagram(gc)\nprint('pd type:', type(pd))\nprint('pd entries:', [type(x).__name__ for x in pd])\nout = crossings_connectedness_order(pd)\nprint('out types:', [type(x).__name__ for x in out])\nprint('out:', out)\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "ac19ccc4e83f4aecfc9e6f8aa64068cd88293db17e61e75006e95918c5c7c724",
+      "source_exit_code": 0
+    },
+    {
+      "step": 71,
+      "tool": "read",
+      "command": "python3 /probe/input/071-read.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Read adapter resolves the source tool's real path, reads full file bytes, and emits the published line span when available. Original semantic read implementation/timing is unavailable; output formatting is approximate."
+      ],
+      "script_sha256": "312ac8e650914aebbaa129cf67526f489d41c9e9191aac334b66922770e4d840",
+      "source_exit_code": 0
+    },
+    {
+      "step": 72,
+      "tool": "bash",
+      "command": "cd /tmp && sed -n '40,80p' /usr/local/lib/python3.13/site-packages/pyknotid/representations/gausscode.py && python -c \"\nfrom pyknotid.representations import Representation\nfrom pyknotid.representations.gausscode import GaussCode\nfrom pyknotid.representations import planardiagram\nrep = Representation('1+c,2-c,3+c,1-c,2+c,3-c')\nprint('rep type:', type(rep), 'is GC:', isinstance(rep, GaussCode))\nprint('module of type(rep):', type(rep).__module__)\nprint('module of GaussCode:', GaussCode.__module__)\nprint('planardiagram module:', planardiagram.__file__)\nimport pyknotid.representations.gausscode as g2\nprint('same module obj:', g2 is __import__('pyknotid.representations.gausscode', fromlist=['x']))\nprint('isinstance via planardiagram import:', end=' ')\nimport sys\nfrom pyknotid.representations import gausscode as g3\nprint(isinstance(rep, g3.GaussCode))\nprint('iterating rep:', [type(x).__name__ for x in rep])\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "33c63c9e5c031811c2d322cb0579c32829d32504f1f37906221e87d02263606f",
+      "source_exit_code": 1
+    },
+    {
+      "step": 73,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport importlib, pkgutil, warnings, traceback\nimport pyknotid\nok, bad = [], []\nfor m in pkgutil.walk_packages(pyknotid.__path__, prefix='pyknotid.'):\n    name = m.name\n    try:\n        importlib.import_module(name)\n        ok.append(name)\n    except Exception as e:\n        bad.append((name, repr(e)))\nprint('imported OK:', len(ok))\nfor name, err in bad:\n    print('FAILED', name, '->', err)\n\" 2>&1 | grep -v \"Warning\\|warn\" | tail -15",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "83ee8f6bfc4dfa611d7f21a68d3152c814d1fce9877831197bd8d94f8dc8b27d",
+      "source_exit_code": 0
+    },
+    {
+      "step": 74,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\nimport importlib, pkgutil\nimport pyknotid\nok, bad = [], []\nfor m in pkgutil.walk_packages(pyknotid.__path__, prefix='pyknotid.'):\n    name = m.name\n    if name.endswith('.setup'):\n        continue\n    try:\n        importlib.import_module(name)\n        ok.append(name)\n    except Exception as e:\n        bad.append((name, repr(e)))\nprint('imported OK:', len(ok))\nfor name, err in bad:\n    print('FAILED', name, '->', err)\nprint('modules:', ', '.join(sorted(ok)))\n\" 2>&1 | tail -12",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "4c585007e48fb0e022d826aca397bf58e753c321866b3dc93cb44391e7ba3ffe",
+      "source_exit_code": 0
+    },
+    {
+      "step": 75,
+      "tool": "bash",
+      "command": "cd /tmp && python -c \"\n# Confirm which implementations the test paths use\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nk = Knot(mk.trefoil())\nimport pyknotid.spacecurves.spacecurve as sc\nprint('spacecurve uses chelpers module:', sc.chelpers.__name__, getattr(sc.chelpers, '__file__', ''))\n# vassiliev degree 3 path\nfrom pyknotid import invariants, cinvariants\nimport inspect\nsrc = inspect.getsource(invariants.vassiliev_degree_3)\nprint('vassiliev_degree_3 invariants src (first 600):')\nprint(src[:600])\n\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "3b1a07d865b7c9204b1a166b47ba321d5fa580f3059ab0aa9f11d2e15ddb170d",
+      "source_exit_code": 0
+    },
+    {
+      "step": 76,
+      "tool": "bash",
+      "command": "cd /tmp && python - <<'EOF'\nimport pyknotid\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nimport numpy as np\nassert np.__version__ == '2.3.0', np.__version__\nassert 'site-packages' in pyknotid.__file__, pyknotid.__file__\n\nk = sp.Knot(mk.three_twist(num_points=100))\nout = k.alexander_polynomial(-1)\nprint('SNIPPET OK - alexander_polynomial(-1) =', out)\nEOF",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "fcb341735cf4568033f94f30097d33490e9289469e299886f179da390087303d",
+      "source_exit_code": 0
+    },
+    {
+      "step": 77,
+      "tool": "bash",
+      "command": "cd /app && python -c \"\nimport pyknotid\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nk = sp.Knot(mk.three_twist(num_points=100))\nout = k.alexander_polynomial(-1)\nprint('SNIPPET from /app OK:', out)\n\" 2>&1 | tail -1; cd /tmp && python -m pytest /app/pyknotid/tests/ --ignore=/app/pyknotid/tests/test_random_curves.py --ignore=/app/pyknotid/tests/test_catalogue.py 2>&1 | tail -3",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "bdc38b571eea5ec77f479cf0d174a5d8bd3338312ddfd9fb7c739f2a1571c430",
+      "source_exit_code": 0
+    },
+    {
+      "step": 78,
+      "tool": "bash",
+      "command": "cd /usr/local/lib/python3.13/site-packages/pyknotid && grep -n \"re.compile\" representations/gausscode.py representations/dtnotation.py && grep -n \"dtype = complex\\|isinstance(poly_val, complex)\\|dtype=n.int_\" invariants.py | head -4 && grep -n \"dtype=int\" spacecurves/ccomplexity.pyx | head -2; echo ===DIFF===; git diff",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "68be5cdb20b6f46818419400cafbf2b67d245b06844da9ebbfb19f3b69d7049e",
+      "source_exit_code": 129
+    },
+    {
+      "step": 79,
+      "tool": "bash",
+      "command": "git -C /app/pyknotid diff && echo === && grep -c \"astype(int)\\|astype(bool)\\|dtype=bool\\|dtype=float\" /usr/local/lib/python3.13/site-packages/pyknotid/spacecurves/spacecurve.py /usr/local/lib/python3.13/site-packages/pyknotid/spacecurves/openknot.py",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "53a118a52ee193ef95538924b76a74d8c9ce78970f4a62f59a89e5b7980cc345",
+      "source_exit_code": 0
+    },
+    {
+      "step": 80,
+      "tool": "bash",
+      "command": "ls /app/pyknotid; find /app/pyknotid -name \"*.so\" -o -name \"build\" -type d -o -name \"*.egg-info\" | head; git -C /app/pyknotid status --short | head -20",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "9421326a1f9beed6b32626f3f43e35e4171e9d8e78d1a12cefbc2b250d556bda",
+      "source_exit_code": 0
+    },
+    {
+      "step": 81,
+      "tool": "bash",
+      "command": "cd /app/pyknotid && python setup.py build_ext --inplace 2>&1 | tail -4 && find pyknotid -name \"*.so\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "725f8afe2847dc644f15c4499e35e7d40ee7686b93f97cc1c401c80a6f3ff073",
+      "source_exit_code": 0
+    },
+    {
+      "step": 82,
+      "tool": "bash",
+      "command": "echo \"=== tests from /app/pyknotid (source-tree context) ===\" && cd /app/pyknotid && python -m pytest tests/ --ignore=tests/test_random_curves.py --ignore=tests/test_catalogue.py 2>&1 | tail -2 && python -c \"from pyknotid.spacecurves import chelpers; print('source-tree chelpers:', chelpers.__file__)\" && echo \"=== tests from /tmp (site-packages context) ===\" && cd /tmp && python -m pytest /app/pyknotid/tests/ --ignore=/app/pyknotid/tests/test_random_curves.py --ignore=/app/pyknotid/tests/test_catalogue.py 2>&1 | tail -2 && python -c \"from pyknotid.spacecurves import chelpers, ccomplexity; from pyknotid import cinvariants, make as mk, spacecurves as sp; import pyknotid; print('installed pkg:', pyknotid.__file__); k=sp.Knot(mk.three_twist(num_points=100)); print('snippet out:', k.alexander_polynomial(-1))\" 2>&1 | tail -3",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "305902ce0fd076dc5c5cc7192f67a3dd8735b40522c245f473b34e35bbf77b44",
+      "source_exit_code": 0
+    },
+    {
+      "step": 83,
+      "tool": "bash",
+      "command": "rm -f /app/fix_numpy_compat.py /app/fix_regex_compat.py && rm -rf /tmp/pyknotid-full && ls /app && ls /app/pyknotid/tests && pip show pyknotid | head -4 && which analyse-knot-file plot-knot && python -c \"import numpy; print('final check: numpy', numpy.__version__)\"",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail."
+      ],
+      "script_sha256": "99fb40c41af2401457525e72a3aa8c540cacb9e2800846a01579ed53f6ea9c12",
+      "source_exit_code": 0
+    }
+  ],
+  "files": {
+    "001.sh": "git clone --depth 1 --branch 0.5.3 https://github.com/SPOCKnots/pyknotid.git /app/pyknotid\n",
+    "002.sh": "ls -la /app/pyknotid && ls -la /app/pyknotid/pyknotid && python -c \"import numpy; print(numpy.__version__)\"\n",
+    "003-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/setup.py').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "003.sh": "python3 /probe/input/003-read.py\n",
+    "004-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/setup.py').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "004.sh": "python3 /probe/input/004-read.py\n",
+    "005.sh": "ls /app/pyknotid/pyknotid/spacecurves /app/pyknotid/pyknotid/simplify /app/pyknotid/tests\n",
+    "006-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/spacecurves/chelpers.pyx').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "006.sh": "python3 /probe/input/006-read.py\n",
+    "007-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/spacecurves/ccomplexity.pyx').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "007.sh": "python3 /probe/input/007-read.py\n",
+    "008-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/cinvariants.pyx').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "008.sh": "python3 /probe/input/008-read.py\n",
+    "009-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/simplify/coctree.pyx').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "009.sh": "python3 /probe/input/009-read.py\n",
+    "010.sh": "cd /app/pyknotid && grep -rn \"np\\.int\\b\\|np\\.float\\b\\|np\\.unicode\\|np\\.object\\b\\|np\\.NaN\\|np\\.Inf\\|np\\.bool8\\|np\\.NAN\\|n\\.int\\b\\|n\\.float\\b\\|np\\.alltrue\\|np\\.sometrue\\|np\\.in1d\\|np\\.row_stack\\|np\\.trapz\\|np\\.issubsctype\\|np\\.safe_eval\\|np\\.round_\\|np\\.mat\\b\\|np\\.find_common_type\\|np\\.maximum_sctype\\|np\\.deprecate\\|np\\.asfarray\\|np\\.set_string_function\" --include=\"*.py\" --include=\"*.pyx\" . | head -50\n",
+    "011.sh": "cd /app/pyknotid && grep -rnE \"n(p)?\\.(int|float|complex|bool|object|str|long|unicode)(_|[^(]|$)\" --include=\"*.py\" --include=\"*.pyx\" . | grep -vE \"n(p)?\\.(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float16|float32|float64|float128|complex64|complex128|bool_|str_|intp|intc|complex256|float_|longdouble)\" | head -60\n",
+    "012-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/tests/test_knot.py').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "012.sh": "python3 /probe/input/012-read.py\n",
+    "013-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/tests/test_spacecurve.py').read_bytes()\nsys.stdout.buffer.write(data)\n",
+    "013.sh": "python3 /probe/input/013-read.py\n",
+    "014-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/tests/test_spacecurve.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 25 <= i <= 85))\n",
+    "014.sh": "python3 /probe/input/014-read.py\n",
+    "015-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/tests/test_knot.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 20 <= i <= 60))\n",
+    "015.sh": "python3 /probe/input/015-read.py\n",
+    "016.sh": "wc -l /app/pyknotid/tests/*.py && cat /app/pyknotid/tests/test_knot.py\n",
+    "017.sh": "python --version; pip list 2>/dev/null | head -60; which python; python -c \"import sys; print(sys.prefix)\"\n",
+    "018.sh": "cat /app/pyknotid/pyknotid/__init__.py /app/pyknotid/pyknotid/make/__init__.py /app/pyknotid/pyknotid/spacecurves/__init__.py /app/pyknotid/pyknotid/representations/__init__.py /app/pyknotid/pyknotid/utils.py\n",
+    "019.sh": "cd /app/pyknotid && head -40 pyknotid/spacecurves/spacecurve.py pyknotid/spacecurves/knot.py pyknotid/spacecurves/link.py pyknotid/spacecurves/openknot.py pyknotid/spacecurves/periodiccell.py pyknotid/invariants.py pyknotid/representations/gausscode.py pyknotid/representations/planardiagram.py pyknotid/representations/representation.py pyknotid/representations/dtnotation.py pyknotid/make/named.py pyknotid/make/torus.py pyknotid/writhes.py pyknotid/simplify/octree.py pyknotid/spacecurves/complexity.py pyknotid/spacecurves/helpers.py pyknotid/spacecurves/geometry.py pyknotid/spacecurves/rotation.py\n",
+    "020.sh": "cd /app/pyknotid && head -30 pyknotid/visualise.py && grep -n \"^import\\|^from\\|^ *import\\|^ *from\" pyknotid/visualise.py | head -30 && grep -rn \"vispy\\|matplotlib\\|mayavi\" pyknotid/*.py pyknotid/spacecurves/*.py pyknotid/make/*.py | grep -v \"\\.pyc\" | grep \"import\" \n",
+    "021.sh": "cd /app/pyknotid && grep -rn \"planarity\\|networkx\\|peewee\\|appdirs\\|requests\\|tqdm\" --include=\"*.py\" pyknotid/ | grep -v \"#\"\n",
+    "022.sh": "cd /app/pyknotid && cat pyknotid/io.py && grep -n \"import\" pyknotid/spacecurves/knot.py | head -20 && grep -n \"import\" pyknotid/spacecurves/periodiccell.py pyknotid/spacecurves/periodicline.py pyknotid/spacecurves/periodic.py pyknotid/make/__init__.py pyknotid/make/ideal.py 2>/dev/null | head\n",
+    "023-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/tests/test_spacecurve.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 86 <= i <= 114))\n",
+    "023.sh": "python3 /probe/input/023-read.py\n",
+    "024.sh": "which gcc g++ cc; gcc --version | head -1; pip install --quiet cython sympy pytest 2>&1 | tail -5; python -c \"import Cython, sympy, pytest; print('Cython', Cython.__version__, '| sympy', sympy.__version__, '| pytest', pytest.__version__)\"\n",
+    "025.sh": "pip install --quiet vispy 2>&1 | tail -3; python -c \"import vispy; print('vispy', vispy.__version__)\"\n",
+    "026.sh": "pip install --quiet networkx peewee appdirs requests tqdm matplotlib 2>&1 | tail -3; pip install --quiet planarity 2>&1 | tail -5; python -c \"\nfor m in ['networkx','peewee','appdirs','requests','tqdm','matplotlib']:\n    mod = __import__(m); print(m, mod.__version__ if hasattr(mod,'__version__') else 'ok')\ntry:\n    import planarity; print('planarity', planarity.__version__)\nexcept Exception as e:\n    print('planarity FAIL:', e)\n\"\n",
+    "027.sh": "cd /app/pyknotid && grep -rn \"from collections import\\|from fractions import\\|getargspec\\|import imp\\b\\|np\\.NaN\\|np\\.Inf\\b\\|n\\.NaN\\|n\\.Inf\\b\\|np\\.row_stack\\|np\\.trapz\\|np\\.product\\|np\\.cumproduct\\|np\\.round_\\|np\\.in1d\\|np\\.float_\\|n\\.float_\\|np\\.unicode\\|np\\.asfarray\\|np\\.issctype\\|np\\.issubsctype\\|np\\.deprecate\\|np\\.safe_eval\\|np\\.msort\\|np\\.find_common_type\\|np\\.maximum_sctype\\|np\\.set_string_function\\|np\\.disp\\|np\\.who\\|np\\.source\\|np\\.lookfor\" --include=\"*.py\" --include=\"*.pyx\" .\n",
+    "028.sh": "wc -l /app/pyknotid/pyknotid/spacecurves/spacecurve.py /app/pyknotid/pyknotid/spacecurves/knot.py /app/pyknotid/pyknotid/spacecurves/openknot.py /app/pyknotid/pyknotid/spacecurves/periodiccell.py /app/pyknotid/pyknotid/spacecurves/ccomplexity.pyx /app/pyknotid/pyknotid/invariants.py /app/pyknotid/pyknotid/simplify/octree.py /app/pyknotid/pyknotid/make/periodic_knot.py /app/pyknotid/pyknotid/make/torus.py /app/pyknotid/pyknotid/representations/gausscode.py /app/pyknotid/pyknotid/representations/dtnotation.py /app/pyknotid/pyknotid/representations/representation.py\n",
+    "029-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/invariants.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 129 <= i <= 203))\n",
+    "029.sh": "python3 /probe/input/029-read.py\n",
+    "030-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/invariants.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 959 <= i <= 1013))\n",
+    "030.sh": "python3 /probe/input/030-read.py\n",
+    "031.payload": "\"\"\"\nSurgical compatibility fixes for numpy >= 2.0 (and Python 3.9+) in pyknotid.\n\nReplaces removed numpy aliases (np.int, np.float, np.bool, np.complex,\nnp.long) with their modern equivalents, and fixes 'from fractions import\ngcd' (removed in Python 3.9).\n\nEvery replacement is exact and count-verified; the script aborts (without\nwriting anything) if a replacement count does not match the expectation.\n\"\"\"\n\nimport os\nimport sys\n\nROOT = '/app/pyknotid'\n\n# (relative path, [(old, new, expected_count), ...])\nFIXES = [\n    ('pyknotid/spacecurves/ccomplexity.pyx', [\n        ('cdef long [:] indices = np.zeros(4, dtype=np.int)',\n         'cdef long [:] indices = np.zeros(4, dtype=np.int_)', 3),\n    ]),\n    ('pyknotid/spacecurves/spacecurve.py', [\n        ('self.points = n.array(points).astype(n.float)',\n         'self.points = n.array(points).astype(float)', 1),\n        ('z = np.array(z).astype(np.float)',\n         'z = np.array(z).astype(float)', 1),\n        ('new_points = n.zeros((len(indices), 3), dtype=n.float)',\n         'new_points = n.zeros((len(indices), 3), dtype=float)', 1),\n        ('keep_points = np.ones(len(points), dtype=np.bool)',\n         'keep_points = np.ones(len(points), dtype=bool)', 1),\n    ]),\n    ('pyknotid/spacecurves/knot.py', [\n        ('indices = n.linspace(0, len(points), num_samples).astype(n.int)',\n         'indices = n.linspace(0, len(points), num_samples).astype(int)', 1),\n    ]),\n    ('pyknotid/spacecurves/openknot.py', [\n        ('.astype(n.int)', '.astype(int)', 5),\n        ('dtype=n.bool)', 'dtype=bool)', 2),\n        ('.astype(n.bool)', '.astype(bool)', 2),\n    ]),\n    ('pyknotid/spacecurves/periodiccell.py', [\n        ('.astype(np.int)', '.astype(int)', 3),\n    ]),\n    ('pyknotid/invariants.py', [\n        ('dtype = n.complex if isinstance(variable, n.complex) else n.float',\n         'dtype = complex if isinstance(variable, complex) else float', 1),\n        ('if not isinstance(poly_val, n.complex):',\n         'if not isinstance(poly_val, complex):', 1),\n        ('arrows = n.zeros((len(crossing_numbers), 3), dtype=n.long)',\n         'arrows = n.zeros((len(crossing_numbers), 3), dtype=n.int_)', 1),\n    ]),\n    ('pyknotid/simplify/octree.py', [\n        ('keep = n.ones(len(points), dtype=n.bool)',\n         'keep = n.ones(len(points), dtype=bool)', 1),\n    ]),\n    ('pyknotid/make/periodic_knot.py', [\n        ('dtype=n.float)', 'dtype=float)', 2),\n    ]),\n    ('pyknotid/make/torus.py', [\n        ('from fractions import gcd', 'from math import gcd', 1),\n    ]),\n    ('pyknotid/representations/gausscode.py', [\n        ('keep = n.ones(len(row), dtype=n.bool)',\n         'keep = n.ones(len(row), dtype=bool)', 1),\n    ]),\n    ('pyknotid/representations/dtnotation.py', [\n        ('dtype=n.int)', 'dtype=int)', 2),\n    ]),\n    ('pyknotid/representations/representation.py', [\n        ('nodes_by_height[n.int(', 'nodes_by_height[int(', 2),\n    ]),\n]\n\n\ndef main():\n    failures = []\n    for relpath, replacements in FIXES:\n        path = os.path.join(ROOT, relpath)\n        with open(path, 'r') as fh:\n            content = fh.read()\n        original = content\n        for old, new, expected in replacements:\n            count = content.count(old)\n            if count != expected:\n                failures.append(\n                    '{}: expected {} occurrence(s) of {!r}, found {}'.format(\n                        relpath, expected, old, count))\n                continue\n            content = content.replace(old, new)\n            print('OK  {}: replaced {} occurrence(s) of {!r}'.format(\n                relpath, expected, old))\n        if content != original and not any(\n                f.startswith(relpath + ':') for f in failures):\n            with open(path, 'w') as fh:\n                fh.write(content)\n            print('WROTE {}'.format(relpath))\n\n    if failures:\n        print('\\nFAILED - no files were written:')\n        for f in failures:\n            print('  ' + f)\n        sys.exit(1)\n    print('\\nAll fixes applied successfully.')\n\n\nif __name__ == '__main__':\n    main()\n",
+    "031.sh": "mkdir -p /app && cat /probe/input/031.payload > /app/fix_numpy_compat.py\n",
+    "032.sh": "python /app/fix_numpy_compat.py\n",
+    "033.sh": "cd /app/pyknotid && grep -rnE \"n(p)?\\.(int|float|complex|bool|object|str|long|unicode)(_|[^(]|$)\" --include=\"*.py\" --include=\"*.pyx\" pyknotid/ | grep -vE \"n(p)?\\.(int8|int16|int32|int64|uint8|uint16|uint32|uint64|float16|float32|float64|float128|complex64|complex128|bool_|str_|intp|intc|complex256|float_|longdouble)\"; echo \"---grep done (empty above = clean)---\"; git diff --stat\n",
+    "034.sh": "cd /app/pyknotid && python -W error::DeprecationWarning -c \"\nimport pyknotid\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nfrom pyknotid.spacecurves import Knot\nk = Knot(mk.three_twist(num_points=100))\nprint('alexander(-1) =', k.alexander_polynomial(-1))\nprint('gauss code =', k.gauss_code())\n\" 2>&1 | tail -20\n",
+    "035.sh": "cd /app/pyknotid && pip install --no-build-isolation --no-warn-script-location . 2>&1 | tail -25\n",
+    "036.sh": "pip install --quiet setuptools wheel 2>&1 | tail -2; python -c \"import setuptools; print('setuptools', setuptools.__version__)\" && cd /app/pyknotid && pip install --no-build-isolation --no-warn-script-location . 2>&1 | tail -25\n",
+    "037.sh": "ls /usr/local/lib/python3.13/site-packages/pyknotid/*.so /usr/local/lib/python3.13/site-packages/pyknotid/spacecurves/*.so /usr/local/lib/python3.13/site-packages/pyknotid/simplify/*.so 2>&1; cd /tmp && python -c \"\nimport pyknotid\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nimport numpy\nprint('numpy', numpy.__version__)\nprint('chelpers:', chelpers.__file__)\nprint('ccomplexity:', ccomplexity.__file__)\nprint('cinvariants:', cinvariants.__file__)\n\nk = sp.Knot(mk.three_twist(num_points=100))\nout = k.alexander_polynomial(-1)\nprint('alexander_polynomial(-1) =', out)\n\"\n",
+    "038.sh": "cd /app/pyknotid && grep -rn \"ccomplexity\\|cinvariants\\|coctree\" --include=\"*.py\" pyknotid/ | grep -v \"^Binary\"\n",
+    "039-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/spacecurves/complexity.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 219 <= i <= 268))\n",
+    "039.sh": "python3 /probe/input/039-read.py\n",
+    "040-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/invariants.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 1224 <= i <= 1263))\n",
+    "040.sh": "python3 /probe/input/040-read.py\n",
+    "041.sh": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot, chelpers, ccomplexity\nfrom pyknotid import cinvariants\nfrom pyknotid import make as mk\n\n# --- chelpers: used by find_crossings / gauss_code (try_cython=True) ---\nk = Knot(mk.trefoil())\ng1 = k.gauss_code(recalculate=True, try_cython=True)\ng2 = k.gauss_code(recalculate=True, try_cython=False)\nassert str(g1) == str(g2) == '1+a,2-a,3+a,1-a,2+a,3-a', (g1, g2)\nprint('chelpers find_crossings OK:', str(g1))\n\n# direct call of chelpers.find_crossings in its original context\nv = k.points[0].astype(float); dv = (k.points[1]-k.points[0]).astype(float)\npts = np.ascontiguousarray(k.points[1:], dtype=float)\nsl = np.linalg.norm(np.diff(k.points, axis=0), axis=1).astype(float)\nres = chelpers.find_crossings(v, dv, pts, sl, 0, 1, max(sl)*10, 3)\nprint('chelpers.find_crossings direct OK, n =', len(res))\n\n# --- cinvariants: vassiliev_degree_3 via Knot (uses cinvariants) ---\nk2 = Knot(mk.trefoil())\nv3 = k2.vassiliev_degree_3()\nassert v3 == -1, v3\nprint('cinvariants vassiliev_degree_3 OK:', v3)\n\n# direct call of cinvariants.vassiliev_degree_3\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\nfrom pyknotid.representations.gausscode import GaussCode\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\narrows = _crossing_arrows_and_signs_numpy(gc, gc.crossing_numbers)\nprint('arrows dtype:', arrows.dtype)\nprint('cinvariants direct OK:', cinvariants.vassiliev_degree_3(arrows))\n\n# --- ccomplexity: second order writhes (original context in complexity.py) ---\nfrom pyknotid.spacecurves.complexity import second_order_writhes\npts = mk.trefoil(num_points=20)\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nprint('ccomplexity second_order_writhes:', r1, 'py:', r2)\nassert np.allclose(r1, r2), (r1, r2)\nprint('ccomplexity OK')\n\"\n",
+    "042-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/representations/gausscode.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 159 <= i <= 233))\n",
+    "042.sh": "python3 /probe/input/042-read.py\n",
+    "043.sh": "python -c \"\nimport re\nr = re.compile('[ \\n]*')\nprint(repr(r.split('1+c,2-c')))\nprint(repr(r.split('1+c\\n2-c')))\nprint(repr(r.split('1+c, 2-c')))\nprint(repr(re.split('[ \\n]*', 'abc')))\n\"\n",
+    "044.sh": "cd /tmp && git clone --quiet --filter=blob:none https://github.com/SPOCKnots/pyknotid.git pyknotid-full 2>/dev/null; cd pyknotid-full && git log --oneline -- pyknotid/representations/gausscode.py | head -20\n",
+    "045.sh": "cd /tmp/pyknotid-full && git show 076b63f --stat && git show 076b63f | head -120 && git tag --contains 076b63f | head; git log --oneline --all | head -30\n",
+    "046.sh": "cd /tmp/pyknotid-full && git tag -l && git log --oneline 0.5.3 | head -5; echo ---; git merge-base --is-ancestor 076b63f 441c807 && echo \"076b63f IS ancestor of 441c807\" || echo \"076b63f NOT ancestor of 441c807\"; git log --oneline master | head -12; echo ---; git show 441c807:pyknotid/representations/gausscode.py | sed -n '175,185p'; echo ---; git show 441c807:pyknotid/make/torus.py | sed -n '12,16p'\n",
+    "047.sh": "cd /tmp/pyknotid-full && git show ff1717d --stat && git show ff1717d | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\" | head -100\n",
+    "048.sh": "cd /tmp/pyknotid-full && git show ff1717d -- pyknotid/spacecurves/ccomplexity.pyx pyknotid/spacecurves/knot.py pyknotid/spacecurves/openknot.py pyknotid/simplify/octree.py pyknotid/representations/gausscode.py | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\"; echo ===TESTS===; git show ff1717d -- tests/ | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\"\n",
+    "049.sh": "cd /tmp/pyknotid-full && git grep -nE \"n(p)?\\.(int|float|bool|complex|long)\\b\" master -- pyknotid/ | head; echo ---; git show 3d8752e | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\"; echo ---; git show 514a3f0 | grep -E \"^[+-]\" | grep -v \"^[+-][+-]\" | head\n",
+    "050.sh": "cd /app/pyknotid && grep -rn \"re\\.compile\\|re\\.split\\|re\\.findall\\|re\\.match\\|re\\.search\\|re\\.sub\" --include=\"*.py\" --include=\"*.pyx\" pyknotid/\n",
+    "051-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/invariants.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 424 <= i <= 453))\n",
+    "051.sh": "python3 /probe/input/051-read.py\n",
+    "052.sh": "cd /app/pyknotid && sed -n '100,160p' pyknotid/representations/gausscode.py && echo ===DT=== && sed -n '40,80p' pyknotid/representations/dtnotation.py\n",
+    "053.payload": "\"\"\"\nFix re.split() usage with zero-or-more whitespace patterns, which in\nPython >= 3.7 splits on every character (empty matches) and breaks\nstring parsing. Applies the same fix upstream pyknotid made in commit\n076b63f 'Fixed regexes to avoid splitting on empty string':\n'[ \\\\n]*' -> '[ \\\\n]+' and '[\\\\n]*' -> '[\\\\n]+'.\n\"\"\"\n\nimport sys\n\nFIXES = [\n    ('/app/pyknotid/pyknotid/representations/gausscode.py',\n     \"regex = re.compile('[ \\\\n]*')\",\n     \"regex = re.compile('[ \\\\n]+')\"),\n    ('/app/pyknotid/pyknotid/representations/dtnotation.py',\n     \"regex = re.compile('[\\\\n]*')\",\n     \"regex = re.compile('[\\\\n]+')\"),\n]\n\nfailed = False\nfor path, old, new in FIXES:\n    with open(path) as fh:\n        content = fh.read()\n    if content.count(old) != 1:\n        print('FAIL {}: expected 1 occurrence of {!r}, found {}'.format(\n            path, old, content.count(old)))\n        failed = True\n        continue\n    with open(path, 'w') as fh:\n        fh.write(content.replace(old, new))\n    print('OK  {}: {!r} -> {!r}'.format(path, old, new))\n\nif failed:\n    sys.exit(1)\nprint('Regex fixes applied.')\n",
+    "053.sh": "mkdir -p /app && cat /probe/input/053.payload > /app/fix_regex_compat.py\n",
+    "054.sh": "python /app/fix_regex_compat.py\n",
+    "055.sh": "cd /app/pyknotid && pip install --no-build-isolation --no-warn-script-location . 2>&1 | tail -3 && cd /tmp && python -m pytest /app/pyknotid/tests/test_knot.py /app/pyknotid/tests/test_spacecurve.py -v 2>&1 | tail -40\n",
+    "056-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/representations/planardiagram.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 85 <= i <= 203))\n",
+    "056.sh": "python3 /probe/input/056-read.py\n",
+    "057.sh": "python -c \"import planarity, inspect; print(planarity.__file__); print([n for n in dir(planarity.PGraph) if not n.startswith('_')])\" && python -c \"\nimport inspect, planarity\nsrc = inspect.getsource(planarity.PGraph.embed_drawplanar)\nprint(src)\nsrc2 = inspect.getsource(planarity.networkx_graph)\nprint(src2[:3000])\n\"\n",
+    "058.sh": "python -c \"\nimport networkx as nx\nimport planarity\n\n# trefoil planar diagram as built by pyknotid\nfrom pyknotid.representations.gausscode import GaussCode\nfrom pyknotid.representations.planardiagram import PlanarDiagram\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\npd = PlanarDiagram(gc)\ng, duplicates, heights, first_edge = pd.as_networkx_extended()\nprint('nodes:', list(g.nodes), 'edges:', list(g.edges))\npg = planarity.PGraph(g)\npg.embed_drawplanar()\nprint('PGraph attrs:', [a for a in dir(pg) if not a.startswith('_')])\ntry:\n    print('pos attr:', pg.pos)\nexcept Exception as e:\n    print('pos attr error:', e)\ng2 = planarity.networkx_graph(pg)\nprint('nodes data:', list(g2.nodes(data=True))[:3])\nprint('node attrs:', {n: list(d.keys()) for n, d in list(g2.nodes(data=True))[:3]})\n\"\n",
+    "059.sh": "pip install 'planarity==0.8' 2>&1 | tail -6\n",
+    "060.sh": "pip install 'planarity==0.6' 2>&1 | tail -4 && python -c \"\nimport planarity, inspect\nprint('file:', planarity.__file__)\nprint([a for a in dir(planarity.PGraph) if not a.startswith('_')])\nimport pyknotid.representations.planardiagram as pdm\nfrom pyknotid.representations.gausscode import GaussCode\nfrom pyknotid.representations.planardiagram import PlanarDiagram\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\npd = PlanarDiagram(gc)\ng, duplicates, heights, first_edge = pd.as_networkx_extended()\npg = planarity.PGraph(g)\npg.embed_drawplanar()\ng2 = planarity.networkx_graph(pg)\nprint('node attrs:', {n: list(d.keys()) for n, d in list(g2.nodes(data=True))[:3]})\n\"\n",
+    "061.sh": "cd /tmp && python -m pytest /app/pyknotid/tests/test_knot.py /app/pyknotid/tests/test_spacecurve.py -v 2>&1 | tail -30\n",
+    "062.sh": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot, Link, OpenKnot, SpaceCurve\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nfrom pyknotid import make as mk\nfrom pyknotid.representations import GaussCode, Representation, DTNotation, PlanarDiagram\n\n# 1. GaussCode string parsing (was broken by re.split empty-match change)\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nprint('GaussCode str OK:', str(gc).replace(chr(10),' '))\ngc2 = GaussCode.calculating_orientations('1+,2-,3+,1-,2+,3-')\nprint('calculating_orientations OK:', str(gc2).replace(chr(10),' '))\n\n# 2. ccomplexity in original context (complexity.py)\nfrom pyknotid.spacecurves.complexity import second_order_writhes, higher_order_writhe_integral\npts = mk.trefoil(num_points=15)\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nassert np.allclose(r1, r2), (r1, r2)\nprint('second_order_writhes cython==python:', [round(x,4) for x in r1])\nh1 = higher_order_writhe_integral(pts, try_cython=True)\nh2 = higher_order_writhe_integral(pts, try_cython=False)\nassert np.isclose(h1, h2), (h1, h2)\nprint('higher_order_writhe_integral cython==python:', round(h1,4))\n\n# 3. cinvariants direct\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\narrows = _crossing_arrows_and_signs_numpy(gc[0] if isinstance(gc[0], list) else gc._gauss_code[0], gc.crossing_numbers)\nprint('vassiliev_degree_3 direct:', cinvariants.vassiliev_degree_3(arrows))\nk = Knot(mk.trefoil())\nassert k.vassiliev_degree_3() == -1\nprint('Knot.vassiliev_degree_3:', k.vassiliev_degree_3())\n\n# 4. chelpers in original context\ng1 = k.gauss_code(recalculate=True, try_cython=True)\ng2 = k.gauss_code(recalculate=True, try_cython=False)\nassert str(g1) == str(g2)\nprint('chellers gauss_code cython==python:', str(g1).replace(chr(10),' '))\n\n# 5. other invariants\nprint('determinant:', k.determinant(), 'alexander_at_root((2,3,4)):', k.alexander_at_root((2,3,4)))\nprint('alexander_polynomial(-1):', k.alexander_polynomial(-1))\nprint('jones_polynomial:', k.jones_polynomial())\nprint('hyperbolic_volume skipped; all checks passed')\n\" 2>&1 | grep -v \"^\\s*$\" | tail -25\n",
+    "063.sh": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nfrom pyknotid import cinvariants\nfrom pyknotid.representations import GaussCode\n\n# ccomplexity in original context (complexity.py) with raw points\nfrom pyknotid.spacecurves.complexity import second_order_writhes, higher_order_writhe_integral\npts = mk.trefoil(num_points=15).points\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nassert np.allclose(r1, r2), (r1, r2)\nprint('second_order_writhes cython==python:', [round(x,4) for x in r1])\nh1 = higher_order_writhe_integral(pts, try_cython=True)\nh2 = higher_order_writhe_integral(pts, try_cython=False)\nassert np.isclose(h1, h2), (h1, h2)\nprint('higher_order_writhe_integral cython==python:', round(h1,4))\n\n# cinvariants direct\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\narrows = _crossing_arrows_and_signs_numpy(gc._gauss_code[0], gc.crossing_numbers)\nprint('vassiliev_degree_3 direct:', cinvariants.vassiliev_degree_3(arrows))\nk = Knot(mk.trefoil())\nassert k.vassiliev_degree_3() == -1\nprint('Knot.vassiliev_degree_3:', k.vassiliev_degree_3())\nprint('determinant:', k.determinant(), 'alexander_at_root((2,3,4)):', k.alexander_at_root((2,3,4)))\nprint('alexander_polynomial(-1):', k.alexander_polynomial(-1))\nprint('jones_polynomial:', k.jones_polynomial())\nprint('ALL CHECKS PASSED')\n\" 2>&1 | tail -12\n",
+    "064.sh": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nfrom pyknotid import cinvariants\nfrom pyknotid.representations import GaussCode\nfrom pyknotid.invariants import jones_polynomial\n\nfrom pyknotid.spacecurves.complexity import second_order_writhes, higher_order_writhe_integral\npts = mk.trefoil(num_points=15).points\nr1 = second_order_writhes(pts, try_cython=True)\nr2 = second_order_writhes(pts, try_cython=False)\nassert np.allclose(r1, r2), (r1, r2)\nprint('second_order_writhes cython==python:', [round(x,4) for x in r1])\nh1 = higher_order_writhe_integral(pts, try_cython=True)\nh2 = higher_order_writhe_integral(pts, try_cython=False)\nassert np.isclose(h1, h2), (h1, h2)\nprint('higher_order_writhe_integral cython==python:', round(h1,4))\n\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy\narrows = _crossing_arrows_and_signs_numpy(gc._gauss_code[0], gc.crossing_numbers)\nprint('vassiliev_degree_3 direct:', cinvariants.vassiliev_degree_3(arrows))\nk = Knot(mk.trefoil())\nassert k.vassiliev_degree_3() == -1\nprint('Knot.vassiliev_degree_3:', k.vassiliev_degree_3())\nprint('jones_polynomial (invariants):', jones_polynomial(k.gauss_code(recalculate=True)))\nprint('ALL CHECKS PASSED')\n\" 2>&1 | grep -E \"second_order|higher_order|vassiliev|jones|ALL|Error|assert\" \n",
+    "065.sh": "cd /tmp && python -c \"\nimport numpy as np\nfrom pyknotid import cinvariants\nfrom pyknotid.invariants import _crossing_arrows_and_signs_numpy, vassiliev_degree_3\nfrom pyknotid.representations import GaussCode\n\nfor s in ['1+c,2-c,3+c,1-c,2+c,3-c', '1+a,2-a,3+a,1-a,2+a,3-a']:\n    gc = GaussCode(s)\n    arrows = _crossing_arrows_and_signs_numpy(gc._gauss_code[0], gc.crossing_numbers)\n    cy = cinvariants.vassiliev_degree_3(arrows)\n    py = vassiliev_degree_3(gc)\n    print(s, '-> cython:', cy, ' python:', py, ' match:', int(round(cy)) == int(py))\n\" 2>&1 | grep -E \"1\\+[ca]|match|Error\"\n",
+    "066-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/invariants.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 454 <= i <= 503))\n",
+    "066.sh": "python3 /probe/input/066-read.py\n",
+    "067.sh": "cd /tmp && sed -n '448,470p' /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py | cat -n | sed 's/^/    /' | awk '{printf \"%d: %s\", NR+447, substr($0, index($0,$2)); print \"\"}' 2>/dev/null || sed -n '448,470p' /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py\n",
+    "068.sh": "cd /tmp && grep -n \"def crossings_connectedness_order\" -A 30 /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py | head -40; python -c \"\nfrom pyknotid.invariants import crossings_connectedness_order\nfrom pyknotid.representations import GaussCode\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\nout = crossings_connectedness_order(gc)\nprint(type(out), out)\n\"\n",
+    "069.sh": "cd /tmp && python -c \"\nimport traceback\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nfrom pyknotid.invariants import jones_polynomial\nk = Knot(mk.trefoil())\ntry:\n    print(jones_polynomial(k.gauss_code(recalculate=True)))\nexcept Exception:\n    traceback.print_exc()\n\" 2>&1 | tail -20\n",
+    "070.sh": "cd /tmp && sed -n '436,448p' /usr/local/lib/python3.13/site-packages/pyknotid/invariants.py && python -c \"\nfrom pyknotid.invariants import crossings_connectedness_order\nfrom pyknotid.representations import GaussCode, PlanarDiagram\ngc = GaussCode('1+c,2-c,3+c,1-c,2+c,3-c')\npd = PlanarDiagram(gc)\nprint('pd type:', type(pd))\nprint('pd entries:', [type(x).__name__ for x in pd])\nout = crossings_connectedness_order(pd)\nprint('out types:', [type(x).__name__ for x in out])\nprint('out:', out)\n\"\n",
+    "071-read.py": "import io,sys\nfrom pathlib import Path\ndata=Path('/app/pyknotid/pyknotid/representations/planardiagram.py').read_bytes()\nsys.stdout.buffer.write(b''.join(line for i,line in enumerate(io.BytesIO(data),1) if 24 <= i <= 88))\n",
+    "071.sh": "python3 /probe/input/071-read.py\n",
+    "072.sh": "cd /tmp && sed -n '40,80p' /usr/local/lib/python3.13/site-packages/pyknotid/representations/gausscode.py && python -c \"\nfrom pyknotid.representations import Representation\nfrom pyknotid.representations.gausscode import GaussCode\nfrom pyknotid.representations import planardiagram\nrep = Representation('1+c,2-c,3+c,1-c,2+c,3-c')\nprint('rep type:', type(rep), 'is GC:', isinstance(rep, GaussCode))\nprint('module of type(rep):', type(rep).__module__)\nprint('module of GaussCode:', GaussCode.__module__)\nprint('planardiagram module:', planardiagram.__file__)\nimport pyknotid.representations.gausscode as g2\nprint('same module obj:', g2 is __import__('pyknotid.representations.gausscode', fromlist=['x']))\nprint('isinstance via planardiagram import:', end=' ')\nimport sys\nfrom pyknotid.representations import gausscode as g3\nprint(isinstance(rep, g3.GaussCode))\nprint('iterating rep:', [type(x).__name__ for x in rep])\n\"\n",
+    "073.sh": "cd /tmp && python -c \"\nimport importlib, pkgutil, warnings, traceback\nimport pyknotid\nok, bad = [], []\nfor m in pkgutil.walk_packages(pyknotid.__path__, prefix='pyknotid.'):\n    name = m.name\n    try:\n        importlib.import_module(name)\n        ok.append(name)\n    except Exception as e:\n        bad.append((name, repr(e)))\nprint('imported OK:', len(ok))\nfor name, err in bad:\n    print('FAILED', name, '->', err)\n\" 2>&1 | grep -v \"Warning\\|warn\" | tail -15\n",
+    "074.sh": "cd /tmp && python -c \"\nimport importlib, pkgutil\nimport pyknotid\nok, bad = [], []\nfor m in pkgutil.walk_packages(pyknotid.__path__, prefix='pyknotid.'):\n    name = m.name\n    if name.endswith('.setup'):\n        continue\n    try:\n        importlib.import_module(name)\n        ok.append(name)\n    except Exception as e:\n        bad.append((name, repr(e)))\nprint('imported OK:', len(ok))\nfor name, err in bad:\n    print('FAILED', name, '->', err)\nprint('modules:', ', '.join(sorted(ok)))\n\" 2>&1 | tail -12\n",
+    "075.sh": "cd /tmp && python -c \"\n# Confirm which implementations the test paths use\nfrom pyknotid.spacecurves import Knot\nfrom pyknotid import make as mk\nk = Knot(mk.trefoil())\nimport pyknotid.spacecurves.spacecurve as sc\nprint('spacecurve uses chelpers module:', sc.chelpers.__name__, getattr(sc.chelpers, '__file__', ''))\n# vassiliev degree 3 path\nfrom pyknotid import invariants, cinvariants\nimport inspect\nsrc = inspect.getsource(invariants.vassiliev_degree_3)\nprint('vassiliev_degree_3 invariants src (first 600):')\nprint(src[:600])\n\"\n",
+    "076.sh": "cd /tmp && python - <<'EOF'\nimport pyknotid\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nimport numpy as np\nassert np.__version__ == '2.3.0', np.__version__\nassert 'site-packages' in pyknotid.__file__, pyknotid.__file__\n\nk = sp.Knot(mk.three_twist(num_points=100))\nout = k.alexander_polynomial(-1)\nprint('SNIPPET OK - alexander_polynomial(-1) =', out)\nEOF\n",
+    "077.sh": "cd /app && python -c \"\nimport pyknotid\nfrom pyknotid.spacecurves import chelpers, ccomplexity\nfrom pyknotid import cinvariants\nimport pyknotid.make as mk\nimport pyknotid.spacecurves as sp\nk = sp.Knot(mk.three_twist(num_points=100))\nout = k.alexander_polynomial(-1)\nprint('SNIPPET from /app OK:', out)\n\" 2>&1 | tail -1; cd /tmp && python -m pytest /app/pyknotid/tests/ --ignore=/app/pyknotid/tests/test_random_curves.py --ignore=/app/pyknotid/tests/test_catalogue.py 2>&1 | tail -3\n",
+    "078.sh": "cd /usr/local/lib/python3.13/site-packages/pyknotid && grep -n \"re.compile\" representations/gausscode.py representations/dtnotation.py && grep -n \"dtype = complex\\|isinstance(poly_val, complex)\\|dtype=n.int_\" invariants.py | head -4 && grep -n \"dtype=int\" spacecurves/ccomplexity.pyx | head -2; echo ===DIFF===; git diff\n",
+    "079.sh": "git -C /app/pyknotid diff && echo === && grep -c \"astype(int)\\|astype(bool)\\|dtype=bool\\|dtype=float\" /usr/local/lib/python3.13/site-packages/pyknotid/spacecurves/spacecurve.py /usr/local/lib/python3.13/site-packages/pyknotid/spacecurves/openknot.py\n",
+    "080.sh": "ls /app/pyknotid; find /app/pyknotid -name \"*.so\" -o -name \"build\" -type d -o -name \"*.egg-info\" | head; git -C /app/pyknotid status --short | head -20\n",
+    "081.sh": "cd /app/pyknotid && python setup.py build_ext --inplace 2>&1 | tail -4 && find pyknotid -name \"*.so\"\n",
+    "082.sh": "echo \"=== tests from /app/pyknotid (source-tree context) ===\" && cd /app/pyknotid && python -m pytest tests/ --ignore=tests/test_random_curves.py --ignore=tests/test_catalogue.py 2>&1 | tail -2 && python -c \"from pyknotid.spacecurves import chelpers; print('source-tree chelpers:', chelpers.__file__)\" && echo \"=== tests from /tmp (site-packages context) ===\" && cd /tmp && python -m pytest /app/pyknotid/tests/ --ignore=/app/pyknotid/tests/test_random_curves.py --ignore=/app/pyknotid/tests/test_catalogue.py 2>&1 | tail -2 && python -c \"from pyknotid.spacecurves import chelpers, ccomplexity; from pyknotid import cinvariants, make as mk, spacecurves as sp; import pyknotid; print('installed pkg:', pyknotid.__file__); k=sp.Knot(mk.three_twist(num_points=100)); print('snippet out:', k.alexander_polynomial(-1))\" 2>&1 | tail -3\n",
+    "083.sh": "rm -f /app/fix_numpy_compat.py /app/fix_regex_compat.py && rm -rf /tmp/pyknotid-full && ls /app && ls /app/pyknotid/tests && pip show pyknotid | head -4 && which analyse-knot-file plot-knot && python -c \"import numpy; print('final check: numpy', numpy.__version__)\"\n"
+  },
+  "source_reference_run": "build-cython-ext-20261020T010948",
+  "scope": "normalized executable inputs; no original conversation or tool outputs"
+}

@@ -1,0 +1,18 @@
+diff --git a/django/db/migrations/operations/models.py b/django/db/migrations/operations/models.py
+index 967a91fdc8..4d655d5eab 100644
+--- a/django/db/migrations/operations/models.py
++++ b/django/db/migrations/operations/models.py
+@@ -857,6 +857,13 @@ class AddIndex(IndexOperation):
+             self.model_name,
+         )
+ 
++    def reduce(self, operation, app_label):
++        # Check if this AddIndex can be removed due to a later RemoveIndex with same name
++        if isinstance(operation, RemoveIndex) and self.index.name == operation.name:
++            return []
++        # Fall back to parent implementation
++        return super().reduce(operation, app_label)
++
+     @property
+     def migration_name_fragment(self):
+         return "%s_%s" % (self.model_name_lower, self.index.name.lower())

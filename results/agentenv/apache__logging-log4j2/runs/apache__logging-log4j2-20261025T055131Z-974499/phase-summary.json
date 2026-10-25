@@ -1,0 +1,16 @@
+[
+  {
+    "phase_label": "task_or_inspect",
+    "actions": 9,
+    "tool_seconds": 216.217990341,
+    "observed_guest_file_cache_peak_bytes": 591044608,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "setup_download",
+    "actions": 1,
+    "tool_seconds": 33.672813365,
+    "observed_guest_file_cache_peak_bytes": 552206336,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  }
+]

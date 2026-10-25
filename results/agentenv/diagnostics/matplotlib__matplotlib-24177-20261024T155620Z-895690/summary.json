@@ -1,0 +1,951 @@
+{
+  "task_id": "matplotlib__matplotlib-24177",
+  "run_id": "matplotlib__matplotlib-24177-20261024T155620Z-895690",
+  "backend": "agentenv",
+  "actions": 95,
+  "memory_mib": 8192,
+  "cpus": 2,
+  "tool_seconds": 59.131327256,
+  "tool_p50_seconds": 0.372563879,
+  "tool_p95_seconds": 1.2755389641999997,
+  "guest_initial_file_cache_bytes": 77631488,
+  "guest_peak_observed_file_cache_bytes": 227184640,
+  "guest_final_file_cache_bytes": 160419840,
+  "guest_net_file_cache_change_bytes": 82788352,
+  "guest_peak_observed_nonfree_bytes": 818221056,
+  "sampled_file_cache_peak_bytes": 226603008,
+  "initial_declared_file_resident_bytes": 63049728,
+  "final_declared_file_resident_bytes": 148303872,
+  "boundary_scan_seconds": 193.368064523,
+  "file_boundaries": 96,
+  "samples": 1273,
+  "max_sample_gap_seconds": 0.209879147,
+  "sample_gaps_over_600ms": 0,
+  "guest_measurement_span_seconds": 253.27736026,
+  "unclassified_periodic_samples": 0,
+  "frozen_boundary_count": 96,
+  "boundary_control_seconds": 194.769981228,
+  "partial_scan_boundaries": 1,
+  "scan_changed_pages_or_files": 1,
+  "observed_boundary_file_resident_peak_bytes": 222404608,
+  "guest_peak_file_cache_net_increase_bytes": 149553152,
+  "max_scan_file_cache_change_bytes": 205778944,
+  "initial_scan_nonfree_change_bytes": 475938816,
+  "max_scan_nonfree_change_bytes": 475938816,
+  "initial_scan_slab_change_bytes": 319422464,
+  "max_scan_slab_change_bytes": 319422464,
+  "initial_scan_buffers_change_bytes": 167149568,
+  "max_scan_buffers_change_bytes": 167149568,
+  "initial_scan_file_cache_change_bytes": 90112,
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "validation_exit_code": 0,
+  "checks": {
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
+    "async_completion_schedule": true,
+    "no_tool_timeout": true,
+    "sandbox_deleted": true,
+    "all_tool_boundaries_frozen": true,
+    "canonical_root_paths": false,
+    "observer_paths_excluded": false,
+    "directory_partitions_match": true
+  },
+  "semantics": {
+    "test_summaries": [
+      "=========== 1 failed, 44 passed, 9 skipped, 762 deselected in 4.24s ============",
+      "================ 60 passed, 10 skipped, 762 deselected in 3.88s ================",
+      "60 passed, 10 skipped, 762 deselected in 3.75s"
+    ],
+    "final_two_hist_tests_60_passed": true
+  },
+  "exit_differences": [],
+  "async_barrier_count": 0,
+  "async_wait_seconds": 0,
+  "async_job_exit_codes": [],
+  "boundary_coverage": [
+    {
+      "after_step": 0,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 1,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 2,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 3,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 4,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 5,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 6,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 7,
+      "status": "PASS",
+      "files": 146060,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 8,
+      "status": "PASS",
+      "files": 146182,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 9,
+      "status": "PASS",
+      "files": 146184,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 10,
+      "status": "PASS",
+      "files": 146184,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 11,
+      "status": "PASS",
+      "files": 146184,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 12,
+      "status": "PASS",
+      "files": 146184,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 13,
+      "status": "PASS",
+      "files": 146184,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 14,
+      "status": "PASS",
+      "files": 146186,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 15,
+      "status": "PASS",
+      "files": 146188,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 16,
+      "status": "PASS",
+      "files": 146190,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 17,
+      "status": "PASS",
+      "files": 146190,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 18,
+      "status": "PASS",
+      "files": 146190,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 19,
+      "status": "PARTIAL",
+      "files": 146191,
+      "errors": 0,
+      "changed_pages_or_files": 1,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 20,
+      "status": "PASS",
+      "files": 146191,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 21,
+      "status": "PASS",
+      "files": 146191,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 22,
+      "status": "PASS",
+      "files": 146193,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 23,
+      "status": "PASS",
+      "files": 146193,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 24,
+      "status": "PASS",
+      "files": 146195,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 25,
+      "status": "PASS",
+      "files": 146197,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 26,
+      "status": "PASS",
+      "files": 146199,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 27,
+      "status": "PASS",
+      "files": 146201,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 28,
+      "status": "PASS",
+      "files": 146203,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 29,
+      "status": "PASS",
+      "files": 146204,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 30,
+      "status": "PASS",
+      "files": 146206,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 31,
+      "status": "PASS",
+      "files": 146206,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 32,
+      "status": "PASS",
+      "files": 146206,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 33,
+      "status": "PASS",
+      "files": 146208,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 34,
+      "status": "PASS",
+      "files": 146210,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 35,
+      "status": "PASS",
+      "files": 146212,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 36,
+      "status": "PASS",
+      "files": 146214,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 37,
+      "status": "PASS",
+      "files": 146216,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 38,
+      "status": "PASS",
+      "files": 146218,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 39,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 40,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 41,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 42,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 43,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 44,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 45,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 46,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 47,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 48,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 49,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 50,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 51,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 52,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 53,
+      "status": "PASS",
+      "files": 146220,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 54,
+      "status": "PASS",
+      "files": 146224,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 55,
+      "status": "PASS",
+      "files": 146224,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 56,
+      "status": "PASS",
+      "files": 146224,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 57,
+      "status": "PASS",
+      "files": 146226,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 58,
+      "status": "PASS",
+      "files": 146226,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 59,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 60,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 61,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 62,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 63,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 64,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 65,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 66,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 67,
+      "status": "PASS",
+      "files": 146228,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 68,
+      "status": "PASS",
+      "files": 146230,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 69,
+      "status": "PASS",
+      "files": 146232,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 70,
+      "status": "PASS",
+      "files": 146232,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 71,
+      "status": "PASS",
+      "files": 146232,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 72,
+      "status": "PASS",
+      "files": 146232,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 73,
+      "status": "PASS",
+      "files": 146232,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 74,
+      "status": "PASS",
+      "files": 146270,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 75,
+      "status": "PASS",
+      "files": 146270,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19745,
+      "missing_roots": []
+    },
+    {
+      "after_step": 76,
+      "status": "PASS",
+      "files": 146271,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19746,
+      "missing_roots": []
+    },
+    {
+      "after_step": 77,
+      "status": "PASS",
+      "files": 146272,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19747,
+      "missing_roots": []
+    },
+    {
+      "after_step": 78,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 79,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 80,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 81,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 82,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 83,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 84,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 85,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 86,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 87,
+      "status": "PASS",
+      "files": 146338,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19770,
+      "missing_roots": []
+    },
+    {
+      "after_step": 88,
+      "status": "PASS",
+      "files": 146344,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    },
+    {
+      "after_step": 89,
+      "status": "PASS",
+      "files": 146344,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    },
+    {
+      "after_step": 90,
+      "status": "PASS",
+      "files": 146345,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    },
+    {
+      "after_step": 91,
+      "status": "PASS",
+      "files": 146345,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    },
+    {
+      "after_step": 92,
+      "status": "PASS",
+      "files": 146347,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    },
+    {
+      "after_step": 93,
+      "status": "PASS",
+      "files": 146347,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    },
+    {
+      "after_step": 94,
+      "status": "PASS",
+      "files": 146347,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    },
+    {
+      "after_step": 95,
+      "status": "PASS",
+      "files": 146348,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 19772,
+      "missing_roots": []
+    }
+  ],
+  "scope": "guest logical memory and declared regular-file residency; host PFN sharing not measured",
+  "protocol": "agentenv-frozen-tools-v2",
+  "phase_summary": [
+    {
+      "phase_label": "task_or_inspect",
+      "actions": 95,
+      "tool_seconds": 59.131327256,
+      "observed_guest_file_cache_peak_bytes": 227184640,
+      "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+    }
+  ],
+  "pause_scope": "guest business cgroup; observer and kernel runnable",
+  "scan_page_size_bytes": 4096,
+  "coverage": "INVALID root path or exclusion policy; file-scan values are diagnostic only",
+  "eligible_primary": false
+}

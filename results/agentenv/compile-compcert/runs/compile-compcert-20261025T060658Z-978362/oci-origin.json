@@ -1,0 +1,25 @@
+{
+  "task_id": "compile-compcert",
+  "source_image": "docker.io/alexgshaw/compile-compcert@sha256:f60236a4fe55bbb3c573210fe0fcd91551f4ee97c417453cd4985be074b35411",
+  "source_podman_image_id": "773582f15daca73360cd02f77d61626cd90ca0ff5b13c474500c41234c7d59f5",
+  "started_ns": 1792908408515699931,
+  "method": "fixed registry digest copied to OCI",
+  "registry_transport": "existing host HTTP proxy",
+  "verification": {
+    "manifest_digest": "sha256:f60236a4fe55bbb3c573210fe0fcd91551f4ee97c417453cd4985be074b35411",
+    "config_digest": "sha256:773582f15daca73360cd02f77d61626cd90ca0ff5b13c474500c41234c7d59f5",
+    "rootfs_diff_ids": [
+      "sha256:f2a7f072635332d307212e318e07284948b89f4167fce5c4d7c9cfb7590b74b6",
+      "sha256:6376d1f9a61a5ad2e3d3aec4d9003c45b4f7a51b66589d7228bc09803b8203e4",
+      "sha256:9c451a464643026192816bbab57eafb58b55c81bedb092bf856c1eb181f592be"
+    ],
+    "layer_bytes": 29732322,
+    "layers": 3,
+    "platform": [
+      "linux",
+      "amd64"
+    ]
+  },
+  "finished_ns": 1792908414419141546,
+  "status": "VERIFIED"
+}

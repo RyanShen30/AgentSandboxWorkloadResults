@@ -1,16 +1,135 @@
 {
-  "samples": 71843,
-  "source_file": "host-service-1792770027629334735.jsonl",
-  "first_timestamp_ns": 1792770027629514146,
-  "last_timestamp_ns": 1792784427466821600,
+  "samples": 100168,
+  "segments": [
+    {
+      "source_file": "host-service-1792857100178687345.jsonl",
+      "samples": 71849,
+      "first_timestamp_ns": 1792857100178854524,
+      "last_timestamp_ns": 1792871500047612955,
+      "errors": [
+        {
+          "timestamp_ns": 1792857112604006640,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792857112804163253,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792857638521111981,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792857638721290103,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792857638921436193,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792857639121569394,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792857847564401441,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792857847764611721,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792858043352312967,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        }
+      ],
+      "cgroup": "/sys/fs/cgroup/system.slice/docker-a5d6e53fca39b66f2891207b9d3048b95a7b79e3c70f1fa692dccc96cfe2754d.scope"
+    },
+    {
+      "source_file": "host-service-1792906911783835172.jsonl",
+      "samples": 28319,
+      "first_timestamp_ns": 1792906911783997670,
+      "last_timestamp_ns": 1792912590290776397,
+      "errors": [
+        {
+          "timestamp_ns": 1792907228019612402,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792907228219794926,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792907368334728872,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792907368534918831,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792907750993574721,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792907751193772076,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792908113942288904,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792908245029323474,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792908407571591606,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792908407771732152,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792911847174842565,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792911847375016732,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792911847575158479,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792911847775306827,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792912122735229001,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        {
+          "timestamp_ns": 1792912471053189016,
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        }
+      ],
+      "cgroup": "/sys/fs/cgroup/system.slice/docker-a5d6e53fca39b66f2891207b9d3048b95a7b79e3c70f1fa692dccc96cfe2754d.scope"
+    }
+  ],
+  "first_timestamp_ns": 1792857100178854524,
+  "last_timestamp_ns": 1792912590290776397,
   "nominal_interval_seconds": 0.2,
-  "max_sample_gap_seconds": 1.201326184,
-  "sampling_errors": 9,
-  "cgroup": "/sys/fs/cgroup/system.slice/docker-36a06e5cf44ef4f451480f6fca15ef2a190e68c3b3839a47a6a4a606ad60e6ea.scope",
-  "observed_peak_memory_current_bytes": 33483145216,
+  "max_sample_gap_seconds": 35411.736385226,
+  "sampling_errors": 25,
+  "cgroup": "/sys/fs/cgroup/system.slice/docker-a5d6e53fca39b66f2891207b9d3048b95a7b79e3c70f1fa692dccc96cfe2754d.scope",
+  "observed_peak_memory_current_bytes": 21726384128,
   "scope": "private AgentENV service: VMM/provider and charged caches; excludes external image preparation; never guest file-cache",
   "caveats": [
-    "starts after initial Cython diagnostic; includes sequential tasks and idle/setup intervals",
+    "sampling segments cover only their recorded time windows; includes idle/setup intervals",
     "service restarts reset kernel memory.peak and leave gaps",
     "not per-guest file-cache memory; not host PFN unique physical memory"
   ]

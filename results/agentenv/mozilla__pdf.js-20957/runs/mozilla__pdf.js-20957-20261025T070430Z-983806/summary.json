@@ -1,0 +1,146 @@
+{
+  "task_id": "mozilla__pdf.js-20957",
+  "run_id": "mozilla__pdf.js-20957-20261025T070430Z-983806",
+  "backend": "agentenv",
+  "actions": 5,
+  "memory_mib": 8192,
+  "cpus": 2,
+  "tool_seconds": 244.46859932700002,
+  "tool_p50_seconds": 64.272747147,
+  "tool_p95_seconds": 101.71292640579999,
+  "guest_initial_file_cache_bytes": 24195072,
+  "guest_peak_observed_file_cache_bytes": 935059456,
+  "guest_final_file_cache_bytes": 70840320,
+  "guest_net_file_cache_change_bytes": 46645248,
+  "guest_peak_observed_nonfree_bytes": 2033950720,
+  "sampled_file_cache_peak_bytes": 935059456,
+  "initial_declared_file_resident_bytes": 5570560,
+  "final_declared_file_resident_bytes": 61874176,
+  "boundary_scan_seconds": 5.967529975,
+  "file_boundaries": 6,
+  "samples": 1253,
+  "max_sample_gap_seconds": 0.212832185,
+  "sample_gaps_over_600ms": 0,
+  "guest_measurement_span_seconds": 249.214405581,
+  "unclassified_periodic_samples": 0,
+  "frozen_boundary_count": 6,
+  "boundary_control_seconds": 6.055408065,
+  "partial_scan_boundaries": 0,
+  "scan_changed_pages_or_files": 0,
+  "observed_boundary_file_resident_peak_bytes": 571387904,
+  "guest_peak_file_cache_net_increase_bytes": 910864384,
+  "max_scan_file_cache_change_bytes": 2486272,
+  "initial_scan_nonfree_change_bytes": 71004160,
+  "max_scan_nonfree_change_bytes": 71004160,
+  "initial_scan_slab_change_bytes": 57774080,
+  "max_scan_slab_change_bytes": 57774080,
+  "initial_scan_buffers_change_bytes": 24551424,
+  "max_scan_buffers_change_bytes": 51044352,
+  "initial_scan_file_cache_change_bytes": -12288,
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "validation_exit_code": 0,
+  "checks": {
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
+    "async_completion_schedule": true,
+    "no_tool_timeout": true,
+    "sandbox_deleted": true,
+    "all_tool_boundaries_frozen": true,
+    "canonical_root_paths": true,
+    "observer_paths_excluded": true,
+    "directory_partitions_match": true
+  },
+  "semantics": {
+    "cli_test_evidence": [
+      "1127 specs, 0 failures, 56 pending specs",
+      "1127 specs, 0 failures, 56 pending specs"
+    ]
+  },
+  "exit_differences": [],
+  "async_barrier_count": 0,
+  "async_wait_seconds": 0,
+  "async_job_exit_codes": [],
+  "boundary_coverage": [
+    {
+      "after_step": 0,
+      "status": "PASS",
+      "files": 29629,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 2544,
+      "missing_roots": []
+    },
+    {
+      "after_step": 1,
+      "status": "PASS",
+      "files": 61286,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 2609,
+      "missing_roots": []
+    },
+    {
+      "after_step": 2,
+      "status": "PASS",
+      "files": 61286,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 2609,
+      "missing_roots": []
+    },
+    {
+      "after_step": 3,
+      "status": "PASS",
+      "files": 62446,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 2609,
+      "missing_roots": []
+    },
+    {
+      "after_step": 4,
+      "status": "PASS",
+      "files": 62446,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 2609,
+      "missing_roots": []
+    },
+    {
+      "after_step": 5,
+      "status": "PASS",
+      "files": 62447,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 2609,
+      "missing_roots": []
+    }
+  ],
+  "scope": "guest logical memory and declared regular-file residency; host PFN sharing not measured",
+  "protocol": "agentenv-frozen-tools-v2",
+  "phase_summary": [
+    {
+      "phase_label": "setup_download",
+      "actions": 1,
+      "tool_seconds": 109.460266437,
+      "observed_guest_file_cache_peak_bytes": 935059456,
+      "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+    },
+    {
+      "phase_label": "task_or_inspect",
+      "actions": 4,
+      "tool_seconds": 135.00833289000002,
+      "observed_guest_file_cache_peak_bytes": 600379392,
+      "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+    }
+  ],
+  "pause_scope": "guest business cgroup; observer and kernel runnable",
+  "scan_page_size_bytes": 4096,
+  "coverage": "all regular files reachable on the guest root filesystem, explicit virtual/control/mount exclusions",
+  "eligible_primary": true
+}

@@ -1,0 +1,142 @@
+{
+  "status": "COMPLETE",
+  "host": "cpu-15",
+  "host_kernel": "6.19.9+",
+  "service_image_id": "sha256:db9eb044ae3d85f9b276b9d2e5dea28cb0be95263d217ea4989f095e1d828681",
+  "service_registry_digest": "sha256:c5cd67759d365669b558d3754a18bdf52fa8b7614fe23bcb34250e723cf2ee03",
+  "guest_kernel": "6.1.175",
+  "guest_kernel_sha256": "cd7c5a06a2026a2d8a0cddf60b41a5d76a6ac025e54439eb3ee5c9e57a60c67b",
+  "damon_boot_parameters": [
+    "damon_reclaim.enabled=Y",
+    "damon_reclaim.min_age=100000",
+    "damon_reclaim.quota_ms=20",
+    "damon_reclaim.quota_sz=1073741824",
+    "damon_reclaim.quota_reset_interval_ms=500",
+    "damon_reclaim.wmarks_high=990",
+    "damon_reclaim.wmarks_mid=990",
+    "damon_reclaim.wmarks_low=200",
+    "damon_reclaim.skip_anon=Y",
+    "damon_reclaim.wmarks_interval=1000000",
+    "damon_reclaim.monitor_region_start=4096",
+    "damon_reclaim.monitor_region_end=9663676416"
+  ],
+  "fixed_volume_capacity_bytes": 42949672960,
+  "config_overrides": [
+    [
+      "image.cache.gc",
+      "enabled",
+      "false"
+    ],
+    [
+      "pool.network",
+      "maintenance_enabled",
+      "false"
+    ],
+    [
+      "pool.block",
+      "enabled",
+      "false"
+    ],
+    [
+      "pool.firecracker",
+      "enabled",
+      "false"
+    ],
+    [
+      "pool.firecracker",
+      "startup_prewarm",
+      "false"
+    ],
+    [
+      "ublk",
+      "daemon_metrics_listen_addr",
+      "\"\""
+    ],
+    [
+      "network.internal",
+      "host_interaction_cidr",
+      "\"10.211.0.0/16\""
+    ],
+    [
+      "network.internal",
+      "veth_cidr",
+      "\"10.212.0.0/16\""
+    ]
+  ],
+  "capacity_cache_resets": [
+    {
+      "timestamp_ns": 1792773592778723044,
+      "released_allocated_bytes": 11657433088,
+      "files": 119,
+      "reason": "between tasks, fixed-volume capacity",
+      "scope": "only private service image cache; all raw, OCI inputs, credentials and fixed dependencies preserved"
+    },
+    {
+      "timestamp_ns": 1792776742275345373,
+      "released_allocated_bytes": 11941224448,
+      "files": 68,
+      "reason": "between tasks, fixed-volume capacity",
+      "scope": "only private service image cache; all raw, OCI inputs, credentials and fixed dependencies preserved"
+    }
+  ],
+  "proxy_restarts": [
+    {
+      "timestamp_ns": 1792776539309488766,
+      "previous_pid": 597116,
+      "pid": 638071,
+      "upstream_port": 17897,
+      "reason": "old host session proxy port expired; retain owned guest endpoint and INPUT rule"
+    }
+  ],
+  "upstream_refreshes": [
+    {
+      "timestamp_ns": 1792776518974691230,
+      "port": 17897
+    }
+  ],
+  "oci_transport": {
+    "scope": "manifest resolution and copying use the same local OCI export; native OverlayBD conversion retained",
+    "wrapper_sha256": "bdc3745552d23d64b06f68cb0d73a96db0de09cdfb71dbe9cf92caf6ae2bc96e",
+    "real_sha256": "c93aa7638749f5aaac1a8e01787321889c78f0101809bb2880343478d0ba0467"
+  },
+  "host_python": "3.12.3",
+  "analysis_packages": {
+    "numpy": "1.26.4",
+    "matplotlib": "3.6.3",
+    "requests": "2.31.0"
+  },
+  "gcc_version": "13.3.0",
+  "primary_runs": 10,
+  "primary_actions": 652,
+  "diagnostic_completed_replays": 4,
+  "failed_preflight_attempts": 1,
+  "total_original_actions_replayed": 1080,
+  "archive": {
+    "status": "VERIFIED",
+    "verified_ns": 1792798900353643406,
+    "files": 5483,
+    "bytes": 178652313,
+    "archive_directory": "/home/rashen/work/AgentSandboxBench/.artifacts/agentenv-workload-archive/20261023T151330Z-585205",
+    "manifest_sha256": "b7242cc2e8befab782b997791fdd3dbabb6c9698927f15e04b98e5b46936aa47",
+    "scope": "all regular raw evidence, plus verified service-log snapshots; OCI images/backing caches excluded",
+    "unreadable_control_retained_at_service": [
+      "config.toml"
+    ]
+  },
+  "cleanup": {
+    "container_removed": true,
+    "owned_guest_proxy_removed": true,
+    "owned_volume_released": true
+  },
+  "live_sandboxes_before_service_stop": 0,
+  "host_free_bytes_after_release": 80646094848,
+  "public_scope": "full numerical CSVs, executable inputs, metadata and source; raw logs/binaries/private control retained on cpu-15",
+  "post_cleanup_checks": {
+    "owned_proxy_process_absent": true,
+    "owned_proxy_local_listener_absent": true,
+    "owned_volume_file_absent": true,
+    "service_api_closed": true,
+    "owned_loopback_alias_absent": true,
+    "owned_loop_mapping_absent": true
+  }
+}

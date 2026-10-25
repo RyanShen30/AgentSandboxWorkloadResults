@@ -45,6 +45,88 @@ BOUNDARY_AFTER = {'build-cython-ext': 69, 'reshard-c4-data': 25, 'hf-model-infer
                   'matplotlib__matplotlib-24177': 60, 'django__django-16819': 14,
                   'compile-compcert': 185}
 
+PROTOCOL = 'agentenv-frozen-tools-v2'
+
+
+def guest_worker(task, normalized):
+    """One business subtree, with persistent shells only where the trace requires it."""
+    cwd = CWD.get(task, '/app')
+    lines = ['#!/bin/bash', 'set +e', 'umask 077',
+             'cd '+shlex.quote(cwd)+' || exit 91',
+             'touch /probe/work/worker-ready',
+             'while IFS= read -r ASWR_STEP <&198; do', 'case "$ASWR_STEP" in',
+             'QUIT) exit 0 ;;']
+    for step in normalized:
+        i = step['step']
+        lines.append(f'{i})')
+        if task in SESSION:
+            lines += [f'/probe/workload_probe snapshot > /probe/work/{i:03}.before.json',
+                      'ASWR_STARTED=$(/probe/clock_ns)',
+                      f'source /probe/input/{i:03}.sh > /probe/work/{i:03}.stdout 2> /probe/work/{i:03}.stderr',
+                      'ASWR_EXIT=$?', 'ASWR_FINISHED=$(/probe/clock_ns)',
+                      f'/probe/workload_probe snapshot > /probe/work/{i:03}.after.json',
+                      f'printf \'{{"started_ns":%s,"finished_ns":%s,"exit_code":%s,"timed_out":false}}\\n\' "$ASWR_STARTED" "$ASWR_FINISHED" "$ASWR_EXIT" > /probe/work/{i:03}.json']
+        else:
+            timeout = max(900, int(step.get('args', {}).get('timeout', 900)))
+            lines += [f'/probe/tool_timer /probe/input/{i:03}.sh /probe/work/{i:03}.json '+shlex.quote(cwd)+f' {timeout} > /probe/work/{i:03}.stdout 2> /probe/work/{i:03}.stderr',
+                      'test "$?" -eq 0 || exit 92']
+        lines += [f'printf "{i}\\n" >&199', ';;']
+    lines += ['*) exit 96 ;;', 'esac', 'done', 'exit 97']
+    return '\n'.join(lines)+'\n'
+
+
+def frozen_guest_runner(task, normalized, barriers):
+    lines = ['#!/bin/bash', 'set +e', 'umask 077',
+             'ASWR_CGROUP=/sys/fs/cgroup/aswr-business',
+             '/probe/workload_probe cgroup-init "$ASWR_CGROUP" > /probe/work/quiescence-setup.json || exit 94',
+             'mkfifo /probe/work/commands /probe/work/completed || exit 94',
+             'exec 198<>/probe/work/commands 199<>/probe/work/completed',
+             '/probe/workload_probe enter "$ASWR_CGROUP" /bin/bash /probe/guest-worker.sh > /probe/work/worker.stdout 2> /probe/work/worker.stderr &',
+             'ASWR_WORKER_PID=$!',
+             'trap \'/probe/workload_probe thaw "$ASWR_CGROUP" > /probe/work/exit-thaw.json 2>/dev/null; touch /probe/work/monitor-stop; kill "$ASWR_WORKER_PID" 2>/dev/null || true\' EXIT',
+             'for ASWR_I in {1..100}; do test -f /probe/work/worker-ready && break; sleep .02; done',
+             'test -f /probe/work/worker-ready || exit 94',
+             'aswr_boundary() {',
+             'ASWR_LABEL=$(printf "%03d" "$1")',
+             'printf "cache_scan\\t%s\\n" "$1" > /probe/work/phase',
+             '/probe/workload_probe freeze "$ASWR_CGROUP" > /probe/work/freeze-$ASWR_LABEL.json || exit 94',
+             '/probe/workload_probe snapshot > /probe/work/scan-start-$ASWR_LABEL.json || exit 94',
+             '/probe/workload_probe scan --frozen-cgroup "$ASWR_CGROUP" / > /probe/work/boundary-$ASWR_LABEL.json || exit 94',
+             '/probe/workload_probe snapshot > /probe/work/scan-end-$ASWR_LABEL.json || exit 94',
+             '/probe/workload_probe thaw "$ASWR_CGROUP" > /probe/work/thaw-$ASWR_LABEL.json || exit 94',
+             '}',
+             'printf "baseline\\t0\\n" > /probe/work/phase',
+             '/probe/workload_probe monitor /probe/work &', 'ASWR_MONITOR_PID=$!',
+             'for ASWR_I in {1..100}; do test -f /probe/work/monitor-ready && break; sleep .02; done',
+             'test -f /probe/work/monitor-ready || exit 90',
+             '/probe/workload_probe snapshot > /probe/work/baseline.json',
+             'aswr_boundary 0', 'printf "ASWR_READY\\n"']
+    for step in normalized:
+        i = step['step']
+        for background in barriers.get(str(i), []):
+            marker=f'/probe/work/async-{background}.done'
+            lines += [f'printf "async_dependency_wait\\t{i}\\n" > /probe/work/phase',
+                      'ASWR_WAIT_START=$(/probe/clock_ns)',
+                      f'while ! test -f {marker}; do sleep .2; done',
+                      'ASWR_WAIT_END=$(/probe/clock_ns)',
+                      f'printf \'{{"source_async_step":{background},"before_tool_step":{i},"started_ns":%s,"finished_ns":%s,"job_exit_code":%s}}\\n\' "$ASWR_WAIT_START" "$ASWR_WAIT_END" "$(cat {marker})" >> /probe/work/async-barriers.jsonl']
+        timeout=max(900,int(step.get('args',{}).get('timeout',900)))
+        lines += [f'printf "running\\t{i}\\n" > /probe/work/phase',
+                  f'printf "ASWR_STEP_START {i}\\n"', f'printf "{i}\\n" >&198',
+                  f'IFS= read -r -t {timeout+30} ASWR_ACK <&199 || exit 95',
+                  f'test "$ASWR_ACK" = "{i}" || exit 95',
+                  f'printf "after\\t{i}\\n" > /probe/work/phase',
+                  f'printf "ASWR_STEP_END {i} "; cat /probe/work/{i:03}.json']
+        if i==len(normalized):
+            lines += ['/probe/workload_probe snapshot > /probe/work/final.json']
+        lines += [f'aswr_boundary {i}']
+    lines += ['printf "QUIT\\n" >&198', 'wait "$ASWR_WORKER_PID" || exit 95',
+              'exec 198>&- 199>&-', 'rm -f /probe/work/commands /probe/work/completed',
+              f'printf "complete\\t{len(normalized)}\\n" > /probe/work/phase',
+              'touch /probe/work/monitor-stop', 'wait "$ASWR_MONITOR_PID" || exit 93',
+              'printf "ASWR_MEASUREMENT_COMPLETE\\n"', 'exit 0']
+    return '\n'.join(lines)+'\n'
+
 
 def dump(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n')
@@ -142,6 +224,9 @@ def safe_extract(archive, destination):
 
 def run(args):
     service = args.service.resolve()
+    while (service/'control-pause').exists():
+        print('WAITING_FOR_PROTOCOL_REVIEW',flush=True)
+        time.sleep(1)
     client = Client(service)
     info = json.loads((service/'service.json').read_text())
     assert info['status'] == 'READY'
@@ -152,14 +237,19 @@ def run(args):
     out = mount/'raw'/(task+'-'+stamp)
     out.mkdir()
     started = time.monotonic_ns()
+    protocol=getattr(args,'protocol',PROTOCOL)
+    frozen=protocol==PROTOCOL
     result = dict(status='RUNNING', backend='agentenv', task_id=task, run_id=out.name,
+                  protocol=protocol,
                   expected_actions=len(normalized), reference_run=record['run_id'],
                   cpus=2, memory_mib=32768 if task == 'compile-compcert' else 8192,
                   service_image=info['image_id'], kernel_sha256=info['kernel_sha256'],
                   sample_interval_seconds=.2, started_ns=started,
                   cache_policy='new cold-start guest; host backing warmness uncontrolled; official DAMON retained',
                   file_cache_metric='guest Cached-Shmem approximation; Buffers separate',
-                  declared_file_roots=ROOTS[task], file_boundary_after_steps=[0, BOUNDARY_AFTER[task], len(normalized)],
+                  declared_file_roots=['/'] if frozen else ROOTS[task],
+                  file_boundary_after_steps=list(range(len(normalized)+1)) if frozen else [0, BOUNDARY_AFTER[task], len(normalized)],
+                  pause_scope='guest business cgroup; observer and kernel runnable' if frozen else 'no business freeze',
                   physical_deduplication='NOT_MEASURED', source_hashes={})
     dump(out/'run.json', result)
     sid = args.existing_sid
@@ -173,8 +263,9 @@ def run(args):
         dump(out/'normalized-steps.json', normalized)
         validation = json.loads((reference/'validation.json').read_text())
         barriers = json.loads((Path('/home/rashen/work/AgentWorkloadProbe-20261020')/'sources/compile-compcert/async-completion-barriers.json').read_text())['wait_before_step'] if task == 'compile-compcert' else {}
-        script = guest_runner(task, normalized, validation, barriers)
+        script = frozen_guest_runner(task,normalized,barriers) if frozen else guest_runner(task, normalized, validation, barriers)
         (out/'guest-runner.sh').write_text(script)
+        if frozen:(out/'guest-worker.sh').write_text(guest_worker(task,normalized))
         for name in ('workload_probe.c', 'workload_timer.c', 'workload_memory.h',
                      'agentenv_workload_client.py', 'run_agentenv_workloads.py'):
             result['source_hashes'][name] = sha(ROOT/'scripts'/name)
@@ -239,6 +330,7 @@ def run(args):
             tf.add(out/'input', arcname='input')
             for name in ('workload_probe', 'tool_timer', 'file_reader', 'clock_ns', 'guest-runner.sh'):
                 tf.add(out/name, arcname=name)
+            if frozen:tf.add(out/'guest-worker.sh',arcname='guest-worker.sh')
         client.upload(sid, bundle, '/tmp/aswr-input.tar')
         setup = client.execute(sid, '/bin/bash', ['-c',
             'tar -xf /tmp/aswr-input.tar -C /probe && chmod +x /probe/workload_probe /probe/tool_timer /probe/file_reader /probe/clock_ns; '
@@ -321,7 +413,7 @@ def run(args):
             result['final_source_patch_sha256'] = sha(out/'final-source.patch')
             result['final_source_patch_scope'] = 'git diff HEAD --binary, including staged and unstaged changes'
         package = client.execute(sid, '/bin/bash', ['-c',
-            'tar -cf /tmp/aswr-results.tar -C /probe/work .'])
+            'tar --exclude=./commands --exclude=./completed -cf /tmp/aswr-results.tar -C /probe/work .'])
         assert package['exit_code'] == 0
         client.download(sid, '/tmp/aswr-results.tar', out/'guest-results.tar')
         safe_extract(out/'guest-results.tar', out/'guest')
@@ -336,6 +428,17 @@ def run(args):
         monitor = json.loads((out/'guest/monitor-status.json').read_text())
         assert monitor['status'] == 'PASS' and monitor['samples'] >= 2
         assert not any(row.get('timed_out') for row in rows)
+        if frozen:
+            for i in range(len(normalized)+1):
+                boundary=json.loads((out/'guest'/f'boundary-{i:03}.json').read_text())
+                pause=json.loads((out/'guest'/f'freeze-{i:03}.json').read_text())
+                thaw=json.loads((out/'guest'/f'thaw-{i:03}.json').read_text())
+                assert boundary['business_frozen_verified'] and boundary['errors']==0
+                assert boundary.get('scan_path_policy')=='canonical_absolute_v2'
+                assert boundary['exclusions']['observer_and_virtual_paths']>=4
+                assert pause['status']=='PASS' and pause['frozen'] and pause['cpu_stable']
+                assert thaw['status']=='PASS' and not thaw['frozen']
+            result['frozen_boundaries_verified']=len(normalized)+1
         old = [json.loads(line) for line in (reference/'steps.jsonl').read_text().splitlines()]
         differences = [{'step': new['step'], 'reference_exit': before['exit_code'], 'actual_exit': new['exit_code']}
                        for new, before in zip(rows, old) if new['exit_code'] != before['exit_code']]
@@ -350,7 +453,7 @@ def run(args):
         if sid and not (out/'guest-results.tar').exists():
             try:
                 client.execute(sid, '/bin/bash', ['-c',
-                    'touch /probe/work/monitor-stop; sleep .3; tar -cf /tmp/aswr-partial.tar -C /probe/work .'])
+                    'touch /probe/work/monitor-stop; sleep .3; tar --exclude=./commands --exclude=./completed -cf /tmp/aswr-partial.tar -C /probe/work .'])
                 client.download(sid, '/tmp/aswr-partial.tar', out/'guest-partial.tar')
                 safe_extract(out/'guest-partial.tar', out/'guest-partial')
                 result['partial_guest_evidence_saved'] = True
@@ -378,6 +481,7 @@ if __name__ == '__main__':
     ap.add_argument('--service', type=Path, required=True)
     ap.add_argument('--archive', type=Path, default=Path('/home/rashen/work/AgentSandboxWorkloadResults'))
     ap.add_argument('--task', choices=TASKS, required=True)
+    ap.add_argument('--protocol',choices=[PROTOCOL,'agentenv-lightweight-v1'],default=PROTOCOL)
     ap.add_argument('--existing-sid')
     ap.add_argument('--guest-proxy')
     ap.add_argument('--git-http1', action='store_true')

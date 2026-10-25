@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "primary_runs": 10,
+  "primary_original_actions": 652,
+  "primary_file_boundaries": 30,
+  "completed_diagnostic_replays": 4,
+  "failed_preflight_attempts": 1,
+  "strict_exit_match_all_primary": true,
+  "independent_validation_pass": 9,
+  "original_checker_exceptions": [
+    {
+      "task_id": "apache__logging-log4j2",
+      "exit_code": 141,
+      "maven_build_success": true
+    }
+  ],
+  "public_numeric_recompute": {
+    "status": "PASS",
+    "primary_runs": 10,
+    "actions": 652,
+    "verified_numeric_files": 200
+  },
+  "raw_archive_verified_files": 5483,
+  "raw_archive_verified_bytes": 178652313,
+  "checks": {
+    "frozen_script_sha256": true,
+    "ordered_complete_steps": true,
+    "guest_fixture_calibration": true,
+    "monitor_sample_order_and_count": true,
+    "explicit_primary_selection": true,
+    "async_completion_schedule": true,
+    "matplotlib_patch_exact_reference_match": true,
+    "sandbox_cleanup": true,
+    "raw_public_reexport_exact_match": true
+  },
+  "caveats": [
+    "one main replay per task; no experiment repeats",
+    "original benchmark correctness not regraded",
+    "host PFN sharing and DAX not measured",
+    "declared-file roots do not cover every toolchain source tree"
+  ],
+  "raw_reexport_verified_files": 272
+}

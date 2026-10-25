@@ -1,0 +1,4 @@
+phase_label,actions,tool_seconds,observed_guest_file_cache_peak_bytes,scope
+setup_download,8,102.41279485,277164032,whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution
+task_or_inspect,73,18.978153877,239108096,whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution
+mixed_setup_task,2,19.26362757,156741632,whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution

@@ -1,0 +1,240 @@
+{
+  "task_id": "count-dataset-tokens",
+  "run_id": "count-dataset-tokens-20261025T060205Z-976683",
+  "backend": "agentenv",
+  "actions": 16,
+  "memory_mib": 8192,
+  "cpus": 2,
+  "tool_seconds": 112.611019377,
+  "tool_p50_seconds": 1.0563451145,
+  "tool_p95_seconds": 28.3550645495,
+  "guest_initial_file_cache_bytes": 24141824,
+  "guest_peak_observed_file_cache_bytes": 633720832,
+  "guest_final_file_cache_bytes": 129667072,
+  "guest_net_file_cache_change_bytes": 105525248,
+  "guest_peak_observed_nonfree_bytes": 947679232,
+  "sampled_file_cache_peak_bytes": 633720832,
+  "initial_declared_file_resident_bytes": 5554176,
+  "final_declared_file_resident_bytes": 121552896,
+  "boundary_scan_seconds": 4.624416615,
+  "file_boundaries": 17,
+  "samples": 589,
+  "max_sample_gap_seconds": 0.203428269,
+  "sample_gaps_over_600ms": 0,
+  "guest_measurement_span_seconds": 117.412868012,
+  "unclassified_periodic_samples": 0,
+  "frozen_boundary_count": 17,
+  "boundary_control_seconds": 4.87665314,
+  "partial_scan_boundaries": 0,
+  "scan_changed_pages_or_files": 0,
+  "observed_boundary_file_resident_peak_bytes": 524853248,
+  "guest_peak_file_cache_net_increase_bytes": 609579008,
+  "max_scan_file_cache_change_bytes": 929792,
+  "initial_scan_nonfree_change_bytes": 10432512,
+  "max_scan_nonfree_change_bytes": 10579968,
+  "initial_scan_slab_change_bytes": 10838016,
+  "max_scan_slab_change_bytes": 10838016,
+  "initial_scan_buffers_change_bytes": 3571712,
+  "max_scan_buffers_change_bytes": 13611008,
+  "initial_scan_file_cache_change_bytes": -8192,
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "validation_exit_code": 0,
+  "checks": {
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
+    "async_completion_schedule": true,
+    "no_tool_timeout": true,
+    "sandbox_deleted": true,
+    "all_tool_boundaries_frozen": true,
+    "canonical_root_paths": true,
+    "observer_paths_excluded": true,
+    "directory_partitions_match": true
+  },
+  "semantics": {},
+  "exit_differences": [],
+  "async_barrier_count": 0,
+  "async_wait_seconds": 0,
+  "async_job_exit_codes": [],
+  "boundary_coverage": [
+    {
+      "after_step": 0,
+      "status": "PASS",
+      "files": 4996,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 1,
+      "status": "PASS",
+      "files": 4996,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 2,
+      "status": "PASS",
+      "files": 5275,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 3,
+      "status": "PASS",
+      "files": 19386,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 4,
+      "status": "PASS",
+      "files": 19386,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 5,
+      "status": "PASS",
+      "files": 19386,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 6,
+      "status": "PASS",
+      "files": 19386,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 7,
+      "status": "PASS",
+      "files": 19428,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 827,
+      "missing_roots": []
+    },
+    {
+      "after_step": 8,
+      "status": "PASS",
+      "files": 19431,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 828,
+      "missing_roots": []
+    },
+    {
+      "after_step": 9,
+      "status": "PASS",
+      "files": 19431,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 828,
+      "missing_roots": []
+    },
+    {
+      "after_step": 10,
+      "status": "PASS",
+      "files": 19432,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 828,
+      "missing_roots": []
+    },
+    {
+      "after_step": 11,
+      "status": "PASS",
+      "files": 19440,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 828,
+      "missing_roots": []
+    },
+    {
+      "after_step": 12,
+      "status": "PASS",
+      "files": 19440,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 828,
+      "missing_roots": []
+    },
+    {
+      "after_step": 13,
+      "status": "PASS",
+      "files": 19455,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 833,
+      "missing_roots": []
+    },
+    {
+      "after_step": 14,
+      "status": "PASS",
+      "files": 19455,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 833,
+      "missing_roots": []
+    },
+    {
+      "after_step": 15,
+      "status": "PASS",
+      "files": 19500,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 834,
+      "missing_roots": []
+    },
+    {
+      "after_step": 16,
+      "status": "PASS",
+      "files": 19500,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 834,
+      "missing_roots": []
+    }
+  ],
+  "scope": "guest logical memory and declared regular-file residency; host PFN sharing not measured",
+  "protocol": "agentenv-frozen-tools-v2",
+  "phase_summary": [
+    {
+      "phase_label": "task_or_inspect",
+      "actions": 13,
+      "tool_seconds": 36.407842431,
+      "observed_guest_file_cache_peak_bytes": 533671936,
+      "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+    },
+    {
+      "phase_label": "setup_download",
+      "actions": 3,
+      "tool_seconds": 76.203176946,
+      "observed_guest_file_cache_peak_bytes": 633720832,
+      "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+    }
+  ],
+  "pause_scope": "guest business cgroup; observer and kernel runnable",
+  "scan_page_size_bytes": 4096,
+  "coverage": "all regular files reachable on the guest root filesystem, explicit virtual/control/mount exclusions",
+  "eligible_primary": true
+}

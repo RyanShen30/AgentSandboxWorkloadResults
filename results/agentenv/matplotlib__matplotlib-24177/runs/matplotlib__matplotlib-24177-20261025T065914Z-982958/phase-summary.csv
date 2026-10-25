@@ -1,0 +1,2 @@
+phase_label,actions,tool_seconds,observed_guest_file_cache_peak_bytes,scope
+task_or_inspect,95,61.109373814,240836608,whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution

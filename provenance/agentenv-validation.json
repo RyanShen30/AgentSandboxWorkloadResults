@@ -1,10 +1,13 @@
 {
   "status": "PASS",
+  "protocol": "agentenv-frozen-tools-v2",
   "primary_runs": 10,
   "primary_original_actions": 652,
-  "primary_file_boundaries": 30,
-  "completed_diagnostic_replays": 4,
-  "failed_preflight_attempts": 1,
+  "primary_file_boundaries": 662,
+  "primary_frozen_boundaries": 662,
+  "primary_partial_scan_boundaries": 5,
+  "primary_direct_scan_errors": 0,
+  "strict_exit_match_reference": "actual exit codes of fixed primary Podman replay, publicly recomputed from its steps.csv; not original source_exit_code metadata",
   "strict_exit_match_all_primary": true,
   "independent_validation_pass": 9,
   "original_checker_exceptions": [
@@ -14,30 +17,58 @@
       "maven_build_success": true
     }
   ],
+  "completed_diagnostic_replays": 3,
   "public_numeric_recompute": {
     "status": "PASS",
     "primary_runs": 10,
     "actions": 652,
-    "verified_numeric_files": 200
+    "verified_numeric_files": 246,
+    "figures_rebuilt": false
   },
-  "raw_archive_verified_files": 5483,
-  "raw_archive_verified_bytes": 178652313,
+  "historical_numeric_recompute": {
+    "status": "PASS",
+    "primary_runs": 10,
+    "actions": 652,
+    "verified_numeric_files": 200,
+    "figures_rebuilt": false
+  },
+  "observer_impact": {
+    "matplotlib_initial_scan_nonfree_change_bytes": 449363968,
+    "matplotlib_initial_scan_slab_change_bytes": 318726144,
+    "matplotlib_initial_scan_buffers_change_bytes": 140062720,
+    "scope": "observed before/after changes; no counter-only control; total guest memory includes observer/metadata and is not pure business demand"
+  },
+  "raw_public_reexport": {
+    "status": "PASS",
+    "files": 337,
+    "bytes": 29960883,
+    "scope": "all raw exporter outputs independently regenerated from verified off-volume archive; exact bytes including current-environment figures"
+  },
+  "unchanged_v1_data_and_source_files": 253,
+  "collector_binaries_match_recompiled_sources_all_primary": true,
+  "matplotlib_patch_exact_reference_match": true,
+  "raw_archive_verified_files": 8657,
+  "raw_archive_verified_bytes": 181027311,
   "checks": {
-    "frozen_script_sha256": true,
-    "ordered_complete_steps": true,
-    "guest_fixture_calibration": true,
-    "monitor_sample_order_and_count": true,
-    "explicit_primary_selection": true,
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
     "async_completion_schedule": true,
-    "matplotlib_patch_exact_reference_match": true,
-    "sandbox_cleanup": true,
-    "raw_public_reexport_exact_match": true
+    "no_tool_timeout": true,
+    "sandbox_deleted": true,
+    "all_tool_boundaries_frozen": true,
+    "canonical_root_paths": true,
+    "observer_paths_excluded": true,
+    "directory_partitions_match": true
   },
   "caveats": [
-    "one main replay per task; no experiment repeats",
-    "original benchmark correctness not regraded",
-    "host PFN sharing and DAX not measured",
-    "declared-file roots do not cover every toolchain source tree"
-  ],
-  "raw_reexport_verified_files": 272
+    "business group frozen; kernel, platform and observers runnable; not an atomic VM snapshot",
+    "one main replay per task; host backing warmness uncontrolled; no performance comparison",
+    "root-filesystem reachable regular files only, with explicit virtual/control/mount exclusions",
+    "phase labels describe tool windows, not page origin",
+    "original benchmark verification scope retained; host PFN sharing and DAX not measured"
+  ]
 }

@@ -1,0 +1,9 @@
+[
+  {
+    "phase_label": "task_or_inspect",
+    "actions": 95,
+    "tool_seconds": 61.109373814,
+    "observed_guest_file_cache_peak_bytes": 240836608,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  }
+]

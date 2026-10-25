@@ -4,8 +4,8 @@
 
 | 运行 | 原因 | 退出码一致 | 独立验证 |
 | --- | --- | --- | --- |
-| [build-cython-ext-20261023T153041Z-590984](build-cython-ext-20261023T153041Z-590984/summary.json) | Git promisor fetch connection reset at step47; retained; repeat planned with working proxy and HTTP/1.1 | False | PASS |
-| [hf-model-inference-20261023T154637Z-594275](hf-model-inference-20261023T154637Z-594275/summary.json) | direct Hugging Face TLS reset; model download and independent validation failed | False | FAIL |
-| [count-dataset-tokens-20261023T162720Z-612179](count-dataset-tokens-20261023T162720Z-612179/summary.json) | Hugging Face TLS EOF on metadata/download URLs; answer artifact absent; kept as diagnostic; fresh-VM retry after endpoint recovery passed unchanged inputs | False | FAIL |
-| [compile-compcert-20261023T164620Z-620929](compile-compcert-20261023T164620Z-620929/summary.json) | host upstream proxy port expired: Dune step223 download failed and five later commands lacked files; final compiler smoke PASS; kept as diagnostic; retry uses reloadable upstream plus metadata preflight | False | PASS |
-| [compile-compcert-20261023T173225Z-639078](compile-compcert-20261023T173225Z-639078/run.json) | preflight assumed Python in minimal base image; stopped before any original business action; fixed to controller HEAD plus guest Bash CONNECT; guest deleted | incomplete | not counted |
+| [matplotlib__matplotlib-24177-20261024T155620Z-895690](matplotlib__matplotlib-24177-20261024T155620Z-895690/summary.json) | 根目录递归生成双斜杠路径，顶层分类及控制路径排除无效；保留完整诊断，主结果改用规范路径策略的新 VM 重采。 | True | PASS |
+| [mozilla__pdf.js-20957-20261024T160054Z-897996](mozilla__pdf.js-20957-20261024T160054Z-897996/summary.json) | 根目录递归生成双斜杠路径，顶层分类及控制路径排除无效；保留完整诊断，主结果改用规范路径策略的新 VM 重采。 | True | PASS |
+| [build-cython-ext-20261024T160442Z-899118](build-cython-ext-20261024T160442Z-899118/summary.json) | 根目录递归生成双斜杠路径，顶层分类及控制路径排除无效；保留完整诊断，主结果改用规范路径策略的新 VM 重采。 | True | PASS |
+
+本表列出 v2 尝试；[v1 诊断与失败记录](../history/lightweight-v1/diagnostics.md)另存，原运行文件仍保留。

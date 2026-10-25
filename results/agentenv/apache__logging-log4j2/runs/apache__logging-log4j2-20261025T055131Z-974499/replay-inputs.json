@@ -1,0 +1,129 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "tool": "bash",
+      "command": "[ -f '/root/.sdkman/bin/sdkman-init.sh' ] && source /root/.sdkman/bin/sdkman-init.sh || true",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "4e8bcac02deed81362b09c716ce964c83ff4303f6107a5e076b19ff2fce8fc4b",
+      "source_exit_code": 0
+    },
+    {
+      "step": 2,
+      "tool": "bash",
+      "command": "ls",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "e9fe7e88e89d532379960402db8f9458194dae772aa5fda5a12806c22215f0ff",
+      "source_exit_code": 0
+    },
+    {
+      "step": 3,
+      "tool": "bash",
+      "command": "cat README.adoc",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "8a646e546d9ded30f6fe936051a341109b88d10d8ca48907af8a7ac6b9bc5976",
+      "source_exit_code": 0
+    },
+    {
+      "step": 4,
+      "tool": "bash",
+      "command": "cat pom.xml",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "5a3d57d7e7202190c4a162db4d076dab4e95e5498f20ce8fcd00ee12d0df5721",
+      "source_exit_code": 0
+    },
+    {
+      "step": 5,
+      "tool": "bash",
+      "command": "sdk current java",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "5eef4682dd0d6e5635263414f2578356b828d12d2a388e01e32a3e8aaf78687e",
+      "source_exit_code": 0
+    },
+    {
+      "step": 6,
+      "tool": "bash",
+      "command": "mvn compile -DskipTests -B",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "e62c7b7b0208da313c7bc8a55901d2755490c4e4d6c1d37f69f940f5022fb658",
+      "source_exit_code": 1
+    },
+    {
+      "step": 7,
+      "tool": "bash",
+      "command": "sdk list java",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "24d04ae9be666ca0876674484e3d53cecf8e3c6612f778b7b54f7513d1fd437a",
+      "source_exit_code": 0
+    },
+    {
+      "step": 8,
+      "tool": "bash",
+      "command": "sdk install java 17.0.14-zulu",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "db62ef523352dff7857c21dd43c57bf23231631adaae95b325295fa1fcbaca0f",
+      "source_exit_code": 0
+    },
+    {
+      "step": 9,
+      "tool": "bash",
+      "command": "sdk use java 17.0.14-zulu",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "56d32534ed638ea0859658c779d4d96adb4fe6aa568f7eaad1e0bb4ef0c01abd",
+      "source_exit_code": 0
+    },
+    {
+      "step": 10,
+      "tool": "bash",
+      "command": "mvn compile -DskipTests -B",
+      "changes": [
+        "Bash uses default pipeline exit semantics, matching published commands; no implicit pipefail.",
+        "Execute in one persistent Bash shell; clock_gettime helper brackets each sourced command. Original PTY rendering and terminal wait duration are not replayed."
+      ],
+      "script_sha256": "e62c7b7b0208da313c7bc8a55901d2755490c4e4d6c1d37f69f940f5022fb658",
+      "source_exit_code": 0
+    }
+  ],
+  "files": {
+    "001.sh": "[ -f '/root/.sdkman/bin/sdkman-init.sh' ] && source /root/.sdkman/bin/sdkman-init.sh || true\n",
+    "002.sh": "ls\n",
+    "003.sh": "cat README.adoc\n",
+    "004.sh": "cat pom.xml\n",
+    "005.sh": "sdk current java\n",
+    "006.sh": "mvn compile -DskipTests -B\n",
+    "007.sh": "sdk list java\n",
+    "008.sh": "sdk install java 17.0.14-zulu\n",
+    "009.sh": "sdk use java 17.0.14-zulu\n",
+    "010.sh": "mvn compile -DskipTests -B\n",
+    "session-server.sh": "#!/bin/bash\ncd /data/project/apache__logging-log4j2@204d8251295dfa816b9b28d8d9cfaebab500f415\nmkfifo /probe/work/request\nexec 3<>/probe/work/request\ntouch /probe/work/session-ready\nwhile IFS= read -r ASBP_STEP <&3; do\n  ASBP_START=$(/probe/clock_ns)\n  source \"/probe/input/${ASBP_STEP}.sh\" > \"/probe/work/${ASBP_STEP}.stdout\" 2> \"/probe/work/${ASBP_STEP}.stderr\"\n  ASBP_RC=$?\n  ASBP_END=$(/probe/clock_ns)\n  printf '{\"started_ns\":%s,\"finished_ns\":%s,\"exit_code\":%s,\"timed_out\":false}\\n' \"$ASBP_START\" \"$ASBP_END\" \"$ASBP_RC\" > \"/probe/work/${ASBP_STEP}.tmp\"\n  mv \"/probe/work/${ASBP_STEP}.tmp\" \"/probe/work/${ASBP_STEP}.json\"\ndone\n"
+  },
+  "source_reference_run": "apache__logging-log4j2-20261020T152541",
+  "scope": "normalized executable inputs; no original conversation or tool outputs"
+}

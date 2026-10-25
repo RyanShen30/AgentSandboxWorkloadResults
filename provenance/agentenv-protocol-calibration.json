@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "scope": "live VM protocol regressions separate from the ten benchmark tasks",
+  "initial_freezer_calibration": {
+    "status": "PASS",
+    "foreground_and_background_frozen": true,
+    "resumed": true,
+    "freeze": {
+      "status": "PASS",
+      "frozen": true,
+      "populated": true,
+      "started_ns": 811566697,
+      "finished_ns": 822934620,
+      "elapsed_seconds": 0.011367731,
+      "cpu_usage_before_usec": 69689,
+      "cpu_usage_after_usec": 69689,
+      "cpu_stable": true,
+      "members": [
+        346,
+        347,
+        379,
+        380
+      ],
+      "scope": "business subtree frozen; not whole-VM or kernel freeze"
+    },
+    "file_calibration": {
+      "status": "PASS",
+      "bytes": 16777216,
+      "page_size": 4096,
+      "cold_resident_bytes": 0,
+      "second_cold_resident_bytes": 0,
+      "warm_resident_bytes": 16777216,
+      "changed_pages": 0,
+      "scope": "one newly created private 16 MiB guest file; no global cache drop"
+    },
+    "sandbox_deleted": true,
+    "root_scan_coverage": "pre-fix root-path scan is not accepted as coverage evidence; corrected worker cases below supersede it"
+  },
+  "corrected_worker_cases": [
+    {
+      "status": "PASS",
+      "case": "nonpersistent",
+      "started_ns": 1792907113627674453,
+      "sandbox_id": "01a17197-cdd6-7183-9820-7e9d78eec348",
+      "exit_codes": [
+        0,
+        7,
+        0,
+        0
+      ],
+      "verified_boundaries": 5,
+      "fifo_excluded_from_archive": true,
+      "sandbox_deleted": true,
+      "finished_ns": 1792907139261460138,
+      "canonical_root_path_policy": true,
+      "control_exclusions_min": 5,
+      "root_scan_errors": 0,
+      "directory_partition_verified": true,
+      "scan_source_sha256": "fc483a6698bfeeddb3912e73c1c64143129cf213688e8035b5375d6549a62c33"
+    },
+    {
+      "status": "PASS",
+      "case": "persistent",
+      "started_ns": 1792907139261926913,
+      "sandbox_id": "01a17197-d8c8-78f0-862e-1839269f778c",
+      "exit_codes": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "verified_boundaries": 5,
+      "fifo_excluded_from_archive": true,
+      "sandbox_deleted": true,
+      "finished_ns": 1792907141601144419,
+      "canonical_root_path_policy": true,
+      "control_exclusions_min": 5,
+      "root_scan_errors": 0,
+      "directory_partition_verified": true,
+      "scan_source_sha256": "fc483a6698bfeeddb3912e73c1c64143129cf213688e8035b5375d6549a62c33"
+    }
+  ],
+  "unit_transport_tests": {
+    "status": "PASS",
+    "tests": 3
+  },
+  "limits": [
+    "business subtree only; kernel and observer remain runnable",
+    "two immediate mincore passes do not establish an atomic directory-wide snapshot"
+  ]
+}

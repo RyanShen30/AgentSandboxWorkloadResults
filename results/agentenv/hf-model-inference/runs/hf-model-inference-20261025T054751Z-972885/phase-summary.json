@@ -1,0 +1,23 @@
+[
+  {
+    "phase_label": "task_or_inspect",
+    "actions": 9,
+    "tool_seconds": 1.449342685,
+    "observed_guest_file_cache_peak_bytes": 809930752,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "setup_download",
+    "actions": 1,
+    "tool_seconds": 80.143544788,
+    "observed_guest_file_cache_peak_bytes": 807235584,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "wait_or_inspect",
+    "actions": 1,
+    "tool_seconds": 8.014736202,
+    "observed_guest_file_cache_peak_bytes": 872980480,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  }
+]

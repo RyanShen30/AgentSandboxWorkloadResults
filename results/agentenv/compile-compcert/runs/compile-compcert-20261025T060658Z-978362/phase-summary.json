@@ -1,0 +1,30 @@
+[
+  {
+    "phase_label": "task_or_inspect",
+    "actions": 274,
+    "tool_seconds": 253.933443143,
+    "observed_guest_file_cache_peak_bytes": 2056581120,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "setup_download",
+    "actions": 30,
+    "tool_seconds": 257.85132968,
+    "observed_guest_file_cache_peak_bytes": 1327669248,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "mixed_setup_task",
+    "actions": 3,
+    "tool_seconds": 172.961108668,
+    "observed_guest_file_cache_peak_bytes": 1019858944,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  },
+  {
+    "phase_label": "wait_or_inspect",
+    "actions": 11,
+    "tool_seconds": 1325.338473845,
+    "observed_guest_file_cache_peak_bytes": 2016100352,
+    "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+  }
+]

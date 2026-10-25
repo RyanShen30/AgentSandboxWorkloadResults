@@ -11,7 +11,7 @@ from types import SimpleNamespace
 
 from agentenv_workload_client import Client
 from agentenv_workload_service import allow_proxy, reset_cache, validate
-from run_agentenv_workloads import ROOT, TASKS
+from run_agentenv_workloads import ROOT, TASKS, PROTOCOL
 
 
 def write(path, data):
@@ -43,7 +43,7 @@ def main(args):
     service = args.service.resolve()
     info = json.loads((service/'service.json').read_text())
     mount = validate(service, info)
-    progress = dict(status='RUNNING', tasks=args.tasks, completed=[], started_ns=time.time_ns())
+    progress = dict(status='RUNNING', protocol=PROTOCOL, tasks=args.tasks, completed=[], started_ns=time.time_ns(), released_oci=[])
     path = service/('queue-'+str(time.time_ns())+'.json')
     if args.after_run:
         print('WAITING_FOR', args.after_run.name, flush=True)
@@ -104,6 +104,18 @@ def main(args):
                                               validation_status=result['validation_status']))
             write(path, progress)
             print('COMPLETED', task, out.name, flush=True)
+            if not args.keep_oci:
+                assert client.api('GET','/sandboxes')==[]
+                layout=mount/'oci'/task
+                assert layout.parent==mount/'oci' and not layout.is_symlink()
+                if layout.exists():
+                    allocated=sum(p.stat().st_blocks*512 for p in layout.rglob('*') if p.is_file())
+                    assert json.loads((out/'oci-origin.json').read_text())['status']=='VERIFIED'
+                    shutil.rmtree(layout)
+                    progress['released_oci'].append(dict(task=task,allocated_bytes=allocated,
+                        scope='only this completed task OCI layout; verified identity retained in raw'))
+                    write(path,progress)
+                reset_cache(SimpleNamespace(directory=service))
         progress.update(status='COMPLETED', stage='done', finished_ns=time.time_ns())
     except BaseException:
         import traceback
@@ -119,4 +131,5 @@ if __name__=='__main__':
     ap.add_argument('--service',required=True,type=Path)
     ap.add_argument('--tasks',nargs='+',required=True,choices=TASKS)
     ap.add_argument('--after-run',type=Path)
+    ap.add_argument('--keep-oci',action='store_true',help='retain reproducible OCI layouts instead of reclaiming between completed tasks')
     main(ap.parse_args())

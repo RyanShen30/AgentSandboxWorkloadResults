@@ -1,0 +1,348 @@
+{
+  "task_id": "django__django-16819",
+  "run_id": "django__django-16819-20261025T060617Z-977734",
+  "backend": "agentenv",
+  "actions": 28,
+  "memory_mib": 8192,
+  "cpus": 2,
+  "tool_seconds": 11.059390101,
+  "tool_p50_seconds": 0.00249323,
+  "tool_p95_seconds": 3.0086398847499973,
+  "guest_initial_file_cache_bytes": 42692608,
+  "guest_peak_observed_file_cache_bytes": 59109376,
+  "guest_final_file_cache_bytes": 10211328,
+  "guest_net_file_cache_change_bytes": -32481280,
+  "guest_peak_observed_nonfree_bytes": 307335168,
+  "sampled_file_cache_peak_bytes": 59109376,
+  "initial_declared_file_resident_bytes": 24014848,
+  "final_declared_file_resident_bytes": 3825664,
+  "boundary_scan_seconds": 14.212479754,
+  "file_boundaries": 29,
+  "samples": 131,
+  "max_sample_gap_seconds": 0.205184268,
+  "sample_gaps_over_600ms": 0,
+  "guest_measurement_span_seconds": 25.498490173,
+  "unclassified_periodic_samples": 0,
+  "frozen_boundary_count": 29,
+  "boundary_control_seconds": 14.638722484,
+  "partial_scan_boundaries": 0,
+  "scan_changed_pages_or_files": 0,
+  "observed_boundary_file_resident_peak_bytes": 38129664,
+  "guest_peak_file_cache_net_increase_bytes": 16416768,
+  "max_scan_file_cache_change_bytes": 6197248,
+  "initial_scan_nonfree_change_bytes": 162086912,
+  "max_scan_nonfree_change_bytes": 162086912,
+  "initial_scan_slab_change_bytes": 112922624,
+  "max_scan_slab_change_bytes": 112922624,
+  "initial_scan_buffers_change_bytes": 60006400,
+  "max_scan_buffers_change_bytes": 60006400,
+  "initial_scan_file_cache_change_bytes": 3809280,
+  "strict_exit_match": true,
+  "validation_status": "PASS",
+  "validation_exit_code": 0,
+  "checks": {
+    "complete_actions": true,
+    "frozen_script_hashes": true,
+    "sample_order": true,
+    "sample_count": true,
+    "monitor_complete": true,
+    "file_fixture_calibrated": true,
+    "async_completion_schedule": true,
+    "no_tool_timeout": true,
+    "sandbox_deleted": true,
+    "all_tool_boundaries_frozen": true,
+    "canonical_root_paths": true,
+    "observer_paths_excluded": true,
+    "directory_partitions_match": true
+  },
+  "semantics": {},
+  "exit_differences": [],
+  "async_barrier_count": 0,
+  "async_wait_seconds": 0,
+  "async_job_exit_codes": [],
+  "boundary_coverage": [
+    {
+      "after_step": 0,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 1,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 2,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 3,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 4,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 5,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 6,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 7,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 8,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 9,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 10,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 11,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 12,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 13,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 14,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 15,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 16,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 17,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 18,
+      "status": "PASS",
+      "files": 49242,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 19,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 20,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 21,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 22,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 23,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 24,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 25,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 26,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 27,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    },
+    {
+      "after_step": 28,
+      "status": "PASS",
+      "files": 49243,
+      "errors": 0,
+      "changed_pages_or_files": 0,
+      "excluded_entries": 8995,
+      "missing_roots": []
+    }
+  ],
+  "scope": "guest logical memory and declared regular-file residency; host PFN sharing not measured",
+  "protocol": "agentenv-frozen-tools-v2",
+  "phase_summary": [
+    {
+      "phase_label": "task_or_inspect",
+      "actions": 27,
+      "tool_seconds": 11.057537515,
+      "observed_guest_file_cache_peak_bytes": 59109376,
+      "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+    },
+    {
+      "phase_label": "wait_or_inspect",
+      "actions": 1,
+      "tool_seconds": 0.001852586,
+      "observed_guest_file_cache_peak_bytes": 24170496,
+      "scope": "whole-guest cache observed during these tool windows; retained earlier cache included; not page-origin attribution"
+    }
+  ],
+  "pause_scope": "guest business cgroup; observer and kernel runnable",
+  "scan_page_size_bytes": 4096,
+  "coverage": "all regular files reachable on the guest root filesystem, explicit virtual/control/mount exclusions",
+  "eligible_primary": true
+}

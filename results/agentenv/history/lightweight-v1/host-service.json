@@ -1,0 +1,17 @@
+{
+  "samples": 71843,
+  "source_file": "host-service-1792770027629334735.jsonl",
+  "first_timestamp_ns": 1792770027629514146,
+  "last_timestamp_ns": 1792784427466821600,
+  "nominal_interval_seconds": 0.2,
+  "max_sample_gap_seconds": 1.201326184,
+  "sampling_errors": 9,
+  "cgroup": "/sys/fs/cgroup/system.slice/docker-36a06e5cf44ef4f451480f6fca15ef2a190e68c3b3839a47a6a4a606ad60e6ea.scope",
+  "observed_peak_memory_current_bytes": 33483145216,
+  "scope": "private AgentENV service: VMM/provider and charged caches; excludes external image preparation; never guest file-cache",
+  "caveats": [
+    "starts after initial Cython diagnostic; includes sequential tasks and idle/setup intervals",
+    "service restarts reset kernel memory.peak and leave gaps",
+    "not per-guest file-cache memory; not host PFN unique physical memory"
+  ]
+}
