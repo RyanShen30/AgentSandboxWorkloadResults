@@ -67,4 +67,4 @@ Matplotlib 在首条业务工具执行前，初始根扫描区间的非空闲内
 
 前三次存在根路径缺陷的完整尝试另列诊断；最终主记录采用修正采集器的新 VM 重放，不混入旧数值。历史 v1 也保留，不能把其每任务三个扫描点改称逐工具扫描。
 
-[完整口径](agentenv-measurement.md) · [部署与失败恢复](agentenv-deployment.md) · [可复算字段](../experiments/agentenv-memory/README.md) · [选择清单](../provenance/agentenv-runs.json)
+[论文任务初筛与后续计划](paper-workload-screening.md) · [完整口径](agentenv-measurement.md) · [部署与失败恢复](agentenv-deployment.md) · [可复算字段](../experiments/agentenv-memory/README.md) · [选择清单](../provenance/agentenv-runs.json)

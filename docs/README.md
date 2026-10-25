@@ -5,6 +5,7 @@
 | 想了解什么 | 阅读位置 |
 | --- | --- |
 | 本次数据说明了什么，还有哪些严重限制 | [结果解释与限制](agentenv-results.md) |
+| 哪些任务适合论文实验，下一步还需验证什么 | [十任务初筛与共享验证计划](paper-workload-screening.md) |
 | page cache、文件驻留、guest 内存有什么关系；何时采集 | [测量口径与限制](agentenv-measurement.md) |
 | 为什么还用 cgroup；具体暂停什么 | [每个边界的执行顺序](agentenv-measurement.md#每个边界实际发生什么) |
 | 每个字段和阶段标签如何解释；怎样复算 | [重放规程与字段索引](../experiments/agentenv-memory/README.md) |

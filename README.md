@@ -4,7 +4,7 @@
 
 交付三类数据：逐工具时延、约 200 ms 的 guest 内存曲线、guest page cache 与逐工具文件驻留曲线。业务 worker 及其后台进程进入本次 guest cgroup，边界验证 `frozen=1` 与 CPU 不推进后扫描，再解冻。**暂停的是业务进程，不是整台 VM**；guest 探针与内核仍可运行。cgroup 用作冻结控制；宿主服务 cgroup 只作辅助监控。
 
-[结果解释与限制](docs/agentenv-results.md) · [阅读与指标说明](docs/README.md) · [完整测量协议](docs/agentenv-measurement.md) · [部署与补测记录](docs/agentenv-deployment.md) · [运行与复算](experiments/agentenv-memory/README.md)
+[结果解释与限制](docs/agentenv-results.md) · [论文任务初筛](docs/paper-workload-screening.md) · [阅读与指标说明](docs/README.md) · [完整测量协议](docs/agentenv-measurement.md) · [部署与补测记录](docs/agentenv-deployment.md) · [运行与复算](experiments/agentenv-memory/README.md)
 
 ## 最新结果
 
@@ -42,6 +42,10 @@
 阶段标签描述**工具执行时间窗口**，不是内存页的来源；某业务窗口仍可能保留之前安装/下载的缓存。混合调用不强行拆开，缓存峰值不能跨阶段相加。初始值取业务开始前、开机/辅助工具/校准之后；结束值取最终扫描与独立验证之前。净变化不是累计读取量或新增分配总量。
 
 原验证范围保持：Log4j Maven 编译成功但原检查器 141、源命令跳过测试；Django 仅语法检查；token 实际计数 26 行。重放完成不等于原 benchmark 全面正确。每任务一次主记录、未控制宿主 backing 冷暖，保持原 guest 内核与 DAMON 策略；没有物理共享、DAX 收益或统计性能结论。
+
+## 论文任务初筛
+
+面向 checkpoint 历史文件层共享 / 增量 DAX，优先验证 **C4、CompCert、PDF.js**；HF 为条件候选，Log4j 备用，Cython 或文本编辑可作小工作集对照。现有数据支持候选筛选，尚未证明共享收益；先完成低扰动对照，再用 C4、CompCert 做多 VM 物理共享验证。完整选择理由、实际验证范围与后续计划见[初筛建议](docs/paper-workload-screening.md)。这些后续实验尚未执行。
 
 ## 历史与复算
 
