@@ -77,6 +77,7 @@
 mkdir -p .artifacts/agentenv-workload-build
 gcc -O2 -Wall -Wextra -Werror -static scripts/workload_probe.c -o .artifacts/agentenv-workload-build/workload_probe
 gcc -O2 -Wall -Wextra -Werror -static scripts/workload_timer.c -o .artifacts/agentenv-workload-build/workload_timer
+gcc -O2 -Wall -Wextra -Werror -static experiments/container-screening/harness/file_reader.c -o .artifacts/agentenv-workload-build/file_reader
 gcc -O2 -Wall -Wextra -Werror -static experiments/container-screening/harness/clock_ns.c -o .artifacts/agentenv-workload-build/clock_ns
 python3 -m unittest discover -s tests -p test_agentenv_workload_transport.py
 ```

@@ -72,8 +72,8 @@
     "sha256": "76a073d4e3fdcb6519bc710611301af7c7fbf6425b256f473a14d9e002d0a099"
   },
   "experiments/agentenv-memory/README.md": {
-    "bytes": 8279,
-    "sha256": "d3b63b01008667e2c50bac6a76f437abb26005ec9b83ab0042a4cfb43a31cc24"
+    "bytes": 8421,
+    "sha256": "4429c129e5871b2dcac295ca9f91d905ad397a07606cf990f32c68c0abd241ae"
   },
   "experiments/agentenv-memory/async-completion-barriers.json": {
     "bytes": 364,
